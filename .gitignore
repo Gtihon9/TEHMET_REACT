@@ -10,7 +10,8 @@
 
 # production
 /build
-
+.idea*
+TEHMET*
 # misc
 .DS_Store
 .env.local
