@@ -1,0 +1,122 @@
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 21px;
+  padding-bottom: 9px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px 0 #E8E8E8;
+  min-height: 90px; /* Set a minimum height of 90px for the header */
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 133px;
+  position: relative; /* Change to relative */
+}
+
+.logo {
+  display: flex;
+  justify-content: center; /* Centers the logo horizontally */
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center; /* Centers the logo and logo text vertically */
+}
+
+.logo img {
+  margin-right: 10px; /* Add some spacing between the logo and the logo text */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 133px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+}
+
+.nav-links a {
+  color: #37393B;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.contact-info {
+  display: flex;
+  padding: 12px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-focus, #0591D9);
+  position: relative; /* Change to relative */
+  right: 0;
+  bottom: 0;
+}
+
+.contact-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-info-text {
+  color: #FFFFFF;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+/* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .nav-links {
+     display: none;
+  }
+  .mobile-dropped-menu-container {
+    display: block;
+  }
+
+  .header {
+    min-height: initial; /* Reset the minimum height for larger screens */
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-info {
+    margin-top: 20px;
+    position: static; /* Remove absolute positioning */
+  }
+
+  .contact-info-container {
+    gap: 5px;
+  }
+}
