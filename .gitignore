@@ -10,7 +10,7 @@
 
 # production
 /build
-.idea*
+.idea
 TEHMET*
 # misc
 .DS_Store
