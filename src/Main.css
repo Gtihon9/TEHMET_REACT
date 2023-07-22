@@ -1,0 +1,121 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  position: relative; /* Make sure the video is positioned relative to this container */
+  flex-grow: 1;
+  background: linear-gradient(0deg, rgba(0, 8, 17, 0.2) 0%,
+  rgba(0, 8, 17, 0.2) 100%),
+  url('./images/background-image.png'),
+  lightgray 50% / cover no-repeat;
+
+}
+
+
+.main-content-container {
+  gap: 20px;
+  justify-content: center;
+  right: 40px;
+  max-width: 1920px;
+  min-height: 1080px; /* Set the minimum height to match the video's resolution (1920x1080) */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* To ensure the content is stacked above the video */
+  z-index: 1; /* Place the content above the video */
+  color: #000; /* Set a color for the text, as the video may not cover the entire container */
+}
+
+.main-title{
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.main-content-container p{
+  margin: 0;
+}
+.main-title-text{
+  color: #FFF;
+  font-family: Roboto, sans-serif;
+  font-size: 68px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 130%; /* 88.4px */
+  letter-spacing: 0.68px;
+}
+.main-title-text-sub{
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%; /* 20px */
+
+}
+.main-items-container {
+  position: absolute;
+  bottom: 140px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 140px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 35px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+circle {
+  fill: var(--color-focus, #0591D9);
+  filter: drop-shadow(0px 0px 4px rgba(5, 145, 217, 0.05));
+  width: 22px;
+  height: 22px;
+}
+
+.text {
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+@media screen and (max-width: 1070px) {
+  .main-content-container{
+    right: 0;
+    padding-left: 15px;
+  }
+  .main-items-container{
+    display: block;
+  }
+  .main-items-container span{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .main-title-text{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%; /* 54.6px */
+    letter-spacing: 0.42px;
+  }
+  .column{
+    gap: 0;
+  }
+}
