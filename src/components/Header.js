@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import phoneIcon from './images/phone-icon.svg';
-import Logo from './images/logo.png';
-import LogoText from './images/logoText.png';
-import PhoneIconMobile from './images/phone-icon-mobile.png';
+import phoneIcon from '../images/phone-icon.svg';
+import Logo from '../images/logo.png';
+import LogoText from '../images/logoText.png';
+import PhoneIconMobile from '../images/phone-icon-mobile.png';
 import MenuIconOpened from "./MenuIconOpened";
 import MenuIconClosed from "./MenuIconClosed";
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
-import Logo from "./images/logo.png";
-import LogoText from "./images/logoText.png";
+import Logo from "../images/logo.png";
+import LogoText from "../images/logoText.png";
 
 function Footer() {
 return (
