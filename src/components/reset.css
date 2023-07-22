@@ -1,3 +1,14 @@
 ul {
     list-style-type: none;
 }
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  line-height: normal;
+  overflow: visible;
+  /* Add any other properties you want to reset for buttons */
+}
