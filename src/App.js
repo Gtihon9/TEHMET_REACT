@@ -1,13 +1,18 @@
 import React from 'react';
 import './reset.css';
 import Header from './Header';
+import Footer from './Footer';
+import Main from "./Main";
 import './App.css';
 
 function App() {
   return (
     <div>
-      <Header />
-      {/* Your main content goes here */}
+        <Header/>
+
+        <Main/>
+
+        <Footer/>
     </div>
   );
 }
