@@ -4,6 +4,7 @@ import PointSVG from "./Point";
 import ArrowSVG from "./Arrow";
 import LeftArrowSVG from "./L_Arrow";
 import RightArrowSVG from "./R_Arrow";
+import ListArrowSVG from "./ListArrow";
 import DefaultImage from '../images/default-image.png';
 
 function Main() {
@@ -46,7 +47,7 @@ return (
                   </div>
               </div>
           </div>
-          <div className="main-content-container-1">
+          <div className="main-content-container-2">
               <div className="directions">
                   <div className="directions-title">
                       <ArrowSVG/>
@@ -92,6 +93,94 @@ return (
                       <img src={DefaultImage} className="default-image" alt="Default" />
                   </div>
               </div>
+              <div className="about-company-container">
+                  <div className="about-company-title">
+                      <ArrowSVG/>
+                      <p className="about-company-title-text">О компании</p>
+                  </div>
+                  <div className="about-company-main">
+                      <div className="about-company-images">
+                          <div className="about-company-left-image">
+                              <img src={DefaultImage} className="default-image" alt="Default" />
+                          </div>
+                          <div className="about-company-right-images">
+                              <img src={DefaultImage} className="default-image" alt="Default" />
+                              <img src={DefaultImage} className="default-image" alt="Default" />
+                          </div>
+                      </div>
+                      <div className="about-company-main-info">
+                          <p>Техметсервис</p>
+                          <div className="about-company-main-text">
+                              <p>
+                                  Мы - это опыт работы с объектами любого масштаба. Благодаря<br/>
+                                  большому опыту и использованию современных технологий мы <br/>
+                                  добиваемся исключительных результатов, поддерживая высокий<br/>
+                                  уровень подготовки рабочих. Независимо от того, требуется ли вам снос <br/>
+                                  небольшого строения или реновации территории крупного <br/>
+                                  промышленного объекта, мы обладаем достаточным опытом и <br/>
+                                  ресурсами, чтобы справиться с любой задачей.
+                              </p>
+                              <p>
+                                  Безопасность - наш главный приоритет. Мы строго соблюдаем все<br/>
+                                  правила договоров и инструкции по технике безопасности, применяя <br/>
+                                  комплексные меры по защите наших работников, клиентов и <br/>
+                                  окружающей среды. Наша приверженность поддержанию безопасных <br/>
+                                  условий труда отличает нас как надежную и ответственную компанию.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div className="about-company-container">
+                 <div className="about-company-title">
+                      <ArrowSVG/>
+                      <p className="about-company-title-text">Техметсервис - это</p>
+                      </div>
+                      <div className="about-company-main-info-2">
+                          <div className="about-company-main-info-list">
+                              <button>
+                                  <p>Открытость и прозрачность в работе</p>
+                                  <ListArrowSVG/>
+                              </button>
+                              <button>
+                                  <p>Экологичность</p>
+                                  <ListArrowSVG/>
+                              </button>
+                              <button>
+                                  <p>Высококвалифицированные работники</p>
+                                  <ListArrowSVG/>
+                              </button>
+                              <button>
+                                  <p>Открытость и прозрачность в работе</p>
+                                  <ListArrowSVG/>
+                              </button>
+                              <button>
+                                  <p>Сотрудничество</p>
+                                  <ListArrowSVG />
+                              </button>
+                          </div>
+                          <div className="about-company-main-text">
+                                  <p>
+                                      Наша компания гордится тем, что поддерживает культуру открытости и честности во всех аспектах <br/>
+                                      своей деятельности. Открытые отношения являются краеугольными камнями построения <br/>
+                                      доверительных и прочных отношений как с нашими сотрудниками, так и с клиентами. В нашей <br/>
+                                      организации создана атмосфера, способствующая открытому общению и сотрудничеству.
+                                  </p>
+                                  <p>
+                                      Мы считаем, что доверие заслуживается последовательными действиями и ответственностью. <br/>
+                                      Придерживаясь самых высоких стандартов профессионализма и этического поведения и стремимся <br/>
+                                      превзойти ожидания во всем, что мы делаем. Следуя политики открытости и честности, мы <br/>
+                                      устанавливаем прочные и долговечные отношения.
+                                  </p>
+                              </div>
+                      </div>
+              </div>
+               <div className="about-company-container">
+                  <div className="about-company-title">
+                      <ArrowSVG/>
+                      <p className="about-company-title-text">Наши последние проекты</p>
+                  </div>
+               </div>
           </div>
     </main>
 );
