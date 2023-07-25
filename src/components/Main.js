@@ -5,7 +5,10 @@ import ArrowSVG from "./Arrow";
 import LeftArrowSVG from "./L_Arrow";
 import RightArrowSVG from "./R_Arrow";
 import ListArrowSVG from "./ListArrow";
-import DefaultImage from '../images/default-image.png';
+import DirectionsImage from '../images/directions.png';
+import AboutCompany1 from '../images/about-company-1.png';
+import AboutCompany2 from '../images/about-company-2.png';
+import AboutCompany3 from '../images/about-company-3.png';
 
 function Main() {
 return (
@@ -90,7 +93,7 @@ return (
                           </div>
 
                       </div>
-                      <img src={DefaultImage} className="default-image" alt="Default" />
+                      <img src={DirectionsImage} alt="Directions" />
                   </div>
               </div>
               <div className="about-company-container">
@@ -101,11 +104,11 @@ return (
                   <div className="about-company-main">
                       <div className="about-company-images">
                           <div className="about-company-left-image">
-                              <img src={DefaultImage} className="default-image" alt="Default" />
+                              <img src={AboutCompany1} alt="AboutCompany 1" />
                           </div>
                           <div className="about-company-right-images">
-                              <img src={DefaultImage} className="default-image" alt="Default" />
-                              <img src={DefaultImage} className="default-image" alt="Default" />
+                              <img src={AboutCompany2} alt="About Company 2" />
+                              <img src={AboutCompany3} alt="About Company 3" />
                           </div>
                       </div>
                       <div className="about-company-main-info">
@@ -232,7 +235,6 @@ return (
                              <input type="text" id="name" name="name" placeholder="Укажите имя..." required/>
 
                              <input type="email" id="email" name="email" placeholder="Укажите email..." required/>
-
 
                              <textarea id="message" name="message" rows="4" placeholder="Сообщение" required></textarea>
 

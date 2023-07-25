@@ -35,6 +35,7 @@
 
 .footer-column li {
   align-items: flex-start;
+  white-space: nowrap;
 }
 
 .footer-column a {

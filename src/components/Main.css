@@ -585,6 +585,16 @@ circle {
   font-weight: 400;
   line-height: 100%; /* 16px */
 }
+.contact-us-form form input:invalid,
+.contact-us-form form textarea:invalid {
+  color: var(--color-error, #BF1308);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+}
+
 .contact-us-form button{
   display: flex;
   padding: 12px 23px;

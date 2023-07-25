@@ -45,6 +45,9 @@ return (
                     <li>
                       <a href="/jobs">Вакансии</a>
                     </li>
+                    <li>
+                      <a href="/cert">Сертификаты и лицензии</a>
+                    </li>
                   </ul>
             </div>
             <div className="footer-column">
