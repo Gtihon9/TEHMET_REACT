@@ -10,7 +10,7 @@ function CompanyPage() {
     <div>
         <Header/>
 
-        <div>Company </div>
+        <div>Projects</div>
 
         <Footer/>
     </div>

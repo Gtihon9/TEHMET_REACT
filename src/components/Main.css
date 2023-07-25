@@ -17,6 +17,7 @@
   flex-grow: 1;
 }
 
+
 .main-content-container-1 {
   gap: 20px;
   justify-content: center;
@@ -31,6 +32,7 @@
   color: #000; /* Set a color for the text, as the video may not cover the entire container */
 }
 .main-content-container-2{
+  padding-bottom: 160px;
   padding-top: 160px;
   display: inline-flex;
   justify-content: center;
@@ -214,6 +216,15 @@ circle {
   border-radius: var(--rounding, 4px);
   background: var(--color-focus, #0591D9);
 }
+.directions-link-button p{
+  margin: 0;
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
 .about-company-container{
   display: flex;
   flex-direction: column;
@@ -309,7 +320,7 @@ circle {
   min-width: 480px;
   display: flex;
   padding: 10px;
-  align-items: start;
+  align-items: flex-start;
   border-bottom: 1px solid var(--color-text, #37393B);
 }
 .about-company-main-info-list button:active{
@@ -333,6 +344,280 @@ circle {
   font-weight: 500;
   line-height: 140%; /* 30.8px */
 }
+.last-projects-main-container{
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+.last-projects-swiper{
+  align-items: center;
+  display: flex;
+  width: 1040px;
+  height: 545px;
+  border-radius: var(--rounding, 2px);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%,
+    rgba(0, 0, 0, 0.20) 100%), url('../images/lastProjects.png'),
+    lightgray 50% / cover no-repeat;
+}
+.last-projects-navigate{
+  display: flex;
+  width: 1040px;
+  align-items: flex-start;
+  gap: 943px;
+}
+.last-projects-navigate svg{
+  width: 50px;
+  height: 50px;
+  align-items: center;
+}
+.last-projects-navigate svg path{
+  fill: #FFFFFF;
+}
+.last-projects-info{
+  padding: 15px;
+  position: absolute;
+  justify-content: space-evenly;
+  gap: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.last-projects-info > p:first-child{
+  margin: 0;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 35.2px */
+}
+.last-projects-swiper-right-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+.last-projects-swiper-right-container .image{
+  width: 320px;
+  height: 375px;
+  flex-shrink: 0;
+  border-radius: var(--rounding, 2px);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%,
+    rgba(0, 0, 0, 0.20) 100%),
+    url(../images/last-projects-chemical.png),
+    lightgray 50% / cover no-repeat;
+}
+.last-projects-swiper-right-container .image p{
+  margin: 12px 0 0 10px;
+  color: #FFF;
+  font-family: Roboto,sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 35.2px */
+}
+.last-projects-swiper-right-container .directions-link-button{
+  width: 320px;
+  height: 140px;
+  border-radius: var(--rounding, 2px);
+  background: #37393B;
+}
+
+.last-projects-swiper-right-container directions-link-button p {
+  margin: 0;
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 32px */
+}
+.background-container-2{
+  background: linear-gradient(0deg, rgba(0, 8, 17, 0.7) 0%,
+  rgba(0, 8, 17, 0.7) 100%),
+  url('../images/contact-form-background-image.png'),
+  lightgray 50% / cover no-repeat;
+  backdrop-filter: blur(7.5px);
+  display: flex;
+  justify-content: center;
+  position: relative; /* Make sure the video is positioned relative to this container */
+  flex-grow: 1;
+}
+.background-container-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 8, 17, 0.2); /* Background color with opacity */
+  backdrop-filter: blur(7.5px); /* Apply blur effect */
+  border-radius: 5px; /* Match the container's border radius */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+.main-content-container-3{
+  padding-block: 110px;
+  gap: 625px;
+  justify-content: center;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 1;
+  color: #000;
+  padding-left: 260px;
+
+}
+.main-content-container-3 .button{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    /* align-content: center; */
+    justify-content: center;
+}
+.main-content-container-3 .button button{
+  width: 55px;
+  height: 55px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-focus, #0591D9);
+  position: relative;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+}
+.contact-us-container{
+  gap: 120px;
+  display: flex;
+  flex-direction: row;
+}
+.contact-us-contacts{
+  padding-top: 30px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+.contact-us-contacts .title p{
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 41.6px */
+}
+.contact-us-contacts .text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.text-container .text-block{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.text-container .text-block > p:first-child {
+  margin: 0;
+  color: var(--color-additional-text, #A0A19F);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+}
+.text-container .text-block > p:last-child{
+  margin: 0;
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.contact-us-form{
+  padding: 30px 40px 25px 40px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-bg, #FFF);
+  gap: 30px;
+}
+.contact-us-form h1{
+  margin: 0;
+  color: var(--color-title, #262829);
+  font-family: Roboto, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 41.6px */
+}
+.contact-us-form form{
+  flex-direction: column;
+  display: flex;
+  gap: 35px;
+
+}
+
+.contact-us-form form input,
+.contact-us-form form textarea {
+  display: flex;
+  padding: 19px 222px 19px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  border: 1px solid #262829;
+}
+.contact-us-form form input::placeholder,
+.contact-us-form form textarea::placeholder {
+  color: var(--color-additional-text, #A0A19F);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+}
+.contact-us-form button{
+  display: flex;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-focus, #0591D9);
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.contact-us-form p{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%; /* 15.6px */
+}
+.contact-us-form p a{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  text-decoration-line: underline;
+}
+
 @media screen and (max-width: 1070px) {
   .main-content-container-1{
     right: 0;

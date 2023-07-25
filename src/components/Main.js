@@ -180,7 +180,96 @@ return (
                       <ArrowSVG/>
                       <p className="about-company-title-text">Наши последние проекты</p>
                   </div>
+                  <div className="last-projects-main-container">
+                      <div className="last-projects-swiper">
+                          <div className="last-projects-navigate">
+                              <button>
+                                  <LeftArrowSVG/>
+                              </button>
+
+                              <button>
+                                  <RightArrowSVG/>
+                              </button>
+                          </div>
+                          <div className="last-projects-info">
+                              <p>ОАО РСК МИГ</p>
+                              <button className="directions-link-button">
+
+                                  <p>
+                                     Смотреть полностью
+                                  </p>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                                    <path d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z" stroke="white" stroke-linejoin="round"/>
+                                  </svg>
+                              </button>
+
+                          </div>
+                      </div>
+                      <div className="last-projects-swiper-right-container">
+                          <div className="image">
+                              <p>
+                                  Химпром
+                              </p>
+                          </div>
+                          <button className="directions-link-button">
+                              <p>
+                                 Смотреть полностью
+                              </p>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                                <path d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z" stroke="white" stroke-linejoin="round"/>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
                </div>
+          </div>
+          <div className="background-container-2">
+              <div className="main-content-container-3">
+                  <div className="contact-us-container">
+                     <div className="contact-us-form">
+                          <h1>Свяжитесь с нами</h1>
+                          <form action="/submit" method="POST">
+                             <input type="text" id="name" name="name" placeholder="Укажите имя..." required/>
+
+                             <input type="email" id="email" name="email" placeholder="Укажите email..." required/>
+
+
+                             <textarea id="message" name="message" rows="4" placeholder="Сообщение" required></textarea>
+
+                             <button type="submit" >Отправить</button>
+                         </form>
+                         <p>
+                             Нажимая на кнопку "Отправить", я подтверждаю, что <br/>
+                             ознакомился с <a href="/conf">Политикой конфиденциальностии</a>  даю согласие <br/>
+                             на обработку всех моих персональных данных
+                         </p>
+                     </div>
+                      <div className="contact-us-contacts">
+                          <div className="title">
+                              <p>Контакты</p>
+                          </div>
+                          <div className="text-container">
+                              <div className="text-block">
+                                  <p>Телефон:</p>
+                                  <p>+7-916-900-42-55</p>
+                              </div>
+                              <div className="text-block">
+                                  <p>Email</p>
+                                  <p>fdv240@gmail.com</p>
+                              </div>
+                          </div>
+
+                      </div>
+
+                  </div>
+                  <div className="button">
+                      <button>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none">
+                            <path d="M28.9062 17.6328L18.5 7.22656L8.09375 17.6328M18.5 8.67188V29.7734" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                      </button>
+                  </div>
+              </div>
           </div>
     </main>
 );

@@ -47,8 +47,10 @@ function Header() {
       <div className="header-container">
         <div className="logo">
           <div className="logo-wrapper">
-            <img className="logo-image" src={Logo} alt="Logo" />
-            <img className="logo-image-text" src={LogoText} alt="Logo Text" />
+            <a href="/" style={{display: "contents"}}>
+              <img className="logo-image" src={Logo} alt="Logo" />
+              <img className="logo-image-text" src={LogoText} alt="Logo Text" />
+            </a>
           </div>
         </div>
         <nav>
