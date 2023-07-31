@@ -42,6 +42,13 @@ p{
     line-height: normal;
     text-decoration: none;
 }
+.main-content {
+  display: flex;
+  justify-content: center;
+  position: relative; /* Make sure the video is positioned relative to this container */
+  flex-grow: 1;
+  flex-direction: column;
+}
 
 .main-content-container{
     padding-bottom: 160px;
