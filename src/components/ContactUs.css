@@ -1,0 +1,200 @@
+.background-container-2{
+  background: linear-gradient(0deg, rgba(0, 8, 17, 0.7) 0%,
+  rgba(0, 8, 17, 0.7) 100%),
+  url('../images/contact-form-background-image.png'),
+  lightgray 50% / cover no-repeat;
+  backdrop-filter: blur(7.5px);
+  display: flex;
+  justify-content: center;
+  position: relative; /* Make sure the video is positioned relative to this container */
+  flex-grow: 1;
+}
+.background-container-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 8, 17, 0.2); /* Background color with opacity */
+  backdrop-filter: blur(7.5px); /* Apply blur effect */
+  border-radius: 5px; /* Match the container's border radius */
+  z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+.main-content-container-3{
+  padding-block: 110px;
+  gap: 625px;
+  justify-content: center;
+  max-width: 1920px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 1;
+  color: #000;
+  padding-left: 260px;
+
+}
+.main-content-container-3 .button{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    /* align-content: center; */
+    justify-content: center;
+}
+.main-content-container-3 .button button{
+  width: 55px;
+  height: 55px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-focus, #0591D9);
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-content-container-3 .button button:hover{
+  background: rgba(5, 125, 197);
+}
+
+.contact-us-container{
+  gap: 120px;
+  display: flex;
+  flex-direction: row;
+}
+.contact-us-contacts{
+  padding-top: 30px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+.contact-us-contacts .title p{
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 41.6px */
+}
+.contact-us-contacts .text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.text-container .text-block{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.text-container .text-block > p:first-child {
+  margin: 0;
+  color: var(--color-additional-text, #A0A19F);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 25.6px */
+}
+.text-container .text-block > p:last-child{
+  margin: 0;
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.contact-us-form{
+  padding: 30px 40px 25px 40px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-bg, #FFF);
+  gap: 30px;
+}
+.contact-us-form h1{
+  margin: 0;
+  color: var(--color-title, #262829);
+  font-family: Roboto, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 41.6px */
+}
+.contact-us-form form{
+  flex-direction: column;
+  display: flex;
+  gap: 35px;
+
+}
+
+.contact-us-form form input,
+.contact-us-form form textarea {
+  display: flex;
+  padding: 19px 222px 19px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  border: 1px solid #262829;
+}
+.contact-us-form form input::placeholder,
+.contact-us-form form textarea::placeholder {
+  color: var(--color-additional-text, #A0A19F);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+}
+.contact-us-form form input:invalid,
+.contact-us-form form textarea:invalid {
+  color: var(--color-error, #BF1308);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+}
+
+.contact-us-form button{
+  display: flex;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-focus, #0591D9);
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.contact-us-form button:hover {
+  background: rgba(5, 125, 197);
+}
+.contact-us-form p{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%; /* 15.6px */
+}
+.contact-us-form p a{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  text-decoration-line: underline;
+}

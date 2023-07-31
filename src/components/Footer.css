@@ -9,6 +9,7 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: nowrap; /* Allow content to wrap to the next line if needed */
+  white-space: nowrap;
   gap: 130px;
   padding-bottom: 90px;
   padding-top: 90px;
