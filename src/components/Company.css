@@ -232,7 +232,6 @@ p{
 .stats-main-content-container{
     display: flex;
     align-items: center;
-    gap: 60px;
 }
 
 .stats-block{
