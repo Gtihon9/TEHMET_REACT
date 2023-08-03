@@ -105,6 +105,8 @@
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
+  gap: 10px;
+  display: contents;
 }
 
 .address-line-1,

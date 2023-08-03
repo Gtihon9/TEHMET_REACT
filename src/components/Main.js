@@ -5,11 +5,13 @@ import ArrowSVG from "./Arrow";
 import LeftArrowSVG from "./L_Arrow";
 import RightArrowSVG from "./R_Arrow";
 import ListArrowSVG from "./ListArrow";
-import DirectionsImage from '../images/directions.png';
 import AboutCompany1 from '../images/about-company-1.png';
 import AboutCompany2 from '../images/about-company-2.png';
 import AboutCompany3 from '../images/about-company-3.png';
 import ContactUsForm from "./ContactUsForm";
+import SliderComponent from "./SliderComponent";
+import AboutCompanyMainInfo2 from "./AboutCompanyList";
+
 
 function Main() {
 
@@ -18,7 +20,7 @@ return (
           <div className="background-container">
               <div className="main-content-container-1">
                     <p className="main-title-text">Создание устойчивого будущего</p>
-                    <p className="main-title-text-sub">Какой-то подзаголовок, еще не придумал</p>
+                    <p className="main-title-text-sub">Строительство более экологичного завтра: Работа, за которую беремся мы</p>
 
                   <div className="main-items-container">
                       <div className="column">
@@ -58,45 +60,7 @@ return (
                       <ArrowSVG/>
                       <p className="directions-title-text">Направления</p>
                   </div>
-                  <div className="directions-main">
-                      <div className="directions-main-left-column">
-                          <div className="directions-main-l-c-info">
-                              <div className="title">
-                                  <p>Снос и демонтаж <br/> строений, металлоконструкций</p>
-                              </div>
-                              <div className="description">
-                                  <p>Снос и демонтаж - это сложные процессы, которые требуют тщательного <br/>
-                                      планирования, точности и соблюдения строгих протоколов безопасноти. <br/>
-                                      Наша команда специализируется по сносу любых строений, от небольших <br/>
-                                      сооружений до масштабных зданий, а также их демонтажу, сохраняя <br/>
-                                      ценных материалов для переработки и повторного использования.</p>
-                              </div>
-                          </div>
-                          <div className="directions-main-l-c-links">
-                              <div className="slider">
-                                  <div className="slider-text">
-                                      <p>
-                                          1/6
-                                      </p>
-                                  </div>
-                                  <div className="arrows">
-                                    <LeftArrowSVG/>
-                                    <RightArrowSVG/>
-                                  </div>
-                              </div>
-                              <button className="directions-link-button">
-                              <p>
-                                 Смотреть полностью
-                              </p>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-                                <path d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z" stroke="white" stroke-linejoin="round"/>
-                              </svg>
-                          </button>
-                          </div>
-
-                      </div>
-                      <img src={DirectionsImage} alt="Directions" />
-                  </div>
+                  <SliderComponent/>
               </div>
               <div className="about-company-container">
                   <div className="about-company-title">
@@ -141,44 +105,7 @@ return (
                       <ArrowSVG/>
                       <p className="about-company-title-text">Техметсервис - это</p>
                       </div>
-                      <div className="about-company-main-info-2">
-                          <div className="about-company-main-info-list">
-                              <button>
-                                  <p>Открытость и прозрачность в работе</p>
-                                  <ListArrowSVG/>
-                              </button>
-                              <button>
-                                  <p>Экологичность</p>
-                                  <ListArrowSVG/>
-                              </button>
-                              <button>
-                                  <p>Высококвалифицированные работники</p>
-                                  <ListArrowSVG/>
-                              </button>
-                              <button>
-                                  <p>Открытость и прозрачность в работе</p>
-                                  <ListArrowSVG/>
-                              </button>
-                              <button>
-                                  <p>Сотрудничество</p>
-                                  <ListArrowSVG />
-                              </button>
-                          </div>
-                          <div className="about-company-main-text">
-                                  <p>
-                                      Наша компания гордится тем, что поддерживает культуру открытости и честности во всех аспектах <br/>
-                                      своей деятельности. Открытые отношения являются краеугольными камнями построения <br/>
-                                      доверительных и прочных отношений как с нашими сотрудниками, так и с клиентами. В нашей <br/>
-                                      организации создана атмосфера, способствующая открытому общению и сотрудничеству.
-                                  </p>
-                                  <p>
-                                      Мы считаем, что доверие заслуживается последовательными действиями и ответственностью. <br/>
-                                      Придерживаясь самых высоких стандартов профессионализма и этического поведения и стремимся <br/>
-                                      превзойти ожидания во всем, что мы делаем. Следуя политики открытости и честности, мы <br/>
-                                      устанавливаем прочные и долговечные отношения.
-                                  </p>
-                              </div>
-                      </div>
+                      <AboutCompanyMainInfo2/>
               </div>
                <div className="about-company-container">
                   <div className="about-company-title">
