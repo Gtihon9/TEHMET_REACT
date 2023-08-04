@@ -5,20 +5,22 @@
 }
 
 .footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: nowrap; /* Allow content to wrap to the next line if needed */
-  white-space: nowrap;
-  gap: 130px;
-  padding-bottom: 90px;
-  padding-top: 90px;
+    padding-left: 260px;
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 130px;
+    padding-bottom: 90px;
+    padding-top: 90px;
 }
 
 .footer-column {
-  flex: auto;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  text-align: start;
+  gap: 20px;
 }
 
 .footer-column h3 {
@@ -39,8 +41,8 @@
   white-space: nowrap;
 }
 
-.footer-column a {
-  color: #37393B;
+.footer-column li a {
+  color: var(--color-text, #37393B);
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -71,12 +73,7 @@
   line-height: normal;
 }
 
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-}
+
 .footer-column-name{
   color: #37393B;
   font-family: Roboto, sans-serif;
@@ -99,25 +96,31 @@
 
 
 .address-info {
-  color: #37393B;
+  max-width: 280px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+.address-info a{
+  color: var(--color-text, #37393B);
   font-family: Roboto, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 130%;
-  gap: 10px;
-  display: contents;
+  line-height: normal;
+  text-decoration-line: underline;
 }
 
-.address-line-1,
-.address-line-2,
-.address-line-3 {
-  color: #37393B;
-  font-family: Roboto, sans-serif;
+.address-info p{
+  margin: 0;
+  color: var(--color-text, #37393B);
+  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 130%; /* 18.2px */
 }
 @media screen and (max-width: 1070px) {
   .footer-content{
@@ -141,7 +144,6 @@
   }
   .address-info p{
     margin: 0;
-
   }
   .address-info{
     display: inline-flex;

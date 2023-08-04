@@ -15,13 +15,13 @@ return (
                     </div>
                 </div>
                   <div className="address-info">
-                    <p className="address-line-1">
+                    <p>
                       Московская область, городской округ Химки,<br />
                       город Химки, улица Рабочая, д. 2А,<br />
                       кабинет 13.
                     </p>
-                    <p className="address-line-2">+7-916-900-42-55</p>
-                    <p className="address-line-3">fdv240@gmail.com</p>
+                    <p >+7-916-900-42-55</p>
+                    <p >fdv240@gmail.com</p>
                   </div>
             </div>
             <div className="footer-column">

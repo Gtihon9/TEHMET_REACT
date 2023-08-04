@@ -1,0 +1,93 @@
+.last-projects-main-container{
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+.last-projects-swiper{
+  width: 1040px;
+  height: 545px;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  display: flex;
+  border-radius: var(--rounding, 2px);
+}
+.last-projects-navigate{
+  display: flex;
+  width: 1040px;
+  align-items: flex-start;
+  gap: 943px;
+  z-index: 1;
+}
+.last-projects-navigate svg{
+  width: 50px;
+  height: 50px;
+  align-items: center;
+}
+.last-projects-navigate svg path{
+  fill: #FFFFFF;
+}
+.last-projects-info{
+  padding: 15px;
+  position: absolute;
+  justify-content: space-evenly;
+  gap: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.last-projects-info > p:first-child{
+  margin: 0;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 35.2px */
+}
+.last-projects-swiper-right-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+.last-projects-swiper-right-container .image{
+  width: 320px;
+  height: 375px;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  display: flex;
+  border-radius: var(--rounding, 2px);
+
+}
+.last-projects-swiper-right-container .image p{
+  margin: 12px 0 0 10px;
+  color: #FFF;
+  font-family: Roboto,sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 35.2px */
+}
+.last-projects-swiper-right-container .directions-link-button{
+  width: 320px;
+  height: 140px;
+  border-radius: var(--rounding, 2px);
+  background: #37393B;
+}
+.last-projects-swiper-right-container .directions-link-button:hover{
+  background: rgba(55, 57, 59, 0.7);
+}
+
+.last-projects-swiper-right-container directions-link-button p {
+  margin: 0;
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 32px */
+}

@@ -2,15 +2,13 @@ import React from 'react';
 import './Main.css';
 import PointSVG from "./Point";
 import ArrowSVG from "./Arrow";
-import LeftArrowSVG from "./L_Arrow";
-import RightArrowSVG from "./R_Arrow";
-import ListArrowSVG from "./ListArrow";
 import AboutCompany1 from '../images/about-company-1.png';
 import AboutCompany2 from '../images/about-company-2.png';
 import AboutCompany3 from '../images/about-company-3.png';
 import ContactUsForm from "./ContactUsForm";
 import SliderComponent from "./SliderComponent";
 import AboutCompanyMainInfo2 from "./AboutCompanyList";
+import LastProjectsSwiper from "./LastProjectsSwiper";
 
 
 function Main() {
@@ -19,9 +17,10 @@ return (
       <main className="main-content">
           <div className="background-container">
               <div className="main-content-container-1">
+                  <div className="main-title">
                     <p className="main-title-text">Создание устойчивого будущего</p>
                     <p className="main-title-text-sub">Строительство более экологичного завтра: Работа, за которую беремся мы</p>
-
+                  </div>
                   <div className="main-items-container">
                       <div className="column">
                           <div className="circle">
@@ -112,47 +111,7 @@ return (
                       <ArrowSVG/>
                       <p className="about-company-title-text">Наши последние проекты</p>
                   </div>
-                  <div className="last-projects-main-container">
-                      <div className="last-projects-swiper">
-                          <div className="last-projects-navigate">
-                              <button>
-                                  <LeftArrowSVG/>
-                              </button>
-
-                              <button>
-                                  <RightArrowSVG/>
-                              </button>
-                          </div>
-                          <div className="last-projects-info">
-                              <p>ОАО РСК МИГ</p>
-                              <button className="directions-link-button">
-
-                                  <p>
-                                     Смотреть полностью
-                                  </p>
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-                                    <path d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z" stroke="white" stroke-linejoin="round"/>
-                                  </svg>
-                              </button>
-
-                          </div>
-                      </div>
-                      <div className="last-projects-swiper-right-container">
-                          <div className="image">
-                              <p>
-                                  Химпром
-                              </p>
-                          </div>
-                          <button className="directions-link-button">
-                              <p>
-                                 Смотреть полностью
-                              </p>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-                                <path d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z" stroke="white" stroke-linejoin="round"/>
-                              </svg>
-                          </button>
-                      </div>
-                  </div>
+                   <LastProjectsSwiper/>
                </div>
           </div>
           <ContactUsForm/>

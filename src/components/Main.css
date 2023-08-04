@@ -7,61 +7,55 @@
 }
 
 .background-container{
+  padding-left: 260px;
   background: linear-gradient(0deg, rgba(0, 8, 17, 0.2) 0%,
   rgba(0, 8, 17, 0.2) 100%),
   url('../images/background-image.png'),
   lightgray 50% / cover no-repeat;
   display: flex;
-  justify-content: center;
   position: relative; /* Make sure the video is positioned relative to this container */
   flex-grow: 1;
 }
 
 
 .main-content-container-1 {
-  gap: 20px;
-  justify-content: center;
-  right: 40px;
-  max-width: 1920px;
-  min-height: 1080px; /* Set the minimum height to match the video's resolution (1920x1080) */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  position: relative; /* To ensure the content is stacked above the video */
-  z-index: 1; /* Place the content above the video */
-  color: #000; /* Set a color for the text, as the video may not cover the entire container */
+    gap: 20px;
+    max-width: 1920px;
+    min-height: 1080px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    color: #000;
+}
+.main-content-container-1 .main-title{
+    padding-top: 350px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }
 .main-content-container-2{
-  padding-bottom: 160px;
-  padding-top: 160px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 160px;
-  padding-left: 260px;
-  right: 40px;
-  max-width: 1920px;
-  min-height: 1080px; /* Set the minimum height to match the video's resolution (1920x1080) */
-  margin: 0 auto;
-  flex-direction: column;
-  position: relative; /* To ensure the content is stacked above the video */
-  z-index: 1; /* Place the content above the video */
-  color: #000; /* Set a color for the text, as the video may not cover the entire container */
-}
-
-
-.main-title{
-
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+    padding-bottom: 160px;
+    padding-top: 160px;
+    display: inline-flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    gap: 160px;
+    padding-left: 260px;
+    /* right: 40px; */
+    max-width: 1920px;
+    min-height: 1080px;
+    /* margin: 0 auto; */
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    color: #000;
 }
 .main-content-container p{
   margin: 0;
 }
-.main-title-text{
-  margin: 0;
+.main-title .main-title-text{
   color: #FFF;
   font-family: Roboto, sans-serif;
   font-size: 68px;
@@ -70,7 +64,7 @@
   line-height: 130%; /* 88.4px */
   letter-spacing: 0.68px;
 }
-.main-title-text-sub{
+.main-title .main-title-text-sub{
   margin: 0;
   color: #FFF;
   font-family: Roboto, sans-serif;
@@ -184,99 +178,8 @@ circle {
 }
 
 
-.last-projects-main-container{
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-}
-.last-projects-swiper{
-  align-items: center;
-  display: flex;
-  width: 1040px;
-  height: 545px;
-  border-radius: var(--rounding, 2px);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%,
-    rgba(0, 0, 0, 0.20) 100%), url('../images/lastProjects.png'),
-    lightgray 50% / cover no-repeat;
-}
-.last-projects-navigate{
-  display: flex;
-  width: 1040px;
-  align-items: flex-start;
-  gap: 943px;
-}
-.last-projects-navigate svg{
-  width: 50px;
-  height: 50px;
-  align-items: center;
-}
-.last-projects-navigate svg path{
-  fill: #FFFFFF;
-}
-.last-projects-info{
-  padding: 15px;
-  position: absolute;
-  justify-content: space-evenly;
-  gap: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-content: center;
-  flex-wrap: wrap;
-}
-.last-projects-info > p:first-child{
-  margin: 0;
-  color: #FFF;
-  font-family: Roboto;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 160%; /* 35.2px */
-}
-.last-projects-swiper-right-container{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
-}
-.last-projects-swiper-right-container .image{
-  width: 320px;
-  height: 375px;
-  flex-shrink: 0;
-  border-radius: var(--rounding, 2px);
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%,
-    rgba(0, 0, 0, 0.20) 100%),
-    url(../images/last-projects-chemical.png),
-    lightgray 50% / cover no-repeat;
-}
-.last-projects-swiper-right-container .image p{
-  margin: 12px 0 0 10px;
-  color: #FFF;
-  font-family: Roboto,sans-serif;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 160%; /* 35.2px */
-}
-.last-projects-swiper-right-container .directions-link-button{
-  width: 320px;
-  height: 140px;
-  border-radius: var(--rounding, 2px);
-  background: #37393B;
-}
-.last-projects-swiper-right-container .directions-link-button:hover{
-  background: rgba(55, 57, 59, 0.7);
-}
 
-.last-projects-swiper-right-container directions-link-button p {
-  margin: 0;
-  color: var(--color-bg, #FFF);
-  font-family: Roboto, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%; /* 32px */
-}
+
 
 @media screen and (max-width: 1070px) {
   .main-content-container-1{

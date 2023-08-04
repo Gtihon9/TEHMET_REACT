@@ -100,7 +100,8 @@
   background: var(--color-focus, #0591D9);
 }
 .directions-link-button:hover{
-  background: rgba(5, 125, 197);
+  border-radius: var(--rounding, 2px);
+  background: #01689D;
 }
 .directions-link-button p{
   margin: 0;

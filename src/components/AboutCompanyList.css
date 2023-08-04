@@ -20,6 +20,12 @@
 .about-company-main-info-list button.active{
   background: var(--color-focus, #0591D9);
 }
+.about-company-main-info-list button.active:hover{
+  background: var(--color-focus, #0591D9);
+}
+.about-company-main-info-list button:hover{
+  background: #01689D;
+}
 .about-company-main-info-list button.active .list-arrow {
   transform: rotate(-90deg);
 }
@@ -39,17 +45,9 @@
   line-height: 140%; /* 30.8px */
 }
 
-.about-company-main-text div {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.about-company-main-text div.active {
-  opacity: 1;
-}
 
 .about-company-main-text{
-  width: 840px;
+  max-width: 840px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

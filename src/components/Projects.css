@@ -127,7 +127,8 @@ p{
     line-height: 160%; /* 28.8px */
 }
 .directions-links-block .link:hover, .directions-links-block .link:active{
-    background: var(--color-focus, #0591D9);
+    border-radius: var(--rounding, 2px);
+    background: #01689D;
 }
 .directions-links-block .link:hover p, .directions-links-block .link:active p{
     color: var(--color-bg, #FFF);

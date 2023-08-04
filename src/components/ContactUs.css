@@ -5,7 +5,6 @@
   lightgray 50% / cover no-repeat;
   backdrop-filter: blur(7.5px);
   display: flex;
-  justify-content: center;
   position: relative; /* Make sure the video is positioned relative to this container */
   flex-grow: 1;
 }
@@ -127,6 +126,7 @@
   line-height: 160%; /* 41.6px */
 }
 .contact-us-form form{
+  max-width: 360px;
   flex-direction: column;
   display: flex;
   gap: 35px;

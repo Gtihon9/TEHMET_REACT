@@ -4,9 +4,9 @@
 }
 
 .header {
-  padding-right: 10px;
+  max-width: 1400px;
+  padding-left: 260px;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding-top: 21px;
   padding-bottom: 9px;
@@ -19,8 +19,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--default-gap); /* Default gap for larger screens */
-  position: relative;
+  gap: 133px;
+
 }
 
 .logo {
@@ -45,6 +45,8 @@ nav {
 }
 
 .nav-links {
+  margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
   gap: 65px;
@@ -90,7 +92,8 @@ nav {
 }
 .contact-info:hover,
 .contact-info-container:hover{
-  background: rgba(5, 125, 197);
+  border-radius: var(--rounding, 2px);
+  background: #01689D;
 }
 
 .phone-icon {
