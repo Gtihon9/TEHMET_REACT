@@ -12,7 +12,7 @@ p{
 
 .back{
     padding-top: 25px;
-    padding-left: 320px;
+    padding-left: 260px;
     padding-bottom: 70px;
     position: inherit;
     display: inline-flex;
@@ -51,21 +51,24 @@ p{
 }
 
 .main-content-container{
+    gap: 160px;
     padding-bottom: 160px;
     display: inline-flex;
-    align-items: flex-start;
-    gap: 160px;
     padding-left: 260px;
     right: 40px;
     max-width: 1920px;
     min-height: 1080px;
-    margin: 0 auto;
     flex-direction: column;
-    position: relative;
     z-index: 1;
     color: #000;
 }
 
+.main-title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--margin-title, 70px);
+}
 .company{
     display: flex;
     flex-direction: column;

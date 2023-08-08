@@ -1,0 +1,104 @@
+.form-main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--margin-title, 70px);
+  padding: 45px 38px 64px 38px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-bg, #FFF);
+}
+.form-main-content-container{
+  gap: 160px;
+  display: inline-flex;
+  padding-left: 260px;
+  right: 40px;
+  max-width: 1920px;
+  min-height: 1080px;
+  flex-direction: column;
+  z-index: 1;
+  color: #000;
+}
+.extended-contact-form{
+  display: flex;
+  flex-direction: column;
+}
+.form-main-content .content{
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+}
+.form-main-content .content p{
+  width: 424px;
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 27.2px */
+}
+.form{
+  width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.form .three-rows{
+  max-width: 864px;
+  display: flex;
+  align-items: flex-start;
+  gap: 21px;
+}
+.form .three-rows input{
+  width: 100%;
+  padding: 19px 100px 19px 18px;
+  margin: auto;
+}
+.form textarea,
+.form input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  border: 1px solid #262829;
+
+}
+.form input,
+.form textarea {
+  padding: 26px 500px 21px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 2px;
+  border: 1px solid #262829;
+}
+.form input::placeholder,
+.form textarea::placeholder {
+  white-space: nowrap;
+  color: var(--color-additional-text, #A0A19F);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 16px */
+}
+.form input:invalid,
+.form textarea:invalid {
+  color: var(--color-error, #BF1308);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 12px */
+}
+.form p{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%; /* 15.6px */
+}
