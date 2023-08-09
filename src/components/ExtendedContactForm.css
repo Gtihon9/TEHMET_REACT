@@ -1,4 +1,9 @@
+button:hover{
+  background: #01689D;
+}
+
 .form-main-content{
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -37,37 +42,33 @@
   line-height: 160%; /* 27.2px */
 }
 .form{
-  width: 860px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 50px;
+  gap: 40px;
 }
 
 .form .three-rows{
-  max-width: 864px;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   gap: 21px;
 }
 .form .three-rows input{
+  padding: 19px 0 19px 18px;
+}
+.form .form-columns{
   width: 100%;
-  padding: 19px 100px 19px 18px;
-  margin: auto;
-}
-.form textarea,
-.form input{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 2px;
-  border: 1px solid #262829;
-
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
 }
-.form input,
-.form textarea {
-  padding: 26px 500px 21px 18px;
+.form .form-columns input,
+.form .form-columns textarea {
+  width: 100%;
+  padding: 26px 0 21px 18px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,8 +76,8 @@
   border-radius: 2px;
   border: 1px solid #262829;
 }
-.form input::placeholder,
-.form textarea::placeholder {
+.form .form-columns input::placeholder,
+.form .form-columns textarea::placeholder {
   white-space: nowrap;
   color: var(--color-additional-text, #A0A19F);
   font-family: Roboto, sans-serif;
@@ -85,8 +86,8 @@
   font-weight: 400;
   line-height: 100%; /* 16px */
 }
-.form input:invalid,
-.form textarea:invalid {
+.form .form-columns input:invalid,
+.form .form-columns textarea:invalid {
   color: var(--color-error, #BF1308);
   font-family: Roboto, sans-serif;
   font-size: 12px;
@@ -101,4 +102,70 @@
   font-style: normal;
   font-weight: 300;
   line-height: 130%; /* 15.6px */
+}
+.submit-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.submit-container button{
+  display: flex;
+  padding: 12px 23px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: var(--rounding, 2px);
+  background: var(--color-focus, #0591D9);
+  color: var(--color-bg, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.form .submit-container p{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%; /* 15.6px */
+}
+.submit-container p a{
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  text-decoration-line: underline;
+}
+
+.file-input-container {
+  position: relative;
+}
+
+.file-input-label {
+  cursor: pointer;
+  color: var(--color-text, #37393B);
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 24px */
+}
+
+.photo-preview {
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.photo-preview img {
+  max-width: 150px;
+  max-height: 100px;
 }
