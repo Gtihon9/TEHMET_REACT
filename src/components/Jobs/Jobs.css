@@ -1,33 +1,3 @@
-.breadcrumbs {
-	position: inherit;
-	display: inline-flex;
-	align-items: center;
-	gap: 10px;
-}
-.breadcrumbs svg {
-	width: 20px;
-}
-.breadcrumbs svg path {
-	fill: var(--color-additional-text, #a0a19f);
-}
-
-.breadcrumbs-text {
-	display: flex;
-	align-items: flex-start;
-	gap: 6px;
-}
-
-.breadcrumbs-text a,
-.breadcrumbs-text {
-	color: var(--color-additional-text, #a0a19f);
-	font-family: Roboto, sans-serif;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-	text-decoration: none;
-}
-
 .jobs-content {
 	display: flex;
 	align-items: flex-start;

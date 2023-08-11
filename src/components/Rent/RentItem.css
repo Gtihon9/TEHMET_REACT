@@ -1,0 +1,78 @@
+.rent-item {
+	display: flex;
+	align-items: flex-start;
+	padding-bottom: 20px;
+	border-bottom: 1px solid var(--text-color);
+}
+
+.rent-item-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.rent-item-image {
+	width: auto;
+	height: 240px;
+	object-fit: cover;
+	margin-right: 60px;
+	border-radius: 2px;
+}
+
+.rent-item-heading {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.rent-item-heading p {
+	font-family: Roboto;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.rent-item-price {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.rent-item-price p {
+	font-family: Roboto;
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.rent-item-price span {
+	font-family: Roboto;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.rent-item-settings {
+	margin-top: 53px;
+	margin-bottom: 15px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	column-gap: 70px;
+	row-gap: 25px;
+}
+
+.rent-item-settings p {
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 16px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.rent-item-button {
+	align-self: flex-end;
+}
