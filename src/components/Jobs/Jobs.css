@@ -1,0 +1,101 @@
+.breadcrumbs {
+	position: inherit;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+.breadcrumbs svg {
+	width: 20px;
+}
+.breadcrumbs svg path {
+	fill: var(--color-additional-text, #a0a19f);
+}
+
+.breadcrumbs-text {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.breadcrumbs-text a,
+.breadcrumbs-text {
+	color: var(--color-additional-text, #a0a19f);
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-decoration: none;
+}
+
+.jobs-content {
+	display: flex;
+	align-items: flex-start;
+	/* padding-left: 260px; */
+	padding-top: 25px;
+	padding-bottom: 75px;
+	justify-content: center;
+	position: relative; /* Make sure the video is positioned relative to this container */
+	flex-grow: 1;
+	flex-direction: column;
+	gap: 70px;
+	color: rgba(38, 40, 41, 1);
+}
+
+.jobs-heading {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.jobs-heading h1 {
+	margin: 0;
+	font-family: Roboto;
+	font-size: 44px;
+	font-weight: 900;
+	line-height: 57px;
+	letter-spacing: 0.01em;
+	text-align: left;
+}
+
+.jobs-heading p {
+	font-family: Roboto;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 27px;
+	letter-spacing: 0em;
+	text-align: left;
+}
+
+.jobs {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.jobs-resume-alert {
+	background-color: var(--widget-color);
+	padding: 25px 30px 50px 40px;
+}
+
+.jobs-resume-alert p {
+	margin-top: 38px;
+	margin-bottom: 60px;
+}
+
+.jobs-list-container {
+	display: grid;
+	width: 100%;
+	align-items: flex-start;
+	gap: 67px;
+	grid-template-columns: auto 360px;
+}
+
+.jobs-list {
+	display: flex;
+	flex-direction: column;
+	gap: 45px;
+	width: 100%;
+}

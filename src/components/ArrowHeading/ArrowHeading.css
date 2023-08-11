@@ -1,0 +1,17 @@
+.arrow-heading {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	color: var(--primary-color);
+}
+
+.arrow-heading h2 {
+	font-family: Roboto;
+	font-size: 34px;
+	font-weight: 500;
+	line-height: 34px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: inherit;
+	margin: 0;
+}

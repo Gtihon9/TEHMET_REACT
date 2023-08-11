@@ -1,0 +1,16 @@
+.custom-button {
+	padding: 12px 23px 12px 23px;
+	border-radius: 2px;
+	background-color: var(--primary-color);
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21px;
+	color: #ffffff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.custom-button:hover {
+	background-color: rgba(1, 104, 157, 1);
+}

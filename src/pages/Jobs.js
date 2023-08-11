@@ -2,18 +2,18 @@ import React from 'react';
 import '../components/reset.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Main from "../components/Main";
+import { Jobs } from "../components/Jobs/Jobs";
 
-function Home() {
+function JobsPage() {
   return (
-    <div>
-        <Header/>
+    <>
+      <Header />
 
-        <div>Jobs </div>
+      <Jobs />
 
-        <Footer/>
-    </div>
+      <Footer />
+    </>
   );
 }
 
-export default Home;
+export default JobsPage;
