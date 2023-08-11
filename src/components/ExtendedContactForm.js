@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import "./ExtendedContactForm.css"
 import ArrowSVG from "./Arrow";
 const ExtendedContactForm = () => {
@@ -10,18 +10,11 @@ const ExtendedContactForm = () => {
     address: '',
     sizes: '',
     deadline: '',
-    photos: [],
   });
-  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handlePhotoChange = (e) => {
-    const files = Array.from(e.target.files);
-    setFormData((prevData) => ({ ...prevData, photos: files }));
   };
 
   const handleSubmit = async (e) => {

@@ -5,6 +5,7 @@ import { PaperCheckIcon } from "../PaperCheckIcon"
 import { JobsItem } from "./JobsItem";
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
+import { SectionHeading } from "../SectionHeading/SectionHeading";
 
 export const Jobs = () => {
    return (
@@ -15,24 +16,17 @@ export const Jobs = () => {
                <Link to="/">Главная</Link>/<Link to="/jobs">Вакансии</Link>
             </div>
          </div>
-         <div className="jobs-heading">
-            <h1>Вакансии в Техметсервис</h1>
-            <p>Наша компания постоянно растет и мы заинтересованы в поиске хороших сотрудников в нашу команду</p>
-         </div>
+         <SectionHeading
+            title={"Вакансии в Техметсервис"}
+            description={"Наша компания постоянно растет и мы заинтересованы в поиске хороших сотрудников в нашу команду"}
+         />
 
          <div className="jobs">
             <ArrowHeading>Новые вакансии</ArrowHeading>
-            <div className="jobs-list-container">
-               <div className="jobs-list">
-                  {jobsList.map((job) => (
-                     <JobsItem key={job.id} job={job} />
-                  ))}
-               </div>
-               <div className="jobs-resume-alert">
-                  <PaperCheckIcon />
-                  <p>"Присоединяйтесь к нашей команде: Отправьте резюме сегодня и поднимите свою карьеру на новый уровень!"</p>
-                  <Button>Отправить резюме</Button>
-               </div>
+            <div className="jobs-list">
+               {jobsList.map((job) => (
+                  <JobsItem key={job.id} job={job} />
+               ))}
             </div>
          </div>
       </main >
