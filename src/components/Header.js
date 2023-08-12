@@ -44,10 +44,10 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="header-container">
+      <div className="header-container container">
         <div className="logo">
           <div className="logo-wrapper">
-            <a href="/" style={{display: "contents"}}>
+            <a href="/" style={{ display: "contents" }}>
               <img className="logo-image" src={Logo} alt="Logo" />
               <img className="logo-image-text" src={LogoText} alt="Logo Text" />
             </a>
@@ -95,7 +95,7 @@ function Header() {
             )}
           </div>
         </div>
-         <div className="mobile-menu-container">
+        <div className="mobile-menu-container">
           <div className="menu-icon" onClick={handleMobileMenuToggle}>
             {showMobileMenu ? <MenuIconClosed /> : <MenuIconOpened />}
           </div>

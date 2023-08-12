@@ -5,7 +5,7 @@
 
 .header {
 	width: 100%;
-	padding-left: 260px;
+	/* padding-left: 260px; */
 	display: flex;
 	align-items: center;
 	padding-top: 21px;
