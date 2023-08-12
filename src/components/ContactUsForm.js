@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./Button/Button"
 import './ContactUs.css';
 
 function ContactUsForm() {
@@ -20,9 +21,9 @@ function ContactUsForm() {
 
                             <input type="email" id="email" name="email" placeholder="Укажите email..." required />
 
-                            <textarea id="message" name="message" rows="4" placeholder="Сообщение" required></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Сообщение" required />
 
-                            <button type="submit" >Отправить</button>
+                            <Button type="submit">Отправить</Button>
                         </form>
                         <p>
                             Нажимая на кнопку "Отправить", я подтверждаю, что <br />

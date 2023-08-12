@@ -5,6 +5,7 @@
 	background-size: cover;
 	backdrop-filter: blur(7.5px);
 	position: relative;
+	width: 100%;
 }
 
 .background-container-2::before {
@@ -28,11 +29,8 @@
 }
 
 .main-content-container-3 .button {
-	position: relative;
-	bottom: 0;
 	display: flex;
 	align-items: flex-end;
-	/* align-content: center; */
 	justify-content: center;
 }
 .main-content-container-3 .button button {
@@ -40,11 +38,10 @@
 	height: 55px;
 	border-radius: var(--rounding, 2px);
 	background: var(--color-focus, #0591d9);
-	position: relative;
-	bottom: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 .main-content-container-3 .button button:hover {
 	background: rgba(5, 125, 197);
@@ -136,6 +133,12 @@
 	border-radius: 2px;
 	border: 1px solid #262829;
 }
+
+.contact-us-form form textarea {
+	resize: vertical;
+	font-family: Roboto, sans-serif;
+}
+
 .contact-us-form form input::placeholder,
 .contact-us-form form textarea::placeholder {
 	color: var(--color-additional-text, #a0a19f);

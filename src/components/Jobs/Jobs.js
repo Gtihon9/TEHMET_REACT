@@ -1,6 +1,6 @@
 import LeftArrowSVG from "../L_Arrow";
 import "./Jobs.css"
-import ArrowHeading from "../ArrowHeading/ArrowHeading";
+import { ArrowHeading } from "../ArrowHeading/ArrowHeading";
 import { PaperCheckIcon } from "../PaperCheckIcon"
 import { JobsItem } from "./JobsItem";
 import { Button } from "../Button/Button";

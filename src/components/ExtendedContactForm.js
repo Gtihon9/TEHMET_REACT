@@ -40,7 +40,7 @@ const ExtendedContactForm = () => {
   };
 
   return (
-    <div className="main-content-container-3">
+    <div className="main-content-container-3 container">
 
       <div className="form-main-content">
         <div className="title-block">

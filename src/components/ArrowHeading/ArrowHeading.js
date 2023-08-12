@@ -1,7 +1,7 @@
 import ArrowSVG from "../Arrow"
 import "./ArrowHeading.css"
 
-const ArrowHeading = ({ children }) => {
+export const ArrowHeading = ({ children }) => {
    return (
       <div className="arrow-heading">
          <ArrowSVG />
@@ -9,5 +9,3 @@ const ArrowHeading = ({ children }) => {
       </div>
    )
 }
-
-export default ArrowHeading
