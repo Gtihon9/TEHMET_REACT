@@ -1,5 +1,6 @@
 import React from "react";
 import './ContactUs.css';
+
 function ContactUsForm() {
     const scrollToTop = () => {
         window.scrollTo({
@@ -7,9 +8,10 @@ function ContactUsForm() {
             behavior: 'smooth',
         });
     };
+
     return (
         <div className="background-container-2">
-            <div className="main-content-container-3">
+            <div className="main-content-container-3 container">
                 <div className="contact-us-container">
                     <div className="contact-us-form">
                         <h1>Свяжитесь с нами</h1>
