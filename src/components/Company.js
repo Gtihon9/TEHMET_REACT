@@ -10,7 +10,7 @@ function Company() {
     return (
         <main className="main-content">
             <div className="back">
-                <LeftArrowSVG/>
+                <LeftArrowSVG />
                 <div className="back-text">
                     <a href="/">Главная</a>/<a href="/company">О компании</a>
                 </div>
@@ -24,26 +24,26 @@ function Company() {
                     <div className="company-info">
                         <div className="company-info-text">
                             <p>
-                                “Техметсервис” - компания специализирующаяся на демонтаже, сносе <br/>
-                                зданий и металлоконструкций,  утилизации строительных отходов, а <br/>
-                                также предоставление своей спецтехники частным лицам или <br/>
-                                организациям,  и на этом спектор услуг не ограничивается. Проработов <br/>
-                                более 5 лет, наша компания предоставляет высококвалифицированных <br/>
-                                специалистов и широким спектром специализированного оборудования, <br/>
-                                благодаря котормы - мы  выполняем проекты любого масштаба - от <br/>
-                                небольших частных предприятий до масштабных промышленных <br/>
+                                “Техметсервис” - компания специализирующаяся на демонтаже, сносе <br />
+                                зданий и металлоконструкций,  утилизации строительных отходов, а <br />
+                                также предоставление своей спецтехники частным лицам или <br />
+                                организациям,  и на этом спектор услуг не ограничивается. Проработов <br />
+                                более 5 лет, наша компания предоставляет высококвалифицированных <br />
+                                специалистов и широким спектром специализированного оборудования, <br />
+                                благодаря котормы - мы  выполняем проекты любого масштаба - от <br />
+                                небольших частных предприятий до масштабных промышленных <br />
                                 демонтажных работ.
                             </p>
-                            <p>Основополагающие факторы нашей компании является открытость в <br/>
-                                коммуникации со своими сотрудниками и партнерами. Благодаря <br/>
-                                индивидуальному подходу, мы можем предложить клиенту <br/>
-                                индивидуальные стратегии и решения, учитывающие все тонкости <br/>
+                            <p>Основополагающие факторы нашей компании является открытость в <br />
+                                коммуникации со своими сотрудниками и партнерами. Благодаря <br />
+                                индивидуальному подходу, мы можем предложить клиенту <br />
+                                индивидуальные стратегии и решения, учитывающие все тонкости <br />
                                 проекта и обеспечивающие достижение желаемых результатов.
                             </p>
                             <p>
-                                Одним из основных принципов компании “Техметсервис” является <br/>
-                                экологическое поддержание окружающей среды. Компания акцентирует <br/>
-                                важность минимизации экологического воздействия своей <br/>
+                                Одним из основных принципов компании “Техметсервис” является <br />
+                                экологическое поддержание окружающей среды. Компания акцентирует <br />
+                                важность минимизации экологического воздействия своей <br />
                                 деятельности.
                             </p>
                         </div>
@@ -53,7 +53,7 @@ function Company() {
                 <div className="company-block-container">
                     <div className="title-block">
                         <div className="title">
-                            <ArrowSVG/>
+                            <ArrowSVG />
                             <p className="title-text">О компании</p>
                         </div>
                         <p className="title-additional-text">
@@ -91,17 +91,17 @@ function Company() {
                 <div className="recycling-container">
                     <div className="title-block">
                         <div className="title">
-                            <ArrowSVG/>
+                            <ArrowSVG />
                             <p className="title-text">Переработка материала</p>
                         </div>
-                        <p className="title-additional-text" style={{ maxWidth: "926px"}}>
+                        <p className="title-additional-text" style={{ maxWidth: "926px" }}>
                             Предоставляет рациональное решение  не только для подрядчика, но и является оптимальным
                             вариантом для застройщика территории.  Наша команда заинтересована в оптимизации процесса
                             работы, а также в достижение результата сопровожждаемого уменьшением затрат клиента
                         </p>
                     </div>
                     <div className="recycling-info-block">
-                        <VerticalLineSVG/>
+                        <VerticalLineSVG />
 
                         <div className="block">
                             <p>
@@ -112,7 +112,7 @@ function Company() {
 
                         </div>
 
-                        <VerticalLineSVG/>
+                        <VerticalLineSVG />
 
                         <div className="block">
                             <p>
@@ -122,7 +122,7 @@ function Company() {
 
                         </div>
 
-                        <VerticalLineSVG/>
+                        <VerticalLineSVG />
 
                         <div className="block">
                             <p>
@@ -132,7 +132,7 @@ function Company() {
                             </p>
                         </div>
 
-                        <VerticalLineSVG/>
+                        <VerticalLineSVG />
 
                         <div className="block">
                             <p>
@@ -143,16 +143,16 @@ function Company() {
 
                         </div>
 
-                        <VerticalLineSVG/>
+                        <VerticalLineSVG />
                     </div>
                 </div>
                 <div className="stats-container">
                     <div className="title-block">
                         <div className="title">
-                            <ArrowSVG/>
+                            <ArrowSVG />
                             <p className="title-text">Цифры о нас</p>
                         </div>
-                        <p className="title-additional-text" style={{ maxWidth: "716px"}}>
+                        <p className="title-additional-text" style={{ maxWidth: "716px" }}>
                             Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
                             стремление к совершенству, делая компанию конкурентно способной рынке.
                         </p>
@@ -223,7 +223,7 @@ function Company() {
                     <div className="rent-container">
                         <div className="title-block">
                             <div className="title">
-                                <ArrowSVG/>
+                                <ArrowSVG />
                                 <p className="title-text">Аренда техники</p>
                             </div>
                             <p className="title-additional-text">
@@ -231,48 +231,48 @@ function Company() {
                             </p>
                         </div>
                         <div className="rent-main-content-container">
-                            <a  href="" className="rent-card">
+                            <a href="" className="rent-card">
                                 <p>
                                     Название
                                 </p>
                             </a>
-                            <a  href="" className="rent-card">
-                                        <p>
-                                            Название
-                                        </p>
-                                    </a>
-                            <a  href="" className="rent-card">
+                            <a href="" className="rent-card">
                                 <p>
                                     Название
                                 </p>
                             </a>
-                            <a  href="" className="rent-card">
+                            <a href="" className="rent-card">
                                 <p>
                                     Название
                                 </p>
                             </a>
-                            <a  href="" className="rent-card">
+                            <a href="" className="rent-card">
                                 <p>
                                     Название
                                 </p>
                             </a>
-                            <a  href="" className="rent-card">
+                            <a href="" className="rent-card">
                                 <p>
                                     Название
                                 </p>
                             </a>
-                            <a  href="" className="rent-card">
+                            <a href="" className="rent-card">
                                 <p>
                                     Название
                                 </p>
                             </a>
-                            <a  href="" className="all-rent-cards">
+                            <a href="" className="rent-card">
+                                <p>
+                                    Название
+                                </p>
+                            </a>
+                            <a href="" className="all-rent-cards">
                                 <div className="link">
                                     <p>
                                         Посмотреть все
                                     </p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
-                                        <path d="M25.375 15L15.4062 5.48438V10.9219C5.86627 10.9219 3.625 17.7624 3.625 24.5156C6.3783 20.9903 8.81328 19.0781 15.4062 19.0781V24.5156L25.375 15Z" stroke="white" stroke-linejoin="round"/>
+                                        <path d="M25.375 15L15.4062 5.48438V10.9219C5.86627 10.9219 3.625 17.7624 3.625 24.5156C6.3783 20.9903 8.81328 19.0781 15.4062 19.0781V24.5156L25.375 15Z" stroke="white" strokeLinejoin="round" />
                                     </svg>
 
                                 </div>
@@ -283,7 +283,7 @@ function Company() {
                     </div>
                 </div>
             </div>
-            <ContactUsForm/>
+            <ContactUsForm />
         </main>
     );
 }
