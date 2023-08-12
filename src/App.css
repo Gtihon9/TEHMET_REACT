@@ -7,6 +7,10 @@
 	--widget-color: rgba(223, 244, 255, 1);
 }
 
+* {
+	box-sizing: border-box;
+}
+
 .container {
 	max-width: 1400px;
 	width: 100%;
