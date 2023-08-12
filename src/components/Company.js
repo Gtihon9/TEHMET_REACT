@@ -8,17 +8,17 @@ import ContactUsForm from "./ContactUsForm";
 function Company() {
 
     return (
-        <main className="main-content">
-            <div className="back">
+        <main className="company-content">
+            <div className="breadcrumbs container">
                 <LeftArrowSVG />
-                <div className="back-text">
+                <div className="breadcrumbs-text">
                     <a href="/">Главная</a>/<a href="/company">О компании</a>
                 </div>
             </div>
 
-            <div className="main-content-container">
+            <div className="company-content-container container">
                 <div className="company">
-                    <div className="main-title">
+                    <div className="company-title">
                         <p>О компании</p>
                     </div>
                     <div className="company-info">
