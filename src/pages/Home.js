@@ -1,18 +1,17 @@
-import '../components/reset.css';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import Main from "../components/Main/Main";
+import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
+import Main from "../components/Main/Main"
 
 const Home = () => {
-  return (
-    <>
-      <Header />
+	return (
+		<>
+			<Header />
 
-      <Main />
+			<Main />
 
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	)
 }
 
-export default Home;
+export default Home

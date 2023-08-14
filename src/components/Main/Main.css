@@ -47,7 +47,7 @@
 	display: inline-flex;
 	align-items: flex-start;
 	gap: 160px;
-	padding-left: 260px;
+	/* padding-left: 260px; */
 	max-width: 1920px;
 	min-height: 1080px;
 	flex-direction: column;
@@ -65,6 +65,7 @@
 	line-height: 130%; /* 88.4px */
 	letter-spacing: 0.68px;
 }
+
 .main-title .main-title-text-sub {
 	margin: 0;
 	color: #fff;
@@ -174,6 +175,13 @@ circle {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 150%; /* 36px */
+}
+
+.about-company-main-info .about-company-main-text p {
+	font-family: Roboto;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 27px;
 }
 
 @media screen and (max-width: 1070px) {

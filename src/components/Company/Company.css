@@ -145,47 +145,27 @@ p {
 	padding: 5px;
 }
 .card-1 {
-	background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 0.3) 0%,
-			rgba(0, 0, 0, 0.3) 100%
-		),
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
 		url("../../images/company-1.png"), lightgray 50% / cover no-repeat;
 }
 
 .card-2 {
-	background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 0.3) 0%,
-			rgba(0, 0, 0, 0.3) 100%
-		),
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
 		url("../../images/company-2.png"), lightgray 50% / cover no-repeat;
 }
 
 .card-3 {
-	background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 0.3) 0%,
-			rgba(0, 0, 0, 0.3) 100%
-		),
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
 		url("../../images/company-3.png"), lightgray 50% / cover no-repeat;
 }
 
 .card-4 {
-	background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 0.3) 0%,
-			rgba(0, 0, 0, 0.3) 100%
-		),
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
 		url("../../images/company-4.png"), lightgray 50% / cover no-repeat;
 }
 
 .card-5 {
-	background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 0.3) 0%,
-			rgba(0, 0, 0, 0.3) 100%
-		),
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
 		url("../../images/company-5.png"), lightgray 50% / cover no-repeat;
 }
 
@@ -283,8 +263,7 @@ p {
 	width: 340px;
 	height: 235px;
 	flex-shrink: 0;
-	background: url("../../images/default-image-1.png"),
-		lightgray 50% / cover no-repeat;
+	background: url("../../images/default-image-1.png"), lightgray 50% / cover no-repeat;
 	position: relative;
 }
 
@@ -307,11 +286,7 @@ p {
 	flex-shrink: 0;
 	position: relative;
 	border-radius: var(--rounding, 2px);
-	background: linear-gradient(
-			0deg,
-			rgba(0, 0, 0, 0.3) 0%,
-			rgba(0, 0, 0, 0.3) 100%
-		),
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
 		url("../../images/default-image-1.png"), lightgray 50% / cover no-repeat;
 }
 

@@ -1,19 +1,17 @@
-import '../components/reset.css';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import '../App.css';
-import Company from "../components/Company/Company";
+import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
+import Company from "../components/Company/Company"
 
 const CompanyPage = () => {
-  return (
-    <>
-      <Header />
+	return (
+		<>
+			<Header />
 
-      <Company />
+			<Company />
 
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	)
 }
 
-export default CompanyPage;
+export default CompanyPage

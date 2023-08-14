@@ -15,7 +15,7 @@ button:hover {
 .form-main-content-container {
 	gap: 160px;
 	display: inline-flex;
-	padding-left: 260px;
+	/* padding-left: 260px; */
 	right: 40px;
 	min-height: 1080px;
 	flex-direction: column;

@@ -1,18 +1,17 @@
-import '../components/reset.css';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import { Jobs } from "../components/Jobs/Jobs";
+import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
+import { Jobs } from "../components/Jobs/Jobs"
 
 const JobsPage = () => {
-  return (
-    <>
-      <Header />
+	return (
+		<>
+			<Header />
 
-      <Jobs />
+			<Jobs />
 
-      <Footer />
-    </>
-  );
+			<Footer />
+		</>
+	)
 }
 
-export default JobsPage;
+export default JobsPage
