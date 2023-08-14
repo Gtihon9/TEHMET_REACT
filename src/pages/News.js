@@ -2,17 +2,17 @@ import React from 'react';
 import '../components/reset.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Main from "../components/Main";
 import '../App.css';
+import { News } from "../components/News/News";
 
 function CompanyPage() {
   return (
     <div>
-        <Header/>
+      <Header />
 
-        <div>News </div>
+      <News />
 
-        <Footer/>
+      <Footer />
     </div>
   );
 }
