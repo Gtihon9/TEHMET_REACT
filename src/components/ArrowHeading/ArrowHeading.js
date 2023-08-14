@@ -1,4 +1,4 @@
-import ArrowSVG from "../Arrow"
+import ArrowSVG from "../Icons/Arrow"
 import "./ArrowHeading.css"
 
 export const ArrowHeading = ({ children }) => {

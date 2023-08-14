@@ -1,18 +1,17 @@
-import React from 'react';
 import '../components/reset.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Services from "../components/Services";
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
+import Services from "../components/Services/Services";
 
-function Home() {
+const Home = () => {
   return (
-    <div>
-        <Header/>
+    <>
+      <Header />
 
-        <Services/>
+      <Services />
 
-        <Footer/>
-    </div>
+      <Footer />
+    </>
   );
 }
 

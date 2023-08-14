@@ -1,11 +1,9 @@
-import LeftArrowSVG from "../L_Arrow";
-import "./Jobs.css"
+import LeftArrowSVG from "../Icons/L_Arrow";
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading";
-import { PaperCheckIcon } from "../PaperCheckIcon"
 import { JobsItem } from "./JobsItem";
-import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
 import { SectionHeading } from "../SectionHeading/SectionHeading";
+import "./Jobs.css"
 
 export const Jobs = () => {
    return (

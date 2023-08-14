@@ -1,4 +1,3 @@
-import React from 'react';
 import './components/reset.css';
 import './App.css';
 import Home from "./pages/Home";
@@ -11,7 +10,7 @@ import Rent from "./pages/Rent";
 import Deals from "./pages/Deals";
 import { JobDetailsPage } from "./pages/JobDetails";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div>

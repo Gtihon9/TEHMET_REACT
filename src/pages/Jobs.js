@@ -1,10 +1,9 @@
-import React from 'react';
 import '../components/reset.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import { Jobs } from "../components/Jobs/Jobs";
 
-function JobsPage() {
+const JobsPage = () => {
   return (
     <>
       <Header />

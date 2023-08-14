@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom"
-import LeftArrowSVG from "../L_Arrow"
-import "./JobDetails.css"
+import LeftArrowSVG from "../Icons/L_Arrow"
 import { Button } from "../Button/Button"
 import { JobMiniItem } from "./JobMiniItem"
 import { useDisclosure } from "../../hooks/useDisclosure"
 import { ModalForm } from "./ModalForm"
+import "./JobDetails.css"
 
 export const JobDetails = () => {
    const { isOpen, onOpen, onClose } = useDisclosure()

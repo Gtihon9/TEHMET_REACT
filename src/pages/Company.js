@@ -1,19 +1,18 @@
-import React from 'react';
 import '../components/reset.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import '../App.css';
-import Company from "../components/Company";
+import Company from "../components/Company/Company";
 
-function CompanyPage() {
+const CompanyPage = () => {
   return (
-    <div>
-        <Header/>
+    <>
+      <Header />
 
-        <Company/>
+      <Company />
 
-        <Footer/>
-    </div>
+      <Footer />
+    </>
   );
 }
 
