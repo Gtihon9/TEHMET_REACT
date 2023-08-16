@@ -6,6 +6,8 @@ import DirectionSlideImage2 from "../../images/DirectionSlideImage2.png"
 import DirectionSlideImage3 from "../../images/DirectionSlideImage3.png"
 import DirectionSlideImage4 from "../../images/DirectionSlideImage4.png"
 import DirectionSlideImage5 from "../../images/DirectionSlideImage5.png"
+import { Button } from "../Button/Button"
+import { ShareIcon } from "../Icons/ShareIcon"
 import "./SliderComponent.css"
 
 const slideImages = [
@@ -154,10 +156,10 @@ const SliderComponent = () => {
 							</button>
 						</div>
 					</div>
-					<button className="directions-link-button">
+					<Button className="directions-link-button">
 						<p>Смотреть полностью</p>
-						{/* Your SVG code here */}
-					</button>
+						<ShareIcon />
+					</Button>
 				</div>
 			</div>
 			<img src={slideImages[currentSlideIndex - 1]} alt="Directions" />

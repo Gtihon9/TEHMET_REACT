@@ -6,6 +6,7 @@
 	backdrop-filter: blur(7.5px);
 	position: relative;
 	width: 100%;
+	margin-bottom: 50px;
 }
 
 .background-container-2::before {
@@ -33,18 +34,9 @@
 	align-items: flex-end;
 	justify-content: center;
 }
+
 .main-content-container-3 .button button {
-	width: 55px;
-	height: 55px;
-	border-radius: var(--rounding, 2px);
-	background: var(--color-focus, #0591d9);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-}
-.main-content-container-3 .button button:hover {
-	background: rgba(5, 125, 197);
+	padding: 9px;
 }
 
 .contact-us-container {

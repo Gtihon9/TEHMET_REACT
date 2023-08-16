@@ -54,15 +54,20 @@
 	line-height: 140%; /* 22.4px */
 }
 .project-item-button {
-	display: flex;
 	padding: 10px 14px;
-	justify-content: center;
-	align-items: center;
 	gap: 10px;
-
-	border-radius: var(--rounding, 2px);
-	background: var(--color-focus, #0591d9);
 }
+
+.project-item-button svg {
+	width: 30px;
+	height: 30px;
+}
+
+.project-item-button svg path {
+	stroke: rgb(255, 255, 255);
+	stroke-width: 1px;
+}
+
 .project-item-button p {
 	color: var(--color-bg, #fff);
 	font-family: Roboto, sans-serif;

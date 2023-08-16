@@ -58,7 +58,7 @@ export const NewsDetails = () => {
             </div>
          </div>
 
-         {/* <OtherNews /> */}
+         <OtherNews />
       </main >
    )
 }

@@ -7,7 +7,9 @@ import image3 from "../../images/lastProjectsSwiper3.png"
 import mini_image1 from "../../images/lastProjectsMiniImage1.png"
 import mini_image2 from "../../images/lastProjectsMiniImage2.png"
 import mini_image3 from "../../images/lastProjectsMiniImage3.png"
+import { ShareIcon } from "../Icons/ShareIcon"
 import "./LastProjectsSwiper.css"
+import { Button } from "../Button/Button"
 
 const LastProjectsSwiper = () => {
 	const [currentSlide, setCurrentSlide] = useState(0)
@@ -71,22 +73,10 @@ const LastProjectsSwiper = () => {
 				</div>
 				<div className="last-projects-info">
 					<p>{title}</p>
-					<button className="directions-link-button">
+					<Button className="last-projects-swiper-button">
 						<p>Смотреть полностью</p>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="29"
-							height="29"
-							viewBox="0 0 29 29"
-							fill="none"
-						>
-							<path
-								d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z"
-								stroke="white"
-								strokeLinejoin="round"
-							/>
-						</svg>
-					</button>
+						<ShareIcon />
+					</Button>
 				</div>
 			</div>
 			<div className="last-projects-swiper-right-container">
@@ -98,22 +88,10 @@ const LastProjectsSwiper = () => {
 				>
 					<p>{mini_title}</p>
 				</div>
-				<button className="directions-link-button">
-					<p>Смотреть полностью</p>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="29"
-						height="29"
-						viewBox="0 0 29 29"
-						fill="none"
-					>
-						<path
-							d="M25.375 14.5L15.4062 4.98438V10.4219C5.86627 10.4219 3.625 17.2624 3.625 24.0156C6.3783 20.4903 8.81328 18.5781 15.4062 18.5781V24.0156L25.375 14.5Z"
-							stroke="white"
-							strokeLinejoin="round"
-						/>
-					</svg>
-				</button>
+				<Button className="directions-link-button">
+					<p>Посмотреть еще</p>
+					<ShareIcon />
+				</Button>
 			</div>
 		</div>
 	)

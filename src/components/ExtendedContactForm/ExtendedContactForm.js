@@ -1,5 +1,6 @@
 import { useState } from "react"
-import ArrowSVG from "../Icons/Arrow"
+import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
+import { Button } from "../Button/Button"
 import "./ExtendedContactForm.css"
 
 const ExtendedContactForm = () => {
@@ -10,7 +11,7 @@ const ExtendedContactForm = () => {
 		aim: "",
 		address: "",
 		sizes: "",
-		deadline: "",
+		deadline: new Date().toISOString().substring(0, 10),
 	})
 
 	const handleChange = e => {
@@ -44,10 +45,7 @@ const ExtendedContactForm = () => {
 		<div className="main-content-container-3 container">
 			<div className="form-main-content">
 				<div className="title-block">
-					<div className="title">
-						<ArrowSVG />
-						<p className="title-text">Получите коммерческое предложение</p>
-					</div>
+					<ArrowHeading>Получите коммерческое предложение</ArrowHeading>
 					<p className="title-additional-text">
 						Опишите свой объект для лучшего расчета работы и выгодного решения
 					</p>
@@ -129,7 +127,7 @@ const ExtendedContactForm = () => {
 								/>
 							</div>
 							<div className="submit-container">
-								<button type="submit">Отправить</button>
+								<Button type="submit">Отправить</Button>
 								<p>
 									Нажимая на кнопку "Отправить", я подтверждаю, что <br />
 									ознакомился с <a href="/conf">Политикой конфиденциальностии</a> даю

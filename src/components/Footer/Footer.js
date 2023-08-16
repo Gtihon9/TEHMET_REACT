@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Logo from "../../images/logo.png"
 import LogoText from "../../images/logoText.png"
 import "./Footer.css"
@@ -29,25 +30,25 @@ const Footer = () => {
 					<div className="footer-column-name">Компания</div>
 					<ul>
 						<li>
-							<a href="/company">О компании</a>
+							<Link to="/company">О компании</Link>
 						</li>
 						<li>
-							<a href="/projects">Проекты</a>
+							<Link to="/projects">Проекты</Link>
 						</li>
 						<li>
-							<a href="/deals">Услуги</a>
+							<Link to="/deals">Услуги</Link>
 						</li>
 						<li>
-							<a href="/rent">Аренда</a>
+							<Link to="/rent">Аренда</Link>
 						</li>
 						<li>
-							<a href="/news">Новости</a>
+							<Link to="/news">Новости</Link>
 						</li>
 						<li>
-							<a href="/jobs">Вакансии</a>
+							<Link to="/jobs">Вакансии</Link>
 						</li>
 						<li>
-							<a href="/cert">Сертификаты и лицензии</a>
+							<Link to="/cert">Сертификаты и лицензии</Link>
 						</li>
 					</ul>
 				</div>
@@ -55,19 +56,19 @@ const Footer = () => {
 					<div className="footer-column-name">Направления комании</div>
 					<ul>
 						<li>
-							<a href="/demolition">Снос и демонтаж</a>
+							<Link to="/demolition">Снос и демонтаж</Link>
 						</li>
 						<li>
-							<a href="/pit-developing">Разработка и ограждение котлованов</a>
+							<Link to="/pit-developing">Разработка и ограждение котлованов</Link>
 						</li>
 						<li>
-							<a href="/renovation">Реновация территории</a>
+							<Link to="/renovation">Реновация территории</Link>
 						</li>
 						<li>
-							<a href="/recycling">Рециклинг</a>
+							<Link to="/recycling">Рециклинг</Link>
 						</li>
 						<li>
-							<a href="/rent">Аренда</a>
+							<Link to="/rent">Аренда</Link>
 						</li>
 					</ul>
 				</div>
@@ -76,7 +77,7 @@ const Footer = () => {
 					<div className="address-info">
 						<p className="address-line-1">ОГРН 1035009566822</p>
 						<p className="address-line-2">ИНН 5047048624</p>
-						<a href="/rent">Политика конфиденциальности</a>
+						<Link to="/conf">Политика конфиденциальности</Link>
 					</div>
 				</div>
 			</div>

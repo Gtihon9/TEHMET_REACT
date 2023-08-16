@@ -5,6 +5,7 @@
 	--text-color: rgba(38, 40, 41, 1);
 	--text-secondary-color: rgba(160, 161, 159, 1);
 	--widget-color: rgba(223, 244, 255, 1);
+	--rounding: 2px;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
 
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 .container {

@@ -9,6 +9,9 @@
 	color: #ffffff;
 	cursor: pointer;
 	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .custom-button:hover {

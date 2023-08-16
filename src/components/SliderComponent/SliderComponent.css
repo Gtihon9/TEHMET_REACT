@@ -90,19 +90,33 @@
 	align-items: flex-start;
 	gap: 25px;
 }
+
+.arrows button {
+	cursor: pointer;
+}
+
 .directions-link-button {
 	display: flex;
-	padding: 16px 27px;
+	padding: 20px 27px;
 	justify-content: center;
 	align-items: center;
 	gap: 16px;
-	border-radius: var(--rounding, 4px);
-	background: var(--color-focus, #0591d9);
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 21px;
 }
-.directions-link-button:hover {
-	border-radius: var(--rounding, 2px);
-	background: #01689d;
+
+.directions-link-button svg {
+	width: 30px;
+	height: 30px;
 }
+
+.directions-link-button path {
+	stroke: rgb(255, 255, 255);
+	stroke-width: 1px;
+}
+
 .directions-link-button p {
 	margin: 0;
 	color: var(--color-bg, #fff);

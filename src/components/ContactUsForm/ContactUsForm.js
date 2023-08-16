@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import "./ContactUsForm.css"
 
@@ -44,7 +45,7 @@ const ContactUsForm = () => {
 						</form>
 						<p>
 							Нажимая на кнопку "Отправить", я подтверждаю, что <br />
-							ознакомился с <a href="/conf">Политикой конфиденциальностии</a> даю согласие{" "}
+							ознакомился с <Link to="/conf">Политикой конфиденциальностии</Link> даю согласие{" "}
 							<br />
 							на обработку всех моих персональных данных
 						</p>
@@ -66,7 +67,7 @@ const ContactUsForm = () => {
 					</div>
 				</div>
 				<div className="button">
-					<button onClick={scrollToTop}>
+					<Button onClick={scrollToTop}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="37"
@@ -82,7 +83,7 @@ const ContactUsForm = () => {
 								strokeLinejoin="round"
 							/>
 						</svg>
-					</button>
+					</Button>
 				</div>
 			</div>
 		</div>

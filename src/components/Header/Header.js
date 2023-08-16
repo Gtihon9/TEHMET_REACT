@@ -6,6 +6,7 @@ import PhoneIconMobile from "../../images/phone-icon-mobile.png"
 import MenuIconOpened from "../Icons/MenuIconOpened"
 import MenuIconClosed from "../Icons/MenuIconClosed"
 import "./Header.css"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -47,50 +48,50 @@ const Header = () => {
 			<div className="header-container container">
 				<div className="logo">
 					<div className="logo-wrapper">
-						<a href="/" style={{ display: "contents" }}>
+						<Link to="/" style={{ display: "contents" }}>
 							<img className="logo-image" src={Logo} alt="Logo" />
 							<img className="logo-image-text" src={LogoText} alt="Logo Text" />
-						</a>
+						</Link>
 					</div>
 				</div>
 				<nav>
 					<ul className="nav-links">
 						<li>
-							<a href="/company">О компании</a>
+							<Link to="/company">О компании</Link>
 						</li>
 						<li>
-							<a href="/projects">Проекты</a>
+							<Link to="/projects">Проекты</Link>
 						</li>
 						<li>
-							<a href="/deals">Услуги</a>
+							<Link to="/deals">Услуги</Link>
 						</li>
 						<li>
-							<a href="/rent">Аренда</a>
+							<Link to="/rent">Аренда</Link>
 						</li>
 						<li>
-							<a href="/news">Новости</a>
+							<Link to="/news">Новости</Link>
 						</li>
 						<li>
-							<a href="/jobs">Вакансии</a>
+							<Link to="/jobs">Вакансии</Link>
 						</li>
 					</ul>
 				</nav>
 				<div className="contact-info">
 					<div className="contact-info-container">
 						{isMobileScreen ? (
-							<a href="/contact-us">
+							<Link to="/contact-us">
 								<img
 									src={PhoneIconMobile}
 									className="phone-icon-button"
 									alt="Phone Icon Mobile"
 								/>
-							</a>
+							</Link>
 						) : (
 							<>
 								<img src={phoneIcon} className="phone-icon" alt="Phone Icon" />
-								<a href="/contact-us" className="contact-info-text">
+								<Link to="/contact-us" className="contact-info-text">
 									+7-916-900-42-55
-								</a>
+								</Link>
 							</>
 						)}
 					</div>
@@ -103,22 +104,22 @@ const Header = () => {
 						<nav className={`mobile-nav-links ${menuAnimation ? "slide-in" : "slide-out"}`}>
 							<ul>
 								<li>
-									<a href="/company">О компании</a>
+									<Link to="/company">О компании</Link>
 								</li>
 								<li>
-									<a href="/projects">Проекты</a>
+									<Link to="/projects">Проекты</Link>
 								</li>
 								<li>
-									<a href="/deals">Услуги</a>
+									<Link to="/deals">Услуги</Link>
 								</li>
 								<li>
-									<a href="/rent">Аренда</a>
+									<Link to="/rent">Аренда</Link>
 								</li>
 								<li>
-									<a href="/news">Новости</a>
+									<Link to="/news">Новости</Link>
 								</li>
 								<li>
-									<a href="/jobs">Вакансии</a>
+									<Link to="/jobs">Вакансии</Link>
 								</li>
 							</ul>
 						</nav>

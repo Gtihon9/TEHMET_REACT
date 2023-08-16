@@ -1,8 +1,10 @@
 import LeftArrowSVG from "../Icons/L_Arrow"
-import ArrowSVG from "../Icons/Arrow"
 import VerticalLineSVG from "../Icons/VerticalLine"
 import ContactUsForm from "../ContactUsForm/ContactUsForm"
+import { SectionHeading } from "../SectionHeading/SectionHeading"
+import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./Company.css"
+import { Link } from "react-router-dom"
 
 const Company = () => {
 	return (
@@ -10,15 +12,13 @@ const Company = () => {
 			<div className="breadcrumbs container">
 				<LeftArrowSVG />
 				<div className="breadcrumbs-text">
-					<a href="/">Главная</a>/<a href="/company">О компании</a>
+					<Link to="/">Главная</Link>/<Link to="/company">О компании</Link>
 				</div>
 			</div>
 
 			<div className="company-content-container container">
 				<div className="company">
-					<div className="company-title">
-						<p>О компании</p>
-					</div>
+					<SectionHeading title="О компании" />
 					<div className="company-info">
 						<div className="company-info-text">
 							<p>
@@ -51,36 +51,30 @@ const Company = () => {
 				</div>
 				<div className="company-block-container">
 					<div className="title-block">
-						<div className="title">
-							<ArrowSVG />
-							<p className="title-text">О компании</p>
-						</div>
+						<ArrowHeading>О компании</ArrowHeading>
 						<p className="title-additional-text">Предоставляет выбор ......</p>
 					</div>
 					<div className="company-images-block">
-						<a href="/demolition" className=" card card-1">
+						<Link to="/demolition" className=" card card-1">
 							<p>Снос и демонтаж</p>
-						</a>
-						<a href="/ground-works" className="card card-2">
+						</Link>
+						<Link to="/ground-works" className="card card-2">
 							<p>Земляные работы</p>
-						</a>
-						<a href="/pit-developing" className="card card-3">
+						</Link>
+						<Link to="/pit-developing" className="card card-3">
 							<p>Разработка и ограждение котлованов</p>
-						</a>
-						<a href="/recycling" className="card card-4">
+						</Link>
+						<Link to="/recycling" className="card card-4">
 							<p>Рециклинг</p>
-						</a>
-						<a href="/renovation" className="card card-5">
+						</Link>
+						<Link to="/renovation" className="card card-5">
 							<p>Реновация территорий</p>
-						</a>
+						</Link>
 					</div>
 				</div>
 				<div className="recycling-container">
 					<div className="title-block">
-						<div className="title">
-							<ArrowSVG />
-							<p className="title-text">Переработка материала</p>
-						</div>
+						<ArrowHeading>Переработка материала</ArrowHeading>
 						<p className="title-additional-text" style={{ maxWidth: "926px" }}>
 							Предоставляет рациональное решение не только для подрядчика, но и является
 							оптимальным вариантом для застройщика территории. Наша команда заинтересована в
@@ -133,10 +127,7 @@ const Company = () => {
 				</div>
 				<div className="stats-container">
 					<div className="title-block">
-						<div className="title">
-							<ArrowSVG />
-							<p className="title-text">Цифры о нас</p>
-						</div>
+						<ArrowHeading>Цифры о нас</ArrowHeading>
 						<p className="title-additional-text" style={{ maxWidth: "716px" }}>
 							Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
 							стремление к совершенству, делая компанию конкурентно способной рынке.
@@ -182,10 +173,8 @@ const Company = () => {
 					</div>
 					<div className="rent-container">
 						<div className="title-block">
-							<div className="title">
-								<ArrowSVG />
-								<p className="title-text">Аренда техники</p>
-							</div>
+							<ArrowHeading>Аренда техники</ArrowHeading>
+
 							<p className="title-additional-text">
 								Предоставление техники под нужды юредическим или физическим лиц
 							</p>

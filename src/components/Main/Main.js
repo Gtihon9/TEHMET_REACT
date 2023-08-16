@@ -7,8 +7,9 @@ import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import SliderComponent from "../SliderComponent/SliderComponent"
 import AboutCompanyMainInfo2 from "../AboutCompanyList/AboutCompanyList"
 import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
-import "./Main.css"
 import bg_video from "../../videos/tehmet_lending.mov"
+import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
+import "./Main.css"
 
 const Main = () => {
 	return (
@@ -115,10 +116,7 @@ const Main = () => {
 					<AboutCompanyMainInfo2 />
 				</div>
 				<div className="about-company-container">
-					<div className="about-company-title">
-						<ArrowSVG />
-						<p className="about-company-title-text">Наши последние проекты</p>
-					</div>
+					<ArrowHeading>Наши последние проекты</ArrowHeading>
 					<LastProjectsSwiper />
 				</div>
 			</div>

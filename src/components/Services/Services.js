@@ -1,6 +1,7 @@
 import LeftArrowSVG from "../Icons/L_Arrow"
 import ArrowSVG from "../Icons/Arrow"
 import "./Services.css"
+import { Link } from "react-router-dom"
 
 const Services = () => {
 	return (
@@ -8,7 +9,7 @@ const Services = () => {
 			<div className="breadcrumbs">
 				<LeftArrowSVG />
 				<div className="breadcrumbs-text">
-					<a href="/">Главная</a>/<a href="/services">Услуги</a>
+					<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>
 				</div>
 			</div>
 			<div className="main-content-container">
