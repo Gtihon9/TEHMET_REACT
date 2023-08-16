@@ -68,8 +68,12 @@
 	align-items: flex-start;
 	gap: 25px;
 }
-.form .form-columns input,
-.form .form-columns textarea {
+.form input,
+.form textarea {
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 16px;
 	width: 100%;
 	padding: 26px 0 21px 18px;
 	display: flex;
@@ -80,26 +84,16 @@
 	border: 1px solid #262829;
 }
 
-.form .form-columns input::placeholder,
-.form .form-columns textarea::placeholder {
+.form input::placeholder,
+.form textarea::placeholder {
 	white-space: nowrap;
 	color: var(--color-additional-text, #a0a19f);
-	font-family: Roboto, sans-serif;
+	font-family: Roboto;
 	font-size: 16px;
-	font-style: normal;
 	font-weight: 400;
-	line-height: 100%; /* 16px */
+	line-height: 16px;
 }
 
-.form .form-columns input:invalid,
-.form .form-columns textarea:invalid {
-	color: var(--color-error, #bf1308);
-	font-family: Roboto, sans-serif;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 100%; /* 12px */
-}
 .form p {
 	color: var(--color-text, #37393b);
 	font-family: Roboto, sans-serif;

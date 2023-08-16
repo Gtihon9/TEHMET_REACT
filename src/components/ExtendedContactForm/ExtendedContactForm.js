@@ -11,7 +11,7 @@ const ExtendedContactForm = () => {
 		aim: "",
 		address: "",
 		sizes: "",
-		deadline: new Date().toISOString().substring(0, 10),
+		deadline: ""
 	})
 
 	const handleChange = e => {

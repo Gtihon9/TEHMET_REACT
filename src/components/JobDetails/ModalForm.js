@@ -35,10 +35,8 @@ export const ModalForm = ({ isOpen, onClose, jobName }) => {
 	}
 
 	const onKeydown = ({ key }) => {
-		switch (key) {
-			case "Escape":
-				onClose()
-				break
+		if (key === "Escape") {
+			onClose()
 		}
 	}
 
