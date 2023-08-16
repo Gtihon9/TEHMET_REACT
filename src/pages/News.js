@@ -2,7 +2,7 @@ import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import { News } from "../components/News/News"
 
-const CompanyPage = () => {
+export const NewsPage = () => {
 	return (
 		<>
 			<Header />
@@ -13,5 +13,3 @@ const CompanyPage = () => {
 		</>
 	)
 }
-
-export default CompanyPage

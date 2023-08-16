@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import "./NewsCard.css"
 
@@ -9,7 +10,11 @@ export const NewsCard = ({ item, isHero }) => {
 				<div className="backdrop" />
 			</div>
 			<div className={`news-card-content ${isHero ? "hero" : ""}`}>
-				<Button>Подробнее</Button>
+				<Link to={`/news/${item.id}`}>
+					<Button>
+						Подробнее
+					</Button>
+				</Link>
 				<div className="news-card-info">
 					<div className="news-card-title">
 						<h1>{item.title}</h1>
