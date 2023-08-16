@@ -8,11 +8,16 @@ import SliderComponent from "../SliderComponent/SliderComponent"
 import AboutCompanyMainInfo2 from "../AboutCompanyList/AboutCompanyList"
 import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
 import "./Main.css"
+import bg_video from "../../videos/tehmet_lending.mov"
 
 const Main = () => {
 	return (
 		<main className="main-content">
 			<div className="background-container">
+				<video id="background-video" loop autoPlay muted>
+					<source src={bg_video} type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
 				<div className="main-content-container-1 container">
 					<div className="main-title">
 						<p className="main-title-text">Создание устойчивого будущего</p>

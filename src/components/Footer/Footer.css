@@ -4,6 +4,7 @@
 }
 
 .footer-content {
+	border-top: 1px solid var(--text-secondary-color);
 	display: flex;
 	flex-wrap: nowrap;
 	white-space: nowrap;
