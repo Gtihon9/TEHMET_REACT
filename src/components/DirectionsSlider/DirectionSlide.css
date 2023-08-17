@@ -1,0 +1,102 @@
+.direction-slide {
+	display: flex;
+	gap: 80px;
+}
+
+.direction-slide-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex: 1;
+}
+
+.direction-slide-header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 40px;
+}
+
+.direction-slide-header h1 {
+	font-family: Roboto;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 24px;
+	text-align: left;
+}
+
+.direction-slide-header p {
+	font-family: Roboto;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 27px;
+	text-align: left;
+}
+
+.direction-slide-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 40px;
+}
+
+.direction-slide-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.direction-slide-counter p {
+	font-family: Roboto;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 33px;
+	text-align: left;
+}
+
+.direction-slide-counter span {
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	text-align: left;
+}
+
+.direction-slide-nav-buttons {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+}
+
+.direction-slide-nav-buttons button {
+	cursor: pointer;
+}
+
+.direction-slide-footer-button {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 16px 27px;
+}
+
+.direction-slide-footer-button svg {
+	width: 29px;
+	height: 29px;
+}
+
+.direction-slide-footer-button svg path {
+	stroke: rgb(255, 255, 255);
+}
+
+.direction-slide-image {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+}
+
+.direction-slide-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

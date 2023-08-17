@@ -1,0 +1,64 @@
+.about-company-accordion {
+	display: flex;
+	align-items: flex-start;
+	gap: 62px;
+	min-height: 300px;
+}
+.about-company-accordion-buttons {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.about-company-accordion-buttons button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 42px;
+	padding: 10px 13px 10px 10px;
+	width: 100%;
+	font-family: Roboto;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 31px;
+	text-align: left;
+	border-radius: var(--rounding) var(--rounding) 0 0;
+	border-bottom: 1px solid var(--color-text);
+}
+
+.about-company-accordion-buttons button.active,
+.about-company-accordion-buttons button:hover {
+	background-color: var(--primary-color);
+	color: #ffffff;
+	border-radius: var(--rounding);
+}
+
+.about-company-accordion-buttons button svg {
+	transition: transform 0.2s ease;
+}
+
+.about-company-accordion-buttons button.active svg {
+	transform: rotate(-90deg);
+}
+
+.about-company-accordion-buttons button.active svg path,
+.about-company-accordion-buttons button:hover svg path {
+	fill: rgb(255, 255, 255);
+}
+
+.about-company-main-text {
+	max-width: 840px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+.about-company-main-text p {
+	margin: 0;
+	color: var(--color-text, #37393b);
+	font-family: Roboto, sans-serif;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 160%; /* 27.2px */
+}
