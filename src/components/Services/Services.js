@@ -13,7 +13,7 @@ const Services = () => {
 			<div className="breadcrumbs">
 				<LeftArrowSVG />
 				<div className="breadcrumbs-text">
-					<Link to="/">Главная</Link>/<Link to="/deals">Услуги</Link>
+					<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>
 				</div>
 			</div>
 			<SectionHeading

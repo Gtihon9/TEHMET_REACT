@@ -22,7 +22,7 @@ const App = () => {
 				<Route path="/news" element={<NewsPage />} />
 				<Route path="/news/:id" element={<NewsDetailsPage />} />
 				<Route path="/projects" element={<ProjectsPage />} />
-				<Route path="/deals" element={<ServicesPage />} />
+				<Route path="/services" element={<ServicesPage />} />
 				<Route path="/rent" element={<RentPage />} />
 
 				{/*Navigated to Home page if route is not defined*/}
