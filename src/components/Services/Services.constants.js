@@ -4,29 +4,6 @@ import Service3 from "../../images/DirectionSlideImage3.png"
 import Service4 from "../../images/DirectionSlideImage4.png"
 import Service5 from "../../images/DirectionSlideImage5.png"
 
-export const stats = [
-   {
-      value: "60+",
-      title: "Выполненных проектов",
-      subtitle: "В Москве и Московской области"
-   },
-   {
-      value: "50+",
-      title: "Сотрудников высшей категории",
-      subtitle: "Ответственный подход к работе"
-   },
-   {
-      value: "43+",
-      title: "Собственной техники",
-      subtitle: "Оперативность и без посредников"
-   },
-   {
-      value: "8+",
-      title: "Государственных заказов",
-      subtitle: "Нам доверяют"
-   },
-]
-
 export const services = [
    {
       title: "Снос и демонтаж",

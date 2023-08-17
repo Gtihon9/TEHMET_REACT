@@ -59,11 +59,7 @@
 }
 
 .card-image {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	max-height: 300px;
 }
 
 .card-image img {
@@ -79,5 +75,5 @@
 	left: 0;
 	right: 0;
 	content: "";
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.2);
 }

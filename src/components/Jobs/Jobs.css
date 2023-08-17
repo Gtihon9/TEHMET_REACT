@@ -1,12 +1,9 @@
 .jobs-content {
 	display: flex;
 	align-items: flex-start;
-	/* padding-left: 260px; */
 	padding-top: 25px;
 	padding-bottom: 75px;
 	justify-content: center;
-	position: relative; /* Make sure the video is positioned relative to this container */
-	flex-grow: 1;
 	flex-direction: column;
 	gap: 70px;
 	color: rgba(38, 40, 41, 1);

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Stats } from "../Stats/Stats"
-import { stats, services } from "./Services.constants"
+import { services } from "./Services.constants"
 import { ServicesItem } from "./ServicesItem"
 import "./Services.css"
 
@@ -31,7 +31,7 @@ const Services = () => {
 				style={{ maxWidth: "716px" }}
 			/>
 
-			<Stats stats={stats} />
+			<Stats />
 
 			<ArrowHeading
 				title="Мы специализируемся"
