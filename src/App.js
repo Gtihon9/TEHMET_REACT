@@ -9,6 +9,7 @@ import { ProjectsPage } from "./pages/Projects"
 import { ServicesPage } from "./pages/Services"
 import { RentPage } from "./pages/Rent"
 import { ScrollToTop } from "./utils/ScrollToTop"
+import { ServicesDetailsPage } from "./pages/ServicesDetails"
 
 const App = () => {
 	return (
@@ -23,6 +24,7 @@ const App = () => {
 				<Route path="/news/:id" element={<NewsDetailsPage />} />
 				<Route path="/projects" element={<ProjectsPage />} />
 				<Route path="/services" element={<ServicesPage />} />
+				<Route path="/services/:name" element={<ServicesDetailsPage />} />
 				<Route path="/rent" element={<RentPage />} />
 
 				{/*Navigated to Home page if route is not defined*/}

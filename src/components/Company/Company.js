@@ -52,19 +52,19 @@ const Company = () => {
 				<div className="company-block-container">
 					<ArrowHeading title="О компании" description="Предоставляет выбор ......" />
 					<div className="company-images-block">
-						<Link to="/demolition" className=" card card-1">
+						<Link to="/services/demolition" className=" card card-1">
 							<p>Снос и демонтаж</p>
 						</Link>
-						<Link to="/ground-works" className="card card-2">
+						<Link to="/services/ground-works" className="card card-2">
 							<p>Земляные работы</p>
 						</Link>
-						<Link to="/pit-developing" className="card card-3">
+						<Link to="/services/pit-developing" className="card card-3">
 							<p>Разработка и ограждение котлованов</p>
 						</Link>
-						<Link to="/recycling" className="card card-4">
+						<Link to="/services/recycling" className="card card-4">
 							<p>Рециклинг</p>
 						</Link>
-						<Link to="/renovation" className="card card-5">
+						<Link to="/services/renovation" className="card card-5">
 							<p>Реновация территорий</p>
 						</Link>
 					</div>

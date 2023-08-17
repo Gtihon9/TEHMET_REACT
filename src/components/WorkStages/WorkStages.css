@@ -1,0 +1,15 @@
+.work-stages {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 70px;
+	width: 100%;
+}
+
+.work-stages-items {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
+}
