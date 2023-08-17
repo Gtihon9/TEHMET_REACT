@@ -22,7 +22,7 @@ export const Jobs = () => {
 			/>
 
 			<div className="jobs">
-				<ArrowHeading>Новые вакансии</ArrowHeading>
+				<ArrowHeading title="Новые вакансии" />
 				<div className="jobs-list">
 					{jobsList.map(job => (
 						<JobsItem key={job.id} job={job} />

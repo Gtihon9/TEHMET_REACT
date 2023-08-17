@@ -8,7 +8,7 @@ import News3 from "../../images/news3.png"
 export const OtherNews = () => {
    return (
       <div className="other-news-container">
-         <ArrowHeading>Другие новости</ArrowHeading>
+         <ArrowHeading title="Другие новости" />
          <div className="other-news-list">
             {news.map((item) => (
                <NewsCard key={item.id} item={item} />

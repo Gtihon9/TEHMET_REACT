@@ -28,7 +28,7 @@ const Projects = () => {
 				<SectionHeading title="Проекты" description="Более 60 завершенных проектов" />
 
 				<div className="directions-container">
-					<ArrowHeading>Направления</ArrowHeading>
+					<ArrowHeading title="Направления" />
 					<div className="directions-links-block">
 						{directions.map((direction) => (
 							<button

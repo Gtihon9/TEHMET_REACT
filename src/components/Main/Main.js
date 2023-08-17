@@ -116,7 +116,7 @@ const Main = () => {
 					<AboutCompanyMainInfo2 />
 				</div>
 				<div className="about-company-container">
-					<ArrowHeading>Наши последние проекты</ArrowHeading>
+					<ArrowHeading title="Наши последние проекты" />
 					<LastProjectsSwiper />
 				</div>
 			</div>

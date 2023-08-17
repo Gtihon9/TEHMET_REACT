@@ -50,10 +50,7 @@ const Company = () => {
 					</div>
 				</div>
 				<div className="company-block-container">
-					<div className="title-block">
-						<ArrowHeading>О компании</ArrowHeading>
-						<p className="title-additional-text">Предоставляет выбор ......</p>
-					</div>
+					<ArrowHeading title="О компании" description="Предоставляет выбор ......" />
 					<div className="company-images-block">
 						<Link to="/demolition" className=" card card-1">
 							<p>Снос и демонтаж</p>
@@ -73,15 +70,14 @@ const Company = () => {
 					</div>
 				</div>
 				<div className="recycling-container">
-					<div className="title-block">
-						<ArrowHeading>Переработка материала</ArrowHeading>
-						<p className="title-additional-text" style={{ maxWidth: "926px" }}>
-							Предоставляет рациональное решение не только для подрядчика, но и является
-							оптимальным вариантом для застройщика территории. Наша команда заинтересована в
-							оптимизации процесса работы, а также в достижение результата сопровожждаемого
-							уменьшением затрат клиента
-						</p>
-					</div>
+					<ArrowHeading
+						title="Переработка материала"
+						description="Предоставляет рациональное решение не только для подрядчика, но и является
+						оптимальным вариантом для застройщика территории. Наша команда заинтересована в
+						оптимизации процесса работы, а также в достижение результата сопровожждаемого
+						уменьшением затрат клиента"
+						style={{ maxWidth: "926px" }}
+					/>
 					<div className="recycling-info-block">
 						<VerticalLineSVG />
 
@@ -126,13 +122,12 @@ const Company = () => {
 					</div>
 				</div>
 				<div className="stats-container">
-					<div className="title-block">
-						<ArrowHeading>Цифры о нас</ArrowHeading>
-						<p className="title-additional-text" style={{ maxWidth: "716px" }}>
-							Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
-							стремление к совершенству, делая компанию конкурентно способной рынке.
-						</p>
-					</div>
+					<ArrowHeading
+						title="Цифры о нас"
+						description="Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
+						стремление к совершенству, делая компанию конкурентно способной рынке."
+						style={{ maxWidth: "716px" }}
+					/>
 					<div className="stats-main-content-container">
 						<div className="stats-block">
 							<div className="count">
@@ -172,13 +167,10 @@ const Company = () => {
 						</div>
 					</div>
 					<div className="rent-container">
-						<div className="title-block">
-							<ArrowHeading>Аренда техники</ArrowHeading>
-
-							<p className="title-additional-text">
-								Предоставление техники под нужды юредическим или физическим лиц
-							</p>
-						</div>
+						<ArrowHeading
+							title="Аренда техники"
+							description="Предоставление техники под нужды юредическим или физическим лиц"
+						/>
 						<div className="rent-main-content-container">
 							<a href="" className="rent-card">
 								<p>Название</p>

@@ -44,12 +44,10 @@ const ExtendedContactForm = () => {
 	return (
 		<div className="main-content-container-3 container">
 			<div className="form-main-content">
-				<div className="title-block">
-					<ArrowHeading>Получите коммерческое предложение</ArrowHeading>
-					<p className="title-additional-text">
-						Опишите свой объект для лучшего расчета работы и выгодного решения
-					</p>
-				</div>
+				<ArrowHeading
+					title="Получите коммерческое предложение"
+					description="Опишите свой объект для лучшего расчета работы и выгодного решения"
+				/>
 				<div className="content">
 					<p>
 						Подробное описание объекта, для грядущей работе, поможет обеспечить эффективность
