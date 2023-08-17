@@ -1,83 +1,53 @@
 import LeftArrowSVG from "../Icons/L_Arrow"
-import ArrowSVG from "../Icons/Arrow"
-import "./Services.css"
 import { Link } from "react-router-dom"
+import { SectionHeading } from "../SectionHeading/SectionHeading"
+import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
+import { Stats } from "../Stats/Stats"
+import { stats, services } from "./Services.constants"
+import { ServicesItem } from "./ServicesItem"
+import "./Services.css"
 
 const Services = () => {
 	return (
-		<main className="main-content">
+		<main className="container services-content">
 			<div className="breadcrumbs">
 				<LeftArrowSVG />
 				<div className="breadcrumbs-text">
-					<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>
+					<Link to="/">Главная</Link>/<Link to="/deals">Услуги</Link>
 				</div>
 			</div>
-			<div className="main-content-container">
-				<div className="cervices">
-					<div className="main-title-container">
-						<div className="main-title">
-							<p className="title">Наш каталог услуг</p>
-							<p className="sub-title" style={{ maxWidth: "1050px" }}>
-								Наша команда профессионалов способна справиться с проектами любого масштаба.
-								Мы предлагаем широкий спектр услуг, выборочные внутренние, наружные и спектр
-								работ в близко прилегающей территорий к строениям
-							</p>
-						</div>
-						<div className="stats-container">
-							<div className="title-block">
-								<div className="title">
-									<ArrowSVG />
-									<p className="title-text">Почему нас выбирают</p>
-								</div>
-								<p className="title-additional-text" style={{ maxWidth: "716px" }}>
-									Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
-									стремление к совершенству, делая компанию конкурентно способной рынке.
-								</p>
-							</div>
-							<div className="stats-main-content-container">
-								<div className="stats-block">
-									<div className="count">
-										<p>60+</p>
-									</div>
-									<div className="info">
-										<p className="title">Выполненных проектов</p>
-										<p className="sub-title">В Москве и Московской области</p>
-									</div>
-								</div>
-								<div className="stats-block">
-									<div className="count">
-										<p>50+</p>
-									</div>
-									<div className="info">
-										<p className="title">Сотрудников высшей категории</p>
-										<p className="sub-title">Ответственный подход к работе</p>
-									</div>
-								</div>
-								<div className="stats-block">
-									<div className="count">
-										<p>43+</p>
-									</div>
-									<div className="info">
-										<p className="title">Собственной техники</p>
-										<p className="sub-title">Оперативность и без посредников</p>
-									</div>
-								</div>
-								<div className="stats-block">
-									<div className="count">
-										<p>8+</p>
-									</div>
-									<div className="info">
-										<p className="title">Государственных заказов</p>
-										<p className="sub-title">Нам доверяют</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<SectionHeading
+				title="Наш каталог услуг"
+				description="Наша команда профессионалов способна справиться с проектами любого масштаба.
+					Мы предлагаем широкий спектр услуг, выборочные внутренние, наружные и спектр
+					работ в близко прилегающей территорий к строениям"
+				style={{ maxWidth: 1050 }}
+			/>
+
+			<ArrowHeading
+				title="Почему нас выбирают"
+				description="Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
+					стремление к совершенству, делая компанию конкурентно способной рынке."
+				style={{ maxWidth: "716px" }}
+			/>
+
+			<Stats stats={stats} />
+
+			<ArrowHeading
+				title="Мы специализируемся"
+				description="Имея широкий спектр услуг, мы акцентируем наше внимание на качестве и надежности в работе с вами. Наша команда гордится мастерством и вниманием к деталям, с которыми мы подходим к каждому проекту. Приоритетным направлением нашей работы является предоставление исключительных услуг, однако мы также придерживаемся принципов ответственного отношения к окружающей среде."
+				style={{ marginTop: 90, maxWidth: 720 }}
+			/>
+
+			<div className="services-list">
+				{services.map((service) => (
+					<ServicesItem key={service.title} service={service} />
+				))}
 			</div>
+
 		</main>
 	)
 }
 
 export default Services
+
