@@ -15,14 +15,6 @@ import "./ImageSwiper.css"
 
 export const ImageSwiper = () => {
    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-   const amountOfThumbs = useBreakpointValue({
-      sm: 2,
-      md: 3,
-      lg: 4,
-      xl: 5
-   })
-
    const isDesktop = useBreakpointValue({
       xs: false,
       sm: false,
@@ -30,8 +22,6 @@ export const ImageSwiper = () => {
       lg: true,
       xl: true
    })
-
-   console.log(isDesktop);
 
    return (
       <div className="news-details-images">
@@ -46,6 +36,7 @@ export const ImageSwiper = () => {
             pagination={{ clickable: true }}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[Pagination, Navigation, Thumbs, A11y]}
+            autoHeight
             className="main-swiper"
          >
             {images.map((item) => (
@@ -58,10 +49,20 @@ export const ImageSwiper = () => {
             <Swiper
                onSwiper={setThumbsSwiper}
                spaceBetween={10}
-               slidesPerView={amountOfThumbs}
                watchSlidesProgress={true}
                modules={[Navigation, Thumbs]}
                className="thumbs-swiper"
+               breakpoints={{
+                  320: {
+                     slidesPerView: 2,
+                  },
+                  640: {
+                     slidesPerView: 3,
+                  },
+                  1280: {
+                     slidesPerView: 4,
+                  }
+               }}
             >
                {images.map((item) => (
                   <SwiperSlide>

@@ -5,7 +5,6 @@
 }
 
 .main-swiper {
-	height: 600px;
 	user-select: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -44,7 +43,7 @@
 	opacity: 1;
 }
 
-@media only screen and (max-width: 1260px) {
+/* @media only screen and (max-width: 1260px) {
 	.main-swiper {
 		height: 400px;
 	}
@@ -54,4 +53,4 @@
 	.main-swiper {
 		height: 240px;
 	}
-}
+} */
