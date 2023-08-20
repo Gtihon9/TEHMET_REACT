@@ -56,16 +56,16 @@ const Footer = () => {
 					<div className="footer-column-name">Направления комании</div>
 					<ul>
 						<li>
-							<Link to="/demolition">Снос и демонтаж</Link>
+							<Link to="/services/demolition">Снос и демонтаж</Link>
 						</li>
 						<li>
-							<Link to="/pit-developing">Разработка и ограждение котлованов</Link>
+							<Link to="/services/pit-developing">Разработка и ограждение котлованов</Link>
 						</li>
 						<li>
-							<Link to="/renovation">Реновация территории</Link>
+							<Link to="/services/renovation">Реновация территории</Link>
 						</li>
 						<li>
-							<Link to="/recycling">Рециклинг</Link>
+							<Link to="services/recycling">Рециклинг</Link>
 						</li>
 						<li>
 							<Link to="/rent">Аренда</Link>
