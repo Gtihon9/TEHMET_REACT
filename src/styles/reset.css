@@ -23,4 +23,9 @@ h6 {
 
 a {
 	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	font-family: inherit;
 }

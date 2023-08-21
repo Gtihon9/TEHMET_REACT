@@ -9,12 +9,12 @@ export const ServicesItem = ({ service }) => {
       <div className="services-item">
          <div className="services-item-content">
             <ArrowHeading title={service.title} description={service.description} />
-            <Link to={service.link}>
-               <Button className="services-item-content-button">
+            <Button className="services-item-content-button">
+               <Link to={service.link}>
                   Подробнее
-                  <ShareIcon />
-               </Button>
-            </Link>
+               </Link>
+               <ShareIcon />
+            </Button>
          </div>
          <div className="services-item-image">
             <img alt={service.title} src={service.image} />

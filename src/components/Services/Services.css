@@ -20,5 +20,11 @@
 @media screen and (max-width: 1216px) {
 	.services-content {
 		gap: 35px;
+		padding-bottom: 42px;
+	}
+
+	.services-list {
+		gap: 60px;
+		margin-top: 25px;
 	}
 }

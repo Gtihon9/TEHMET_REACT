@@ -53,3 +53,19 @@ body {
 	line-height: normal;
 	text-decoration: none;
 }
+
+.section {
+	margin-top: 90px;
+}
+
+@media screen and (max-width: 1216px) {
+	.section {
+		margin-top: 55px;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.section {
+		margin-top: 25px;
+	}
+}
