@@ -28,6 +28,10 @@
 }
 
 .services-item-content-button {
+	width: 100%;
+}
+
+.services-item-content-button button {
 	padding: 16px 16px 16px 27px;
 	display: flex;
 	align-items: center;
@@ -54,7 +58,7 @@
 		gap: 10px;
 	}
 
-	.services-item-content-button {
+	.services-item-content-button button {
 		margin-top: 25px;
 		width: 100%;
 	}
