@@ -1,9 +1,9 @@
 import ArrowSVG from "../Icons/Arrow"
 import "./ArrowHeading.css"
 
-export const ArrowHeading = ({ title, description, ...props }) => {
+export const ArrowHeading = ({ title, description, className, ...props }) => {
 	return (
-		<div className="arrow-heading" {...props}>
+		<div className={`arrow-heading ${className ? className : ""}`} {...props}>
 			<div className="arrow-heading-main">
 				<ArrowSVG />
 				<h2>{title}</h2>
