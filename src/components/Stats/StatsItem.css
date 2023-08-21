@@ -26,3 +26,9 @@
 	line-height: 19px;
 	color: var(--text-secondary-color);
 }
+
+@media screen and (max-width: 690px) {
+	.stat-item {
+		gap: 5px;
+	}
+}
