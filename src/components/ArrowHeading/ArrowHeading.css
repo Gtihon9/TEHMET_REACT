@@ -11,10 +11,6 @@
 	gap: 3px;
 }
 
-.arrow-heading-main svg {
-	align-self: flex-start;
-}
-
 .arrow-heading h2 {
 	font-family: Roboto;
 	font-size: 34px;
@@ -43,5 +39,9 @@
 	.arrow-heading p {
 		font-size: 16px;
 		line-height: 26px;
+	}
+
+	.arrow-heading-main svg {
+		align-self: flex-start;
 	}
 }
