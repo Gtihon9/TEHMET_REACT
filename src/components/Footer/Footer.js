@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
-import Logo from "../../images/logo.png"
-import LogoText from "../../images/logoText.png"
+import { Logo } from "../Logo/Logo"
 import "./Footer.css"
 
 const Footer = () => {
@@ -9,27 +8,18 @@ const Footer = () => {
 			<div className="container">
 				<div className="footer-content">
 					<div className="footer-column">
-						<div className="logo">
-							<div className="logo-wrapper">
-								<img className="logo-image" src={Logo} alt="Logo" />
-								<img className="logo-image-text" src={LogoText} alt="Logo Text" />
-							</div>
-						</div>
+						<Logo />
 						<div className="address-info">
 							<p>
-								Московская область, городской округ Химки,
-								<br />
-								город Химки, улица Рабочая, д. 2А,
-								<br />
-								кабинет 13.
+								Московская область, городской округ Химки, город Химки, улица Рабочая, д. 2А, кабинет 13.
 							</p>
 							<p>+7-916-900-42-55</p>
 							<p>fdv240@gmail.com</p>
 						</div>
 					</div>
 					<div className="footer-column">
-						<div className="footer-column-name">Компания</div>
-						<ul>
+						<h2>Компания</h2>
+						<ul className="footer-column-list">
 							<li>
 								<Link to="/company">О компании</Link>
 							</li>
@@ -54,8 +44,8 @@ const Footer = () => {
 						</ul>
 					</div>
 					<div className="footer-column">
-						<div className="footer-column-name">Направления комании</div>
-						<ul>
+						<h2>Направления комании</h2>
+						<ul className="footer-column-list">
 							<li>
 								<Link to="/services/demolition">Снос и демонтаж</Link>
 							</li>
@@ -74,17 +64,17 @@ const Footer = () => {
 						</ul>
 					</div>
 					<div className="footer-column">
-						<div className="footer-column-name">ООО «Техметсервис»</div>
+						<h2>ООО «Техметсервис»</h2>
 						<div className="address-info">
-							<p className="address-line-1">ОГРН 1035009566822</p>
-							<p className="address-line-2">ИНН 5047048624</p>
+							<p>ОГРН 1035009566822</p>
+							<p>ИНН 5047048624</p>
 							<Link to="/conf">Политика конфиденциальности</Link>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="footer-company">
-				<p>© 2023 Разработчик.</p>
+				<p>&copy; 2023 Разработчик.</p>
 			</div>
 		</footer>
 	)

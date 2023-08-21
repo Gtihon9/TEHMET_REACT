@@ -17,22 +17,6 @@
 	padding-bottom: 9px;
 }
 
-.logo {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-}
-
-.logo-image {
-	width: 48px;
-	height: 60px;
-}
-
-.logo-image-text {
-	width: 127px;
-	height: 23px;
-}
-
 .nav-links {
 	padding: 0;
 	display: flex;

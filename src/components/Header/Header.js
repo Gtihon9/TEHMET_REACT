@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react"
-import Logo from "../../images/logo.png"
-import LogoText from "../../images/logoText.png"
 import { PhoneIcon } from "../Icons/PhoneIcon"
 import { PhoneIconMobile } from "../Icons/PhoneIconMobile"
 import MenuIconOpened from "../Icons/MenuIconOpened"
@@ -8,6 +6,7 @@ import MenuIconClosed from "../Icons/MenuIconClosed"
 import "./Header.css"
 import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
+import { Logo } from "../Logo/Logo"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -48,10 +47,7 @@ const Header = () => {
 		<header className="header">
 			<div className="container">
 				<div className="header-container">
-					<Link to="/" className="logo">
-						<img className="logo-image" src={Logo} alt="Logo" />
-						<img className="logo-image-text" src={LogoText} alt="Logo Text" />
-					</Link>
+					<Logo />
 					<nav className="header-navigation">
 						<ul className="nav-links">
 							<li>

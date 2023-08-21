@@ -1,0 +1,27 @@
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.logo-image {
+	width: 48px;
+	height: 60px;
+}
+
+.logo-image-text {
+	width: 127px;
+	height: 23px;
+}
+
+@media screen and (max-width: 931px) {
+	.logo-image {
+		width: 35px;
+		height: 44px;
+	}
+
+	.logo-image-text {
+		width: 94px;
+		height: 17px;
+	}
+}

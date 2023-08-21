@@ -7,9 +7,9 @@ export const ServicesPage = () => {
 		<>
 			<Header />
 
-			{/* <Services /> */}
+			<Services />
 
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	)
 }
