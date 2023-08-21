@@ -16,3 +16,9 @@
 	justify-content: center;
 	gap: 160px;
 }
+
+@media screen and (max-width: 1216px) {
+	.services-content {
+		gap: 35px;
+	}
+}
