@@ -3,7 +3,6 @@
 	flex-direction: column;
 	gap: 20px;
 	width: 100%;
-	max-width: 300px;
 }
 
 .work-stages-header {
@@ -34,4 +33,5 @@
 	line-height: 26px;
 	text-align: left;
 	color: var(--text-color);
+	max-width: 310px;
 }

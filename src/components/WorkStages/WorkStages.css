@@ -7,9 +7,25 @@
 }
 
 .work-stages-items {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 	width: 100%;
+	column-gap: 66px;
+	row-gap: 66px;
+}
+
+@media screen and (max-width: 1216px) {
+	.work-stages-items {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.work-stages {
+		gap: 35px;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.work-stages-items {
+		grid-template-columns: 1fr;
+	}
 }
