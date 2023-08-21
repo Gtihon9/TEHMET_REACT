@@ -24,46 +24,48 @@ export const News = () => {
 	}
 
 	return (
-		<main className="container news-content">
-			<div className="breadcrumbs">
-				<LeftArrowSVG />
-				<div className="breadcrumbs-text">
-					<Link to="/">Главная</Link>/<Link to="/news">Новости</Link>
+		<main className="container">
+			<div className="news-content">
+				<div className="breadcrumbs">
+					<LeftArrowSVG />
+					<div className="breadcrumbs-text">
+						<Link to="/">Главная</Link>/<Link to="/news">Новости</Link>
+					</div>
 				</div>
-			</div>
 
-			<SectionHeading title="Новости" description="Новости нашей компании" />
+				<SectionHeading title="Новости" description="Новости нашей компании" />
 
-			<div className="news-big-container">
-				<NewsCard item={news[0]} isHero />
-				<div className="news-small-container">
-					{news.slice(1, news.length).map(item => (
-						<NewsCard key={item.title} item={item} />
+				<div className="news-big-container">
+					<NewsCard item={news[0]} isHero />
+					<div className="news-small-container">
+						{news.slice(1, news.length).map(item => (
+							<NewsCard key={item.title} item={item} />
+						))}
+					</div>
+				</div>
+
+				<div className="news-list">
+					{Array.from({ length: 10 }, () => Object.assign({}, news[1])).map((item, index) => (
+						<NewsCard key={item.id + item.title + index} item={item} />
 					))}
 				</div>
-			</div>
 
-			<div className="news-list">
-				{Array.from({ length: 10 }, () => Object.assign({}, news[1])).map((item, index) => (
-					<NewsCard key={item.id + item.title + index} item={item} />
-				))}
+				<ReactPaginate
+					breakLabel="..."
+					nextLabel={<RightArrowSvg />}
+					previousLabel={<LeftArrowSVG />}
+					containerClassName="news-pagination"
+					nextClassName="news-pagination-next-button"
+					previousClassName="news-pagination-prev-button"
+					pageClassName="news-pagination-page"
+					onPageChange={onPageChange}
+					pageRangeDisplayed={3}
+					pageCount={12}
+					initialPage={page}
+					disableInitialCallback
+					renderOnZeroPageCount={null}
+				/>
 			</div>
-
-			<ReactPaginate
-				breakLabel="..."
-				nextLabel={<RightArrowSvg />}
-				previousLabel={<LeftArrowSVG />}
-				containerClassName="news-pagination"
-				nextClassName="news-pagination-next-button"
-				previousClassName="news-pagination-prev-button"
-				pageClassName="news-pagination-page"
-				onPageChange={onPageChange}
-				pageRangeDisplayed={3}
-				pageCount={12}
-				initialPage={page}
-				disableInitialCallback
-				renderOnZeroPageCount={null}
-			/>
 		</main>
 	)
 }

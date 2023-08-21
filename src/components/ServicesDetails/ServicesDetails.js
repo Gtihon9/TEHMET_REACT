@@ -25,8 +25,8 @@ export const ServicesDetails = () => {
    const details = servicesDetails[name]
 
    return (
-      <>
-         <main className="container services-details-content">
+      <main className="container">
+         <div className="services-details-content">
             <div className="breadcrumbs">
                <LeftArrowSVG />
                <div className="breadcrumbs-text">
@@ -75,10 +75,10 @@ export const ServicesDetails = () => {
                </Swiper>
             </div>
 
-         </main>
+         </div>
          <div className="background-container-2">
             <ExtendedContactForm />
          </div>
-      </>
+      </main>
    )
 }

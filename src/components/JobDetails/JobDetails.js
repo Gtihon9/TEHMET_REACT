@@ -11,8 +11,8 @@ export const JobDetails = () => {
 	const { id } = useParams()
 
 	return (
-		<>
-			<main className="container job-details-content">
+		<main className="container">
+			<div className="job-details-content">
 				<div className="breadcrumbs">
 					<LeftArrowSVG />
 					<div className="breadcrumbs-text">
@@ -97,9 +97,9 @@ export const JobDetails = () => {
 						</div>
 					</div>
 				</div>
-			</main>
+			</div>
 			<ModalForm isOpen={isOpen} onClose={onClose} jobName={"Монтажник"} />
-		</>
+		</main>
 	)
 }
 

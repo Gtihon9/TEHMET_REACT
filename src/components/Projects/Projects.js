@@ -19,32 +19,36 @@ const Projects = () => {
 
 	return (
 		<main className="projects-content">
-			<div className="breadcrumbs container">
-				<LeftArrowSVG />
-				<div className="breadcrumbs-text">
-					<Link to="/">Главная</Link>/<Link to="/projects">Проекты</Link>
-				</div>
-			</div>
-			<div className="projects container">
-				<SectionHeading title="Проекты" description="Более 60 завершенных проектов" />
-
-				<div className="directions-container">
-					<ArrowHeading title="Направления" />
-					<div className="directions-links-block">
-						{directions.map((direction) => (
-							<button
-								key={direction.id}
-								className={`link ${initialDirection === direction.value ? "active" : ""}`}
-								onClick={() => onDirectionClick(direction.value)}
-							>
-								<p>{direction.name}</p>
-							</button>
-						))}
-
+			<div className="container">
+				<div className="breadcrumbs">
+					<LeftArrowSVG />
+					<div className="breadcrumbs-text">
+						<Link to="/">Главная</Link>/<Link to="/projects">Проекты</Link>
 					</div>
 				</div>
-				<div className="content-container">
-					<ProjectsList />
+			</div>
+			<div className="container">
+				<div className="projects">
+					<SectionHeading title="Проекты" description="Более 60 завершенных проектов" />
+
+					<div className="directions-container">
+						<ArrowHeading title="Направления" />
+						<div className="directions-links-block">
+							{directions.map((direction) => (
+								<button
+									key={direction.id}
+									className={`link ${initialDirection === direction.value ? "active" : ""}`}
+									onClick={() => onDirectionClick(direction.value)}
+								>
+									<p>{direction.name}</p>
+								</button>
+							))}
+
+						</div>
+					</div>
+					<div className="content-container">
+						<ProjectsList />
+					</div>
 				</div>
 			</div>
 			<div className="background-container-2">

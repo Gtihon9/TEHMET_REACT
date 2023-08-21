@@ -7,26 +7,28 @@ import "./Jobs.css"
 
 export const Jobs = () => {
 	return (
-		<main className="container jobs-content">
-			<div className="breadcrumbs">
-				<LeftArrowSVG />
-				<div className="breadcrumbs-text">
-					<Link to="/">Главная</Link>/<Link to="/jobs">Вакансии</Link>
+		<main className="container">
+			<div className="jobs-content">
+				<div className="breadcrumbs">
+					<LeftArrowSVG />
+					<div className="breadcrumbs-text">
+						<Link to="/">Главная</Link>/<Link to="/jobs">Вакансии</Link>
+					</div>
 				</div>
-			</div>
-			<SectionHeading
-				title={"Вакансии в Техметсервис"}
-				description={
-					"Наша компания постоянно растет и мы заинтересованы в поиске хороших сотрудников в нашу команду"
-				}
-			/>
+				<SectionHeading
+					title={"Вакансии в Техметсервис"}
+					description={
+						"Наша компания постоянно растет и мы заинтересованы в поиске хороших сотрудников в нашу команду"
+					}
+				/>
 
-			<div className="jobs">
-				<ArrowHeading title="Новые вакансии" />
-				<div className="jobs-list">
-					{jobsList.map(job => (
-						<JobsItem key={job.id} job={job} />
-					))}
+				<div className="jobs">
+					<ArrowHeading title="Новые вакансии" />
+					<div className="jobs-list">
+						{jobsList.map(job => (
+							<JobsItem key={job.id} job={job} />
+						))}
+					</div>
 				</div>
 			</div>
 		</main>

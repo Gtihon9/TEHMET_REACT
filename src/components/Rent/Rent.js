@@ -11,26 +11,28 @@ import Catalog4 from "../../images/catalog4.png"
 
 export const Rent = () => {
 	return (
-		<main className="container rent-content">
-			<div className="breadcrumbs">
-				<LeftArrowSVG />
-				<div className="breadcrumbs-text">
-					<Link to="/">Главная</Link>/<Link to="/rent">Аренда спецтехники</Link>
+		<main className="container">
+			<div className="rent-content">
+				<div className="breadcrumbs">
+					<LeftArrowSVG />
+					<div className="breadcrumbs-text">
+						<Link to="/">Главная</Link>/<Link to="/rent">Аренда спецтехники</Link>
+					</div>
 				</div>
-			</div>
 
-			<SectionHeading
-				title="Аренда спецтехники"
-				description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
-				style={{ maxWidth: 1250 }}
-			/>
+				<SectionHeading
+					title="Аренда спецтехники"
+					description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
+					style={{ maxWidth: 1250 }}
+				/>
 
-			<ArrowHeading title="Каталог спецтехники" />
+				<ArrowHeading title="Каталог спецтехники" />
 
-			<div className="rent-catalog">
-				{catalog.map(item => (
-					<RentItem key={item.id} item={item} />
-				))}
+				<div className="rent-catalog">
+					{catalog.map(item => (
+						<RentItem key={item.id} item={item} />
+					))}
+				</div>
 			</div>
 		</main>
 	)

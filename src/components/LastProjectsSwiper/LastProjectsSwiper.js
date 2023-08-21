@@ -21,8 +21,6 @@ const LastProjectsSwiper = () => {
 		}
 	}
 
-	console.log(slideNumber);
-
 	return (
 		<div className="last-projects">
 			<Swiper
