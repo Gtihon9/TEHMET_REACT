@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
-import phoneIcon from "../../images/phone-icon.svg"
 import Logo from "../../images/logo.png"
 import LogoText from "../../images/logoText.png"
-import PhoneIconMobile from "../../images/phone-icon-mobile.png"
+import { PhoneIcon } from "../Icons/PhoneIcon"
+import { PhoneIconMobile } from "../Icons/PhoneIconMobile"
 import MenuIconOpened from "../Icons/MenuIconOpened"
 import MenuIconClosed from "../Icons/MenuIconClosed"
 import "./Header.css"
 import { Link } from "react-router-dom"
+import { Button } from "../Button/Button"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -45,85 +46,77 @@ const Header = () => {
 
 	return (
 		<header className="header">
-			<div className="header-container container">
-				<div className="logo">
-					<div className="logo-wrapper">
-						<Link to="/" style={{ display: "contents" }}>
-							<img className="logo-image" src={Logo} alt="Logo" />
-							<img className="logo-image-text" src={LogoText} alt="Logo Text" />
+			<div className="container">
+				<div className="header-container">
+					<Link to="/" className="logo">
+						<img className="logo-image" src={Logo} alt="Logo" />
+						<img className="logo-image-text" src={LogoText} alt="Logo Text" />
+					</Link>
+					<nav className="header-navigation">
+						<ul className="nav-links">
+							<li>
+								<Link to="/company">О компании</Link>
+							</li>
+							<li>
+								<Link to="/projects">Проекты</Link>
+							</li>
+							<li>
+								<Link to="/services">Услуги</Link>
+							</li>
+							<li>
+								<Link to="/rent">Аренда</Link>
+							</li>
+							<li>
+								<Link to="/news">Новости</Link>
+							</li>
+							<li>
+								<Link to="/jobs">Вакансии</Link>
+							</li>
+						</ul>
+					</nav>
+					<div className="header-actions">
+						<Link to="/contact-us">
+							{isMobileScreen ? (
+								<button className="header-actions-contact-mobile">
+									<PhoneIconMobile />
+								</button>
+							) : (
+								<Button className="header-actions-contact">
+									<PhoneIcon />
+									<span>+7-916-900-42-55</span>
+								</Button>
+							)}
 						</Link>
+						<div className="mobile-menu-container">
+							<div className="menu-icon" onClick={handleMobileMenuToggle}>
+								{showMobileMenu ? <MenuIconClosed /> : <MenuIconOpened />}
+							</div>
+							{showMobileMenu && (
+								<nav className={`mobile-nav-links ${menuAnimation ? "slide-in" : "slide-out"}`}>
+									<ul>
+										<li>
+											<Link to="/company">О компании</Link>
+										</li>
+										<li>
+											<Link to="/projects">Проекты</Link>
+										</li>
+										<li>
+											<Link to="/services">Услуги</Link>
+										</li>
+										<li>
+											<Link to="/rent">Аренда</Link>
+										</li>
+										<li>
+											<Link to="/news">Новости</Link>
+										</li>
+										<li>
+											<Link to="/jobs">Вакансии</Link>
+										</li>
+									</ul>
+								</nav>
+							)}
+						</div>
 					</div>
-				</div>
-				<nav>
-					<ul className="nav-links">
-						<li>
-							<Link to="/company">О компании</Link>
-						</li>
-						<li>
-							<Link to="/projects">Проекты</Link>
-						</li>
-						<li>
-							<Link to="/services">Услуги</Link>
-						</li>
-						<li>
-							<Link to="/rent">Аренда</Link>
-						</li>
-						<li>
-							<Link to="/news">Новости</Link>
-						</li>
-						<li>
-							<Link to="/jobs">Вакансии</Link>
-						</li>
-					</ul>
-				</nav>
-				<div className="contact-info">
-					<div className="contact-info-container">
-						{isMobileScreen ? (
-							<Link to="/contact-us">
-								<img
-									src={PhoneIconMobile}
-									className="phone-icon-button"
-									alt="Phone Icon Mobile"
-								/>
-							</Link>
-						) : (
-							<>
-								<img src={phoneIcon} className="phone-icon" alt="Phone Icon" />
-								<Link to="/contact-us" className="contact-info-text">
-									+7-916-900-42-55
-								</Link>
-							</>
-						)}
-					</div>
-				</div>
-				<div className="mobile-menu-container">
-					<div className="menu-icon" onClick={handleMobileMenuToggle}>
-						{showMobileMenu ? <MenuIconClosed /> : <MenuIconOpened />}
-					</div>
-					{showMobileMenu && (
-						<nav className={`mobile-nav-links ${menuAnimation ? "slide-in" : "slide-out"}`}>
-							<ul>
-								<li>
-									<Link to="/company">О компании</Link>
-								</li>
-								<li>
-									<Link to="/projects">Проекты</Link>
-								</li>
-								<li>
-									<Link to="/services">Услуги</Link>
-								</li>
-								<li>
-									<Link to="/rent">Аренда</Link>
-								</li>
-								<li>
-									<Link to="/news">Новости</Link>
-								</li>
-								<li>
-									<Link to="/jobs">Вакансии</Link>
-								</li>
-							</ul>
-						</nav>
-					)}
 				</div>
 			</div>
 		</header>
