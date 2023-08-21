@@ -1,4 +1,3 @@
-import ArrowSVG from "../Icons/Arrow"
 import AboutCompany1 from "../../images/about-company-1.png"
 import AboutCompany2 from "../../images/about-company-2.png"
 import AboutCompany3 from "../../images/about-company-3.png"

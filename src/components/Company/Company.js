@@ -1,5 +1,4 @@
 import LeftArrowSVG from "../Icons/L_Arrow"
-import VerticalLineSVG from "../Icons/VerticalLine"
 import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
