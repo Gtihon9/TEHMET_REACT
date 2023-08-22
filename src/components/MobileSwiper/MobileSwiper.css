@@ -1,0 +1,14 @@
+.mobile-swiper .swiper-pagination {
+	position: static;
+	margin-top: 10px;
+}
+
+.mobile-swiper .swiper-pagination-bullet {
+	border-radius: 0px;
+	height: 10px;
+	width: 10px;
+}
+
+.mobile-swiper .swiper-pagination-bullet-active {
+	background: var(--primary-color);
+}
