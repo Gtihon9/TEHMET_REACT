@@ -6,6 +6,8 @@ import { useDisclosure } from "../../hooks/useDisclosure"
 import { ModalForm } from "./ModalForm"
 import "./JobDetails.css"
 import { motion } from "framer-motion"
+import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { SwiperSlide } from "swiper/react"
 
 export const JobDetails = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
@@ -100,6 +102,15 @@ export const JobDetails = () => {
 								{moreJobs.map(job => (
 									<JobMiniItem key={job.id} job={job} />
 								))}
+							</div>
+							<div className="job-details-more-list-mobile">
+								<MobileSwiper>
+									{moreJobs.map(job => (
+										<SwiperSlide key={job.id}>
+											<JobMiniItem job={job} />
+										</SwiperSlide>
+									))}
+								</MobileSwiper>
 							</div>
 						</div>
 					</div>

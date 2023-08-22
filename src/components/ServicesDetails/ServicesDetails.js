@@ -9,6 +9,7 @@ import { WorkStages } from "../WorkStages/WorkStages"
 import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { OtherStages } from "./OtherStages"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
 
 export const ServicesDetails = () => {
@@ -44,7 +45,13 @@ export const ServicesDetails = () => {
                </div>
 
                <div className="works-stages-gallery-mobile">
-                  <MobileSwiper images={details.images} />
+                  <MobileSwiper>
+                     {details.images.map((image, index) => (
+                        <SwiperSlide key={index}>
+                           <img src={image} />
+                        </SwiperSlide>
+                     ))}
+                  </MobileSwiper>
                </div>
 
                <OtherStages />

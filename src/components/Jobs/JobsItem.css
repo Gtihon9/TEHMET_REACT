@@ -91,3 +91,23 @@
 	font-weight: 400;
 	line-height: 16px;
 }
+
+@media screen and (max-width: 690px) {
+	.jobs-item {
+		padding: 20px;
+	}
+
+	.jobs-item-header-contacts {
+		display: none;
+	}
+
+	.jobs-item-info {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+
+	.jobs-item-footer {
+		margin-top: 40px;
+	}
+}

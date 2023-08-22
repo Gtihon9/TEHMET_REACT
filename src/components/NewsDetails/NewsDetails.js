@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom"
 import { OtherNews } from "./OtherNews"
 import { ImageSwiper } from "./ImageSwiper"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { SwiperSlide } from "swiper/react"
 import { newsImages } from "./NewsDetails.constants"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
@@ -38,7 +39,13 @@ export const NewsDetails = () => {
                   </div>
 
                   <div className="news-details-swiper-wrapper-mobile">
-                     <MobileSwiper images={newsImages.map(({ imageUrl }) => imageUrl)} />
+                     <MobileSwiper>
+                        {newsImages.map((image, index) => (
+                           <SwiperSlide key={index}>
+                              <img src={image.imageUrl} />
+                           </SwiperSlide>
+                        ))}
+                     </MobileSwiper>
                   </div>
 
                   <div className="news-details-body">

@@ -1,10 +1,10 @@
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper } from "swiper/react"
 import { Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 import "./MobileSwiper.css"
 
-export const MobileSwiper = ({ images }) => {
+export const MobileSwiper = ({ children }) => {
    return (
       <Swiper
          className="mobile-swiper"
@@ -14,12 +14,9 @@ export const MobileSwiper = ({ images }) => {
          pagination={{
             clickable: true
          }}
+         slidesPerView={1}
       >
-         {images.map((image, index) => (
-            <SwiperSlide key={index}>
-               <img src={image} />
-            </SwiperSlide>
-         ))}
+         {children}
       </Swiper>
    )
 }

@@ -48,3 +48,10 @@
 	gap: 45px;
 	width: 100%;
 }
+
+@media screen and (max-width: 1216px) {
+	.jobs-content {
+		gap: 40px;
+		padding-bottom: 38px;
+	}
+}
