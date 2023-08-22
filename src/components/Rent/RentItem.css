@@ -1,30 +1,29 @@
 .rent-item {
 	display: flex;
-	align-items: flex-start;
+	justify-content: space-between;
 	padding-bottom: 20px;
 	border-bottom: 1px solid var(--text-color);
 }
 
 .rent-item-content {
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+	gap: 64px;
 	width: 100%;
 }
 
 .rent-item-image {
-	width: auto;
-	height: 240px;
+	width: 100%;
+	height: auto;
 	object-fit: cover;
-	margin-right: 60px;
 	border-radius: 2px;
+	max-width: 360px;
 }
 
 .rent-item-heading {
 	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
+	flex-direction: column;
 	width: 100%;
+	gap: 53px;
 }
 
 .rent-item-heading p {
@@ -38,6 +37,7 @@
 	display: flex;
 	align-items: center;
 	gap: 5px;
+	white-space: nowrap;
 }
 
 .rent-item-price p {
@@ -55,8 +55,6 @@
 }
 
 .rent-item-settings {
-	margin-top: 53px;
-	margin-bottom: 15px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(3, 1fr);
@@ -64,15 +62,82 @@
 	row-gap: 25px;
 }
 
-.rent-item-settings p {
+.rent-item-settings-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.rent-item-settings-item p {
 	font-family: Roboto;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 16px;
-	letter-spacing: 0em;
+	text-align: left;
+}
+
+.rent-item-settings-item span {
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 14px;
 	text-align: left;
 }
 
 .rent-item-button {
 	align-self: flex-end;
+}
+
+.rent-item-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media screen and (max-width: 1216px) {
+	.rent-item {
+		border-bottom: none;
+	}
+
+	.rent-item-content {
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.rent-item-image {
+		max-width: none;
+	}
+	.rent-item-heading {
+		gap: 20px;
+	}
+
+	.rent-item-settings {
+		grid-template-columns: 1fr;
+		column-gap: 70px;
+		row-gap: 25px;
+	}
+
+	.rent-item-footer {
+		align-items: flex-start;
+		gap: 14px;
+	}
+
+	.rent-item-button {
+		align-self: flex-start;
+	}
+
+	.rent-item-settings-item {
+		justify-content: space-between;
+	}
+
+	.rent-item-price p {
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.rent-item-price span {
+		font-size: 16px;
+		line-height: 16px;
+	}
 }

@@ -21,17 +21,19 @@ export const Rent = () => {
 				</div>
 
 				<SectionHeading
+					className="rent-heading-section"
 					title="Аренда спецтехники"
 					description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
 					style={{ maxWidth: 1250 }}
 				/>
 
-				<ArrowHeading title="Каталог спецтехники" />
-
-				<div className="rent-catalog">
-					{catalog.map(item => (
-						<RentItem key={item.id} item={item} />
-					))}
+				<div className="rent-catalog-container">
+					<ArrowHeading title="Каталог спецтехники" />
+					<div className="rent-catalog">
+						{catalog.map(item => (
+							<RentItem key={item.id} item={item} />
+						))}
+					</div>
 				</div>
 			</div>
 		</main>
