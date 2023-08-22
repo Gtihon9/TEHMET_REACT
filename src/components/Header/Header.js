@@ -4,10 +4,11 @@ import { PhoneIconMobile } from "../Icons/PhoneIconMobile"
 import MenuIconOpened from "../Icons/MenuIconOpened"
 import MenuIconClosed from "../Icons/MenuIconClosed"
 import "./Header.css"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { Logo } from "../Logo/Logo"
 import { headerLinks } from "./Header.constants"
+import { motion } from "framer-motion"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -52,8 +53,21 @@ const Header = () => {
 					<nav className="header-navigation">
 						<ul className="nav-links">
 							{headerLinks.map((link) => (
-								<li key={link.href}>
-									<NavLink to={link.href}>{link.name}</NavLink>
+								<li key={link.href} className="nav-links-item">
+									<NavLink to={link.href}>
+										{({ isActive }) => (
+											<>
+												{link.name}
+												{isActive
+													?
+													<motion.div
+														layoutId="underline"
+														className="nav-links-item-underline"
+													/>
+													: null}
+											</>
+										)}
+									</NavLink>
 								</li>
 							))}
 						</ul>
