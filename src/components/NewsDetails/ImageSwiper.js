@@ -2,15 +2,10 @@ import { useState } from "react"
 import { useBreakpointValue } from "../../hooks/useBreakpointValue"
 import { Navigation, Pagination, A11y, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { newsImages } from './NewsDetails.constants'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-import News1 from "../../images/news1.png"
-import NewsDetails1 from "../../images/newsDetails1.png"
-import NewsDetails2 from "../../images/newsDetails2.png"
-import NewsDetails3 from "../../images/newsDetails3.png"
-import NewsDetails4 from "../../images/newsDetails4.png"
 import "./ImageSwiper.css"
 
 export const ImageSwiper = () => {
@@ -39,7 +34,7 @@ export const ImageSwiper = () => {
             autoHeight
             className="main-swiper"
          >
-            {images.map((item) => (
+            {newsImages.map((item) => (
                <SwiperSlide>
                   <img key={`main-${item.id}`} alt={item.id} src={item.imageUrl} />
                </SwiperSlide>
@@ -64,7 +59,7 @@ export const ImageSwiper = () => {
                   }
                }}
             >
-               {images.map((item) => (
+               {newsImages.map((item) => (
                   <SwiperSlide>
                      <img key={`thumb-${item.id}`} alt={item.id} src={item.imageUrl} />
                   </SwiperSlide>
@@ -74,27 +69,3 @@ export const ImageSwiper = () => {
       </div>
    )
 }
-
-
-const images = [
-   {
-      id: 1,
-      imageUrl: News1,
-   },
-   {
-      id: 2,
-      imageUrl: NewsDetails1,
-   },
-   {
-      id: 3,
-      imageUrl: NewsDetails2,
-   },
-   {
-      id: 4,
-      imageUrl: NewsDetails3,
-   },
-   {
-      id: 5,
-      imageUrl: NewsDetails4,
-   },
-]

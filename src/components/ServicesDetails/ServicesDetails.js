@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import "swiper/css"
 import "swiper/css/pagination"
 import { OtherStages } from "./OtherStages"
+import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 
 export const ServicesDetails = () => {
    const { name } = useParams()
@@ -42,20 +43,7 @@ export const ServicesDetails = () => {
                </div>
 
                <div className="works-stages-gallery-mobile">
-                  <Swiper
-                     className="works-stages-gallery-swiper"
-                     loop
-                     modules={[Pagination]}
-                     pagination={{
-                        clickable: true
-                     }}
-                  >
-                     {details.images.map((image, index) => (
-                        <SwiperSlide key={name + index}>
-                           <img alt={name + index} src={image} />
-                        </SwiperSlide>
-                     ))}
-                  </Swiper>
+                  <MobileSwiper images={details.images} />
                </div>
 
                <OtherStages />

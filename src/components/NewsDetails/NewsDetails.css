@@ -85,3 +85,28 @@
 .news-details-footer .share-button:hover {
 	background-color: transparent;
 }
+
+.news-details-swiper-wrapper {
+	width: 100%;
+}
+
+.news-details-swiper-wrapper-mobile {
+	width: 100%;
+	display: none;
+}
+
+@media screen and (max-width: 690px) {
+	.news-details-swiper-wrapper {
+		display: none;
+	}
+
+	.news-details-swiper-wrapper-mobile {
+		display: flex;
+	}
+
+	.news-details-footer {
+		flex-direction: column;
+		gap: 15px;
+		align-items: flex-start;
+	}
+}
