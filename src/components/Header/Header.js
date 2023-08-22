@@ -59,7 +59,7 @@ const Header = () => {
 						</ul>
 					</nav>
 					<div className="header-actions">
-						<Link to="/contact-us">
+						<a href="tel:+79169004255">
 							{isMobileScreen ? (
 								<button className="header-actions-contact-mobile">
 									<PhoneIconMobile />
@@ -70,7 +70,7 @@ const Header = () => {
 									<span>+7-916-900-42-55</span>
 								</Button>
 							)}
-						</Link>
+						</a>
 						<div className="mobile-menu-container">
 							<div className="menu-icon" onClick={handleMobileMenuToggle}>
 								{showMobileMenu ? <MenuIconClosed /> : <MenuIconOpened />}
@@ -78,24 +78,11 @@ const Header = () => {
 							{showMobileMenu && (
 								<nav className={`mobile-nav-links ${menuAnimation ? "slide-in" : "slide-out"}`}>
 									<ul>
-										<li>
-											<Link to="/company">О компании</Link>
-										</li>
-										<li>
-											<Link to="/projects">Проекты</Link>
-										</li>
-										<li>
-											<Link to="/services">Услуги</Link>
-										</li>
-										<li>
-											<Link to="/rent">Аренда</Link>
-										</li>
-										<li>
-											<Link to="/news">Новости</Link>
-										</li>
-										<li>
-											<Link to="/jobs">Вакансии</Link>
-										</li>
+										{headerLinks.map((link) => (
+											<li key={link.href}>
+												<NavLink to={link.href}>{link.name}</NavLink>
+											</li>
+										))}
 									</ul>
 								</nav>
 							)}
