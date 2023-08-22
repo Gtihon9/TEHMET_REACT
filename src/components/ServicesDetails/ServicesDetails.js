@@ -7,12 +7,9 @@ import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { WorkStages } from "../WorkStages/WorkStages"
 import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
-import { Pagination } from "swiper/modules"
-import { Swiper, SwiperSlide } from 'swiper/react'
-import "swiper/css"
-import "swiper/css/pagination"
 import { OtherStages } from "./OtherStages"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { motion } from "framer-motion"
 
 export const ServicesDetails = () => {
    const { name } = useParams()
@@ -20,7 +17,11 @@ export const ServicesDetails = () => {
    const details = servicesDetails[name]
 
    return (
-      <main>
+      <motion.main
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         exit={{ opacity: 0 }}
+      >
          <div className="container">
             <div className="services-details-content">
                <div className="breadcrumbs">
@@ -53,6 +54,6 @@ export const ServicesDetails = () => {
          <div className="background-container-2">
             <ExtendedContactForm />
          </div>
-      </main>
+      </motion.main>
    )
 }

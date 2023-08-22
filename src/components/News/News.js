@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate"
 import { NewsCard } from "./NewsCard"
 import RightArrowSvg from "../Icons/R_Arrow"
 import LeftArrowSVG from "../Icons/L_Arrow"
+import { motion } from "framer-motion"
 import "./News.css"
 
 import News1 from "../../images/news1.png"
@@ -24,7 +25,11 @@ export const News = () => {
 	}
 
 	return (
-		<main>
+		<motion.main
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<div className="container">
 				<div className="news-content">
 					<div className="breadcrumbs">
@@ -70,7 +75,7 @@ export const News = () => {
 					/>
 				</div>
 			</div>
-		</main>
+		</motion.main>
 	)
 }
 

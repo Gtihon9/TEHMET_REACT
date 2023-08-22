@@ -5,6 +5,7 @@ import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Link, useSearchParams } from "react-router-dom"
 import { directions } from "./Projects.constants"
+import { motion } from "framer-motion"
 import "./Projects.css"
 
 const Projects = () => {
@@ -18,7 +19,12 @@ const Projects = () => {
 	}
 
 	return (
-		<main className="projects-content">
+		<motion.main
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			className="projects-content"
+		>
 			<div className="container">
 				<div className="breadcrumbs">
 					<LeftArrowSVG />
@@ -54,7 +60,7 @@ const Projects = () => {
 			<div className="background-container-2">
 				<ExtendedContactForm />
 			</div>
-		</main>
+		</motion.main>
 	)
 }
 

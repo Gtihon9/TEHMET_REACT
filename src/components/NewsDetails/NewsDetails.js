@@ -5,6 +5,7 @@ import { OtherNews } from "./OtherNews"
 import { ImageSwiper } from "./ImageSwiper"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { newsImages } from "./NewsDetails.constants"
+import { motion } from "framer-motion"
 import "./NewsDetails.css"
 
 export const NewsDetails = () => {
@@ -15,7 +16,11 @@ export const NewsDetails = () => {
    }
 
    return (
-      <main>
+      <motion.main
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         exit={{ opacity: 0 }}
+      >
          <div className="container">
             <div className="news-details-content">
                <div className="breadcrumbs">
@@ -71,7 +76,7 @@ export const NewsDetails = () => {
                <OtherNews />
             </div>
          </div>
-      </main>
+      </motion.main>
    )
 }
 

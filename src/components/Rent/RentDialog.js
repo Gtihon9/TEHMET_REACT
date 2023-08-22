@@ -34,16 +34,16 @@ export const RentDialog = ({ isOpen, onClose }) => {
    if (!isOpen) return null
 
    return (
-      <div className="modal" onClick={onClose}>
-         <div className="modal-dialog" onClick={e => e.stopPropagation()}>
-            <span className="modal-close" onClick={onClose}>
+      <div className="rent-modal" onClick={onClose}>
+         <div className="rent-modal-dialog" onClick={e => e.stopPropagation()}>
+            <span className="rent-modal-close" onClick={onClose}>
                &times;
             </span>
-            <div className="modal-content">
-               <div className="modal-content-left">
+            <div className="rent-modal-content">
+               <div className="rent-modal-content-left">
                   <h3>Свяжитесь с нами</h3>
                   <form method="POST" onSubmit={handleSubmit}>
-                     <div className="modal-body">
+                     <div className="rent-modal-body">
                         <input
                            name="name"
                            placeholder="Укажите имя..."
@@ -77,7 +77,7 @@ export const RentDialog = ({ isOpen, onClose }) => {
                            onChange={handleChange}
                         />
                      </div>
-                     <div className="modal-footer">
+                     <div className="rent-modal-footer">
                         <Button type="submit">Отправить</Button>
                         <p>
                            Нажимая на кнопку "Отправить", я подтверждаю, что <br />
@@ -88,14 +88,14 @@ export const RentDialog = ({ isOpen, onClose }) => {
                      </div>
                   </form>
                </div>
-               <div className="modal-content-right">
+               <div className="rent-modal-content-right">
                   <h3>Контакты</h3>
-                  <div className="modal-content-contacts">
-                     <div className="contact">
+                  <div className="rent-modal-content-contacts">
+                     <div className="rent-contact">
                         <span>Телефон</span>
                         <p>+7-916-900-42-55</p>
                      </div>
-                     <div className="contact">
+                     <div className="rent-contact">
                         <span>Email</span>
                         <p>fdv240@gmail.com</p>
                      </div>

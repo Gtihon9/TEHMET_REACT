@@ -9,10 +9,16 @@ import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./Main.css"
 import { DirectionsSlider } from "../DirectionsSlider/DirectionsSlider"
 import { features } from "./Main.constants"
+import { motion } from "framer-motion"
 
 const Main = () => {
 	return (
-		<main className="main-content">
+		<motion.main
+			className="main-content"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<div className="background-container">
 				<video id="background-video" loop autoPlay muted>
 					<source src={bg_video} type="video/mp4" />
@@ -78,7 +84,7 @@ const Main = () => {
 				</div>
 			</div>
 			<ContactUsForm />
-		</main>
+		</motion.main>
 	)
 }
 

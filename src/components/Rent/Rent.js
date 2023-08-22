@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { RentItem } from "./RentItem"
+import { motion } from "framer-motion"
 import "./Rent.css"
 import Catalog1 from "../../images/catalog1.png"
 import Catalog2 from "../../images/catalog2.png"
@@ -11,32 +12,38 @@ import Catalog4 from "../../images/catalog4.png"
 
 export const Rent = () => {
 	return (
-		<main className="container">
-			<div className="rent-content">
-				<div className="breadcrumbs">
-					<LeftArrowSVG />
-					<div className="breadcrumbs-text">
-						<Link to="/">Главная</Link>/<Link to="/rent">Аренда спецтехники</Link>
+		<motion.main
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
+			<div className="container">
+				<div className="rent-content">
+					<div className="breadcrumbs">
+						<LeftArrowSVG />
+						<div className="breadcrumbs-text">
+							<Link to="/">Главная</Link>/<Link to="/rent">Аренда спецтехники</Link>
+						</div>
 					</div>
-				</div>
 
-				<SectionHeading
-					className="rent-heading-section"
-					title="Аренда спецтехники"
-					description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
-					style={{ maxWidth: 1250 }}
-				/>
+					<SectionHeading
+						className="rent-heading-section"
+						title="Аренда спецтехники"
+						description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
+						style={{ maxWidth: 1250 }}
+					/>
 
-				<div className="rent-catalog-container">
-					<ArrowHeading title="Каталог спецтехники" />
-					<div className="rent-catalog">
-						{catalog.map(item => (
-							<RentItem key={item.id} item={item} />
-						))}
+					<div className="rent-catalog-container">
+						<ArrowHeading title="Каталог спецтехники" />
+						<div className="rent-catalog">
+							{catalog.map(item => (
+								<RentItem key={item.id} item={item} />
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
-		</main>
+		</motion.main>
 	)
 }
 

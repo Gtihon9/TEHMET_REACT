@@ -5,6 +5,7 @@ import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Stats } from "../Stats/Stats"
 import { services } from "./Services.constants"
 import { ServicesItem } from "./ServicesItem"
+import { motion } from "framer-motion"
 import "./Services.css"
 import { useEffect } from "react"
 import axios from "axios"
@@ -23,7 +24,11 @@ const Services = () => {
 	// }, [])
 
 	return (
-		<main>
+		<motion.main
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<div className="container">
 				<div className="services-content">
 					<div className="breadcrumbs">
@@ -65,7 +70,7 @@ const Services = () => {
 
 				</div>
 			</div>
-		</main>
+		</motion.main>
 	)
 }
 

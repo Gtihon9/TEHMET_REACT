@@ -1,4 +1,4 @@
-.modal {
+.rent-modal {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -14,7 +14,7 @@
 	animation-duration: 200ms;
 }
 
-.modal-dialog {
+.rent-modal-dialog {
 	width: 100%;
 	max-width: 780px;
 	background: white;
@@ -27,20 +27,20 @@
 	padding: 65px 130px 44px 47px;
 }
 
-.modal-content {
+.rent-modal-content {
 	display: grid;
 	grid-template-columns: auto 160px;
 	column-gap: 80px;
 }
 
-.modal-content-left {
+.rent-modal-content-left {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 }
 
-.modal-content-left h3,
-.modal-content-right h3 {
+.rent-modal-content-left h3,
+.rent-modal-content-right h3 {
 	font-family: Roboto;
 	font-size: 26px;
 	font-weight: 500;
@@ -48,28 +48,28 @@
 	margin: 0;
 }
 
-.modal-content-right {
+.rent-modal-content-right {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 40px;
 }
 
-.modal-content-contacts {
+.rent-modal-content-contacts {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 20px;
 }
 
-.modal-content-contacts .contact {
+.rent-modal-content-contacts .rent-contact {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 5px;
 }
 
-.modal-content-contacts .contact span {
+.rent-modal-content-contacts .rent-contact span {
 	font-family: Roboto;
 	font-size: 16px;
 	font-weight: 400;
@@ -77,7 +77,7 @@
 	color: var(--text-secondary-color);
 }
 
-.modal-content-contacts .contact p {
+.rent-modal-content-contacts .rent-contact p {
 	font-family: Roboto;
 	font-size: 18px;
 	font-weight: 400;
@@ -85,7 +85,7 @@
 	color: var(--text-color);
 }
 
-.modal-footer {
+.rent-modal-footer {
 	margin-top: 60px;
 	display: flex;
 	flex-direction: column;
@@ -94,7 +94,7 @@
 	justify-content: flex-end;
 }
 
-.modal-footer p {
+.rent-modal-footer p {
 	color: var(--text-color);
 	font-family: Roboto, sans-serif;
 	font-size: 12px;
@@ -103,7 +103,7 @@
 	line-height: 130%; /* 15.6px */
 }
 
-.modal-footer p a {
+.rent-modal-footer p a {
 	color: var(--text-color);
 	font-family: Roboto, sans-serif;
 	font-size: 12px;
@@ -113,7 +113,7 @@
 	text-decoration-line: underline;
 }
 
-.modal-close {
+.rent-modal-close {
 	position: absolute;
 	top: 13px;
 	right: 47px;
@@ -121,7 +121,7 @@
 	font-size: 30px;
 }
 
-.modal-body {
+.rent-modal-body {
 	overflow: auto;
 	display: flex;
 	flex-direction: column;
@@ -130,7 +130,7 @@
 	margin-top: 35px;
 }
 
-.modal-body input {
+.rent-modal-body input {
 	font-family: Roboto;
 	padding: 19px;
 	width: 100%;
@@ -138,7 +138,7 @@
 	border: 1px solid var(--text-color);
 }
 
-.add-resume {
+.rent-add-resume {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -146,20 +146,20 @@
 	align-self: flex-start;
 }
 
-.add-resume span {
+.rent-add-resume span {
 	color: var(--text-secondary-color);
 }
 
-.add-resume button {
+.rent-add-resume button {
 	cursor: pointer;
 	background-color: transparent;
 }
 
-.add-resume button:hover {
+.rent-add-resume button:hover {
 	background-color: transparent;
 }
 
-.modal-title {
+.rent-modal-title {
 	margin: 0;
 }
 

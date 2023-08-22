@@ -56,7 +56,7 @@ const Footer = () => {
 								<Link to="/services/renovation">Реновация территории</Link>
 							</li>
 							<li>
-								<Link to="services/recycling">Рециклинг</Link>
+								<Link to="/services/recycling">Рециклинг</Link>
 							</li>
 							<li>
 								<Link to="/rent">Аренда</Link>

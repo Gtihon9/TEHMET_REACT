@@ -8,10 +8,16 @@ import CompanyInfo from "../../images/company-info.png"
 import "./Company.css"
 import { recyclingInfo } from "./Company.constants"
 import { Stats } from "../Stats/Stats"
+import { motion } from "framer-motion"
 
 const Company = () => {
 	return (
-		<main className="company-content">
+		<motion.main
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			className="company-content"
+		>
 			<div className="container">
 				<div className="breadcrumbs">
 					<LeftArrowSVG />
@@ -143,7 +149,7 @@ const Company = () => {
 				</div>
 			</div>
 			<ContactUsForm />
-		</main>
+		</motion.main>
 	)
 }
 
