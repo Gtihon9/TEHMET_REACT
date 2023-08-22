@@ -6,46 +6,64 @@ import { Stats } from "../Stats/Stats"
 import { services } from "./Services.constants"
 import { ServicesItem } from "./ServicesItem"
 import "./Services.css"
+import { useEffect } from "react"
+import axios from "axios"
 
 const Services = () => {
+	// useEffect(() => {
+	// 	const handleData = async () => {
+	// 		const response = await axios.get("https://api.tehmetservice.ru/api/v1/projects/", {
+	// 			headers: {
+	// 				"Access-Control-Allow-Origin": "*",
+	// 			},
+	// 		})
+	// 		console.log(response);
+	// 	}
+	// 	handleData()
+	// }, [])
+
 	return (
-		<main className="container">
-			<div className="services-content">
-				<div className="breadcrumbs">
-					<LeftArrowSVG />
-					<div className="breadcrumbs-text">
-						<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>
+		<main>
+			<div className="container">
+				<div className="services-content">
+					<div className="breadcrumbs">
+						<LeftArrowSVG />
+						<div className="breadcrumbs-text">
+							<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>
+						</div>
 					</div>
-				</div>
-				<SectionHeading
-					title="Наш каталог услуг"
-					description="Наша команда профессионалов способна справиться с проектами любого масштаба.
+					<SectionHeading
+						className="catalog-section"
+						title="Наш каталог услуг"
+						description="Наша команда профессионалов способна справиться с проектами любого масштаба.
 					Мы предлагаем широкий спектр услуг, выборочные внутренние, наружные и спектр
 					работ в близко прилегающей территорий к строениям"
-					style={{ maxWidth: 1050 }}
-				/>
+						style={{ maxWidth: 1050 }}
+					/>
 
-				<ArrowHeading
-					title="Почему нас выбирают"
-					description="Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
+					<ArrowHeading
+						title="Почему нас выбирают"
+						description="Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
 					стремление к совершенству, делая компанию конкурентно способной рынке."
-					style={{ maxWidth: "716px" }}
-				/>
+						style={{ maxWidth: "716px" }}
+					/>
 
-				<Stats />
+					<Stats />
 
-				<ArrowHeading
-					title="Мы специализируемся"
-					description="Имея широкий спектр услуг, мы акцентируем наше внимание на качестве и надежности в работе с вами. Наша команда гордится мастерством и вниманием к деталям, с которыми мы подходим к каждому проекту. Приоритетным направлением нашей работы является предоставление исключительных услуг, однако мы также придерживаемся принципов ответственного отношения к окружающей среде."
-					style={{ maxWidth: 720 }}
-				/>
+					<ArrowHeading
+						className="specialization-section"
+						title="Мы специализируемся"
+						description="Имея широкий спектр услуг, мы акцентируем наше внимание на качестве и надежности в работе с вами. Наша команда гордится мастерством и вниманием к деталям, с которыми мы подходим к каждому проекту. Приоритетным направлением нашей работы является предоставление исключительных услуг, однако мы также придерживаемся принципов ответственного отношения к окружающей среде."
+						style={{ maxWidth: 720 }}
+					/>
 
-				<div className="services-list">
-					{services.map((service) => (
-						<ServicesItem key={service.title} service={service} />
-					))}
+					<div className="services-list">
+						{services.map((service) => (
+							<ServicesItem key={service.title} service={service} />
+						))}
+					</div>
+
 				</div>
-
 			</div>
 		</main>
 	)

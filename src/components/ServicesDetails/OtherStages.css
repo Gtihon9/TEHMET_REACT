@@ -37,3 +37,10 @@
 		gap: 35px;
 	}
 }
+
+@media screen and (max-width: 690px) {
+	.work-stages-other {
+		margin-top: 0;
+		gap: 35px;
+	}
+}

@@ -30,7 +30,7 @@ export const ServicesDetails = () => {
                   </div>
                </div>
 
-               <SectionHeading title={details.title} description={details.description} />
+               <SectionHeading title={details.title} description={details.description} className="details-heading-section" />
 
                <WorkStages />
 

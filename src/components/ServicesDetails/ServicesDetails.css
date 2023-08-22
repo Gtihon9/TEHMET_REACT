@@ -46,7 +46,12 @@
 
 @media screen and (max-width: 1216px) {
 	.services-details-content {
-		gap: 35px;
+		gap: 60px;
+	}
+
+	.details-heading-section {
+		margin-top: -25px;
+		margin-bottom: -25px;
 	}
 
 	.work-stages-other {
@@ -66,5 +71,6 @@
 
 	.works-stages-gallery-mobile {
 		display: flex;
+		margin-top: -35px;
 	}
 }
