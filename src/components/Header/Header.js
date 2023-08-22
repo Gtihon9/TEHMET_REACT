@@ -49,7 +49,20 @@ const Header = () => {
 		<header className="header">
 			<div className="container">
 				<div className="header-container">
-					<Logo />
+					<NavLink to="/" className="logo-container">
+						{({ isActive }) => (
+							<>
+								<Logo />
+								{isActive
+									? <motion.div
+										layoutId="underline"
+										className="logo-active"
+									/>
+									: null
+								}
+							</>
+						)}
+					</NavLink>
 					<nav className="header-navigation">
 						<ul className="nav-links">
 							{headerLinks.map((link) => (
