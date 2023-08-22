@@ -4,9 +4,10 @@ import { PhoneIconMobile } from "../Icons/PhoneIconMobile"
 import MenuIconOpened from "../Icons/MenuIconOpened"
 import MenuIconClosed from "../Icons/MenuIconClosed"
 import "./Header.css"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { Logo } from "../Logo/Logo"
+import { headerLinks } from "./Header.constants"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -50,24 +51,11 @@ const Header = () => {
 					<Logo />
 					<nav className="header-navigation">
 						<ul className="nav-links">
-							<li>
-								<Link to="/company">О компании</Link>
-							</li>
-							<li>
-								<Link to="/projects">Проекты</Link>
-							</li>
-							<li>
-								<Link to="/services">Услуги</Link>
-							</li>
-							<li>
-								<Link to="/rent">Аренда</Link>
-							</li>
-							<li>
-								<Link to="/news">Новости</Link>
-							</li>
-							<li>
-								<Link to="/jobs">Вакансии</Link>
-							</li>
+							{headerLinks.map((link) => (
+								<li key={link.href}>
+									<NavLink to={link.href}>{link.name}</NavLink>
+								</li>
+							))}
 						</ul>
 					</nav>
 					<div className="header-actions">

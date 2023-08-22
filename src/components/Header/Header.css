@@ -40,6 +40,14 @@
 	line-height: normal;
 }
 
+.nav-links a:hover {
+	color: var(--primary-color);
+}
+
+.nav-links a.active {
+	color: var(--primary-color);
+}
+
 .header-actions-contact {
 	display: flex;
 	align-items: center;
