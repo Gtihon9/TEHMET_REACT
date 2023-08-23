@@ -8,11 +8,7 @@ import "./Jobs.css"
 
 export const Jobs = () => {
 	return (
-		<motion.main
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
 				<div className="jobs-content">
 					<div className="breadcrumbs">

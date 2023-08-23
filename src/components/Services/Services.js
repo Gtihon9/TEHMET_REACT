@@ -7,25 +7,10 @@ import { services } from "./Services.constants"
 import { ServicesItem } from "./ServicesItem"
 import { motion } from "framer-motion"
 import "./Services.css"
-import { useEffect } from "react"
-import axios from "axios"
 
 const Services = () => {
-	useEffect(() => {
-		const handleData = async () => {
-			const response = await axios.get("https://api.tehmetservice.ru/api/v1/projects/", {
-			})
-			console.log(response);
-		}
-		handleData()
-	}, [])
-
 	return (
-		<motion.main
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
 				<div className="services-content">
 					<div className="breadcrumbs">
@@ -60,11 +45,10 @@ const Services = () => {
 					/>
 
 					<div className="services-list">
-						{services.map((service) => (
+						{services.map(service => (
 							<ServicesItem key={service.title} service={service} />
 						))}
 					</div>
-
 				</div>
 			</div>
 		</motion.main>
@@ -72,4 +56,3 @@ const Services = () => {
 }
 
 export default Services
-

@@ -4,16 +4,18 @@ import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Link, useSearchParams } from "react-router-dom"
-import { directions, projectsList } from "./Projects.constants"
+import { directions } from "./Projects.constants"
 import { Button } from "../Button/Button"
 import { motion } from "framer-motion"
 import Select from "react-select"
 import "./Projects.css"
-import { useState } from "react"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { Card } from "../Card/Card"
 import { SwiperSlide } from "swiper/react"
 import { DropdownIndicator } from "../Icons/DropdownIndicator"
+import { useApi } from "../../hooks/useApi"
+import { Spinner } from "../Spinner/Spinner"
+import { ProjectsApi } from "../../api/projects.api"
 
 const Projects = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -30,6 +32,8 @@ const Projects = () => {
 	const handleDirectionChange = selectedOption => {
 		setSearchParams({ direction: selectedOption.value })
 	}
+
+	const { response: projects, loading, error } = useApi(ProjectsApi.getAllProjects)
 
 	return (
 		<motion.main
@@ -80,26 +84,39 @@ const Projects = () => {
 							/>
 						</div>
 					</div>
-					<div className="projects-list-container">
-						<ProjectsList />
-						<Button className="project-list-button">Посмотреть ещё</Button>
-					</div>
 
-					<div className="projects-list-container-mobile">
-						<MobileSwiper>
-							{projectsList.map(project => (
-								<SwiperSlide key={project.title}>
-									<Card
-										item={{
-											title: project.title,
-											description: project.subTitle,
-											image: project.image,
-										}}
-									/>
-								</SwiperSlide>
-							))}
-						</MobileSwiper>
-					</div>
+					{error && (
+						<div className="projects-error">
+							<h1>Что-то пошло не так</h1>
+						</div>
+					)}
+
+					{loading ? (
+						<Spinner />
+					) : (
+						<>
+							<div className="projects-list-container">
+								<ProjectsList />
+								<Button className="project-list-button">Посмотреть ещё</Button>
+							</div>
+
+							<div className="projects-list-container-mobile">
+								<MobileSwiper>
+									{projects?.map(project => (
+										<SwiperSlide key={project.id}>
+											<Card
+												item={{
+													title: project.title,
+													description: project.description,
+													image: project.logo,
+												}}
+											/>
+										</SwiperSlide>
+									))}
+								</MobileSwiper>
+							</div>
+						</>
+					)}
 				</div>
 			</div>
 			<div className="background-container-2">
