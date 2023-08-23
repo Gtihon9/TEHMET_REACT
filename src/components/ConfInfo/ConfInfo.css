@@ -1,0 +1,12 @@
+.conf-info {
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: left;
+    color: var(--text-color);
+}
+
+.conf-info a {
+    text-decoration: underline;
+}
