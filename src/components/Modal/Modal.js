@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useCallback, useEffect } from "react"
 import { ReactPortal } from "../../utils/ReactPortal"
 import "./Modal.css"
+import MenuIconClosed from "../Icons/MenuIconClosed"
 
 export const Modal = ({ isOpen, onClose, children, maxWidth }) => {
 	const handleWindowKeyDown = useCallback(
@@ -34,7 +35,7 @@ export const Modal = ({ isOpen, onClose, children, maxWidth }) => {
 							{...defaultModalAnimation}
 						>
 							<button type="button" className="modal-close-btn" onClick={onClose}>
-								&times;
+								<MenuIconClosed />
 							</button>
 
 							<div className="modal-content">{children}</div>

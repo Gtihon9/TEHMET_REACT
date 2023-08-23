@@ -5,6 +5,10 @@
 	border-bottom: 1px solid var(--text-color);
 }
 
+.rent-item:last-child {
+	border-bottom: none;
+}
+
 .rent-item-content {
 	display: flex;
 	gap: 64px;
@@ -27,7 +31,7 @@
 }
 
 .rent-item-heading p {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 20px;
@@ -41,14 +45,14 @@
 }
 
 .rent-item-price p {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 30px;
 	font-weight: 600;
 	line-height: 30px;
 }
 
 .rent-item-price span {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 24px;
 	font-weight: 400;
 	line-height: 24px;
@@ -69,7 +73,7 @@
 }
 
 .rent-item-settings-item p {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 16px;
@@ -77,7 +81,7 @@
 }
 
 .rent-item-settings-item span {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 14px;

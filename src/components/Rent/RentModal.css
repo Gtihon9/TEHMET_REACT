@@ -1,47 +1,21 @@
-.rent-modal {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	z-index: 9999;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.7);
-	animation-name: appear;
-	animation-duration: 200ms;
-}
-
-.rent-modal-dialog {
-	width: 100%;
-	max-width: 780px;
-	background: white;
-	position: relative;
-	text-align: left;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-	padding: 65px 130px 44px 47px;
-}
-
 .rent-modal-content {
 	display: grid;
 	grid-template-columns: auto 160px;
 	column-gap: 80px;
+	width: 100%;
+	padding: 49px 114px 28px 31px;
 }
 
 .rent-modal-content-left {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	width: 100%;
 }
 
 .rent-modal-content-left h3,
 .rent-modal-content-right h3 {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 26px;
 	font-weight: 500;
 	line-height: 42px;
@@ -70,7 +44,7 @@
 }
 
 .rent-modal-content-contacts .rent-contact span {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 26px;
@@ -78,7 +52,7 @@
 }
 
 .rent-modal-content-contacts .rent-contact p {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 21px;
@@ -91,7 +65,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 10px;
-	justify-content: flex-end;
+	max-width: 360px;
 }
 
 .rent-modal-footer p {
@@ -121,53 +95,38 @@
 	font-size: 30px;
 }
 
-.rent-modal-body {
-	overflow: auto;
+.rent-modal-form {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	gap: 32px;
 	margin-top: 35px;
+	width: 100%;
 }
 
-.rent-modal-body input {
-	font-family: Roboto;
+.rent-modal-form input {
+	font-family: Roboto, sans-serif;
 	padding: 19px;
 	width: 100%;
 	border-radius: 2px;
 	border: 1px solid var(--text-color);
 }
 
-.rent-add-resume {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	align-items: flex-start;
-	align-self: flex-start;
-}
-
-.rent-add-resume span {
-	color: var(--text-secondary-color);
-}
-
-.rent-add-resume button {
-	cursor: pointer;
-	background-color: transparent;
-}
-
-.rent-add-resume button:hover {
-	background-color: transparent;
-}
-
 .rent-modal-title {
 	margin: 0;
 }
 
-@keyframes appear {
-	from {
-		opacity: 0.5;
+@media screen and (max-width: 800px) {
+	.rent-modal-content {
+		display: flex;
+		gap: 0;
+		padding: 0 0 19px;
 	}
-	to {
-		opacity: 1;
+
+	.rent-modal-content-right {
+		display: none;
+	}
+
+	.rent-modal-footer {
+		margin-top: 8px;
 	}
 }

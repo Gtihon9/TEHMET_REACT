@@ -1,5 +1,5 @@
 import { Button } from "../Button/Button"
-import { RentDialog } from "./RentDialog"
+import { RentModal } from "./RentModal"
 import { useDisclosure } from "../../hooks/useDisclosure"
 import "./RentItem.css"
 
@@ -31,11 +31,13 @@ export const RentItem = ({ item }) => {
 							<p>{item.price}</p>
 							<span> / смена</span>
 						</div>
-						<Button className="rent-item-button" onClick={onOpen}>Арендовать</Button>
+						<Button className="rent-item-button" onClick={onOpen}>
+							Арендовать
+						</Button>
 					</div>
 				</div>
 			</div>
-			<RentDialog isOpen={isOpen} onClose={onClose} />
+			<RentModal isOpen={isOpen} onClose={onClose} />
 		</>
 	)
 }
