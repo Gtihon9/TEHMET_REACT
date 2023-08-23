@@ -22,7 +22,6 @@ const Projects = () => {
 	const initialDirection = searchParams.get("direction")
 
 	const initialSelectOption = directions.find(direction => direction.value === initialDirection)
-	const [selectedDirection, _] = useState(directions[0])
 
 	const onDirectionClick = value => {
 		setSearchParams({ direction: value })
