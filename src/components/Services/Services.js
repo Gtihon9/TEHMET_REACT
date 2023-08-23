@@ -11,17 +11,14 @@ import { useEffect } from "react"
 import axios from "axios"
 
 const Services = () => {
-	// useEffect(() => {
-	// 	const handleData = async () => {
-	// 		const response = await axios.get("https://api.tehmetservice.ru/api/v1/projects/", {
-	// 			headers: {
-	// 				"Access-Control-Allow-Origin": "*",
-	// 			},
-	// 		})
-	// 		console.log(response);
-	// 	}
-	// 	handleData()
-	// }, [])
+	useEffect(() => {
+		const handleData = async () => {
+			const response = await axios.get("https://api.tehmetservice.ru/api/v1/projects/", {
+			})
+			console.log(response);
+		}
+		handleData()
+	}, [])
 
 	return (
 		<motion.main

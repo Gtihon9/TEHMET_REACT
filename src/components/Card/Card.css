@@ -62,7 +62,9 @@
 
 .card-image {
 	height: 100%;
+	width: 100%;
 	max-height: 300px;
+	object-fit: cover;
 }
 
 .card-image img {
@@ -79,5 +81,36 @@
 	right: 0;
 	content: "";
 	background-color: rgba(0, 0, 0, 0.2);
-	height: 99%;
+	height: 97%;
+}
+
+@media screen and (max-width: 690px) {
+	.card-header h1 {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 26px;
+	}
+
+	.card-header p {
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 18px;
+	}
+
+	.card-content {
+		padding: 10px;
+	}
+
+	.card-button {
+		background-color: transparent;
+		padding: 0;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19px;
+		text-decoration: underline;
+	}
+
+	.card-button svg {
+		display: none;
+	}
 }

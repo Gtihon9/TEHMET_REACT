@@ -5,18 +5,17 @@ import "swiper/css/pagination"
 import "./MobileSwiper.css"
 
 export const MobileSwiper = ({ children }) => {
-   return (
-      <Swiper
-         className="mobile-swiper"
-         loop
-         autoHeight
-         modules={[Pagination]}
-         pagination={{
-            clickable: true
-         }}
-         slidesPerView={1}
-      >
-         {children}
-      </Swiper>
-   )
+	return (
+		<Swiper
+			className="mobile-swiper"
+			loop
+			modules={[Pagination]}
+			pagination={{
+				clickable: true,
+			}}
+			slidesPerView={1}
+		>
+			{children}
+		</Swiper>
+	)
 }

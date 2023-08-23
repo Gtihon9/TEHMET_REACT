@@ -4,18 +4,32 @@ import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Link, useSearchParams } from "react-router-dom"
-import { directions } from "./Projects.constants"
+import { directions, projectsList } from "./Projects.constants"
+import { Button } from "../Button/Button"
 import { motion } from "framer-motion"
+import Select from "react-select"
 import "./Projects.css"
+import { useState } from "react"
+import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { Card } from "../Card/Card"
+import { SwiperSlide } from "swiper/react"
+import { DropdownIndicator } from "../Icons/DropdownIndicator"
 
 const Projects = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
-		direction: "all-projects"
+		direction: "all-projects",
 	})
 	const initialDirection = searchParams.get("direction")
 
-	const onDirectionClick = (value) => {
+	const initialSelectOption = directions.find(direction => direction.value === initialDirection)
+	const [selectedDirection, _] = useState(directions[0])
+
+	const onDirectionClick = value => {
 		setSearchParams({ direction: value })
+	}
+
+	const handleDirectionChange = selectedOption => {
+		setSearchParams({ direction: selectedOption.value })
 	}
 
 	return (
@@ -39,21 +53,53 @@ const Projects = () => {
 
 					<div className="directions-container">
 						<ArrowHeading title="Направления" />
+
 						<div className="directions-links-block">
-							{directions.map((direction) => (
+							{directions.map(direction => (
 								<button
 									key={direction.id}
-									className={`link ${initialDirection === direction.value ? "active" : ""}`}
+									className={`link ${
+										initialDirection === direction.value ? "active" : ""
+									}`}
 									onClick={() => onDirectionClick(direction.value)}
 								>
-									<p>{direction.name}</p>
+									<p>{direction.label}</p>
 								</button>
 							))}
+						</div>
 
+						<div className="directions-links-select-mobile">
+							<Select
+								value={initialSelectOption}
+								onChange={handleDirectionChange}
+								options={directions}
+								className="directions-select-container"
+								classNamePrefix="directions-select"
+								components={{
+									DropdownIndicator: DropdownIndicator,
+								}}
+							/>
 						</div>
 					</div>
-					<div className="content-container">
+					<div className="projects-list-container">
 						<ProjectsList />
+						<Button className="project-list-button">Посмотреть ещё</Button>
+					</div>
+
+					<div className="projects-list-container-mobile">
+						<MobileSwiper>
+							{projectsList.map(project => (
+								<SwiperSlide key={project.title}>
+									<Card
+										item={{
+											title: project.title,
+											description: project.subTitle,
+											image: project.image,
+										}}
+									/>
+								</SwiperSlide>
+							))}
+						</MobileSwiper>
 					</div>
 				</div>
 			</div>

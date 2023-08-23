@@ -8,32 +8,32 @@ import image6 from "../../images/project-item6.png"
 export const directions = [
    {
       id: 1,
-      name: "Все проекты",
+      label: "Все проекты",
       value: "all-projects"
    },
    {
       id: 2,
-      name: "Снос и демонтаж",
+      label: "Снос и демонтаж",
       value: "demolition"
    },
    {
       id: 3,
-      name: "Рециклинг",
+      label: "Рециклинг",
       value: "recycling"
    },
    {
       id: 4,
-      name: "Реновация территорий",
+      label: "Реновация территорий",
       value: "renovation"
    },
    {
       id: 5,
-      name: "Земляные работы",
+      label: "Земляные работы",
       value: "ground-works"
    },
    {
       id: 6,
-      name: "Разработка и ограждение котлованов",
+      label: "Разработка и ограждение котлованов",
       value: "pit-developing"
    },
 ]

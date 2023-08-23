@@ -24,7 +24,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 80px;
+	gap: 70px;
 }
 
 .projects-title {
@@ -57,7 +57,8 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: var(--margin-title-min, 25px);
+	gap: 25px;
+	width: 100%;
 }
 
 .directions-links-block {
@@ -104,17 +105,97 @@ p {
 	line-height: 160%;
 }
 
-.project-list-container {
-	display: flex;
-	width: 1400px;
-	align-items: flex-start;
-	align-content: flex-start;
-	gap: 22px 40px;
-	flex-wrap: wrap;
-}
-.content-container {
+.projects-list-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 60px;
+	width: 100%;
+}
+
+.projects-list-container-mobile {
+	display: none;
+	width: 100%;
+	margin-top: -25px;
+}
+
+.directions-links-select-mobile {
+	display: none;
+}
+
+.directions-select-container {
+	width: 100%;
+	z-index: 2;
+}
+
+.directions-select__control {
+	border: none !important;
+	background-color: var(--primary-color) !important;
+}
+
+.directions-select__control-is-focused {
+	border: none !important;
+}
+
+.directions-select__value-container {
+	font-family: Roboto, sans-serif;
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 25px;
+}
+
+.directions-select__menu {
+	font-family: Roboto, sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.directions-select__single-value {
+	color: #ffffff !important;
+}
+
+.directions-select__indicator-separator {
+	display: none;
+}
+
+.directions-select__indicators {
+	padding: 2px 8px;
+	color: #ffffff !important;
+}
+
+.directions-select__option--is-selected {
+	background-color: var(--primary-color) !important;
+}
+
+@media screen and (max-width: 1216px) {
+	.projects-content {
+		gap: 35px;
+	}
+
+	.projects {
+		gap: 60px;
+	}
+
+	.directions-links-block {
+		display: none;
+	}
+
+	.directions-links-select-mobile {
+		display: flex;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.projects-list-container {
+		display: none;
+	}
+
+	.projects-list-container-mobile {
+		display: flex;
+	}
+
+	.projects-list-container-mobile .mobile-swiper .swiper-slide img {
+		min-height: 200px;
+	}
 }
