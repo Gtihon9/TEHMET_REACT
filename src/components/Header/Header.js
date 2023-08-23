@@ -15,16 +15,8 @@ const Header = () => {
 	const [isMobileScreen, setIsMobileScreen] = useState(
 		window.matchMedia("(max-width: 1196px)").matches
 	)
-	const [menuAnimation, setMenuAnimation] = useState(false)
 
-	const handleMobileMenuToggle = () => {
-		setShowMobileMenu(!showMobileMenu)
-
-		// Update menuAnimation state after a brief delay
-		setTimeout(() => {
-			setMenuAnimation(!menuAnimation)
-		}, 10) // Adjust the delay as needed for the animation to work correctly
-	}
+	const handleMobileMenuToggle = () => setShowMobileMenu(!showMobileMenu)
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -37,13 +29,6 @@ const Header = () => {
 			window.removeEventListener("resize", handleResize)
 		}
 	}, [])
-
-	useEffect(() => {
-		if (!showMobileMenu) {
-			// Reset animation state when menu is hidden
-			setMenuAnimation(false)
-		}
-	}, [showMobileMenu])
 
 	return (
 		<header className="header">
@@ -100,11 +85,7 @@ const Header = () => {
 								{showMobileMenu ? <MenuIconClosed /> : <MenuIconOpened />}
 							</div>
 							{showMobileMenu && (
-								<nav
-									className={`mobile-nav-links ${
-										menuAnimation ? "slide-in" : "slide-out"
-									}`}
-								>
+								<nav className="mobile-nav-links">
 									<ul>
 										{headerLinks.map(link => (
 											<li key={link.href}>

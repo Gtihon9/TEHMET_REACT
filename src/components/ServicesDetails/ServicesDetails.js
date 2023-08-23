@@ -13,54 +13,56 @@ import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
 
 export const ServicesDetails = () => {
-   const { name } = useParams()
+	const { name } = useParams()
 
-   const details = servicesDetails[name]
+	const details = servicesDetails[name]
 
-   return (
-      <motion.main
-         initial={{ opacity: 0 }}
-         animate={{ opacity: 1 }}
-         exit={{ opacity: 0 }}
-      >
-         <div className="container">
-            <div className="services-details-content">
-               <div className="breadcrumbs">
-                  <LeftArrowSVG />
-                  <div className="breadcrumbs-text">
-                     <Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>/
-                     <Link to={`/services/${name}`}>{details.title}</Link>
-                  </div>
-               </div>
+	return (
+		<motion.main
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			className="services-details"
+		>
+			<div className="container">
+				<div className="services-details-content">
+					<div className="breadcrumbs">
+						<LeftArrowSVG />
+						<div className="breadcrumbs-text">
+							<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>/
+							<Link to={`/services/${name}`}>{details.title}</Link>
+						</div>
+					</div>
 
-               <SectionHeading title={details.title} description={details.description} className="details-heading-section" />
+					<SectionHeading
+						title={details.title}
+						description={details.description}
+						className="details-heading-section"
+					/>
 
-               <WorkStages />
+					<WorkStages />
 
-               <ArrowHeading title="Галерея" />
-               <div className="work-stages-gallery">
-                  {details.images.map((image, index) => (
-                     <img alt={name + index} src={image} />
-                  ))}
-               </div>
+					<ArrowHeading title="Галерея" />
+					<div className="work-stages-gallery">
+						{details.images.map((image, index) => (
+							<img alt={name + index} src={image} />
+						))}
+					</div>
 
-               <div className="works-stages-gallery-mobile">
-                  <MobileSwiper>
-                     {details.images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                           <img src={image} />
-                        </SwiperSlide>
-                     ))}
-                  </MobileSwiper>
-               </div>
+					<div className="works-stages-gallery-mobile">
+						<MobileSwiper>
+							{details.images.map((image, index) => (
+								<SwiperSlide key={index}>
+									<img alt={`work-stage-${index}`} src={image} />
+								</SwiperSlide>
+							))}
+						</MobileSwiper>
+					</div>
 
-               <OtherStages />
-
-            </div>
-         </div>
-         <div className="background-container-2">
-            <ExtendedContactForm />
-         </div>
-      </motion.main>
-   )
+					<OtherStages />
+				</div>
+			</div>
+			<ExtendedContactForm />
+		</motion.main>
+	)
 }

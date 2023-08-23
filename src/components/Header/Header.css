@@ -145,40 +145,21 @@
 	}
 
 	.mobile-nav-links {
+		position: fixed;
+		top: 80px;
+		left: 0;
+		right: 0;
+		z-index: 10;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 36px;
 		width: 100%;
+		height: 100%;
 		background-color: #ffffff;
-		z-index: 10;
-		position: fixed;
-		top: 80px;
-		left: 0;
-		right: 0;
 	}
 
 	.header-navigation {
 		display: none;
-	}
-
-	.mobile-nav-links.slide-in {
-		transform: translateY(0);
-		transition: transform 0.3s ease-in-out;
-	}
-
-	.mobile-nav-links:not(.slide-in) {
-		transform: translateY(-100%);
-		transition: transform 0.2s ease-in-out;
-	}
-
-	.logo-image {
-		width: 35px;
-		height: 44px;
-	}
-
-	.logo-image-text {
-		width: 94px;
-		height: 17px;
 	}
 }

@@ -1,8 +1,14 @@
+.services-details {
+	display: flex;
+	flex-direction: column;
+	padding-top: 25px;
+	padding-bottom: 113px;
+}
+
 .services-details-content {
 	display: flex;
 	align-items: flex-start;
-	padding-top: 25px;
-	padding-bottom: 75px;
+	padding-bottom: 123px;
 	justify-content: center;
 	flex-direction: column;
 	gap: 70px;
@@ -35,7 +41,7 @@
 }
 
 .works-stages-gallery-swiper .swiper-pagination-bullet {
-	border-radius: 0px;
+	border-radius: 0;
 	height: 10px;
 	width: 10px;
 }
@@ -45,7 +51,12 @@
 }
 
 @media screen and (max-width: 1216px) {
+	.services-details {
+		padding-bottom: 38px;
+	}
+
 	.services-details-content {
+		padding-bottom: 60px;
 		gap: 60px;
 	}
 

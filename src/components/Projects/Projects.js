@@ -121,9 +121,7 @@ const Projects = () => {
 					)}
 				</div>
 			</div>
-			<div className="background-container-2">
-				<ExtendedContactForm />
-			</div>
+			<ExtendedContactForm />
 		</motion.main>
 	)
 }
