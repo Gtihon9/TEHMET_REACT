@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react"
-import "./ModalForm.css"
+import { useRef, useState } from "react"
+import "./ResponseToVacancy.css"
 import { Button } from "../Button/Button"
+import { Modal } from "../Modal/Modal"
+import { ConfInfo } from "../ConfInfo/ConfInfo"
 
-export const ModalForm = ({ isOpen, onClose, jobName }) => {
+export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -15,7 +17,6 @@ export const ModalForm = ({ isOpen, onClose, jobName }) => {
 
 	const handleFileChange = e => {
 		const resume = e.target.files[0]
-		console.log(resume)
 		setFormData(prevData => ({ ...prevData, resume }))
 	}
 
@@ -34,31 +35,15 @@ export const ModalForm = ({ isOpen, onClose, jobName }) => {
 		console.log(formData)
 	}
 
-	const onKeydown = ({ key }) => {
-		if (key === "Escape") {
-			onClose()
-		}
-	}
-
-	useEffect(() => {
-		document.addEventListener("keydown", onKeydown)
-		return () => document.removeEventListener("keydown", onKeydown)
-	})
-
-	if (!isOpen) return null
-
 	return (
-		<div className="modal" onClick={onClose}>
-			<div className="modal-dialog" onClick={e => e.stopPropagation()}>
-				<span className="modal-close" onClick={onClose}>
-					&times;
-				</span>
-				<div className="modal-header">
-					<h3>Отклик на вакансию:</h3>
+		<Modal isOpen={isOpen} onClose={onClose} maxWidth={774}>
+			<div className="response-vacancy-container">
+				<div className="response-vacancy-header">
+					<h1>Отклик на вакансию:</h1>
 					<p>{jobName}</p>
 				</div>
 				<form method="POST" onSubmit={onSubmit}>
-					<div className="modal-body">
+					<div className="response-vacancy-form">
 						<input
 							name="name"
 							placeholder="Укажите имя..."
@@ -90,8 +75,8 @@ export const ModalForm = ({ isOpen, onClose, jobName }) => {
 							value={formData.message}
 							onChange={handleChange}
 						/>
-						<div className="add-resume">
-							<button type="button" onClick={handleFileClick}>
+						<div className="add-resume-container">
+							<button type="button" onClick={handleFileClick} className="add-resume-btn">
 								{formData.resume ? "Изменить резюме" : "Прикрепить резюме"}
 							</button>
 							{formData.resume && <span>{formData?.resume.name}</span>}
@@ -108,17 +93,12 @@ export const ModalForm = ({ isOpen, onClose, jobName }) => {
 							/>
 						</div>
 					</div>
-					<div className="modal-footer">
+					<div className="response-vacancy-footer">
 						<Button type="submit">Отправить</Button>
-						<p>
-							Нажимая на кнопку "Отправить", я подтверждаю, что <br />
-							ознакомился с <a href="/conf">Политикой конфиденциальностии</a> даю согласие{" "}
-							<br />
-							на обработку всех моих персональных данных
-						</p>
+						<ConfInfo />
 					</div>
 				</form>
 			</div>
-		</div>
+		</Modal>
 	)
 }

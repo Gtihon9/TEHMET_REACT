@@ -1,0 +1,95 @@
+.response-vacancy-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 35px;
+	padding: 20px 47px 55px 47px;
+}
+
+.response-vacancy-header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+	font-family: Roboto, sans-serif;
+}
+
+.response-vacancy-header h1 {
+	font-size: 26px;
+	font-weight: 500;
+	line-height: 42px;
+}
+
+.response-vacancy-header p {
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 35px;
+}
+
+.response-vacancy-form {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.response-vacancy-form input,
+.response-vacancy-form textarea {
+	outline: none;
+	border: 1px solid var(--text-color);
+	padding: 18px 19px;
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 16px;
+	border-radius: var(--rounding);
+}
+
+.response-vacancy-form input:focus,
+.response-vacancy-form textarea:focus {
+	border: 1px solid var(--primary-color);
+}
+
+.response-vacancy-form textarea {
+	resize: vertical;
+}
+
+.add-resume-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.add-resume-btn {
+	font-family: Roboto, sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 24px;
+	color: var(--text-color);
+	margin-top: -12px;
+	cursor: pointer;
+}
+
+.add-resume-container span {
+	font-family: Roboto, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--text-secondary-color);
+}
+
+.response-vacancy-footer {
+	max-width: 360px;
+	margin-top: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	justify-content: flex-end;
+}
+
+@media screen and (max-width: 690px) {
+	.response-vacancy-container {
+		padding: 0;
+	}
+}
