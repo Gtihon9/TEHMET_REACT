@@ -25,11 +25,7 @@ export const News = () => {
 	}
 
 	return (
-		<motion.main
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
 				<div className="news-content">
 					<div className="breadcrumbs">
@@ -46,16 +42,18 @@ export const News = () => {
 					/>
 
 					<div className="news-big-container">
-						<NewsCard items={news[0]}/>
+						<NewsCard item={news[0]} />
 						{news.slice(1, 3).map(item => (
 							<NewsCard key={item.title} item={item} />
 						))}
 					</div>
 
 					<div className="news-list">
-						{Array.from({ length: 10 }, () => Object.assign({}, news[1])).map((item, index) => (
-							<NewsCard key={item.id + item.title + index} item={item} />
-						))}
+						{Array.from({ length: 10 }, () => Object.assign({}, news[1])).map(
+							(item, index) => (
+								<NewsCard key={item.id + item.title + index} item={item} />
+							)
+						)}
 					</div>
 
 					<ReactPaginate

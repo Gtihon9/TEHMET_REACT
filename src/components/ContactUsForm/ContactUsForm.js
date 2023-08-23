@@ -1,91 +1,86 @@
-import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import "./ContactUsForm.css"
+import { ArrowUp } from "../Icons/ArrowUp"
+import { ConfInfo } from "../ConfInfo/ConfInfo"
+import { useState } from "react"
 
 const ContactUsForm = () => {
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		message: "",
+	})
+
 	const scrollToTop = () => {
 		window.scrollTo({
 			top: 0,
-			behavior: "smooth",
 		})
 	}
 
+	const handleFieldChange = e => {
+		const { name, value } = e.target
+		setFormData(prev => ({
+			...prev,
+			[name]: value,
+		}))
+	}
+
+	const handleSubmit = e => {
+		e.preventDefault()
+		console.log(formData)
+	}
+
 	return (
-		<div className="background-container-2">
+		<div className="form-background-container">
 			<div className="container">
-				<div className="main-content-container-3">
-					<div className="contact-us-container">
-						<div className="contact-us-form">
+				<div className="form-wrapper">
+					<div className="form-content-container">
+						<div className="form-content">
 							<h1>Свяжитесь с нами</h1>
-							<form action="/submit" method="POST">
+							<form onSubmit={handleSubmit} className="contact-us-form">
 								<input
-									type="text"
-									id="name"
 									name="name"
+									type="text"
 									placeholder="Укажите имя..."
-									required
+									onChange={handleFieldChange}
+									value={formData.name}
 								/>
-
 								<input
-									type="email"
-									id="email"
 									name="email"
+									type="email"
 									placeholder="Укажите email..."
-									required
+									onChange={handleFieldChange}
+									value={formData.email}
 								/>
-
 								<textarea
-									id="message"
 									name="message"
-									rows="4"
 									placeholder="Сообщение"
-									required
+									onChange={handleFieldChange}
+									value={formData.message}
 								/>
-
-								<Button type="submit">Отправить</Button>
+								<div className="contact-us-submit-container">
+									<Button type="submit">Отправить</Button>
+									<ConfInfo />
+								</div>
 							</form>
-							<p>
-								Нажимая на кнопку "Отправить", я подтверждаю, что <br />
-								ознакомился с <Link to="/conf">Политикой конфиденциальностии</Link> даю согласие{" "}
-								<br />
-								на обработку всех моих персональных данных
-							</p>
 						</div>
-						<div className="contact-us-contacts">
-							<div className="title">
-								<p>Контакты</p>
-							</div>
-							<div className="text-container">
-								<div className="text-block">
-									<p>Телефон:</p>
+						<section className="form-contacts-container">
+							<h1>Контакты</h1>
+							<div className="form-contacts-content">
+								<div className="form-contacts-item">
+									<span>Телефон:</span>
 									<p>+7-916-900-42-55</p>
 								</div>
-								<div className="text-block">
-									<p>Email</p>
+								<div className="form-contacts-item">
+									<span>Email:</span>
 									<p>fdv240@gmail.com</p>
 								</div>
 							</div>
-						</div>
+						</section>
 					</div>
-					<div className="button">
-						<Button onClick={scrollToTop}>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="37"
-								height="37"
-								viewBox="0 0 37 37"
-								fill="none"
-							>
-								<path
-									d="M28.9062 17.6328L18.5 7.22656L8.09375 17.6328M18.5 8.67188V29.7734"
-									stroke="white"
-									strokeWidth="2"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-								/>
-							</svg>
-						</Button>
-					</div>
+					<Button className="scroll-button" onClick={scrollToTop}>
+						<ArrowUp />
+					</Button>
 				</div>
 			</div>
 		</div>

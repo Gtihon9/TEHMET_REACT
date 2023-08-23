@@ -9,6 +9,7 @@ export const MobileSwiper = ({ children }) => {
 		<Swiper
 			className="mobile-swiper"
 			loop
+			autoHeight
 			modules={[Pagination]}
 			pagination={{
 				clickable: true,

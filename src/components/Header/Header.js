@@ -6,9 +6,9 @@ import MenuIconClosed from "../Icons/MenuIconClosed"
 import "./Header.css"
 import { NavLink } from "react-router-dom"
 import { Button } from "../Button/Button"
-import { Logo } from "../Logo/Logo"
 import { headerLinks } from "./Header.constants"
 import { motion } from "framer-motion"
+import { LogoIcon } from "../Icons/LogoIcon"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -52,32 +52,29 @@ const Header = () => {
 					<NavLink to="/" className="logo-container">
 						{({ isActive }) => (
 							<>
-								<Logo />
-								{isActive
-									? <motion.div
-										layoutId="underline"
-										className="logo-active"
-									/>
-									: null
-								}
+								<div className="logo">
+									<LogoIcon />
+								</div>
+								{isActive ? (
+									<motion.div layoutId="underline" className="logo-active" />
+								) : null}
 							</>
 						)}
 					</NavLink>
 					<nav className="header-navigation">
 						<ul className="nav-links">
-							{headerLinks.map((link) => (
+							{headerLinks.map(link => (
 								<li key={link.href} className="nav-links-item">
 									<NavLink to={link.href}>
 										{({ isActive }) => (
 											<>
 												{link.name}
-												{isActive
-													?
+												{isActive ? (
 													<motion.div
 														layoutId="underline"
 														className="nav-links-item-underline"
 													/>
-													: null}
+												) : null}
 											</>
 										)}
 									</NavLink>
@@ -103,9 +100,13 @@ const Header = () => {
 								{showMobileMenu ? <MenuIconClosed /> : <MenuIconOpened />}
 							</div>
 							{showMobileMenu && (
-								<nav className={`mobile-nav-links ${menuAnimation ? "slide-in" : "slide-out"}`}>
+								<nav
+									className={`mobile-nav-links ${
+										menuAnimation ? "slide-in" : "slide-out"
+									}`}
+								>
 									<ul>
-										{headerLinks.map((link) => (
+										{headerLinks.map(link => (
 											<li key={link.href}>
 												<NavLink to={link.href}>{link.name}</NavLink>
 											</li>

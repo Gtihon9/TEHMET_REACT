@@ -95,10 +95,12 @@ const Projects = () => {
 						<Spinner />
 					) : (
 						<>
-							<div className="projects-list-container">
-								<ProjectsList />
-								<Button className="project-list-button">Посмотреть ещё</Button>
-							</div>
+							{projects?.length !== 0 && (
+								<div className="projects-list-container">
+									<ProjectsList projects={projects} />
+									<Button className="project-list-button">Посмотреть ещё</Button>
+								</div>
+							)}
 
 							<div className="projects-list-container-mobile">
 								<MobileSwiper>

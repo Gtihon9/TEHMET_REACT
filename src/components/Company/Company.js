@@ -4,11 +4,16 @@ import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Link } from "react-router-dom"
 import { services } from "../Services/Services.constants"
+import DefaultImage from "../../images/default-image.png"
 import CompanyInfo from "../../images/company-info.png"
 import "./Company.css"
 import { recyclingInfo } from "./Company.constants"
 import { Stats } from "../Stats/Stats"
 import { motion } from "framer-motion"
+import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { SwiperSlide } from "swiper/react"
+import { Card } from "../Card/Card"
+import { ShareIcon } from "../Icons/ShareIcon"
 
 const Company = () => {
 	return (
@@ -33,43 +38,61 @@ const Company = () => {
 					<div className="company-info">
 						<div className="company-info-text">
 							<p>
-								“Техметсервис” - компания специализирующаяся на демонтаже, сносе <br />
-								зданий и металлоконструкций, утилизации строительных отходов, а <br />
-								также предоставление своей спецтехники частным лицам или <br />
-								организациям, и на этом спектор услуг не ограничивается. Проработов <br />
-								более 5 лет, наша компания предоставляет высококвалифицированных <br />
-								специалистов и широким спектром специализированного оборудования, <br />
-								благодаря котормы - мы выполняем проекты любого масштаба - от <br />
-								небольших частных предприятий до масштабных промышленных <br />
-								демонтажных работ.
+								“Техметсервис” - компания специализирующаяся на демонтаже, сносе зданий и
+								металлоконструкций, утилизации строительных отходов, а также предоставление
+								своей спецтехники частным лицам или организациям, и на этом спектор услуг не
+								ограничивается. Проработов более 5 лет, наша компания предоставляет
+								высококвалифицированных специалистов и широким спектром специализированного
+								оборудования, благодаря котормы - мы выполняем проекты любого масштаба - от
+								небольших частных предприятий до масштабных промышленных демонтажных работ.
 							</p>
 							<p>
-								Основополагающие факторы нашей компании является открытость в <br />
-								коммуникации со своими сотрудниками и партнерами. Благодаря <br />
-								индивидуальному подходу, мы можем предложить клиенту <br />
-								индивидуальные стратегии и решения, учитывающие все тонкости <br />
-								проекта и обеспечивающие достижение желаемых результатов.
+								Основополагающие факторы нашей компании является открытость в коммуникации
+								со своими сотрудниками и партнерами. Благодаря индивидуальному подходу, мы
+								можем предложить клиенту индивидуальные стратегии и решения, учитывающие все
+								тонкости проекта и обеспечивающие достижение желаемых результатов.
 							</p>
 							<p>
-								Одним из основных принципов компании “Техметсервис” является <br />
-								экологическое поддержание окружающей среды. Компания акцентирует <br />
-								важность минимизации экологического воздействия своей <br />
-								деятельности.
+								Одним из основных принципов компании “Техметсервис” является экологическое
+								поддержание окружающей среды. Компания акцентирует важность минимизации
+								экологического воздействия своей деятельности.
 							</p>
 						</div>
-						<img alt="company-info" src={CompanyInfo} className="company-info-image" />
+						<div className="company-info-image">
+							<img alt="company-info" src={CompanyInfo} />
+						</div>
 					</div>
 
-					<div className="company-services">
-						<ArrowHeading title="Наш спектор услуг" description="Предоставляет выбор ......" />
+					<div className="company-services-container">
+						<ArrowHeading
+							title="Наш спектор услуг"
+							description="Предоставляет выбор ......"
+						/>
 						<div className="company-services-images">
-							{services.map((service) => (
+							{services.map(service => (
 								<Link key={service.title} to={service.link} className="company-card">
 									<div className="company-card-backdrop" />
 									<img alt={service.title} src={service.image} />
-									<p>{service.title}</p>
+									<div className="company-card-content">
+										<p style={{ color: "#ffffff" }}>{service.title}</p>
+									</div>
 								</Link>
 							))}
+						</div>
+						<div className="company-services-images-mobile">
+							<MobileSwiper>
+								{services.map(service => (
+									<SwiperSlide key={service.title}>
+										<Card
+											item={{
+												title: service.title,
+												image: service.image,
+												link: service.link,
+											}}
+										/>
+									</SwiperSlide>
+								))}
+							</MobileSwiper>
 						</div>
 					</div>
 
@@ -77,15 +100,24 @@ const Company = () => {
 						<ArrowHeading
 							title="Переработка материала"
 							description="Предоставляет рациональное решение не только для подрядчика, но и является
-						оптимальным вариантом для застройщика территории. Наша команда заинтересована в
-						оптимизации процесса работы, а также в достижение результата сопровожждаемого
-						уменьшением затрат клиента"
+											оптимальным вариантом для застройщика территории. Наша команда заинтересована в
+											оптимизации процесса работы, а также в достижение результата сопровожждаемого
+											уменьшением затрат клиента"
 							style={{ maxWidth: "926px" }}
 						/>
 						<div className="recycling-info">
-							{recyclingInfo.map((item) => (
+							{recyclingInfo.map(item => (
 								<p className="recycling-info-block">{item}</p>
 							))}
+						</div>
+						<div className="recycling-info-mobile">
+							<MobileSwiper>
+								{recyclingInfo.map(item => (
+									<SwiperSlide key={item}>
+										<p className="recycling-info-block">{item}</p>
+									</SwiperSlide>
+								))}
+							</MobileSwiper>
 						</div>
 					</div>
 
@@ -104,46 +136,36 @@ const Company = () => {
 							title="Аренда техники"
 							description="Предоставление техники под нужды юредическим или физическим лиц"
 						/>
-						<div className="rent-main-content-container">
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="rent-card">
-								<p>Название</p>
-							</a>
-							<a href="" className="all-rent-cards">
-								<div className="link">
-									<p>Посмотреть все</p>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										width="29"
-										height="30"
-										viewBox="0 0 29 30"
-										fill="none"
-									>
-										<path
-											d="M25.375 15L15.4062 5.48438V10.9219C5.86627 10.9219 3.625 17.7624 3.625 24.5156C6.3783 20.9903 8.81328 19.0781 15.4062 19.0781V24.5156L25.375 15Z"
-											stroke="white"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</div>
-							</a>
+						<div className="rent-list">
+							{mockRentItems.map(item => (
+								<Link to={item.link} className="company-card">
+									<img alt={item.title} src={item.image} />
+									<div className="company-card-content">
+										<p>{item.title}</p>
+									</div>
+								</Link>
+							))}
+							<Link to="/rent">
+								<button className="rent-button">
+									Посмотреть все
+									<ShareIcon />
+								</button>
+							</Link>
+						</div>
+						<div className="rent-list-mobile">
+							<MobileSwiper>
+								{mockRentItems.map(item => (
+									<SwiperSlide>
+										<div className="company-card">
+											<img alt={item.title} src={item.image} />
+											<div className="company-card-content">
+												<p>{item.title}</p>
+												<Link to={item.link}>Смотреть полностью</Link>
+											</div>
+										</div>
+									</SwiperSlide>
+								))}
+							</MobileSwiper>
 						</div>
 					</div>
 				</div>
@@ -154,3 +176,14 @@ const Company = () => {
 }
 
 export default Company
+
+const mockRentItems = Array.from({ length: 7 }, () =>
+	Object.assign(
+		{},
+		{
+			title: "Название",
+			image: DefaultImage,
+			link: "/rent",
+		}
+	)
+)
