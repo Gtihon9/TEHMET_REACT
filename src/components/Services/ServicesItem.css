@@ -18,6 +18,7 @@
 
 .services-item-image {
 	flex: 1;
+	cursor: pointer;
 }
 
 .services-item-image img {

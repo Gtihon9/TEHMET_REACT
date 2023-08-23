@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { useBreakpointValue } from "../../hooks/useBreakpointValue"
 import { Navigation, Pagination, A11y, Thumbs } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { newsImages } from "./NewsDetails.constants"
@@ -7,16 +6,15 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "./ImageSwiper.css"
+import { PhotoSlider } from "react-photo-view"
+import { useMediaQuery } from "react-responsive"
 
 export const ImageSwiper = () => {
+	const [isGalleryVisible, setIsGalleryVisible] = useState(false)
+	const [index, setIndex] = useState(0)
+
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
-	const isDesktop = useBreakpointValue({
-		xs: false,
-		sm: false,
-		md: false,
-		lg: true,
-		xl: true,
-	})
+	const isDesktop = useMediaQuery({ query: `(min-width: 690px)` })
 
 	return (
 		<div className="news-details-images">
@@ -33,10 +31,11 @@ export const ImageSwiper = () => {
 				thumbs={{ swiper: thumbsSwiper }}
 				modules={[Pagination, Navigation, Thumbs, A11y]}
 				autoHeight
+				onSlideChange={swiper => setIndex(swiper.activeIndex)}
 				className="main-swiper"
 			>
 				{newsImages.map(item => (
-					<SwiperSlide>
+					<SwiperSlide onClick={() => setIsGalleryVisible(true)}>
 						<img key={`main-${item.id}`} alt={item.id} src={item.imageUrl} />
 					</SwiperSlide>
 				))}
@@ -68,6 +67,14 @@ export const ImageSwiper = () => {
 					))}
 				</Swiper>
 			)}
+
+			<PhotoSlider
+				images={newsImages.map(item => ({ src: item.imageUrl, key: item.id }))}
+				visible={isGalleryVisible}
+				onClose={() => setIsGalleryVisible(false)}
+				index={index}
+				onIndexChange={setIndex}
+			/>
 		</div>
 	)
 }
