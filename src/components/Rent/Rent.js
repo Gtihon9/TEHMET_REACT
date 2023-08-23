@@ -1,22 +1,20 @@
-import LeftArrowSVG from "../Icons/L_Arrow"
 import { Link } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { RentItem } from "./RentItem"
 import { motion } from "framer-motion"
 import "./Rent.css"
+import LeftArrowSVG from "../Icons/L_Arrow"
+
 import Catalog1 from "../../images/catalog1.png"
 import Catalog2 from "../../images/catalog2.png"
 import Catalog3 from "../../images/catalog3.png"
 import Catalog4 from "../../images/catalog4.png"
+import { Pagination } from "../Pagination/Pagination"
 
 export const Rent = () => {
 	return (
-		<motion.main
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-		>
+		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
 				<div className="rent-content">
 					<div className="breadcrumbs">
@@ -41,6 +39,8 @@ export const Rent = () => {
 							))}
 						</div>
 					</div>
+
+					<Pagination />
 				</div>
 			</div>
 		</motion.main>

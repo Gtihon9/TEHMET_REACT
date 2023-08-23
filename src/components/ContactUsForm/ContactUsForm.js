@@ -3,6 +3,7 @@ import "./ContactUsForm.css"
 import { ArrowUp } from "../Icons/ArrowUp"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { useState } from "react"
+import axios from "axios"
 
 const ContactUsForm = () => {
 	const [formData, setFormData] = useState({
@@ -24,10 +25,13 @@ const ContactUsForm = () => {
 			[name]: value,
 		}))
 	}
-
-	const handleSubmit = e => {
+	const handleSubmit = async e => {
 		e.preventDefault()
-		console.log(formData)
+		try {
+			await axios.post("https://api.tehmetservice.ru/api/v1/feedback/email/", formData)
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	return (

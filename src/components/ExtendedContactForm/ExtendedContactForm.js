@@ -2,16 +2,17 @@ import { useState } from "react"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Button } from "../Button/Button"
 import "./ExtendedContactForm.css"
+import axios from "axios"
 
 const ExtendedContactForm = () => {
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
-		phone: "",
-		aim: "",
+		phone_number: "",
+		goal: "",
 		address: "",
-		sizes: "",
-		deadline: "",
+		scope: "",
+		terms: "",
 	})
 
 	const handleChange = e => {
@@ -21,23 +22,10 @@ const ExtendedContactForm = () => {
 
 	const handleSubmit = async e => {
 		e.preventDefault()
-
 		try {
-			const response = await fetch("https://your-api-endpoint.com/submit", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formData),
-			})
-
-			if (response.ok) {
-				console.log("Form data submitted successfully")
-			} else {
-				console.error("Form data submission failed")
-			}
+			await axios.post("https://api.tehmetservice.ru/api/v1/feedback/project/", formData)
 		} catch (error) {
-			console.error("An error occurred while submitting the form:", error)
+			console.log(error)
 		}
 	}
 
@@ -87,18 +75,18 @@ const ExtendedContactForm = () => {
 									/>
 									<input
 										type="tel"
-										name="phone"
+										name="phone_number"
 										placeholder="Укажите телефон..."
 										required
-										value={formData.phone}
+										value={formData.phone_number}
 										onChange={handleChange}
 									/>
 								</div>
 								<textarea
-									name="aim"
+									name="goal"
 									placeholder="Укажите цель работы"
 									required
-									value={formData.aim}
+									value={formData.goal}
 									onChange={handleChange}
 								></textarea>
 								<textarea
@@ -110,18 +98,18 @@ const ExtendedContactForm = () => {
 								></textarea>
 								<input
 									type="text"
-									name="sizes"
+									name="scope"
 									placeholder="Укажите объем работ или его габариты"
 									required
-									value={formData.sizes}
+									value={formData.scope}
 									onChange={handleChange}
 								/>
 								<input
 									type="date"
-									name="deadline"
+									name="terms"
 									placeholder="Желаемые сроки выполнения работы"
 									required
-									value={formData.deadline}
+									value={formData.terms}
 									onChange={handleChange}
 								/>
 								<div className="submit-container">

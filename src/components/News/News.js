@@ -1,8 +1,6 @@
-import { Link, useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
-import ReactPaginate from "react-paginate"
 import { NewsCard } from "./NewsCard"
-import RightArrowSvg from "../Icons/R_Arrow"
 import LeftArrowSVG from "../Icons/L_Arrow"
 import { motion } from "framer-motion"
 import "./News.css"
@@ -10,20 +8,9 @@ import "./News.css"
 import News1 from "../../images/news1.png"
 import News2 from "../../images/news2.png"
 import News3 from "../../images/news3.png"
+import { Pagination } from "../Pagination/Pagination"
 
 export const News = () => {
-	const [searchParams, setSearchParams] = useSearchParams()
-	const page = parseInt(searchParams.get("page")) || 0
-
-	const onPageChange = e => {
-		const pageNumber = e.selected
-		if (pageNumber === 0) {
-			setSearchParams({}, { replace: true })
-		} else {
-			setSearchParams({ page: pageNumber + 1 }, { replace: true })
-		}
-	}
-
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -56,21 +43,7 @@ export const News = () => {
 						)}
 					</div>
 
-					<ReactPaginate
-						breakLabel="..."
-						nextLabel={<RightArrowSvg />}
-						previousLabel={<LeftArrowSVG />}
-						containerClassName="news-pagination"
-						nextClassName="news-pagination-next-button"
-						previousClassName="news-pagination-prev-button"
-						pageClassName="news-pagination-page"
-						onPageChange={onPageChange}
-						pageRangeDisplayed={3}
-						pageCount={12}
-						initialPage={page}
-						disableInitialCallback
-						renderOnZeroPageCount={null}
-					/>
+					<Pagination />
 				</div>
 			</div>
 		</motion.main>

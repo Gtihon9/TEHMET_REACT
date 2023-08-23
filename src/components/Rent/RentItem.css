@@ -1,12 +1,9 @@
 .rent-item {
 	display: flex;
 	justify-content: space-between;
-	padding-bottom: 20px;
-	border-bottom: 1px solid var(--text-color);
-}
-
-.rent-item:last-child {
-	border-bottom: none;
+	padding: 20px;
+	border-radius: var(--rounding);
+	border: 1px solid var(--text-secondary-color);
 }
 
 .rent-item-content {
@@ -100,10 +97,6 @@
 }
 
 @media screen and (max-width: 1216px) {
-	.rent-item {
-		border-bottom: none;
-	}
-
 	.rent-item-content {
 		flex-direction: column;
 		gap: 30px;

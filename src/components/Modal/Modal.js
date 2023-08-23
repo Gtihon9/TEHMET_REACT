@@ -19,8 +19,6 @@ export const Modal = ({ isOpen, onClose, children, maxWidth }) => {
 		return () => window.removeEventListener("keydown", handleWindowKeyDown)
 	}, [handleWindowKeyDown])
 
-	isOpen ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
-
 	return (
 		<ReactPortal wrapperId="modal-portal">
 			<AnimatePresence>
