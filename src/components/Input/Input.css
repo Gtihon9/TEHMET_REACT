@@ -24,12 +24,14 @@
     font-weight: 400;
     line-height: 16px;
     outline: none;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--text-secondary-color);
     border-radius: var(--rounding);
 }
 
 .input-container input:focus,
-.input-container textarea:focus {
+.input-container textarea:focus,
+.input-container input:hover,
+.input-container textarea:hover {
     border: 1px solid var(--primary-color);
 }
 

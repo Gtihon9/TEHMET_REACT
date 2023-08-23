@@ -3,12 +3,14 @@ import "./RentModal.css"
 import { Button } from "../Button/Button"
 import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
+import { Input } from "../Input/Input"
 
 export const RentModal = ({ isOpen, onClose }) => {
+	const [errors, setErrors] = useState({})
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
-		phoneNumber: "",
+		phone_number: "",
 		rentPeriod: "",
 	})
 
@@ -20,6 +22,10 @@ export const RentModal = ({ isOpen, onClose }) => {
 	const handleChange = e => {
 		const { name, value } = e.target
 		setFormData(prev => ({ ...prev, [name]: value }))
+		setErrors(prev => ({
+			...prev,
+			[name]: undefined,
+		}))
 	}
 
 	return (
@@ -28,37 +34,41 @@ export const RentModal = ({ isOpen, onClose }) => {
 				<div className="rent-modal-content-left">
 					<h3>Свяжитесь с нами</h3>
 					<form method="POST" onSubmit={handleSubmit} className="rent-modal-form">
-						<input
+						<Input
 							name="name"
 							placeholder="Укажите имя..."
 							type="text"
 							required
 							value={formData.name}
 							onChange={handleChange}
+							error={errors["name"]}
 						/>
-						<input
+						<Input
 							name="email"
 							placeholder="Укажите email..."
 							type="email"
 							required
 							value={formData.email}
 							onChange={handleChange}
+							error={errors["email"]}
 						/>
-						<input
-							name="phoneNumber"
+						<Input
+							name="phone_number"
 							placeholder="Укажите телефон..."
 							type="tel"
 							required
-							value={formData.phoneNumber}
+							value={formData.phone_number}
 							onChange={handleChange}
+							error={errors["phone_number"]}
 						/>
-						<input
+						<Input
 							name="rentPeriod"
 							placeholder="Срок аренды..."
-							type="date"
+							type="text"
 							required
 							value={formData.rentPeriod}
 							onChange={handleChange}
+							error={errors["rentPeriod"]}
 						/>
 						<div className="rent-modal-footer">
 							<Button type="submit">Отправить</Button>

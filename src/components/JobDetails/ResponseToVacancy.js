@@ -3,12 +3,15 @@ import "./ResponseToVacancy.css"
 import { Button } from "../Button/Button"
 import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
+import { Input } from "../Input/Input"
+import { Textarea } from "../Input/Textarea"
 
 export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
+	const [errors, setErrors] = useState({})
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
-		phoneNumber: "",
+		phone_number: "",
 		message: "",
 		resume: "",
 	})
@@ -44,36 +47,40 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 				</div>
 				<form method="POST" onSubmit={onSubmit}>
 					<div className="response-vacancy-form">
-						<input
+						<Input
 							name="name"
 							placeholder="Укажите имя..."
 							type="text"
 							required
 							value={formData.name}
 							onChange={handleChange}
+							error={errors["name"]}
 						/>
-						<input
+						<Input
 							name="email"
 							placeholder="Укажите e-mail..."
 							type="email"
 							required
 							value={formData.email}
 							onChange={handleChange}
+							error={errors["email"]}
 						/>
-						<input
-							name="phoneNumber"
+						<Input
+							name="phone_number"
 							placeholder="Укажите телефон..."
 							type="tel"
 							required
-							value={formData.phoneNumber}
+							value={formData.phone_number}
 							onChange={handleChange}
+							error={errors["phone_number"]}
 						/>
-						<textarea
+						<Textarea
 							name="message"
 							placeholder="Сопроводительное письмо"
 							required
 							value={formData.message}
 							onChange={handleChange}
+							error={errors["message"]}
 						/>
 						<div className="add-resume-container">
 							<button type="button" onClick={handleFileClick} className="add-resume-btn">
