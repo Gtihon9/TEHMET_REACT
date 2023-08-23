@@ -1,0 +1,51 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-container textarea {
+    resize: none;
+}
+
+.input-container input,
+.input-container textarea {
+    padding: 19px 18px;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    outline: none;
+    border: 1px solid var(--text-color);
+    border-radius: var(--rounding);
+}
+
+.input-container input:focus,
+.input-container textarea:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.input-container input.isInvalid,
+.input-container textarea.isInvalid {
+    border: 1px solid var(--error-color);
+}
+
+.input-container input.isInvalid::placeholder,
+.input-container textarea.isInvalid::placeholder {
+    color: var(--error-color);
+}
+
+.input-container span {
+    color: var(--error-color);
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
