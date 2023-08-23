@@ -1,0 +1,39 @@
+.jobs-search-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    position: relative;
+    border-radius: var(--rounding);
+    border: 1px solid rgba(217, 217, 217, 1);
+    transition: border 0.2s ease;
+}
+
+.jobs-search-icon {
+    position: absolute;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    color: var(--text-secondary-color);
+    transition: color 0.2s ease;
+}
+
+.jobs-search-input:focus + .jobs-search-icon {
+    color: #000000;
+}
+
+.jobs-search-input {
+    outline: none;
+    border: none;
+    width: 100%;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 8px 12px 8px 48px;
+}
+
+.jobs-search-wrapper:focus-within {
+    border: 1px solid var(--primary-color);
+}
