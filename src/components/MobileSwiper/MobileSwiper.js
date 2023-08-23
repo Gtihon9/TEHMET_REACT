@@ -15,6 +15,7 @@ export const MobileSwiper = ({ children }) => {
 				clickable: true,
 			}}
 			slidesPerView={1}
+			speed={800}
 		>
 			{children}
 		</Swiper>

@@ -12,7 +12,7 @@ export const DirectionsSlider = () => {
 	return (
 		<Swiper
 			spaceBetween={80}
-			speed={200}
+			speed={800}
 			loop
 			onSwiper={swiper => setSwiper(swiper)}
 			onSlideChange={swiper => setSlideNumber(swiper.realIndex)}
