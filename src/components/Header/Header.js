@@ -8,8 +8,8 @@ import { NavLink } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { headerLinks } from "./Header.constants"
 import { AnimatePresence, motion } from "framer-motion"
-import { LogoIcon } from "../Icons/LogoIcon"
 import { useMediaQuery } from "react-responsive"
+import { Logo } from "../Logo/Logo"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -26,18 +26,7 @@ const Header = () => {
 		<header className="header">
 			<div className="container">
 				<div className="header-container">
-					<NavLink to="/" className="logo-container">
-						{({ isActive }) => (
-							<>
-								<div className="logo">
-									<LogoIcon />
-								</div>
-								{isActive ? (
-									<motion.div layoutId="underline" className="logo-active" />
-								) : null}
-							</>
-						)}
-					</NavLink>
+					<Logo />
 					<nav className="header-navigation">
 						<ul className="nav-links">
 							{headerLinks.map(link => (

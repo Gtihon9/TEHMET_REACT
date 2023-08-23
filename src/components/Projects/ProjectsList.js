@@ -10,7 +10,7 @@ const ProjectsList = ({ projects }) => {
 					item={{
 						title: project.title,
 						description: project.subTitle,
-						image: project.image,
+						image: project.logo,
 					}}
 				/>
 			))}

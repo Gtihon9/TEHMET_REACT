@@ -12,11 +12,10 @@
 }
 
 .jobs-item-header-name {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 22px;
 	font-weight: 500;
 	line-height: 35px;
-	letter-spacing: 0em;
 	text-align: left;
 }
 
@@ -27,11 +26,10 @@
 }
 
 .jobs-item-header-contacts span {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 16px;
-	letter-spacing: 0em;
 	text-align: left;
 }
 
@@ -43,20 +41,18 @@
 }
 
 .jobs-item-info p {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 26px;
-	letter-spacing: 0em;
 	text-align: left;
 }
 
 .jobs-item-info span {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 27px;
-	letter-spacing: 0em;
 	text-align: left;
 }
 
@@ -68,25 +64,12 @@
 }
 
 .jobs-item-footer-button {
-	padding: 12px 23px 12px 23px;
-	border-radius: 2px;
-	background-color: var(--primary-color);
-	font-family: Roboto;
-	font-size: 18px;
-	font-weight: 500;
-	line-height: 21px;
-	color: #ffffff;
 	cursor: pointer;
-	text-decoration: none;
-}
-
-.jobs-item-footer-button:hover {
-	background-color: rgba(1, 104, 157, 1);
 }
 
 .jobs-item-footer span {
 	align-self: flex-end;
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 16px;

@@ -42,11 +42,12 @@
 }
 
 .news-pagination-page {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 19px;
 	cursor: pointer;
+	transition: color 0.2s ease-in-out;
 }
 
 .news-pagination-page:hover {
@@ -54,7 +55,7 @@
 }
 
 .news-pagination-page.selected {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 24px;

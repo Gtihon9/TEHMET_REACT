@@ -146,7 +146,7 @@
 }
 
 .company-card:hover .company-card-backdrop {
-	background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0);
 }
 
 .company-card-backdrop {
@@ -156,6 +156,7 @@
 	right: 0;
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.2);
+	transition: background-color 0.2s ease-in-out;
 }
 
 .company-card img {

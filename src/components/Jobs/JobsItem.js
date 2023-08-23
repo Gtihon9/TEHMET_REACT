@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import "./JobsItem.css"
+import { Button } from "../Button/Button"
 
 export const JobsItem = ({ job }) => {
 	return (
@@ -21,7 +22,7 @@ export const JobsItem = ({ job }) => {
 			</div>
 			<div className="jobs-item-footer">
 				<Link className="jobs-item-footer-button" to={`/jobs/${job.id}`}>
-					Подробнее
+					<Button>Подробнее</Button>
 				</Link>
 				<span>{job.date}</span>
 			</div>
