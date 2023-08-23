@@ -57,27 +57,6 @@
 	width: 100%;
 }
 
-.contact-us-form input,
-.contact-us-form textarea {
-	padding: 19px 18px;
-	font-family: Roboto, sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 16px;
-	outline: none;
-	border: 1px solid var(--text-color);
-	border-radius: var(--rounding);
-}
-
-.contact-us-form input:focus,
-.contact-us-form textarea:focus {
-	border: 1px solid var(--primary-color);
-}
-
-.contact-us-form textarea {
-	resize: vertical;
-}
-
 .contact-us-submit-container {
 	display: flex;
 	flex-direction: column;

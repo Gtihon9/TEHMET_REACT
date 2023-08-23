@@ -52,29 +52,6 @@
 	column-gap: 20px;
 }
 
-.extended-contact-form input,
-textarea {
-	padding: 19px 18px;
-	font-family: Roboto, sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 16px;
-	text-align: left;
-	display: flex;
-	align-items: center;
-	outline: none;
-	border: 1px solid var(--text-color);
-	border-radius: var(--rounding);
-}
-
-.extended-contact-form input:focus,
-textarea:focus {
-	border: 1px solid var(--primary-color);
-}
-
-.extended-contact-form textarea {
-	resize: vertical;
-}
 
 .submit-container {
 	display: flex;

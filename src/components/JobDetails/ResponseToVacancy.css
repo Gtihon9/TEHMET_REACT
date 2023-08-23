@@ -50,7 +50,7 @@
 }
 
 .response-vacancy-form textarea {
-	resize: vertical;
+	resize: none;
 }
 
 .add-resume-container {

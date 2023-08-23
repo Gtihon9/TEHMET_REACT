@@ -4,6 +4,8 @@ import { ArrowUp } from "../Icons/ArrowUp"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { useState } from "react"
 import axios from "axios"
+import { Input } from "../Input/Input"
+import { Textarea } from "../Input/Textarea"
 
 const ContactUsForm = () => {
 	const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const ContactUsForm = () => {
 		email: "",
 		message: "",
 	})
+	const [errors, setErrors] = useState({})
 
 	const scrollToTop = () => {
 		window.scrollTo({
@@ -24,13 +27,18 @@ const ContactUsForm = () => {
 			...prev,
 			[name]: value,
 		}))
+		setErrors(prev => ({
+			...prev,
+			[name]: undefined,
+		}))
 	}
 	const handleSubmit = async e => {
 		e.preventDefault()
 		try {
 			await axios.post("https://api.tehmetservice.ru/api/v1/feedback/email/", formData)
 		} catch (error) {
-			console.log(error)
+			setErrors(error.response.data)
+			console.log(errors)
 		}
 	}
 
@@ -42,25 +50,35 @@ const ContactUsForm = () => {
 						<div className="form-content">
 							<h1>Свяжитесь с нами</h1>
 							<form onSubmit={handleSubmit} className="contact-us-form">
-								<input
+								<Input
 									name="name"
 									type="text"
 									placeholder="Укажите имя..."
 									onChange={handleFieldChange}
 									value={formData.name}
+									error={errors["name"]}
 								/>
-								<input
+								<Input
 									name="email"
 									type="email"
 									placeholder="Укажите email..."
 									onChange={handleFieldChange}
 									value={formData.email}
+									error={errors["email"]}
 								/>
-								<textarea
+								{/*<input*/}
+								{/*	name="phone_number"*/}
+								{/*	type="tel"*/}
+								{/*	placeholder="Укажите телефон..."*/}
+								{/*	onChange={handleFieldChange}*/}
+								{/*	value={formData.phone_number}*/}
+								{/*/>*/}
+								<Textarea
 									name="message"
 									placeholder="Сообщение"
 									onChange={handleFieldChange}
 									value={formData.message}
+									error={errors["message"]}
 								/>
 								<div className="contact-us-submit-container">
 									<Button type="submit">Отправить</Button>

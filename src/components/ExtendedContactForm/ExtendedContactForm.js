@@ -3,8 +3,11 @@ import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Button } from "../Button/Button"
 import "./ExtendedContactForm.css"
 import axios from "axios"
+import { Input } from "../Input/Input"
+import { Textarea } from "../Input/Textarea"
 
 const ExtendedContactForm = () => {
+	const [errors, setErrors] = useState({})
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -17,7 +20,14 @@ const ExtendedContactForm = () => {
 
 	const handleChange = e => {
 		const { name, value } = e.target
-		setFormData(prevData => ({ ...prevData, [name]: value }))
+		setFormData(prev => ({
+			...prev,
+			[name]: value,
+		}))
+		setErrors(prev => ({
+			...prev,
+			[name]: undefined,
+		}))
 	}
 
 	const handleSubmit = async e => {
@@ -25,7 +35,8 @@ const ExtendedContactForm = () => {
 		try {
 			await axios.post("https://api.tehmetservice.ru/api/v1/feedback/project/", formData)
 		} catch (error) {
-			console.log(error)
+			setErrors(error.response.data)
+			console.log(errors)
 		}
 	}
 
@@ -57,60 +68,67 @@ const ExtendedContactForm = () => {
 								onSubmit={handleSubmit}
 							>
 								<div className="first-line">
-									<input
+									<Input
 										type="text"
 										name="name"
 										placeholder="Укажите имя..."
 										required
 										value={formData.name}
 										onChange={handleChange}
+										error={errors["name"]}
 									/>
-									<input
+									<Input
 										type="email"
 										name="email"
 										placeholder="Укажите email..."
 										required
 										value={formData.email}
 										onChange={handleChange}
+										error={errors["email"]}
 									/>
-									<input
+									<Input
 										type="tel"
 										name="phone_number"
 										placeholder="Укажите телефон..."
 										required
 										value={formData.phone_number}
 										onChange={handleChange}
+										error={errors["phone_number"]}
 									/>
 								</div>
-								<textarea
+								<Textarea
 									name="goal"
 									placeholder="Укажите цель работы"
 									required
 									value={formData.goal}
 									onChange={handleChange}
-								></textarea>
-								<textarea
+									error={errors["goal"]}
+								/>
+								<Input
 									name="address"
 									placeholder="Укажите адрес объекта"
 									required
 									value={formData.address}
 									onChange={handleChange}
-								></textarea>
-								<input
+									error={errors["address"]}
+								/>
+								<Input
 									type="text"
 									name="scope"
 									placeholder="Укажите объем работ или его габариты"
 									required
 									value={formData.scope}
 									onChange={handleChange}
+									error={errors["scope"]}
 								/>
-								<input
-									type="date"
+								<Input
+									type="text"
 									name="terms"
 									placeholder="Желаемые сроки выполнения работы"
 									required
 									value={formData.terms}
 									onChange={handleChange}
+									error={errors["terms"]}
 								/>
 								<div className="submit-container">
 									<Button type="submit">Отправить</Button>
