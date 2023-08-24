@@ -2,21 +2,23 @@ import { useState } from "react"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Button } from "../Button/Button"
 import "./ExtendedContactForm.css"
-import axios from "axios"
 import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
+import { ContactFormApi } from "../../api/contact-form.api"
+
+const initialFormData = {
+	name: "",
+	email: "",
+	phone_number: "",
+	objective: "",
+	address: "",
+	work_scope: "",
+	work_deadlines: "",
+}
 
 const ExtendedContactForm = () => {
 	const [errors, setErrors] = useState({})
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		phone_number: "",
-		goal: "",
-		address: "",
-		scope: "",
-		terms: "",
-	})
+	const [formData, setFormData] = useState(initialFormData)
 
 	const handleChange = e => {
 		const { name, value } = e.target
@@ -33,7 +35,11 @@ const ExtendedContactForm = () => {
 	const handleSubmit = async e => {
 		e.preventDefault()
 		try {
-			await axios.post("https://api.tehmetservice.ru/api/v1/feedback/project/", formData)
+			const response = await ContactFormApi.feedbackProject(formData)
+			if (response) {
+				setFormData(initialFormData)
+			}
+			// await axios.post("https://api.tehmetservice.ru/api/v1/feedback/project/", formData)
 		} catch (error) {
 			setErrors(error.response.data)
 			console.log(errors)
@@ -97,12 +103,12 @@ const ExtendedContactForm = () => {
 									/>
 								</div>
 								<Textarea
-									name="goal"
+									name="objective"
 									placeholder="Укажите цель работы"
 									required
-									value={formData.goal}
+									value={formData.objective}
 									onChange={handleChange}
-									error={errors["goal"]}
+									error={errors["objective"]}
 								/>
 								<Input
 									name="address"
@@ -114,21 +120,21 @@ const ExtendedContactForm = () => {
 								/>
 								<Input
 									type="text"
-									name="scope"
+									name="work_scope"
 									placeholder="Укажите объем работ или его габариты"
 									required
-									value={formData.scope}
+									value={formData.work_scope}
 									onChange={handleChange}
-									error={errors["scope"]}
+									error={errors["work_scope"]}
 								/>
 								<Input
 									type="text"
-									name="terms"
+									name="work_deadlines"
 									placeholder="Желаемые сроки выполнения работы"
 									required
-									value={formData.terms}
+									value={formData.work_deadlines}
 									onChange={handleChange}
-									error={errors["terms"]}
+									error={errors["work_deadlines"]}
 								/>
 								<div className="submit-container">
 									<Button type="submit">Отправить</Button>

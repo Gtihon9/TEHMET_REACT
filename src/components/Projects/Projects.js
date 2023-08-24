@@ -35,8 +35,6 @@ const Projects = () => {
 
 	const { response: projects, loading, error } = useApi(ProjectsApi.getAllProjects)
 
-	console.log(projects)
-
 	return (
 		<motion.main
 			initial={{ opacity: 0 }}

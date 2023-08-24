@@ -9,6 +9,9 @@ import { SearchJobs } from "./SearchJobs"
 import { useEffect, useState } from "react"
 import { useDebounce } from "../../hooks/useDebounce"
 import { jobsList } from "./Jobs.constants"
+import { useApi } from "../../hooks/useApi"
+import { JobsApi } from "../../api/jobs.api"
+import { Spinner } from "../Spinner/Spinner"
 
 const filterJobs = (jobs, query) => {
 	if (!query) {
@@ -21,6 +24,8 @@ const filterJobs = (jobs, query) => {
 }
 
 export const Jobs = () => {
+	const { response: jobs, loading, error } = useApi(JobsApi.getAllJobs)
+
 	const [searchParams, setSearchParams] = useSearchParams({})
 	const initialQuery = searchParams.get("query")
 
@@ -62,13 +67,16 @@ export const Jobs = () => {
 						<ArrowHeading title="Новые вакансии" />
 
 						<SearchJobs value={searchQuery} onChange={handleChange} />
-						<div>{}</div>
 
-						<div className="jobs-list">
-							{filteredJobs.map(job => (
-								<JobsItem key={job.id} job={job} />
-							))}
-						</div>
+						{loading ? (
+							<Spinner />
+						) : (
+							<div className="jobs-list">
+								{filteredJobs.map(job => (
+									<JobsItem key={job.id} job={job} />
+								))}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>

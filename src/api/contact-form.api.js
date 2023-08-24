@@ -1,6 +1,6 @@
 import { $instance } from "./index"
 
 export const ContactFormApi = {
-	feedbackEmail: body => $instance.post("/feedback/email/", body),
-	feedbackProject: body => $instance.post("/feedback/project", body),
+	feedbackLanding: body => $instance.post("/feedback/landing/", body),
+	feedbackProject: body => $instance.post("/feedback/project/", body),
 }

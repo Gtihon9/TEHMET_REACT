@@ -3,14 +3,14 @@ import "./ContactUsForm.css"
 import { ArrowUp } from "../Icons/ArrowUp"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { useState } from "react"
-import axios from "axios"
 import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
+import { ContactFormApi } from "../../api/contact-form.api"
 
 const ContactUsForm = () => {
 	const [formData, setFormData] = useState({
 		name: "",
-		email: "",
+		phone_number: "",
 		message: "",
 	})
 	const [errors, setErrors] = useState({})
@@ -35,10 +35,16 @@ const ContactUsForm = () => {
 	const handleSubmit = async e => {
 		e.preventDefault()
 		try {
-			await axios.post("https://api.tehmetservice.ru/api/v1/feedback/email/", formData)
+			const response = await ContactFormApi.feedbackLanding(formData)
+			if (response) {
+				setFormData({
+					name: "",
+					phone_number: "",
+					message: "",
+				})
+			}
 		} catch (error) {
 			setErrors(error.response.data)
-			console.log(errors)
 		}
 	}
 
@@ -59,20 +65,13 @@ const ContactUsForm = () => {
 									error={errors["name"]}
 								/>
 								<Input
-									name="email"
-									type="email"
-									placeholder="Укажите email..."
+									name="phone_number"
+									type="tel"
+									placeholder="Укажите телефон..."
 									onChange={handleFieldChange}
-									value={formData.email}
-									error={errors["email"]}
+									value={formData.phone_number}
+									error={errors["phone_number"]}
 								/>
-								{/*<input*/}
-								{/*	name="phone_number"*/}
-								{/*	type="tel"*/}
-								{/*	placeholder="Укажите телефон..."*/}
-								{/*	onChange={handleFieldChange}*/}
-								{/*	value={formData.phone_number}*/}
-								{/*/>*/}
 								<Textarea
 									name="message"
 									placeholder="Сообщение"
