@@ -16,9 +16,7 @@ const Header = () => {
 
 	const handleMobileMenuToggle = () => setShowMobileMenu(!showMobileMenu)
 
-	showMobileMenu
-		? (document.body.style.overflow = "hidden")
-		: (document.body.style.overflow = "auto")
+	document.body.style.overflow = showMobileMenu ? "hidden" : "auto"
 
 	const isMedium = useMediaQuery({ query: `(max-width: 1216px)` })
 

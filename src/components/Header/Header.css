@@ -5,7 +5,8 @@
 
 .header {
 	width: 100%;
-	box-shadow: 0 4px 4px 0 #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+	/*box-shadow: 0 4px 4px 0 #e8e8e8;*/
 }
 
 .header-container {
@@ -146,13 +147,14 @@
 
 	.mobile-menu {
 		position: fixed;
-		top: 80px;
+		top: 75px;
 		left: 0;
 		right: 0;
 		z-index: 10;
 		width: 100%;
 		height: 100%;
 		background-color: #ffffff;
+		border-top: 1px solid #e8e8e8;
 	}
 
 	.mobile-nav-links {
