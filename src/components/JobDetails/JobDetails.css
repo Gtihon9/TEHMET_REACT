@@ -123,6 +123,7 @@
 	line-height: 19px;
 	text-align: left;
 	align-self: flex-end;
+	color: var(--text-secondary-color);
 }
 
 .job-details-more {
