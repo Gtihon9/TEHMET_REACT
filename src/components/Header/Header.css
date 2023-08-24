@@ -24,9 +24,9 @@
 
 .logo-active {
 	position: absolute;
-	bottom: 50%;
+	bottom: 20px;
 	right: 0;
-	left: 20px;
+	left: 40px;
 	width: 1px;
 	height: 1px;
 	border-radius: 9999px;

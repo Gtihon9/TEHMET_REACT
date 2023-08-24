@@ -9,7 +9,7 @@ import { Button } from "../Button/Button"
 import { headerLinks } from "./Header.constants"
 import { AnimatePresence, motion } from "framer-motion"
 import { useMediaQuery } from "react-responsive"
-import { Logo } from "../Logo/Logo"
+import { LogoIcon } from "../Icons/LogoIcon"
 
 const Header = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -24,7 +24,16 @@ const Header = () => {
 		<header className="header">
 			<div className="container">
 				<div className="header-container">
-					<Logo />
+					<div className="logo-container">
+						<NavLink to="/">
+							{({ isActive }) => (
+								<>
+									<LogoIcon />
+									{isActive && <motion.div layoutId="underline" className="logo-active" />}
+								</>
+							)}
+						</NavLink>
+					</div>
 					<nav className="header-navigation">
 						<ul className="nav-links">
 							{headerLinks.map(link => (
@@ -33,12 +42,12 @@ const Header = () => {
 										{({ isActive }) => (
 											<>
 												{link.name}
-												{isActive ? (
+												{isActive && (
 													<motion.div
 														layoutId="underline"
 														className="nav-links-item-underline"
 													/>
-												) : null}
+												)}
 											</>
 										)}
 									</NavLink>
