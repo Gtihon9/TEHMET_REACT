@@ -8,6 +8,8 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "./LastProjectsSwiper.css"
 import { Link } from "react-router-dom"
+import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
+import { Button } from "../Button/Button"
 
 const LastProjectsSwiper = () => {
 	const [swiper, setSwiper] = useState(null)
@@ -22,41 +24,63 @@ const LastProjectsSwiper = () => {
 	}
 
 	return (
-		<div className="last-projects">
-			<Swiper
-				speed={800}
-				onSwiper={setSwiper}
-				onSlideChange={swiper => handleChangeSlideNumber(swiper.realIndex)}
-				modules={[Navigation]}
-				navigation
-				style={{
-					"--swiper-navigation-color": "#ffffff",
-				}}
-			>
-				{projectsList.map(project => (
-					<SwiperSlide key={project.title}>
-						<Card
-							item={{
-								title: project.title,
-								image: project.image,
-							}}
-						/>
-					</SwiperSlide>
-				))}
-			</Swiper>
+		<>
+			<div className="last-projects">
+				<Swiper
+					speed={800}
+					onSwiper={setSwiper}
+					onSlideChange={swiper => handleChangeSlideNumber(swiper.realIndex)}
+					modules={[Navigation]}
+					navigation
+					style={{
+						"--swiper-navigation-color": "#ffffff",
+					}}
+				>
+					{projectsList.map(project => (
+						<SwiperSlide key={project.title}>
+							<Card
+								item={{
+									title: project.title,
+									image: project.image,
+								}}
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
 
-			<Card
-				item={{
-					title: projectsList[slideNumber + 1]?.title,
-					image: projectsList[slideNumber + 1]?.image,
-				}}
-			/>
+				<Card
+					item={{
+						title: projectsList[slideNumber + 1]?.title,
+						image: projectsList[slideNumber + 1]?.image,
+					}}
+				/>
 
-			<Link to="/projects" className="last-projects-button">
-				Посмотреть еще
-				<ShareIcon />
-			</Link>
-		</div>
+				<Link to="/projects" className="last-projects-button">
+					Посмотреть еще
+					<ShareIcon />
+				</Link>
+			</div>
+			<div className="last-projects-mobile">
+				<MobileSwiper>
+					{projectsList.map(project => (
+						<SwiperSlide key={project.title}>
+							<Card
+								item={{
+									title: project.title,
+									image: project.image,
+								}}
+							/>
+						</SwiperSlide>
+					))}
+				</MobileSwiper>
+				<Link to="/projects" className="last-project-all-button">
+					<Button>
+						Все работы
+						<ShareIcon />
+					</Button>
+				</Link>
+			</div>
+		</>
 	)
 }
 

@@ -44,6 +44,10 @@
 }
 
 .card-button {
+	max-width: fit-content;
+}
+
+.card-button button {
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -101,7 +105,7 @@
 		padding: 10px;
 	}
 
-	.card-button {
+	.card-button button {
 		background-color: transparent;
 		padding: 0;
 		font-size: 16px;

@@ -32,9 +32,9 @@
 .last-projects-button {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 20px;
-	padding: 52px 42px 52px 72px;
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 32px;
@@ -55,4 +55,41 @@
 
 .last-projects-button svg path {
 	stroke: rgb(255, 255, 255);
+}
+
+.last-projects-mobile {
+	display: none;
+	width: 100%;
+}
+
+.last-projects-mobile .mobile-swiper .swiper-slide .card {
+	max-width: none;
+}
+
+.last-projects-mobile .mobile-swiper .swiper-slide .card-image {
+	max-height: none;
+}
+
+.last-project-all-button {
+	width: 100%;
+}
+
+.last-project-all-button button {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+@media screen and (max-width: 1216px) {
+	.last-projects {
+		display: none;
+	}
+
+	.last-projects-mobile {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 25px;
+	}
 }

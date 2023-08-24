@@ -29,8 +29,8 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 							</button>
 						</div>
 					</div>
-					<Link to={service.link}>
-						<Button className="direction-slide-footer-button">
+					<Link to={service.link} className="direction-slide-footer-button">
+						<Button>
 							Смотреть полностью
 							<ShareIcon />
 						</Button>

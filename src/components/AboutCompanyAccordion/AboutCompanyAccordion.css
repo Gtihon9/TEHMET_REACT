@@ -1,66 +1,78 @@
-.about-company-accordion {
-	display: flex;
-	align-items: flex-start;
-	gap: 62px;
-	min-height: 300px;
-}
-.about-company-accordion-buttons {
-	align-items: flex-start;
+.about-company-accordion-container {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	width: 100%;
 }
-.about-company-accordion-buttons button {
+
+.about-company-accordion-item {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	font-family: Roboto, sans-serif;
+	border-bottom: 1px solid var(--text-secondary-color);
+}
+
+.about-company-accordion-button {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 42px;
-	padding: 10px 13px 10px 10px;
 	width: 100%;
+	cursor: pointer;
+	padding: 10px 13px;
+	border-radius: var(--rounding);
+	transition: all 0.2s ease;
+}
+
+.about-company-accordion-title {
 	font-family: Roboto, sans-serif;
-	transition: all 0.2s ease-in-out;
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 500;
 	line-height: 31px;
 	text-align: left;
-	border-radius: var(--rounding) var(--rounding) 0 0;
-	border-bottom: 1px solid var(--color-text);
-	cursor: pointer;
 }
 
-.about-company-accordion-buttons button.active,
-.about-company-accordion-buttons button:hover {
+.about-company-accordion-icon {
+	width: 38px !important;
+	height: 38px !important;
+}
+
+.about-company-accordion-button[aria-expanded="true"] {
 	background-color: var(--primary-color);
 	color: #ffffff;
-	border-radius: var(--rounding);
 }
 
-.about-company-accordion-buttons button svg {
-	transition: transform 0.2s ease;
+.about-company-accordion-button:hover {
+	background-color: var(--primary-color);
+	color: #ffffff;
 }
 
-.about-company-accordion-buttons button.active svg {
-	transform: rotate(-90deg);
-}
-
-.about-company-accordion-buttons button.active svg path,
-.about-company-accordion-buttons button:hover svg path {
-	fill: rgb(255, 255, 255);
-}
-
-.about-company-main-text {
-	max-width: 840px;
+.about-company-accordion-body {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
 	gap: 20px;
+	padding: 25px 10px !important;
 }
-.about-company-main-text p {
-	margin: 0;
-	color: var(--color-text, #37393b);
+
+.about-company-accordion-body p {
 	font-family: Roboto, sans-serif;
 	font-size: 17px;
-	font-style: normal;
 	font-weight: 400;
-	line-height: 160%; /* 27.2px */
+	line-height: 27px;
+}
+
+@media screen and (max-width: 890px) {
+	.about-company-accordion-body p {
+		font-size: 16px;
+		line-height: 26px;
+	}
+
+	.about-company-accordion-title {
+		font-size: 18px;
+		line-height: 25px;
+	}
+
+	.about-company-accordion-body {
+		padding: 25px 10px 5px 10px !important;
+	}
 }

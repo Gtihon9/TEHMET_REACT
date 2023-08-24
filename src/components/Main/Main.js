@@ -1,8 +1,8 @@
-import AboutCompany1 from "../../images/about-company-1.png"
+import AboutCompany11 from "../../images/about-company-11.png"
 import AboutCompany2 from "../../images/about-company-2.png"
 import AboutCompany3 from "../../images/about-company-3.png"
 import ContactUsForm from "../ContactUsForm/ContactUsForm"
-import AboutCompanyAccordion from "../AboutCompanyAccordion/AboutCompanyAccordion"
+import { AboutCompanyAccordion } from "../AboutCompanyAccordion/AboutCompanyAccordion"
 import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
 import bg_video from "../../videos/tehmet_lending.mov"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
@@ -33,7 +33,7 @@ const Main = () => {
 							</p>
 						</div>
 						<div className="hero-features">
-							{features.map((feature) => (
+							{features.map(feature => (
 								<div key={feature} className="feature-item">
 									<div className="feature-item-circle" />
 									<span className="feature-item-text">{feature}</span>
@@ -46,7 +46,6 @@ const Main = () => {
 
 			<div className="container">
 				<div className="main-info-container">
-
 					<div className="section-container">
 						<ArrowHeading title="Направления" />
 						<DirectionsSlider />
@@ -56,7 +55,7 @@ const Main = () => {
 						<ArrowHeading title="О компании" />
 						<div className="main-about-company-content">
 							<div className="main-about-company-images">
-								<img src={AboutCompany1} alt="AboutCompany 1" />
+								<img src={AboutCompany11} alt="AboutCompany 1" />
 								<img src={AboutCompany2} alt="About Company 2" />
 								<img src={AboutCompany3} alt="About Company 3" />
 							</div>
@@ -64,10 +63,19 @@ const Main = () => {
 								<h2>Техметсервис</h2>
 								<div className="main-about-company-text">
 									<p>
-										Мы - это опыт работы с объектами любого масштаба. Благодаря большому опыту и использованию современных технологий мы добиваемся исключительных результатов, поддерживая высокий уровень подготовки рабочих. Независимо от того, требуется ли вам снос небольшого строения или реновации территории крупного промышленного объекта, мы обладаем достаточным опытом и ресурсами, чтобы справиться с любой задачей.
+										Мы - это опыт работы с объектами любого масштаба. Благодаря большому
+										опыту и использованию современных технологий мы добиваемся
+										исключительных результатов, поддерживая высокий уровень подготовки
+										рабочих. Независимо от того, требуется ли вам снос небольшого строения
+										или реновации территории крупного промышленного объекта, мы обладаем
+										достаточным опытом и ресурсами, чтобы справиться с любой задачей.
 									</p>
 									<p>
-										Безопасность - наш главный приоритет. Мы строго соблюдаем все правила договоров и инструкции по технике безопасности, применяя комплексные меры по защите наших работников, клиентов и окружающей среды. Наша приверженность поддержанию безопасных условий труда отличает нас как надежную и ответственную компанию.
+										Безопасность - наш главный приоритет. Мы строго соблюдаем все правила
+										договоров и инструкции по технике безопасности, применяя комплексные
+										меры по защите наших работников, клиентов и окружающей среды. Наша
+										приверженность поддержанию безопасных условий труда отличает нас как
+										надежную и ответственную компанию.
 									</p>
 								</div>
 							</div>
