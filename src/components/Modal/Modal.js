@@ -4,7 +4,7 @@ import { ReactPortal } from "../../utils/ReactPortal"
 import "./Modal.css"
 import MenuIconClosed from "../Icons/MenuIconClosed"
 
-export const Modal = ({ isOpen, onClose, children, maxWidth }) => {
+export const Modal = ({ isOpen, onClose, children, maxWidth = 650 }) => {
 	const handleWindowKeyDown = useCallback(
 		e => {
 			if (e.key === "Escape") {
@@ -28,6 +28,7 @@ export const Modal = ({ isOpen, onClose, children, maxWidth }) => {
 							className="modal"
 							key="modal"
 							role="dialog"
+							aria-expanded={isOpen}
 							aria-modal="true"
 							style={{ maxWidth }}
 							{...defaultModalAnimation}

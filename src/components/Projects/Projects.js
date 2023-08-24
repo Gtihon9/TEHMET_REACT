@@ -95,7 +95,7 @@ const Projects = () => {
 						<Spinner />
 					) : (
 						<>
-							{projects?.length !== 0 && (
+							{projects?.results?.length !== 0 && (
 								<div className="projects-list-container">
 									<ProjectsList projects={projects} />
 									<Button className="project-list-button">Посмотреть ещё</Button>
@@ -104,7 +104,7 @@ const Projects = () => {
 
 							<div className="projects-list-container-mobile">
 								<MobileSwiper>
-									{projects?.map(project => (
+									{projects?.results?.map(project => (
 										<SwiperSlide key={project.id}>
 											<Card
 												item={{

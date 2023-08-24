@@ -8,10 +8,9 @@ import "./Jobs.css"
 import { SearchJobs } from "./SearchJobs"
 import { useEffect, useState } from "react"
 import { useDebounce } from "../../hooks/useDebounce"
-import { jobsList } from "./Jobs.constants"
-import { useApi } from "../../hooks/useApi"
 import { JobsApi } from "../../api/jobs.api"
 import { Spinner } from "../Spinner/Spinner"
+import { Pagination } from "../Pagination/Pagination"
 
 const filterJobs = (jobs, query) => {
 	if (!query) {
@@ -23,28 +22,41 @@ const filterJobs = (jobs, query) => {
 	})
 }
 
+const LIMIT = 10
 export const Jobs = () => {
-	const { response: jobs, loading, error } = useApi(JobsApi.getAllJobs)
+	const [searchParams, _] = useSearchParams()
+	const page = parseInt(searchParams.get("page")) || 1
 
-	const [searchParams, setSearchParams] = useSearchParams({})
-	const initialQuery = searchParams.get("query")
+	const [response, setResponse] = useState()
+	const [isLoading, setIsLoading] = useState(true)
 
-	const [searchQuery, setSearchQuery] = useState(initialQuery ?? "")
+	const [searchQuery, setSearchQuery] = useState("")
 	const debouncedQuery = useDebounce(searchQuery, 300)
-	const filteredJobs = filterJobs(jobsList, debouncedQuery)
+	const filteredJobs = filterJobs(response?.results, debouncedQuery)
 
 	const handleChange = e => {
 		setSearchQuery(e.target.value)
 	}
 
+	const totalPages = Number.isNaN(Math.ceil(response?.count / LIMIT))
+		? 0
+		: Math.ceil(response?.count / LIMIT)
+
 	useEffect(() => {
-		if (debouncedQuery.trim() === "") {
-			setSearchParams({})
-			setSearchQuery("")
-		} else {
-			setSearchParams({ query: debouncedQuery })
+		const fetchData = async () => {
+			setIsLoading(true)
+			try {
+				const res = await JobsApi.getAllJobs(LIMIT, (page - 1) * LIMIT)
+				setResponse(res.data)
+			} catch (err) {
+				console.log(err)
+			} finally {
+				setIsLoading(false)
+			}
 		}
-	}, [debouncedQuery])
+
+		fetchData()
+	}, [page])
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -68,18 +80,38 @@ export const Jobs = () => {
 
 						<SearchJobs value={searchQuery} onChange={handleChange} />
 
-						{loading ? (
+						{isLoading ? (
 							<Spinner />
 						) : (
-							<div className="jobs-list">
+							<motion.div {...containerMotionProps} className="jobs-list">
 								{filteredJobs.map(job => (
 									<JobsItem key={job.id} job={job} />
 								))}
-							</div>
+							</motion.div>
 						)}
 					</div>
+
+					<Pagination pageCount={totalPages} />
 				</div>
 			</div>
 		</motion.main>
 	)
+}
+
+const containerMotionProps = {
+	variants: {
+		hidden: {
+			opacity: 0,
+		},
+		show: {
+			opacity: 1,
+			transition: {
+				duration: 0.6,
+				delayChildren: 0.3,
+				staggerChildren: 0.15,
+			},
+		},
+	},
+	initial: "hidden",
+	animate: "show",
 }

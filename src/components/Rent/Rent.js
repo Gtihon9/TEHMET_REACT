@@ -40,7 +40,7 @@ export const Rent = () => {
 						</div>
 					</div>
 
-					<Pagination />
+					<Pagination pageCount={2} />
 				</div>
 			</div>
 		</motion.main>

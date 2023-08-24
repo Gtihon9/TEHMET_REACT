@@ -4,7 +4,7 @@ import { Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 import { DirectionSlide } from "./DirectionSlide"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
 import "./DirectionsSlider.css"
 
@@ -13,10 +13,6 @@ export const DirectionsSlider = () => {
 	const [swiper, setSwiper] = useState(null)
 
 	const isMobile = useMediaQuery({ query: `(max-width: 790px)` })
-
-	useEffect(() => {
-		console.log(swiper)
-	}, [isMobile])
 
 	return (
 		<Swiper

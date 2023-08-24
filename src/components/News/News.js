@@ -43,7 +43,7 @@ export const News = () => {
 						)}
 					</div>
 
-					<Pagination />
+					<Pagination pageCount={1} />
 				</div>
 			</div>
 		</motion.main>

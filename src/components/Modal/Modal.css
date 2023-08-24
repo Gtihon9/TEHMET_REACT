@@ -3,11 +3,13 @@
     z-index: 1;
     position: fixed;
     inset: 0;
+    width: 100vw;
 }
 
 .modal {
     max-width: 640px;
     height: fit-content;
+    max-height: 900px;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -17,6 +19,7 @@
     z-index: 2;
     position: fixed;
     inset: 15px;
+    overflow-y: auto;
 }
 
 .modal-content {
@@ -47,4 +50,10 @@
 
 .modal-close-btn:hover {
     background-color: #e2e8f0;
+}
+
+@media screen and (max-width: 490px) {
+    .modal {
+        max-height: 600px;
+    }
 }
