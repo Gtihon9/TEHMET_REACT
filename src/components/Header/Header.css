@@ -22,6 +22,11 @@
 	position: relative;
 }
 
+.logo-container svg {
+	width: 180px;
+	height: 60px;
+}
+
 .logo-active {
 	position: absolute;
 	bottom: 20px;
@@ -155,6 +160,11 @@
 		height: 100%;
 		background-color: #ffffff;
 		border-top: 1px solid #e8e8e8;
+	}
+
+	.logo-container svg {
+		width: 132px;
+		height: 45px;
 	}
 
 	.mobile-nav-links {
