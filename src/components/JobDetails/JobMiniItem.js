@@ -1,10 +1,11 @@
 import "./JobMiniItem.css"
 import { getEmploymentType } from "../../utils/getEmploymentType"
 import { getPaymentType } from "../../utils/getPaymentType"
+import { Link } from "react-router-dom"
 
 export const JobMiniItem = ({ job }) => {
 	return (
-		<div className="job-mini-item">
+		<Link to={`/jobs/${job.id}`} className="job-mini-item">
 			<p className="job-mini-item-name">{job.name}</p>
 			<div className="job-mini-item-info">
 				<p>
@@ -18,6 +19,6 @@ export const JobMiniItem = ({ job }) => {
 				<span style={{ fontWeight: "bold" }}>{job.payment} ₽</span>
 				<span className="job-mini-item-salary-tag"> / {getPaymentType(job.payment_type)}</span>
 			</div>
-		</div>
+		</Link>
 	)
 }
