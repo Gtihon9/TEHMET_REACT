@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate"
 import { useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
 
-export const Pagination = ({ pageCount = 1 }) => {
+export const Pagination = ({ pageCount = 2 }) => {
 	const [searchParams, setSearchParams] = useSearchParams({
 		page: 1,
 	})

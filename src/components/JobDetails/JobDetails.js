@@ -27,7 +27,7 @@ export const JobDetails = () => {
 
 	console.log(error, allError)
 
-	const filteredAllJobs = allJobs?.results?.filter(job => job.id !== id)
+	const filteredAllJobs = allJobs?.results?.filter(job => job.id !== id).slice(0, 3)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -117,7 +117,7 @@ export const JobDetails = () => {
 					</div>
 				)}
 			</div>
-			<ResponseToVacancy isOpen={isOpen} onClose={onClose} jobName={"Монтажник"} />
+			<ResponseToVacancy isOpen={isOpen} onClose={onClose} jobName={jobDetails?.name} />
 		</motion.main>
 	)
 }

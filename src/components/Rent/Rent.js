@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { RentItem } from "./RentItem"
@@ -11,8 +11,38 @@ import Catalog2 from "../../images/catalog2.png"
 import Catalog3 from "../../images/catalog3.png"
 import Catalog4 from "../../images/catalog4.png"
 import { Pagination } from "../Pagination/Pagination"
+import { useEffect, useState } from "react"
+import { getTotalPages } from "../../utils/getTotalPages"
+
+const LIMIT = 10
 
 export const Rent = () => {
+	const [searchParams, _] = useSearchParams()
+	const page = parseInt(searchParams.get("page")) || 1
+
+	const [response, setResponse] = useState()
+	const [isLoading, setIsLoading] = useState(true)
+	const [error, setError] = useState(null)
+
+	const totalPages = getTotalPages(response?.count, LIMIT)
+
+	useEffect(() => {
+		const fetchData = async () => {
+			setIsLoading(true)
+			try {
+				// const res = 1
+				// setResponse(res.data)
+				setError(null)
+			} catch (err) {
+				setError(err)
+			} finally {
+				setIsLoading(false)
+			}
+		}
+
+		fetchData()
+	}, [page])
+
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -40,7 +70,7 @@ export const Rent = () => {
 						</div>
 					</div>
 
-					<Pagination pageCount={2} />
+					<Pagination pageCount={totalPages} />
 				</div>
 			</div>
 		</motion.main>

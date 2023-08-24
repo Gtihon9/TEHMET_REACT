@@ -11,6 +11,7 @@ import { useDebounce } from "../../hooks/useDebounce"
 import { JobsApi } from "../../api/jobs.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Pagination } from "../Pagination/Pagination"
+import { getTotalPages } from "../../utils/getTotalPages"
 
 const filterJobs = (jobs, query) => {
 	if (!query) {
@@ -39,9 +40,7 @@ export const Jobs = () => {
 		setSearchQuery(e.target.value)
 	}
 
-	const totalPages = Number.isNaN(Math.ceil(response?.count / LIMIT))
-		? 0
-		: Math.ceil(response?.count / LIMIT)
+	const totalPages = getTotalPages(response?.count, LIMIT)
 
 	useEffect(() => {
 		const fetchData = async () => {

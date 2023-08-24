@@ -2,7 +2,6 @@ import { Button } from "../Button/Button"
 import { RentModal } from "./RentModal"
 import { useDisclosure } from "../../hooks/useDisclosure"
 import "./RentItem.css"
-import { PhotoProvider, PhotoView } from "react-photo-view"
 
 export const RentItem = ({ item }) => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
@@ -10,11 +9,7 @@ export const RentItem = ({ item }) => {
 		<>
 			<div className="rent-item">
 				<div className="rent-item-content">
-					<PhotoProvider>
-						<PhotoView src={item.imageUrl}>
-							<img className="rent-item-image" alt={item.name} src={item.imageUrl} />
-						</PhotoView>
-					</PhotoProvider>
+					<img className="rent-item-image" alt={item.name} src={item.imageUrl} />
 					<div className="rent-item-heading">
 						<p>{item.name}</p>
 						<div className="rent-item-settings">
