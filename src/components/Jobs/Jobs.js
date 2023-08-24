@@ -58,6 +58,7 @@ export const Jobs = () => {
 		}
 
 		fetchData()
+		setSearchQuery("")
 	}, [page])
 
 	return (

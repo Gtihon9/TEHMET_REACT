@@ -9,6 +9,7 @@ import { newsImages } from "./NewsDetails.constants"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
 import { useState } from "react"
+import { PhotoProvider, PhotoView } from "react-photo-view"
 
 export const NewsDetails = () => {
 	const [isGalleryVisible, setIsGalleryVisible] = useState(false)
@@ -40,7 +41,11 @@ export const NewsDetails = () => {
 							<MobileSwiper>
 								{newsImages.map((image, index) => (
 									<SwiperSlide key={index}>
-										<img src={image.imageUrl} />
+										<PhotoProvider>
+											<PhotoView src={image.imageUrl}>
+												<img src={image.imageUrl} />
+											</PhotoView>
+										</PhotoProvider>
 									</SwiperSlide>
 								))}
 							</MobileSwiper>

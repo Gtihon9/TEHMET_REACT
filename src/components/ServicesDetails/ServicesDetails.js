@@ -11,6 +11,7 @@ import { OtherStages } from "./OtherStages"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
+import { PhotoProvider, PhotoView } from "react-photo-view"
 
 export const ServicesDetails = () => {
 	const { name } = useParams()
@@ -45,7 +46,11 @@ export const ServicesDetails = () => {
 					<ArrowHeading title="Галерея" />
 					<div className="work-stages-gallery">
 						{details.images.map((image, index) => (
-							<img alt={name + index} src={image} />
+							<PhotoProvider>
+								<PhotoView src={image}>
+									<img alt={name + index} src={image} />
+								</PhotoView>
+							</PhotoProvider>
 						))}
 					</div>
 
@@ -53,7 +58,11 @@ export const ServicesDetails = () => {
 						<MobileSwiper>
 							{details.images.map((image, index) => (
 								<SwiperSlide key={index}>
-									<img alt={`work-stage-${index}`} src={image} />
+									<PhotoProvider>
+										<PhotoView src={image}>
+											<img alt={`work-stage-${index}`} src={image} />
+										</PhotoView>
+									</PhotoProvider>
 								</SwiperSlide>
 							))}
 						</MobileSwiper>
