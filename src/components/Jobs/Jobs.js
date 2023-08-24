@@ -29,6 +29,7 @@ export const Jobs = () => {
 
 	const [response, setResponse] = useState()
 	const [isLoading, setIsLoading] = useState(true)
+	const [error, setError] = useState(null)
 
 	const [searchQuery, setSearchQuery] = useState("")
 	const debouncedQuery = useDebounce(searchQuery, 300)
@@ -48,8 +49,9 @@ export const Jobs = () => {
 			try {
 				const res = await JobsApi.getAllJobs(LIMIT, (page - 1) * LIMIT)
 				setResponse(res.data)
+				setError(null)
 			} catch (err) {
-				console.log(err)
+				setError(err)
 			} finally {
 				setIsLoading(false)
 			}
@@ -82,9 +84,11 @@ export const Jobs = () => {
 
 						{isLoading ? (
 							<Spinner />
+						) : error ? (
+							<h1>Что-то пошло не так</h1>
 						) : (
 							<motion.div {...containerMotionProps} className="jobs-list">
-								{filteredJobs.map(job => (
+								{filteredJobs?.map(job => (
 									<JobsItem key={job.id} job={job} />
 								))}
 							</motion.div>
