@@ -25,8 +25,6 @@ export const JobDetails = () => {
 		error: allError,
 	} = useApi(() => JobsApi.getAllJobs(4, 0))
 
-	console.log(error, allError)
-
 	const filteredAllJobs = allJobs?.results?.filter(job => job.id !== id).slice(0, 3)
 
 	return (

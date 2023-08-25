@@ -5,22 +5,28 @@ import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
+import { ContactFormApi } from "../../api/contact-form.api"
+import { useParams } from "react-router-dom"
+
+const initialFormData = {
+	name: "",
+	email: "",
+	phone_number: "",
+	covering_letter: "",
+	cv: "",
+}
 
 export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
+	const { id } = useParams()
+
 	const [errors, setErrors] = useState({})
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		phone_number: "",
-		message: "",
-		resume: "",
-	})
+	const [formData, setFormData] = useState(initialFormData)
 
 	const fileInputRef = useRef(null)
 
 	const handleFileChange = e => {
-		const resume = e.target.files[0]
-		setFormData(prevData => ({ ...prevData, resume }))
+		const cv = e.target.files[0]
+		setFormData(prevData => ({ ...prevData, cv }))
 	}
 
 	const handleFileClick = () => {
@@ -30,12 +36,27 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 	const handleChange = e => {
 		const { name, value } = e.target
 		setFormData(prevData => ({ ...prevData, [name]: value }))
+		setErrors(prev => ({ ...prev, [name]: null }))
 	}
 
-	const onSubmit = e => {
+	const onSubmit = async e => {
 		e.preventDefault()
+		const submitData = new FormData()
+		submitData.append("name", formData.name)
+		submitData.append("email", formData.email)
+		submitData.append("phone_number", formData.phone_number)
+		submitData.append("covering_letter", formData.covering_letter)
+		submitData.append("vacancy", id)
+		submitData.append("cv", formData.cv)
 
-		console.log(formData)
+		try {
+			const response = await ContactFormApi.feedbackVacancy(submitData)
+			if (response) {
+				setFormData(initialFormData)
+			}
+		} catch (error) {
+			setErrors(error.response.data)
+		}
 	}
 
 	return (
@@ -75,26 +96,25 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 							error={errors["phone_number"]}
 						/>
 						<Textarea
-							name="message"
+							name="covering_letter"
 							placeholder="Сопроводительное письмо"
 							required
-							value={formData.message}
+							value={formData.covering_letter}
 							onChange={handleChange}
-							error={errors["message"]}
+							error={errors["covering_letter"]}
 						/>
 						<div className="add-resume-container">
 							<button type="button" onClick={handleFileClick} className="add-resume-btn">
-								{formData.resume ? "Изменить резюме" : "Прикрепить резюме"}
+								{formData.cv ? "Изменить резюме" : "Прикрепить резюме"}
 							</button>
-							{formData.resume && <span>{formData?.resume.name}</span>}
+							{formData.cv && <span>{formData?.cv.name}</span>}
 							<input
-								id="resume"
-								name="resume"
+								id="cv"
+								name="cv"
 								hidden
 								type="file"
 								accept="application/pdf, image/*"
 								multiple={false}
-								required
 								ref={fileInputRef}
 								onChange={handleFileChange}
 							/>

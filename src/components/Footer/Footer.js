@@ -11,7 +11,8 @@ const Footer = () => {
 						<Logo />
 						<div className="address-info">
 							<p>
-								Московская область, городской округ Химки, город Химки, улица Рабочая, д. 2А, кабинет 13.
+								Московская область, городской округ Химки, город Химки, улица Рабочая, д.
+								2А, кабинет 13.
 							</p>
 							<p>+7-916-900-42-55</p>
 							<p>fdv240@gmail.com</p>
@@ -50,7 +51,9 @@ const Footer = () => {
 								<Link to="/services/demolition">Снос и демонтаж</Link>
 							</li>
 							<li>
-								<Link to="/services/pit-developing">Разработка и ограждение котлованов</Link>
+								<Link to="/services/pit-developing">
+									Разработка и ограждение котлованов
+								</Link>
 							</li>
 							<li>
 								<Link to="/services/renovation">Реновация территории</Link>
@@ -74,7 +77,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="footer-company">
-				<p>&copy; 2023 Разработчик.</p>
+				<p>&copy; 2023 ООО "Техметсервис"</p>
 			</div>
 		</footer>
 	)
