@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom"
-import { servicesDetails } from "./ServicesDetails.constants"
 import { Link } from "react-router-dom"
 import LeftArrowSVG from "../Icons/L_Arrow"
 import "./ServicesDetails.css"
@@ -14,19 +13,24 @@ import { motion } from "framer-motion"
 import useDisclosure from "../../hooks/useDisclosure"
 import { useState } from "react"
 import { PhotoSlider } from "react-photo-view"
+import { useApi } from "../../hooks/useApi"
+import { ServicesApi } from "../../api/services.api"
+import { Spinner } from "../Spinner/Spinner"
 
 export const ServicesDetails = () => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
 	const [index, setIndex] = useState(0)
 
-	const { name } = useParams()
-
-	const details = servicesDetails[name]
+	const { id } = useParams()
 
 	const handleOpenGallery = imgIndex => {
 		setIndex(imgIndex)
 		onOpen()
 	}
+
+	const { response: serviceDetails, loading, error } = useApi(() => ServicesApi.getServiceById(id))
+
+	const galleryImages = serviceDetails?.images ?? []
 
 	return (
 		<motion.main
@@ -36,50 +40,67 @@ export const ServicesDetails = () => {
 			className="services-details"
 		>
 			<div className="container">
-				<div className="services-details-content">
-					<div className="breadcrumbs">
-						<LeftArrowSVG />
-						<div className="breadcrumbs-text">
-							<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>/
-							<Link to={`/services/${name}`}>{details.title}</Link>
+				{loading ? (
+					<Spinner />
+				) : error ? (
+					<h1>Что-то пошло не так</h1>
+				) : (
+					<div className="services-details-content">
+						<div className="breadcrumbs">
+							<LeftArrowSVG />
+							<div className="breadcrumbs-text">
+								<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>/
+								<Link to={`/services/${serviceDetails?.id}`}>{serviceDetails?.name}</Link>
+							</div>
 						</div>
-					</div>
 
-					<SectionHeading
-						title={details.title}
-						description={details.description}
-						className="details-heading-section"
-					/>
+						<SectionHeading
+							title={serviceDetails?.name}
+							description={serviceDetails?.description}
+							className="details-heading-section"
+						/>
 
-					<WorkStages />
+						<WorkStages />
 
-					<ArrowHeading title="Галерея" />
-					<div className="work-stages-gallery">
-						{details.images.map((image, index) => (
-							<img alt={name + index} src={image} onClick={() => handleOpenGallery(index)} />
-						))}
-					</div>
-
-					<div className="works-stages-gallery-mobile">
-						<MobileSwiper>
-							{details.images.map((image, index) => (
-								<SwiperSlide key={index} onClick={() => handleOpenGallery(index)}>
-									<img alt={`work-stage-${index}`} src={image} />
-								</SwiperSlide>
+						<ArrowHeading title="Галерея" />
+						<div className="work-stages-gallery">
+							{serviceDetails?.images?.map((item, index) => (
+								<img
+									key={`work-stage-${item.id}`}
+									alt={`work-stage-${item.id}`}
+									src={item.image}
+									onClick={() => handleOpenGallery(index)}
+								/>
 							))}
-						</MobileSwiper>
+						</div>
+
+						<div className="works-stages-gallery-mobile">
+							<MobileSwiper>
+								{serviceDetails?.images?.map((item, index) => (
+									<SwiperSlide
+										key={`work-stage-mobile-${item.id}`}
+										onClick={() => handleOpenGallery(index)}
+									>
+										<img alt={`work-stage-mobile-${item.id}`} src={item.image} />
+									</SwiperSlide>
+								))}
+							</MobileSwiper>
+						</div>
+
+						<OtherStages />
+
+						<PhotoSlider
+							images={galleryImages.map(item => ({
+								src: item.image,
+								key: `gallery-slider-${item.id}`,
+							}))}
+							visible={isOpen}
+							onClose={onClose}
+							index={index}
+							onIndexChange={setIndex}
+						/>
 					</div>
-
-					<OtherStages />
-
-					<PhotoSlider
-						images={details.images.map((item, index) => ({ src: item, key: index }))}
-						visible={isOpen}
-						onClose={onClose}
-						index={index}
-						onIndexChange={setIndex}
-					/>
-				</div>
+				)}
 			</div>
 			<ExtendedContactForm />
 		</motion.main>

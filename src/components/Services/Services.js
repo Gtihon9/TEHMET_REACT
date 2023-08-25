@@ -3,12 +3,16 @@ import { Link } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Stats } from "../Stats/Stats"
-import { services } from "./Services.constants"
 import { ServicesItem } from "./ServicesItem"
 import { motion } from "framer-motion"
 import "./Services.css"
+import { useApi } from "../../hooks/useApi"
+import { ServicesApi } from "../../api/services.api"
+import { Spinner } from "../Spinner/Spinner"
 
 const Services = () => {
+	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -44,11 +48,17 @@ const Services = () => {
 						style={{ maxWidth: 720 }}
 					/>
 
-					<div className="services-list">
-						{services.map(service => (
-							<ServicesItem key={service.title} service={service} />
-						))}
-					</div>
+					{loading ? (
+						<Spinner />
+					) : error ? (
+						<h1>Что-то пошло не так</h1>
+					) : (
+						<div className="services-list">
+							{services?.results.map(service => (
+								<ServicesItem key={service.title} service={service} />
+							))}
+						</div>
+					)}
 				</div>
 			</div>
 		</motion.main>

@@ -9,8 +9,8 @@ export const ServicesItem = ({ service }) => {
 	return (
 		<div className="services-item">
 			<div className="services-item-content">
-				<ArrowHeading title={service.title} description={service.description} />
-				<Link to={service.link} className="services-item-content-button">
+				<ArrowHeading title={service.name} description={service.description} />
+				<Link to={service.id} className="services-item-content-button">
 					<Button>
 						Подробнее
 						<ShareIcon />
@@ -19,8 +19,8 @@ export const ServicesItem = ({ service }) => {
 			</div>
 			<PhotoProvider>
 				<div className="services-item-image">
-					<PhotoView src={service.image}>
-						<img alt={service.title} src={service.image} />
+					<PhotoView src={service.logo}>
+						<img alt={service.title} src={service.logo} />
 					</PhotoView>
 				</div>
 			</PhotoProvider>

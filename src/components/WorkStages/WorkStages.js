@@ -9,7 +9,7 @@ export const WorkStages = () => {
 			<ArrowHeading title="Этапы работы" style={{ maxWidth: 720 }} />
 			<div className="work-stages-items">
 				{stages.map(stage => (
-					<WorkStagesItem key={stage.id} stage={stage} />
+					<WorkStagesItem key={`stage-${stage.id}`} stage={stage} />
 				))}
 			</div>
 		</div>

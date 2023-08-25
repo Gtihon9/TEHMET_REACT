@@ -56,3 +56,8 @@ body {
 	line-height: normal;
 	text-decoration: none;
 }
+
+.PhotoView-Slider__Counter {
+	font-family: Roboto, sans-serif;
+	user-select: none;
+}

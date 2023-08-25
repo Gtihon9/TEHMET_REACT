@@ -26,7 +26,7 @@ export const AnimatedRoutes = () => {
 				<Route path="/news/:id" element={<NewsDetailsPage />} />
 				<Route path="/projects" element={<ProjectsPage />} />
 				<Route path="/services" element={<ServicesPage />} />
-				<Route path="/services/:name" element={<ServicesDetailsPage />} />
+				<Route path="/services/:id" element={<ServicesDetailsPage />} />
 				<Route path="/rent" element={<RentPage />} />
 				<Route path="/conf" element={<PrivacyPolicy />} />
 

@@ -4,10 +4,12 @@ import LeftArrowSVG from "../Icons/L_Arrow"
 import RightArrowSVG from "../Icons/R_Arrow"
 import { Card } from "../Card/Card"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { otherServices } from "./ServicesDetails.constants"
 import "swiper/css"
 import "./OtherStages.css"
 import { useParams } from "react-router-dom"
+import { useApi } from "../../hooks/useApi"
+import { ServicesApi } from "../../api/services.api"
+import { Spinner } from "../Spinner/Spinner"
 
 export const OtherStages = () => {
 	const [swiperState, setSwiperState] = useState({
@@ -16,9 +18,17 @@ export const OtherStages = () => {
 	})
 	const [swiper, setSwiper] = useState(null)
 
-	const { name } = useParams()
+	const { id } = useParams()
 
-	return (
+	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+
+	const filteredServices = services?.results?.filter(service => service.id !== id)
+
+	return loading ? (
+		<Spinner />
+	) : error ? (
+		<h1>Что-то пошло не так</h1>
+	) : (
 		<div className="work-stages-other">
 			<div className="work-stages-other-header">
 				<ArrowHeading title="Другие услуги" />
@@ -54,13 +64,17 @@ export const OtherStages = () => {
 					},
 				}}
 			>
-				{otherServices
-					.filter(item => !item.link.includes(name))
-					.map(service => (
-						<SwiperSlide>
-							<Card key={service.title} item={service} />
-						</SwiperSlide>
-					))}
+				{filteredServices?.map(service => (
+					<SwiperSlide key={service.id}>
+						<Card
+							item={{
+								title: service.name,
+								image: service.logo,
+								link: `/services/${service.id}`,
+							}}
+						/>
+					</SwiperSlide>
+				))}
 			</Swiper>
 		</div>
 	)

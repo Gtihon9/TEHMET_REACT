@@ -3,7 +3,6 @@ import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Link } from "react-router-dom"
-import { services } from "../Services/Services.constants"
 import DefaultImage from "../../images/default-image.png"
 import CompanyInfo from "../../images/company-info.png"
 import "./Company.css"
@@ -14,8 +13,25 @@ import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { Card } from "../Card/Card"
 import { ShareIcon } from "../Icons/ShareIcon"
+import { useApi } from "../../hooks/useApi"
+import { ServicesApi } from "../../api/services.api"
+import { Spinner } from "../Spinner/Spinner"
+import { RentApi } from "../../api/rent.api"
+import { SimpleGrid } from "@chakra-ui/layout"
 
 const Company = () => {
+	const {
+		response: services,
+		loading: servicesLoading,
+		error: servicesError,
+	} = useApi(ServicesApi.getAllServices)
+
+	const {
+		response: equipments,
+		loading: equipmentsLoading,
+		error: equipmentsError,
+	} = useApi(() => RentApi.getAllRents(8, 0))
+
 	return (
 		<motion.main
 			initial={{ opacity: 0 }}
@@ -68,32 +84,48 @@ const Company = () => {
 							title="Наш спектор услуг"
 							description="Предоставляет выбор ......"
 						/>
-						<div className="company-services-images">
-							{services.map(service => (
-								<Link key={service.title} to={service.link} className="company-card">
-									<div className="company-card-backdrop" />
-									<img alt={service.title} src={service.image} />
-									<div className="company-card-content">
-										<p style={{ color: "#ffffff" }}>{service.title}</p>
-									</div>
-								</Link>
-							))}
-						</div>
-						<div className="company-services-images-mobile">
-							<MobileSwiper>
-								{services.map(service => (
-									<SwiperSlide key={service.title}>
-										<Card
-											item={{
-												title: service.title,
-												image: service.image,
-												link: service.link,
-											}}
-										/>
-									</SwiperSlide>
-								))}
-							</MobileSwiper>
-						</div>
+						{servicesLoading ? (
+							<Spinner />
+						) : servicesError ? (
+							<h1>Что-то пошло не так</h1>
+						) : (
+							<motion.div
+								initial={{ opacity: 0, y: 100 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6 }}
+							>
+								<div className="company-services-images">
+									{services?.results?.map(service => (
+										<Link
+											key={service.id}
+											to={`/services/${service.id}`}
+											className="company-card"
+										>
+											<div className="company-card-backdrop" />
+											<img alt={service.name} src={service.logo} />
+											<div className="company-card-content">
+												<p>{service.name}</p>
+											</div>
+										</Link>
+									))}
+								</div>
+								<div className="company-services-images-mobile">
+									<MobileSwiper>
+										{services?.results?.map(service => (
+											<SwiperSlide key={service.id}>
+												<Card
+													item={{
+														title: service.name,
+														image: service.logo,
+														link: `/services/${service.id}`,
+													}}
+												/>
+											</SwiperSlide>
+										))}
+									</MobileSwiper>
+								</div>
+							</motion.div>
+						)}
 					</div>
 
 					<div className="recycling-container">
@@ -107,7 +139,9 @@ const Company = () => {
 						/>
 						<div className="recycling-info">
 							{recyclingInfo.map(item => (
-								<p className="recycling-info-block">{item}</p>
+								<p key={item} className="recycling-info-block">
+									{item}
+								</p>
 							))}
 						</div>
 						<div className="recycling-info-mobile">
@@ -134,39 +168,64 @@ const Company = () => {
 					<div className="rent-container">
 						<ArrowHeading
 							title="Аренда техники"
-							description="Предоставление техники под нужды юредическим или физическим лиц"
+							description="Предоставление техники под нужды юридическим или физическим лицам"
 						/>
-						<div className="rent-list">
-							{mockRentItems.map(item => (
-								<Link to={item.link} className="company-card">
-									<img alt={item.title} src={item.image} />
-									<div className="company-card-content">
-										<p>{item.title}</p>
-									</div>
-								</Link>
-							))}
-							<Link to="/rent">
-								<button className="rent-button">
-									Посмотреть все
-									<ShareIcon />
-								</button>
-							</Link>
-						</div>
-						<div className="rent-list-mobile">
-							<MobileSwiper>
-								{mockRentItems.map(item => (
-									<SwiperSlide>
-										<div className="company-card">
-											<img alt={item.title} src={item.image} />
-											<div className="company-card-content">
-												<p>{item.title}</p>
-												<Link to={item.link}>Смотреть полностью</Link>
-											</div>
+						{equipmentsLoading ? (
+							<Spinner />
+						) : equipmentsError ? (
+							<h1>Что-то пошло не так</h1>
+						) : (
+							<motion.div
+								initial={{ opacity: 0, y: 100 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.6 }}
+							>
+								<div className="rent-list">
+									{equipments?.results
+										?.slice(0, equipments?.results.length - 1)
+										.map(item => (
+											<Link key={item.id} to={`/rent`} className="company-card">
+												<div className="company-card-backdrop" />
+												<img alt={item.name} src={item.logo} />
+												<div className="company-card-content">
+													<p>{item.name}</p>
+												</div>
+											</Link>
+										))}
+									<Link
+										key={equipments?.results[equipments?.results.length - 1].id}
+										to={`/rent`}
+										className="company-card"
+									>
+										<div className="company-card-backdrop" />
+										<img
+											alt={equipments?.results[equipments?.results.length - 1].name}
+											src={equipments?.results[equipments?.results.length - 1].logo}
+										/>
+										<div className="company-card-last">
+											Посмотреть все
+											<ShareIcon />
 										</div>
-									</SwiperSlide>
-								))}
-							</MobileSwiper>
-						</div>
+									</Link>
+								</div>
+								<div className="rent-list-mobile">
+									<MobileSwiper>
+										{equipments?.results?.map(item => (
+											<SwiperSlide key={item.id}>
+												<div className="company-card">
+													<div className="company-card-backdrop" />
+													<img alt={item.name} src={item.logo} />
+													<div className="company-card-content">
+														<p>{item.name}</p>
+														<Link to={`/rent`}>Смотреть полностью</Link>
+													</div>
+												</div>
+											</SwiperSlide>
+										))}
+									</MobileSwiper>
+								</div>
+							</motion.div>
+						)}
 					</div>
 				</div>
 			</div>
@@ -177,12 +236,12 @@ const Company = () => {
 
 export default Company
 
-const mockRentItems = Array.from({ length: 7 }, () =>
+const mockRentItems = Array.from({ length: 3 }, () =>
 	Object.assign(
 		{},
 		{
-			title: "Название",
-			image: DefaultImage,
+			name: "Название",
+			logo: DefaultImage,
 			link: "/rent",
 		}
 	)
