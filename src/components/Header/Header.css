@@ -167,6 +167,11 @@
 		height: 45px;
 	}
 
+	.logo-active {
+		bottom: 20px;
+		left: 20px;
+	}
+
 	.mobile-nav-links {
 		display: flex;
 		flex-direction: column;
