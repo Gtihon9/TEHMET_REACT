@@ -3,7 +3,6 @@ import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Link } from "react-router-dom"
-import DefaultImage from "../../images/default-image.png"
 import CompanyInfo from "../../images/company-info.png"
 import "./Company.css"
 import { recyclingInfo } from "./Company.constants"
@@ -17,7 +16,6 @@ import { useApi } from "../../hooks/useApi"
 import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
 import { RentApi } from "../../api/rent.api"
-import { SimpleGrid } from "@chakra-ui/layout"
 
 const Company = () => {
 	const {
@@ -235,14 +233,3 @@ const Company = () => {
 }
 
 export default Company
-
-const mockRentItems = Array.from({ length: 3 }, () =>
-	Object.assign(
-		{},
-		{
-			name: "Название",
-			logo: DefaultImage,
-			link: "/rent",
-		}
-	)
-)
