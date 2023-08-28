@@ -13,6 +13,7 @@ import { ProjectsDirections } from "./ProjectsDirections"
 import { useEffect, useState } from "react"
 import { ProjectsApi } from "../../api/projects.api"
 import { Spinner } from "../Spinner/Spinner"
+import { Error } from "../Error/Error"
 
 const initialDirection = {
 	id: "all-projects",
@@ -71,7 +72,12 @@ const Projects = () => {
 					{isLoading ? (
 						<Spinner minHeight="40vh" />
 					) : projects?.length === 0 ? (
-						<h1 style={{ minHeight: "40vh" }}>В этом направлении проектов нет</h1>
+						<div className="projects-error-wrapper">
+							<Error
+								title="Исследование новых горизонтов ;)"
+								message="Проекты, которые скоро появятся в этой категории"
+							/>
+						</div>
 					) : (
 						<>
 							<div className="projects-list-container">

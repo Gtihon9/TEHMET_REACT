@@ -82,7 +82,12 @@ p {
 	margin-top: -25px;
 }
 
-
+.projects-error-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 40vh;
+}
 
 @media screen and (max-width: 1216px) {
 	.projects-content {
@@ -106,5 +111,9 @@ p {
 
 	.projects-list-container-mobile .mobile-swiper .swiper-slide img {
 		min-height: 200px;
+	}
+
+	.projects-error-wrapper {
+		min-height: auto;
 	}
 }
