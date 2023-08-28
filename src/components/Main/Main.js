@@ -24,8 +24,8 @@ const Main = () => {
 		>
 			<div className="background-container">
 				<video id="background-video" loop autoPlay muted playsInline>
-					<source src={bg_videoMP4} type="video/mp4" loading="lazy" />
-					<source src={bg_videoWEBM} type="video/webm" loading="lazy"/>
+					<source src={bg_videoMP4} type="video/mp4"/>
+					<source src={bg_videoWEBM} type="video/webm"/>
 					Your browser does not support the video tag.
 				</video>
 				<div className="container">
