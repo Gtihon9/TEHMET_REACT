@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { ShareIcon } from "../Icons/ShareIcon"
-import { projectsList } from "../Projects/Projects.constants"
 import { Card } from "../Card/Card"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Thumbs } from "swiper/modules"
@@ -11,11 +10,15 @@ import { Link } from "react-router-dom"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { Button } from "../Button/Button"
 
-const LastProjectsSwiper = () => {
+const LastProjectsSwiper = ({ projects }) => {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
 
-	const thumbsProjects = [...projectsList]
-	thumbsProjects.unshift(thumbsProjects.pop())
+	let thumbsProjects = []
+
+	if (projects?.length > 0) {
+		thumbsProjects = [...projects]
+		thumbsProjects.unshift(thumbsProjects.pop())
+	}
 
 	return (
 		<>
@@ -29,50 +32,54 @@ const LastProjectsSwiper = () => {
 						"--swiper-navigation-color": "#ffffff",
 					}}
 				>
-					{projectsList.map(project => (
-						<SwiperSlide key={project.title}>
+					{projects?.map(project => (
+						<SwiperSlide key={project.id}>
 							<Card
 								item={{
-									title: project.title,
-									image: project.image,
+									title: project.name,
+									image: project.logo,
+									link: "/projects",
 								}}
 							/>
 						</SwiperSlide>
 					))}
 				</Swiper>
 
-				<Swiper
-					speed={800}
-					modules={[Thumbs]}
-					watchSlidesProgress={false}
-					onSwiper={setThumbsSwiper}
-				>
-					{thumbsProjects?.map(project => (
-						<SwiperSlide key={project.title}>
-							<Card
-								item={{
-									title: project.title,
-									image: project.image,
-								}}
-							/>
-							/>
-						</SwiperSlide>
-					))}
-				</Swiper>
+				{projects?.length > 1 && (
+					<Swiper
+						speed={800}
+						modules={[Thumbs]}
+						watchSlidesProgress={false}
+						onSwiper={setThumbsSwiper}
+					>
+						{thumbsProjects?.map(project => (
+							<SwiperSlide key={project.id}>
+								<Card
+									item={{
+										title: project.name,
+										image: project.logo,
+										link: "/projects",
+									}}
+								/>
+								/>
+							</SwiperSlide>
+						))}
+					</Swiper>
+				)}
 
-				<Link to="/projects" className="last-projects-button">
+				<Link to="/projects" className="last-projects-button" data-length={projects?.length}>
 					Посмотреть еще
 					<ShareIcon />
 				</Link>
 			</div>
 			<div className="last-projects-mobile">
 				<MobileSwiper>
-					{projectsList.map(project => (
-						<SwiperSlide key={project.title}>
+					{projects?.map(project => (
+						<SwiperSlide key={project.id}>
 							<Card
 								item={{
-									title: project.title,
-									image: project.image,
+									title: project.name,
+									image: project.logo,
 								}}
 							/>
 						</SwiperSlide>
