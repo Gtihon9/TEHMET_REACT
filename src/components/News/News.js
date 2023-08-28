@@ -28,7 +28,7 @@ export const News = () => {
 						description="Новости нашей компании"
 					/>
 
-					<div className="news-big-container">
+					<div className="news-big-container" data-amount={3}>
 						<NewsCard item={news[0]} />
 						{news.slice(1, 3).map(item => (
 							<NewsCard key={item.title} item={item} />

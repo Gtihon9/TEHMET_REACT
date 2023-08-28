@@ -23,6 +23,15 @@
 	grid-row: span 2;
 }
 
+.news-big-container[data-amount="1"] div:first-child {
+	grid-column: span 2;
+}
+
+
+.news-big-container[data-amount="2"] div:nth-child(2) {
+	grid-row: span 2;
+}
+
 .news-list {
 	width: 100%;
 	margin-top: 90px;
