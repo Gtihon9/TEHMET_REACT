@@ -1,5 +1,6 @@
 import { $instance } from "./index"
 
 export const RentApi = {
-	getAllRents: (limit, offset) => $instance.get(`/equipments/?limit=${limit}&offset=${offset}`),
+	getAllRents: (limit, offset, name) =>
+		$instance.get(`/equipments/?limit=${limit}&offset=${offset}&name=${name}`),
 }

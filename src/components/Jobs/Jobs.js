@@ -5,7 +5,6 @@ import { Link, useSearchParams } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { motion } from "framer-motion"
 import "./Jobs.css"
-import { SearchJobs } from "./SearchJobs"
 import { useEffect, useState } from "react"
 import { useDebounce } from "../../hooks/useDebounce"
 import { JobsApi } from "../../api/jobs.api"
@@ -15,6 +14,7 @@ import { getTotalPages } from "../../utils/getTotalPages"
 import { Error } from "../Error/Error"
 import { containerMotionProps } from "../../utils/animationProps"
 import { useApi } from "../../hooks/useApi"
+import { SearchBar } from "../SearchBar/SearchBar"
 
 const LIMIT = 10
 export const Jobs = () => {
@@ -98,7 +98,11 @@ export const Jobs = () => {
 											style={{ maxWidth: 780 }}
 										/>
 										{headerResponse?.count !== 0 && (
-											<SearchJobs value={searchQuery} onChange={handleChange} />
+											<SearchBar
+												value={searchQuery}
+												onChange={handleChange}
+												placeholder="Поиск по вакансиям..."
+											/>
 										)}
 									</>
 								)}
