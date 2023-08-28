@@ -1,8 +1,31 @@
 import { Link } from "react-router-dom"
 import { Logo } from "../Logo/Logo"
 import "./Footer.css"
+import { useApi } from "../../hooks/useApi"
+import { ServicesApi } from "../../api/services.api"
+import { Spinner } from "../Spinner/Spinner"
 
 const Footer = () => {
+	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+
+	let listContent = <></>
+
+	if (loading) {
+		listContent = <Spinner minHeight="10vh" />
+	}
+
+	if (error || services?.count <= 0) {
+		listContent = null
+	}
+
+	if (services?.count > 0) {
+		listContent = services?.results?.map(service => (
+			<li>
+				<Link to={`/services/${service.id}`}>{service.name}</Link>
+			</li>
+		))
+	}
+
 	return (
 		<footer className="footer">
 			<div className="container">
@@ -39,32 +62,11 @@ const Footer = () => {
 							<li>
 								<Link to="/jobs">Вакансии</Link>
 							</li>
-							<li>
-								<Link to="/cert">Сертификаты и лицензии</Link>
-							</li>
 						</ul>
 					</div>
 					<div className="footer-column">
 						<h2>Направления комании</h2>
-						<ul className="footer-column-list">
-							<li>
-								<Link to="/services/demolition">Снос и демонтаж</Link>
-							</li>
-							<li>
-								<Link to="/services/pit-developing">
-									Разработка и ограждение котлованов
-								</Link>
-							</li>
-							<li>
-								<Link to="/services/renovation">Реновация территории</Link>
-							</li>
-							<li>
-								<Link to="/services/recycling">Рециклинг</Link>
-							</li>
-							<li>
-								<Link to="/rent">Аренда</Link>
-							</li>
-						</ul>
+						<ul className="footer-column-list">{listContent}</ul>
 					</div>
 					<div className="footer-column">
 						<h2>ООО «Техметсервис»</h2>
@@ -72,6 +74,7 @@ const Footer = () => {
 							<p>ОГРН 1035009566822</p>
 							<p>ИНН 5047048624</p>
 							<Link to="/conf">Политика конфиденциальности</Link>
+							<Link to="/conf">Лицензия регистрации</Link>
 						</div>
 					</div>
 				</div>
