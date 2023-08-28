@@ -20,7 +20,7 @@ const Footer = () => {
 
 	if (services?.count > 0) {
 		listContent = services?.results?.map(service => (
-			<li>
+			<li key={service.id + service.name}>
 				<Link to={`/services/${service.id}`}>{service.name}</Link>
 			</li>
 		))

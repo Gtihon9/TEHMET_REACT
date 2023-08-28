@@ -1,34 +1,29 @@
 import { NewsCard } from "../News/NewsCard"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./OtherNews.css"
-
-import News2 from "../../images/news2.png"
-import News3 from "../../images/news3.png"
+import { useParams } from "react-router-dom"
+import { useApi } from "../../hooks/useApi"
+import { NewsApi } from "../../api/news.api"
+import { Spinner } from "../Spinner/Spinner"
 
 export const OtherNews = () => {
-   return (
-      <div className="other-news-container">
-         <ArrowHeading title="Другие новости" />
-         <div className="other-news-list">
-            {news.map((item) => (
-               <NewsCard key={item.id} item={item} />
-            ))}
-         </div>
-      </div>
-   )
-}
+	const { id } = useParams()
 
-const news = [
-   {
-      id: 2,
-      image: News2,
-      title: "Покупка нового экскаватора",
-      date: "9 вевраль 2023",
-   },
-   {
-      id: 3,
-      image: News3,
-      title: "Мы переехали!",
-      date: "7 июля 2022",
-   },
-]
+	const { response: news, loading, error } = useApi(NewsApi.getAllNews)
+	const filteredNews = news?.results?.filter(item => item.id !== id)
+
+	if (loading) return <Spinner />
+
+	if (error || filteredNews?.length <= 0) return null
+
+	return (
+		<div className="other-news-container">
+			<ArrowHeading title="Другие новости" />
+			<div className="other-news-list">
+				{filteredNews?.map(item => (
+					<NewsCard key={item.id} item={item} />
+				))}
+			</div>
+		</div>
+	)
+}

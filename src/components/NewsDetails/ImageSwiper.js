@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Navigation, Pagination, A11y, Thumbs } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { newsImages } from "./NewsDetails.constants"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
@@ -9,7 +8,7 @@ import "./ImageSwiper.css"
 import { PhotoSlider } from "react-photo-view"
 import { useMediaQuery } from "react-responsive"
 
-export const ImageSwiper = () => {
+export const ImageSwiper = ({ images, galleryImages }) => {
 	const [isGalleryVisible, setIsGalleryVisible] = useState(false)
 	const [index, setIndex] = useState(0)
 
@@ -34,13 +33,13 @@ export const ImageSwiper = () => {
 				onSlideChange={swiper => setIndex(swiper.activeIndex)}
 				className="main-swiper"
 			>
-				{newsImages.map(item => (
+				{images?.map(item => (
 					<SwiperSlide onClick={() => setIsGalleryVisible(true)}>
-						<img key={`main-${item.id}`} alt={item.id} src={item.imageUrl} />
+						<img key={`main-${item.created_at}`} alt={item.created_at} src={item.image} />
 					</SwiperSlide>
 				))}
 			</Swiper>
-			{isDesktop && (
+			{isDesktop && images?.length > 1 && (
 				<Swiper
 					speed={800}
 					onSwiper={setThumbsSwiper}
@@ -60,16 +59,16 @@ export const ImageSwiper = () => {
 						},
 					}}
 				>
-					{newsImages.map(item => (
+					{images?.map(item => (
 						<SwiperSlide>
-							<img key={`thumb-${item.id}`} alt={item.id} src={item.imageUrl} />
+							<img key={`thumb-${item.created_at}`} alt={item.created_at} src={item.image} />
 						</SwiperSlide>
 					))}
 				</Swiper>
 			)}
 
 			<PhotoSlider
-				images={newsImages.map(item => ({ src: item.imageUrl, key: item.id }))}
+				images={galleryImages?.map(item => ({ src: item.image, key: item.created_at }))}
 				visible={isGalleryVisible}
 				onClose={() => setIsGalleryVisible(false)}
 				index={index}
