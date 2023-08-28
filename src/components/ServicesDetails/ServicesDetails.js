@@ -16,6 +16,7 @@ import { PhotoSlider } from "react-photo-view"
 import { useApi } from "../../hooks/useApi"
 import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
+import { Error } from "../Error/Error"
 
 export const ServicesDetails = () => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
@@ -40,67 +41,71 @@ export const ServicesDetails = () => {
 			className="services-details"
 		>
 			<div className="container">
-				{loading ? (
-					<Spinner />
-				) : error ? (
-					<h1>Что-то пошло не так</h1>
-				) : (
-					<div className="services-details-content">
-						<div className="breadcrumbs">
-							<LeftArrowSVG />
-							<div className="breadcrumbs-text">
-								<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>/
-								<Link to={`/services/${serviceDetails?.id}`}>{serviceDetails?.name}</Link>
-							</div>
+				<div className="services-details-content">
+					<div className="breadcrumbs">
+						<LeftArrowSVG />
+						<div className="breadcrumbs-text">
+							<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>/
+							<Link to={`/services/${serviceDetails?.id}`}>{serviceDetails?.name}</Link>
 						</div>
-
-						<SectionHeading
-							title={serviceDetails?.name}
-							description={serviceDetails?.description}
-							className="details-heading-section"
-						/>
-
-						<WorkStages />
-
-						<ArrowHeading title="Галерея" />
-						<div className="work-stages-gallery">
-							{serviceDetails?.images?.map((item, index) => (
-								<img
-									key={`work-stage-${item.id}`}
-									alt={`work-stage-${item.id}`}
-									src={item.image}
-									onClick={() => handleOpenGallery(index)}
-								/>
-							))}
-						</div>
-
-						<div className="works-stages-gallery-mobile">
-							<MobileSwiper>
-								{serviceDetails?.images?.map((item, index) => (
-									<SwiperSlide
-										key={`work-stage-mobile-${item.id}`}
-										onClick={() => handleOpenGallery(index)}
-									>
-										<img alt={`work-stage-mobile-${item.id}`} src={item.image} />
-									</SwiperSlide>
-								))}
-							</MobileSwiper>
-						</div>
-
-						<OtherStages />
-
-						<PhotoSlider
-							images={galleryImages.map(item => ({
-								src: item.image,
-								key: `gallery-slider-${item.id}`,
-							}))}
-							visible={isOpen}
-							onClose={onClose}
-							index={index}
-							onIndexChange={setIndex}
-						/>
 					</div>
-				)}
+
+					{loading ? (
+						<Spinner />
+					) : error ? (
+						<div className="services-details-error-wrapper">
+							<Error />
+						</div>
+					) : (
+						<>
+							<SectionHeading
+								title={serviceDetails?.name}
+								description={serviceDetails?.description}
+								className="details-heading-section"
+							/>
+
+							<WorkStages />
+
+							<ArrowHeading title="Галерея" />
+							<div className="work-stages-gallery">
+								{serviceDetails?.images?.map((item, index) => (
+									<img
+										key={`work-stage-${item.id}`}
+										alt={`work-stage-${item.id}`}
+										src={item.image}
+										onClick={() => handleOpenGallery(index)}
+									/>
+								))}
+							</div>
+
+							<div className="works-stages-gallery-mobile">
+								<MobileSwiper>
+									{serviceDetails?.images?.map((item, index) => (
+										<SwiperSlide
+											key={`work-stage-mobile-${item.id}`}
+											onClick={() => handleOpenGallery(index)}
+										>
+											<img alt={`work-stage-mobile-${item.id}`} src={item.image} />
+										</SwiperSlide>
+									))}
+								</MobileSwiper>
+							</div>
+
+							<OtherStages />
+
+							<PhotoSlider
+								images={galleryImages.map(item => ({
+									src: item.image,
+									key: `gallery-slider-${item.id}`,
+								}))}
+								visible={isOpen}
+								onClose={onClose}
+								index={index}
+								onIndexChange={setIndex}
+							/>
+						</>
+					)}
+				</div>
 			</div>
 			<ExtendedContactForm />
 		</motion.main>

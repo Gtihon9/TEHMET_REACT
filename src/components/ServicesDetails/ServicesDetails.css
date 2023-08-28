@@ -52,6 +52,13 @@
 	background: var(--primary-color);
 }
 
+.services-details-error-wrapper {
+	display: flex;
+	align-items: center;
+	justify-self: flex-start;
+	min-height: 70vh;
+}
+
 @media screen and (max-width: 1216px) {
 	.services-details {
 		padding-bottom: 38px;
