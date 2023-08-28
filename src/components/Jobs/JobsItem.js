@@ -3,6 +3,7 @@ import "./JobsItem.css"
 import { Button } from "../Button/Button"
 import { motion } from "framer-motion"
 import { getEmploymentType } from "../../utils/getEmploymentType"
+import { staggerChildrenMotionProps } from "../../utils/animationProps"
 
 export const JobsItem = ({ job }) => {
 	return (
@@ -11,7 +12,7 @@ export const JobsItem = ({ job }) => {
 				<p className="jobs-item-header-name">{job.name}</p>
 				<div className="jobs-item-header-contacts">
 					<span>+7-916-900-42-55</span>
-					<span>fdv240@gmail.com</span>
+					<span>d.fomenko@tehmetservice.ru</span>
 				</div>
 			</div>
 			<div className="jobs-item-info">
@@ -30,20 +31,4 @@ export const JobsItem = ({ job }) => {
 			</div>
 		</motion.div>
 	)
-}
-
-const staggerChildrenMotionProps = {
-	variants: {
-		hidden: {
-			y: 50,
-			opacity: 0,
-		},
-		show: {
-			y: 0,
-			opacity: 1,
-			transition: {
-				duration: 0.6,
-			},
-		},
-	},
 }

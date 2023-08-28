@@ -11,6 +11,7 @@ import { DirectionsSlider } from "../DirectionsSlider/DirectionsSlider"
 import { features } from "./Main.constants"
 import { motion } from "framer-motion"
 import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
+import { DirectionsSection } from "./DirectionsSection"
 
 const Main = () => {
 	return (
@@ -47,10 +48,7 @@ const Main = () => {
 
 			<div className="container">
 				<div className="main-info-container">
-					<div className="section-container">
-						<ArrowHeading title="Направления" />
-						<DirectionsSlider />
-					</div>
+					<DirectionsSection />
 
 					<div className="section-container">
 						<ArrowHeading title="О компании" />

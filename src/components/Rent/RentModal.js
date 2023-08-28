@@ -85,7 +85,7 @@ export const RentModal = ({ isOpen, onClose }) => {
 						</div>
 						<div className="rent-contact">
 							<span>Email</span>
-							<p>fdv240@gmail.com</p>
+							<p>d.fomenko@tehmetservice.ru</p>
 						</div>
 					</div>
 				</div>

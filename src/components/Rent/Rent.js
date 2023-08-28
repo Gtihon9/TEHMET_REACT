@@ -11,6 +11,7 @@ import { getTotalPages } from "../../utils/getTotalPages"
 import { RentApi } from "../../api/rent.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 
 const LIMIT = 10
 
@@ -68,11 +69,13 @@ export const Rent = () => {
 
 							<div className="rent-catalog-container">
 								<ArrowHeading title="Каталог спецтехники" />
-								<div className="rent-catalog">
+								<motion.div {...containerMotionProps} className="rent-catalog">
 									{response?.results?.map(item => (
-										<RentItem key={item.id} item={item} />
+										<motion.div {...staggerChildrenMotionProps}>
+											<RentItem key={item.id} item={item} />
+										</motion.div>
 									))}
-								</div>
+								</motion.div>
 							</div>
 
 							<Pagination pageCount={totalPages} />

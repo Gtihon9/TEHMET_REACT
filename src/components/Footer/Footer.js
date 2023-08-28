@@ -15,7 +15,7 @@ const Footer = () => {
 								2А, кабинет 13.
 							</p>
 							<p>+7-916-900-42-55</p>
-							<p>fdv240@gmail.com</p>
+							<p>d.fomenko@tehmetservice.ru</p>
 						</div>
 					</div>
 					<div className="footer-column">

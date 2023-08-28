@@ -13,6 +13,8 @@ import { Spinner } from "../Spinner/Spinner"
 import { Pagination } from "../Pagination/Pagination"
 import { getTotalPages } from "../../utils/getTotalPages"
 import { Error } from "../Error/Error"
+import { containerMotionProps } from "../../utils/animationProps"
+import { useApi } from "../../hooks/useApi"
 
 const LIMIT = 10
 export const Jobs = () => {
@@ -53,6 +55,10 @@ export const Jobs = () => {
 		fetchData()
 	}, [page, debouncedQuery])
 
+	const { response: headerResponse, loading: headerLoading } = useApi(() =>
+		JobsApi.getAllJobs(1, 0, "")
+	)
+
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -64,7 +70,7 @@ export const Jobs = () => {
 						</div>
 					</div>
 
-					{!isLoading && error ? (
+					{error ? (
 						<div className="jobs-error-wrapper">
 							<Error />
 						</div>
@@ -78,17 +84,24 @@ export const Jobs = () => {
 							/>
 
 							<div className="jobs">
-								<ArrowHeading
-									title="Новые вакансии"
-									description={
-										response?.results?.length <= 0 && searchQuery.trim() === ""
-											? "На данный момент наша компания не ищет новых сотрудников, но вы можете отправить свое резюме, а также связаться с нами по телефону или электронной почте."
-											: ""
-									}
-									style={{ maxWidth: 780 }}
-								/>
-
-								<SearchJobs value={searchQuery} onChange={handleChange} />
+								{headerLoading ? (
+									<Spinner minHeight="10vh" />
+								) : (
+									<>
+										<ArrowHeading
+											title="Новые вакансии"
+											description={
+												headerResponse?.count === 0
+													? "На данный момент наша компания не ищет новых сотрудников, но вы можете отправить свое резюме, а также связаться с нами по телефону или электронной почте."
+													: ""
+											}
+											style={{ maxWidth: 780 }}
+										/>
+										{headerResponse?.count !== 0 && (
+											<SearchJobs value={searchQuery} onChange={handleChange} />
+										)}
+									</>
+								)}
 
 								{isLoading ? (
 									<Spinner />
@@ -108,22 +121,4 @@ export const Jobs = () => {
 			</div>
 		</motion.main>
 	)
-}
-
-const containerMotionProps = {
-	variants: {
-		hidden: {
-			opacity: 0,
-		},
-		show: {
-			opacity: 1,
-			transition: {
-				duration: 0.6,
-				delayChildren: 0.3,
-				staggerChildren: 0.15,
-			},
-		},
-	},
-	initial: "hidden",
-	animate: "show",
 }

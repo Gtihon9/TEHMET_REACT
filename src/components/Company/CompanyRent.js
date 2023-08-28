@@ -20,10 +20,7 @@ export const CompanyRent = () => {
 
 	return (
 		<div className="rent-container">
-			<ArrowHeading
-				title="Аренда техники"
-				description="Предоставление техники под нужды юридическим или физическим лицам"
-			/>
+			<ArrowHeading title="Аренда техники" />
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -32,13 +29,13 @@ export const CompanyRent = () => {
 			>
 				<div className="rent-list">
 					{equipments?.results?.slice(0, equipments?.results.length - 1).map(item => (
-						<Link key={item.id} to={`/rent`} className="company-card">
+						<div key={item.id} className="company-card">
 							<div className="company-card-backdrop" />
 							<img alt={item.name} src={item.logo} />
 							<div className="company-card-content">
 								<p>{item.name}</p>
 							</div>
-						</Link>
+						</div>
 					))}
 					<Link
 						key={equipments?.results[equipments?.results.length - 1].id}

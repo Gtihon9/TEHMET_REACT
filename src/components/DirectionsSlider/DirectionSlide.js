@@ -10,7 +10,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 		<div className="direction-slide">
 			<div className="direction-slide-content">
 				<div className="direction-slide-header">
-					<h1>{service.title}</h1>
+					<h1>{service.name}</h1>
 					<p>{service.description}</p>
 				</div>
 				<div className="direction-slide-footer">
@@ -29,7 +29,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 							</button>
 						</div>
 					</div>
-					<Link to={service.link} className="direction-slide-footer-button">
+					<Link to={`/services/${service.id}`} className="direction-slide-footer-button">
 						<Button>
 							Смотреть полностью
 							<ShareIcon />
@@ -38,7 +38,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 				</div>
 			</div>
 			<div className="direction-slide-image">
-				<img alt={service.title} src={service.image} />
+				<img alt={service.name} src={service.logo} />
 			</div>
 		</div>
 	)

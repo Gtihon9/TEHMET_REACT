@@ -8,6 +8,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	flex: 1;
+	gap: 20px;
 }
 
 .direction-slide-header {
@@ -97,6 +98,7 @@
 .direction-slide-image img {
 	width: 100%;
 	height: 100%;
+	aspect-ratio: 4 / 3;
 	object-fit: cover;
 }
 

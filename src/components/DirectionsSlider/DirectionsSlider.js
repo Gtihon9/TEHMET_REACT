@@ -1,4 +1,3 @@
-import { services } from "../Services/Services.constants"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination } from "swiper/modules"
 import "swiper/css"
@@ -8,7 +7,7 @@ import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
 import "./DirectionsSlider.css"
 
-export const DirectionsSlider = () => {
+export const DirectionsSlider = ({ services }) => {
 	const [slideNumber, setSlideNumber] = useState(0)
 	const [swiper, setSwiper] = useState(null)
 
@@ -26,8 +25,8 @@ export const DirectionsSlider = () => {
 			modules={[Pagination]}
 			className="directions-swiper"
 		>
-			{services.map(service => (
-				<SwiperSlide key={service.title}>
+			{services?.map(service => (
+				<SwiperSlide key={service.id}>
 					<DirectionSlide service={service} swiper={swiper} slideNumber={slideNumber} />
 				</SwiperSlide>
 			))}
