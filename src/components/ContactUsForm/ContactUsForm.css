@@ -22,7 +22,6 @@
 
 .form-wrapper {
 	display: flex;
-	justify-content: space-between;
 	width: 100%;
 	padding: 113px 0;
 }
@@ -30,7 +29,6 @@
 .form-content-container {
 	display: flex;
 	gap: 120px;
-	max-width: 720px;
 	width: 100%;
 }
 

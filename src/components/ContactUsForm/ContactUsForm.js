@@ -87,7 +87,7 @@ const ContactUsForm = () => {
 								</div>
 								<div className="form-contacts-item">
 									<span>Email:</span>
-									<p>fdv240@gmail.com</p>
+									<p>d.fomenko@tehmetservice.ru</p>
 								</div>
 							</div>
 						</section>
