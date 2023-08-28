@@ -9,10 +9,11 @@ import { newsImages } from "./NewsDetails.constants"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
 import { useState } from "react"
-import { PhotoProvider, PhotoView } from "react-photo-view"
+import { PhotoSlider } from "react-photo-view"
 
 export const NewsDetails = () => {
 	const [isGalleryVisible, setIsGalleryVisible] = useState(false)
+	const [index, setIndex] = useState(0)
 
 	const { id } = useParams()
 
@@ -40,16 +41,20 @@ export const NewsDetails = () => {
 						<div className="news-details-swiper-wrapper-mobile">
 							<MobileSwiper>
 								{newsImages.map((image, index) => (
-									<SwiperSlide key={index}>
-										<PhotoProvider>
-											<PhotoView src={image.imageUrl}>
-												<img src={image.imageUrl} />
-											</PhotoView>
-										</PhotoProvider>
+									<SwiperSlide key={index} onClick={() => setIsGalleryVisible(true)}>
+										<img src={image.imageUrl} />
 									</SwiperSlide>
 								))}
 							</MobileSwiper>
 						</div>
+
+						<PhotoSlider
+							images={newsImages.map(item => ({ src: item.imageUrl, key: item.id }))}
+							visible={isGalleryVisible}
+							onClose={() => setIsGalleryVisible(false)}
+							index={index}
+							onIndexChange={setIndex}
+						/>
 
 						<div className="news-details-body">
 							<h1>Подписание нового контракта с [Компания]</h1>

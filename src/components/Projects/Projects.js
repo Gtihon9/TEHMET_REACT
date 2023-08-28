@@ -69,15 +69,15 @@ const Projects = () => {
 						selectedDirection={selectedDirection}
 					/>
 					{isLoading ? (
-						<Spinner minHeight="30vh" />
+						<Spinner minHeight="40vh" />
+					) : projects?.length === 0 ? (
+						<h1 style={{ minHeight: "40vh" }}>В этом направлении проектов нет</h1>
 					) : (
 						<>
-							{projects?.length !== 0 && (
-								<div className="projects-list-container">
-									<ProjectsList projects={projects} />
-									<Button className="project-list-button">Посмотреть ещё</Button>
-								</div>
-							)}
+							<div className="projects-list-container">
+								<ProjectsList projects={projects} />
+								<Button className="project-list-button">Посмотреть ещё</Button>
+							</div>
 
 							<motion.div
 								initial={{ opacity: 0, y: 50 }}
