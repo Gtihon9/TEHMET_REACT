@@ -21,8 +21,8 @@ const Main = () => {
 			exit={{ opacity: 0 }}
 		>
 			<div className="background-container">
-				<video id="background-video" loop autoPlay muted>
-					<source src={bg_videoMP4} type="video/mp4" loading="lazy"/>
+				<video id="background-video" loop autoPlay muted playsInline>
+					<source src={bg_videoMP4} type="video/mp4" loading="lazy" />
 					<source src={bg_videoWEBM} type="video/webm" loading="lazy"/>
 					Your browser does not support the video tag.
 				</video>
