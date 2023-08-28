@@ -26,6 +26,13 @@
 	gap: 70px;
 }
 
+.rent-error-wrapper {
+	min-height: 70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @media screen and (max-width: 1216px) {
 	.rent-content {
 		gap: 60px;
@@ -42,5 +49,11 @@
 
 	.rent-catalog-container {
 		gap: 28px;
+	}
+}
+
+@media screen and (max-width: 490px) {
+	.rent-error-wrapper {
+		min-height: auto;
 	}
 }

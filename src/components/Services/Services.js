@@ -9,6 +9,7 @@ import "./Services.css"
 import { useApi } from "../../hooks/useApi"
 import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
+import { Error } from "../Error/Error"
 
 const Services = () => {
 	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
@@ -23,41 +24,46 @@ const Services = () => {
 							<Link to="/">Главная</Link>/<Link to="/services">Услуги</Link>
 						</div>
 					</div>
-					<SectionHeading
-						className="catalog-section"
-						title="Наш каталог услуг"
-						description="Наша команда профессионалов способна справиться с проектами любого масштаба.
-					Мы предлагаем широкий спектр услуг, выборочные внутренние, наружные и спектр
-					работ в близко прилегающей территорий к строениям"
-						style={{ maxWidth: 1050 }}
-					/>
-
-					<ArrowHeading
-						title="Почему нас выбирают"
-						description="Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
-					стремление к совершенству, делая компанию конкурентно способной рынке."
-						style={{ maxWidth: "716px" }}
-					/>
-
-					<Stats />
-
-					<ArrowHeading
-						className="specialization-section"
-						title="Мы специализируемся"
-						description="Имея широкий спектр услуг, мы акцентируем наше внимание на качестве и надежности в работе с вами. Наша команда гордится мастерством и вниманием к деталям, с которыми мы подходим к каждому проекту. Приоритетным направлением нашей работы является предоставление исключительных услуг, однако мы также придерживаемся принципов ответственного отношения к окружающей среде."
-						style={{ maxWidth: 720 }}
-					/>
 
 					{loading ? (
 						<Spinner />
 					) : error ? (
-						<h1>Что-то пошло не так</h1>
-					) : (
-						<div className="services-list">
-							{services?.results.map(service => (
-								<ServicesItem key={service.title} service={service} />
-							))}
+						<div className="services-error-wrapper">
+							<Error />
 						</div>
+					) : (
+						<>
+							<SectionHeading
+								className="catalog-section"
+								title="Наш каталог услуг"
+								description="Наша команда профессионалов способна справиться с проектами любого масштаба.
+					Мы предлагаем широкий спектр услуг, выборочные внутренние, наружные и спектр
+					работ в близко прилегающей территорий к строениям"
+								style={{ maxWidth: 1050 }}
+							/>
+
+							<ArrowHeading
+								title="Почему нас выбирают"
+								description="Неизменное стремление к качеству и удовлетворенности клиентов стимулирует
+					стремление к совершенству, делая компанию конкурентно способной рынке."
+								style={{ maxWidth: "716px" }}
+							/>
+
+							<Stats />
+
+							<ArrowHeading
+								className="specialization-section"
+								title="Мы специализируемся"
+								description="Имея широкий спектр услуг, мы акцентируем наше внимание на качестве и надежности в работе с вами. Наша команда гордится мастерством и вниманием к деталям, с которыми мы подходим к каждому проекту. Приоритетным направлением нашей работы является предоставление исключительных услуг, однако мы также придерживаемся принципов ответственного отношения к окружающей среде."
+								style={{ maxWidth: 720 }}
+							/>
+
+							<div className="services-list">
+								{services?.results.map(service => (
+									<ServicesItem key={service.title} service={service} />
+								))}
+							</div>
+						</>
 					)}
 				</div>
 			</div>

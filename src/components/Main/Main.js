@@ -4,12 +4,13 @@ import AboutCompany3 from "../../images/about-company-3.png"
 import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { AboutCompanyAccordion } from "../AboutCompanyAccordion/AboutCompanyAccordion"
 import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
-import bg_video from "../../videos/tehmet_lending.webm"
+import bg_video from "../../videos/tehmet-lending.mov"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./Main.css"
 import { DirectionsSlider } from "../DirectionsSlider/DirectionsSlider"
 import { features } from "./Main.constants"
 import { motion } from "framer-motion"
+import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
 
 const Main = () => {
 	return (
@@ -92,6 +93,7 @@ const Main = () => {
 				</div>
 			</div>
 			<ContactUsForm />
+			<ScrollTopButton />
 		</motion.main>
 	)
 }

@@ -17,7 +17,7 @@
 
 .jobs-heading h1 {
 	margin: 0;
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 44px;
 	font-weight: 900;
 	line-height: 57px;
@@ -26,11 +26,10 @@
 }
 
 .jobs-heading p {
-	font-family: Roboto;
+	font-family: Roboto, sans-serif;
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 27px;
-	letter-spacing: 0em;
 	text-align: left;
 }
 
@@ -49,9 +48,22 @@
 	width: 100%;
 }
 
+.jobs-error-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 50vh;
+}
+
 @media screen and (max-width: 1216px) {
 	.jobs-content {
 		gap: 40px;
 		padding-bottom: 38px;
+	}
+}
+
+@media screen and (max-width: 490px) {
+	.jobs-error-wrapper {
+		min-height: auto;
 	}
 }

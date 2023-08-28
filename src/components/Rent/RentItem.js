@@ -28,7 +28,7 @@ export const RentItem = ({ item }) => {
 
 					<div className="rent-item-footer">
 						<div className="rent-item-price">
-							<p>{item.price} ₽</p>
+							<p>от {item.price} ₽</p>
 							<span> / смена</span>
 						</div>
 						<Button className="rent-item-button" onClick={onOpen}>

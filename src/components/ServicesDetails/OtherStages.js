@@ -24,58 +24,61 @@ export const OtherStages = () => {
 
 	const filteredServices = services?.results?.filter(service => service.id !== id)
 
-	return loading ? (
-		<Spinner />
-	) : error ? (
-		<h1>Что-то пошло не так</h1>
-	) : (
-		<div className="work-stages-other">
-			<div className="work-stages-other-header">
-				<ArrowHeading title="Другие услуги" />
-				<div className="work-stages-other-header-nav">
-					<button
-						onClick={() => swiper.slidePrev()}
-						className={swiperState.isBeginning ? "disabled" : ""}
-					>
-						<LeftArrowSVG />
-					</button>
-					<button
-						onClick={() => swiper.slideNext()}
-						className={swiperState.isEnd ? "disabled" : ""}
-					>
-						<RightArrowSVG />
-					</button>
+	if (loading) return <Spinner />
+
+	if (error || filteredServices?.length <= 0) return null
+
+	return (
+		<>
+			<div className="work-stages-other">
+				<div className="work-stages-other-header">
+					<ArrowHeading title="Другие услуги" />
+					<div className="work-stages-other-header-nav">
+						<button
+							onClick={() => swiper.slidePrev()}
+							className={swiperState.isBeginning ? "disabled" : ""}
+						>
+							<LeftArrowSVG />
+						</button>
+						<button
+							onClick={() => swiper.slideNext()}
+							className={swiperState.isEnd ? "disabled" : ""}
+						>
+							<RightArrowSVG />
+						</button>
+					</div>
 				</div>
+				<Swiper
+					speed={800}
+					spaceBetween={40}
+					slidesPerView={1}
+					onSwiper={swiper => setSwiper(swiper)}
+					onSlideChange={swiper =>
+						setSwiperState({
+							isBeginning: swiper.isBeginning,
+							isEnd: swiper.isEnd,
+						})
+					}
+					breakpoints={{
+						690: {
+							slidesPerView: 2,
+						},
+					}}
+					className="other-swiper"
+				>
+					{filteredServices?.map(service => (
+						<SwiperSlide key={service.id}>
+							<Card
+								item={{
+									title: service.name,
+									image: service.logo,
+									link: `/services/${service.id}`,
+								}}
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
 			</div>
-			<Swiper
-				speed={800}
-				spaceBetween={40}
-				slidesPerView={1}
-				onSwiper={swiper => setSwiper(swiper)}
-				onSlideChange={swiper =>
-					setSwiperState({
-						isBeginning: swiper.isBeginning,
-						isEnd: swiper.isEnd,
-					})
-				}
-				breakpoints={{
-					690: {
-						slidesPerView: 2,
-					},
-				}}
-			>
-				{filteredServices?.map(service => (
-					<SwiperSlide key={service.id}>
-						<Card
-							item={{
-								title: service.name,
-								image: service.logo,
-								link: `/services/${service.id}`,
-							}}
-						/>
-					</SwiperSlide>
-				))}
-			</Swiper>
-		</div>
+		</>
 	)
 }

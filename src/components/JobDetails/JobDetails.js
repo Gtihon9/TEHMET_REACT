@@ -92,23 +92,25 @@ export const JobDetails = () => {
 										</div>
 									</div>
 
-									<div className="job-details-more">
-										<h3>Еще вакансии</h3>
-										<div className="job-details-more-list">
-											{filteredAllJobs?.map(job => (
-												<JobMiniItem key={job.id} job={job} />
-											))}
-										</div>
-										<div className="job-details-more-list-mobile">
-											<MobileSwiper>
+									{filteredAllJobs?.length > 0 && (
+										<div className="job-details-more">
+											<h3>Еще вакансии</h3>
+											<div className="job-details-more-list">
 												{filteredAllJobs?.map(job => (
-													<SwiperSlide key={job.id}>
-														<JobMiniItem job={job} />
-													</SwiperSlide>
+													<JobMiniItem key={job.id} job={job} />
 												))}
-											</MobileSwiper>
+											</div>
+											<div className="job-details-more-list-mobile">
+												<MobileSwiper>
+													{filteredAllJobs?.map(job => (
+														<SwiperSlide key={job.id}>
+															<JobMiniItem job={job} />
+														</SwiperSlide>
+													))}
+												</MobileSwiper>
+											</div>
 										</div>
-									</div>
+									)}
 								</div>
 							</>
 						)}

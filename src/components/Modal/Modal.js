@@ -27,7 +27,6 @@ export const Modal = ({ isOpen, onClose, children, maxWidth = 650 }) => {
 						<motion.div
 							className="modal"
 							key="modal"
-							role="dialog"
 							aria-expanded={isOpen}
 							aria-modal="true"
 							style={{ maxWidth }}

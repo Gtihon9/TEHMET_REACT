@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
 import { getTotalPages } from "../../utils/getTotalPages"
 import { RentApi } from "../../api/rent.api"
 import { Spinner } from "../Spinner/Spinner"
+import { Error } from "../Error/Error"
 
 const LIMIT = 10
 
@@ -40,8 +41,6 @@ export const Rent = () => {
 		fetchData()
 	}, [page])
 
-	console.log(response)
-
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -52,30 +51,33 @@ export const Rent = () => {
 							<Link to="/">Главная</Link>/<Link to="/rent">Аренда спецтехники</Link>
 						</div>
 					</div>
-
-					<SectionHeading
-						className="rent-heading-section"
-						title="Аренда спецтехники"
-						description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
-						style={{ maxWidth: 1250 }}
-					/>
-
 					{isLoading ? (
 						<Spinner />
 					) : error ? (
-						<h1>Что-то пошло не так</h1>
-					) : (
-						<div className="rent-catalog-container">
-							<ArrowHeading title="Каталог спецтехники" />
-							<div className="rent-catalog">
-								{response?.results?.map(item => (
-									<RentItem key={item.id} item={item} />
-								))}
-							</div>
+						<div className="rent-error-wrapper">
+							<Error />
 						</div>
-					)}
+					) : (
+						<>
+							<SectionHeading
+								className="rent-heading-section"
+								title="Аренда спецтехники"
+								description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
+								style={{ maxWidth: 1250 }}
+							/>
 
-					<Pagination pageCount={totalPages} />
+							<div className="rent-catalog-container">
+								<ArrowHeading title="Каталог спецтехники" />
+								<div className="rent-catalog">
+									{response?.results?.map(item => (
+										<RentItem key={item.id} item={item} />
+									))}
+								</div>
+							</div>
+
+							<Pagination pageCount={totalPages} />
+						</>
+					)}
 				</div>
 			</div>
 		</motion.main>

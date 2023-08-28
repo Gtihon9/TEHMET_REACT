@@ -1,6 +1,5 @@
 import { Button } from "../Button/Button"
 import "./ContactUsForm.css"
-import { ArrowUp } from "../Icons/ArrowUp"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { useState } from "react"
 import { Input } from "../Input/Input"
@@ -14,12 +13,6 @@ const ContactUsForm = () => {
 		message: "",
 	})
 	const [errors, setErrors] = useState({})
-
-	const scrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-		})
-	}
 
 	const handleFieldChange = e => {
 		const { name, value } = e.target
@@ -99,9 +92,6 @@ const ContactUsForm = () => {
 							</div>
 						</section>
 					</div>
-					<Button className="scroll-button" onClick={scrollToTop}>
-						<ArrowUp />
-					</Button>
 				</div>
 			</div>
 		</div>

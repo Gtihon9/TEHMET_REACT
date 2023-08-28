@@ -1,0 +1,48 @@
+.company-services-container {
+    gap: 70px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.company-services-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.company-services-images-mobile {
+    display: none;
+    width: 100%;
+}
+
+.company-services-images-mobile .mobile-swiper .swiper-slide .card {
+    max-width: none;
+}
+
+.company-services-images-mobile .mobile-swiper .swiper-slide .card-image {
+    max-height: 500px;
+}
+
+@media screen and (max-width: 1216px) {
+    .company-services-images {
+        display: none;
+    }
+
+    .company-services-images-mobile {
+        display: flex;
+    }
+
+    .company-services-container {
+        gap: 25px;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .company-services-images-mobile .mobile-swiper .swiper-slide .card-image {
+        max-height: 220px;
+    }
+}

@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: row;
 	gap: 40px;
+
 }
 
 .services-item:nth-child(even) {
@@ -24,6 +25,7 @@
 .services-item-image img {
 	width: 100%;
 	height: 100%;
+	aspect-ratio: 5 / 3;
 	object-fit: cover;
 	border-radius: var(--rounding);
 }
@@ -63,4 +65,8 @@
 		margin-top: 25px;
 		width: 100%;
 	}
+}
+
+@media screen and (max-width: 690px) {
+	
 }

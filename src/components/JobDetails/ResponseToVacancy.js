@@ -27,6 +27,7 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 	const handleFileChange = e => {
 		const cv = e.target.files[0]
 		setFormData(prevData => ({ ...prevData, cv }))
+		setErrors(prev => ({ ...prev, cv: null }))
 	}
 
 	const handleFileClick = () => {
@@ -53,6 +54,7 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 			const response = await ContactFormApi.feedbackVacancy(submitData)
 			if (response) {
 				setFormData(initialFormData)
+				onClose()
 			}
 		} catch (error) {
 			setErrors(error.response.data)
@@ -107,13 +109,16 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 							<button type="button" onClick={handleFileClick} className="add-resume-btn">
 								{formData.cv ? "Изменить резюме" : "Прикрепить резюме"}
 							</button>
-							{formData.cv && <span>{formData?.cv.name}</span>}
+							{formData.cv && (
+								<span className="add-resume-file-info">{formData?.cv.name}</span>
+							)}
+							{errors["cv"] && <span className="add-resume-error">*{errors["cv"]}</span>}
 							<input
 								id="cv"
 								name="cv"
 								hidden
 								type="file"
-								accept="application/pdf, image/*"
+								accept="application/pdf"
 								multiple={false}
 								ref={fileInputRef}
 								onChange={handleFileChange}

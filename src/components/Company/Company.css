@@ -78,33 +78,7 @@
 	object-fit: cover;
 }
 
-.company-services-container {
-	gap: 70px;
-	margin-top: 90px;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
 
-.company-services-images {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 10px;
-	width: 100%;
-}
-
-.company-services-images-mobile {
-	display: none;
-	width: 100%;
-}
-
-.company-services-images-mobile .mobile-swiper .swiper-slide .card {
-	max-width: none;
-}
-
-.company-services-images-mobile .mobile-swiper .swiper-slide .card-image {
-	max-height: 500px;
-}
 
 .company-card {
 	width: 100%;
@@ -162,6 +136,7 @@
 .company-card-last {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 10px;
 	position: absolute;
 	top: 0;
@@ -173,6 +148,7 @@
 	font-size: 20px;
 	font-weight: 400;
 	line-height: 32px;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .company-card img {
@@ -181,108 +157,6 @@
 	object-fit: cover;
 }
 
-.recycling-info {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	column-gap: 25px;
-	row-gap: 50px;
-	width: 100%;
-}
-
-.recycling-info-mobile {
-	display: none;
-	width: 100%;
-}
-
-.recycling-info-block {
-	width: 100%;
-	border-left: 1px solid var(--primary-color);
-	padding: 0 25px;
-	color: #37393b;
-	font-family: Roboto, sans-serif;
-	font-size: 18px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 160%;
-}
-
-.recycling-info-block:last-child {
-	border-right: 1px solid var(--primary-color);
-}
-
-.recycling-container {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 70px;
-	margin-top: 90px;
-	width: 100%;
-}
-
-.stats-container {
-	display: inline-flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 70px;
-	margin-top: 90px;
-	width: 100%;
-}
-
-.rent-container {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 70px;
-	margin-top: 90px;
-	width: 100%;
-}
-
-.rent-list {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	/*grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));*/
-	gap: 13px;
-}
-
-.rent-list-mobile {
-	display: none;
-	width: 100%;
-}
-
-.rent-list-mobile .mobile-swiper .swiper-slide {
-	width: 100% !important;
-}
-
-.rent-button {
-	width: 100%;
-	height: 100%;
-	min-height: 235px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 15px;
-	background-color: rgba(0, 0, 0, 0.6);
-	color: #ffffff;
-	font-family: Roboto, sans-serif;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 32px;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
-}
-
-.rent-button:hover {
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.rent-button svg {
-	width: 30px;
-	height: 30px;
-}
-
-.rent-button svg path {
-	stroke: rgb(255, 255, 255)
-}
 
 @media screen and (max-width: 1216px) {
 	.company-info-text {
@@ -302,84 +176,14 @@
 		gap: 60px
 	}
 
-	.company-services-images {
-		display: none;
-	}
-
-	.company-services-images-mobile {
-		display: flex;
-	}
-
-	.recycling-info {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.recycling-info-block:last-child {
-		border-right: none;
-	}
-
-	.stats-container,
-	.rent-container,
-	.company-services-container {
-		gap: 25px;
-		margin-top: 0;
-	}
-
-	.rent-list {
-		grid-template-columns: repeat(3, 1fr);
-	}
-
 	.company-content {
 		padding-bottom: 38px;
 	}
 }
 
-@media screen and (max-width: 1040px) {
-	.rent-list {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media screen and (max-width: 800px) {
-	.recycling-info {
-		display: none;
-	}
-
-	.recycling-info-mobile {
-		display: flex;
-	}
-
-	.recycling-container {
-		gap: 25px;
-		margin-top: 0;
-	}
-
-	.recycling-info-block {
-		font-size: 16px;
-		line-height: 29px;
-	}
-}
 
 @media screen and (max-width: 690px) {
-	.rent-list {
-		display: none;
-	}
-
-	.rent-list-mobile {
-		display: flex;
-	}
-
 	.company-card-content {
 		flex-direction: column;
-	}
-}
-
-@media screen and (max-width: 490px) {
-	.company-services-images-mobile .mobile-swiper .swiper-slide .card-image {
-		max-height: 220px;
-	}
-
-	.rent-list-mobile .mobile-swiper .swiper-slide img {
-		max-height: 220px;
 	}
 }
