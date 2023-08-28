@@ -22,10 +22,6 @@ const Main = () => {
 			exit={{ opacity: 0 }}
 		>
 			<div className="background-container">
-				<video id="background-video" loop autoPlay muted>
-					<source src={bg_videoMP4} type="video/mp4"/>
-					Your browser does not support the video tag.
-				</video>
 				<div className="container">
 					<div className="hero">
 						<div className="hero-title">
