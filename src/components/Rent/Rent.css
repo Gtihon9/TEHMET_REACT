@@ -14,7 +14,7 @@
 .rent-catalog {
 	display: flex;
 	flex-direction: column;
-	gap: 70px;
+	gap: 45px;
 	width: 100%;
 }
 

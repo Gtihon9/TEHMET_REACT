@@ -68,7 +68,15 @@ export const Rent = () => {
 							/>
 
 							<div className="rent-catalog-container">
-								<ArrowHeading title="Каталог спецтехники" />
+								<ArrowHeading
+									title="Каталог спецтехники"
+									description={
+										response?.results?.length <= 0
+											? "В настоящее время мы с сожалением вынуждены сообщить, что список спецтехники, предоставляемого в аренду, временно недоступен. Мы активно работаем над обновлением списка и предоставляем наилучшие варианты аренды. Благодарим вас за то, что вы обратились к нам за арендой."
+											: ""
+									}
+									style={{ maxWidth: 885 }}
+								/>
 								<motion.div {...containerMotionProps} className="rent-catalog">
 									{response?.results?.map(item => (
 										<motion.div {...staggerChildrenMotionProps}>
