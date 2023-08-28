@@ -10,27 +10,29 @@ import { ServicesPage } from "../../pages/Services"
 import { RentPage } from "../../pages/Rent"
 import { ServicesDetailsPage } from "../../pages/ServicesDetails"
 import { AnimatePresence } from "framer-motion"
+import { PrivacyPolicy } from "../PrivacyPolicy/PrivacyPolicy"
 
 export const AnimatedRoutes = () => {
-   const location = useLocation()
+	const location = useLocation()
 
-   return (
-      <AnimatePresence mode="wait">
-         <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/company" element={<CompanyPage />} />
-            <Route path="/jobs" element={<JobsPage />} />
-            <Route path="/jobs/:id" element={<JobDetailsPage />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/news/:id" element={<NewsDetailsPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:name" element={<ServicesDetailsPage />} />
-            <Route path="/rent" element={<RentPage />} />
+	return (
+		<AnimatePresence mode="wait">
+			<Routes location={location} key={location.pathname}>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/company" element={<CompanyPage />} />
+				<Route path="/jobs" element={<JobsPage />} />
+				<Route path="/jobs/:id" element={<JobDetailsPage />} />
+				<Route path="/news" element={<NewsPage />} />
+				<Route path="/news/:id" element={<NewsDetailsPage />} />
+				<Route path="/projects" element={<ProjectsPage />} />
+				<Route path="/services" element={<ServicesPage />} />
+				<Route path="/services/:id" element={<ServicesDetailsPage />} />
+				<Route path="/rent" element={<RentPage />} />
+				<Route path="/conf" element={<PrivacyPolicy />} />
 
-            {/*Navigated to Home page if route is not defined*/}
-            <Route path="*" element={<Navigate to="/" />} />
-         </Routes>
-      </AnimatePresence>
-   )
+				{/*Navigated to Home page if route is not defined*/}
+				<Route path="*" element={<Navigate to="/" />} />
+			</Routes>
+		</AnimatePresence>
+	)
 }

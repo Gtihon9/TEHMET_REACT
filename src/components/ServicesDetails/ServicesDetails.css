@@ -26,6 +26,7 @@
 .work-stages-gallery img {
 	width: 100%;
 	height: 100%;
+	aspect-ratio: 16 / 9;
 	object-fit: cover;
 	border-radius: var(--rounding);
 	cursor: pointer;
@@ -49,6 +50,13 @@
 
 .works-stages-gallery-swiper .swiper-pagination-bullet-active {
 	background: var(--primary-color);
+}
+
+.services-details-error-wrapper {
+	display: flex;
+	align-items: center;
+	justify-self: flex-start;
+	min-height: 70vh;
 }
 
 @media screen and (max-width: 1216px) {

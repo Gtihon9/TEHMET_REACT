@@ -6,8 +6,9 @@ import "./Card.css"
 export const Card = ({ item }) => {
 	return (
 		<div className="card">
-			<img alt={item.title} src={item.image} className="card-image" />
-			<div className="card-backdrop" />
+			<div className="card-image">
+				<img alt={item.title} src={item.image} />
+			</div>
 			<div className="card-content">
 				<div className="card-header">
 					<h1>{item.title}</h1>

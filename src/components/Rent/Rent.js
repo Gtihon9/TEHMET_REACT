@@ -5,14 +5,16 @@ import { RentItem } from "./RentItem"
 import { motion } from "framer-motion"
 import "./Rent.css"
 import LeftArrowSVG from "../Icons/L_Arrow"
-
-import Catalog1 from "../../images/catalog1.png"
-import Catalog2 from "../../images/catalog2.png"
-import Catalog3 from "../../images/catalog3.png"
-import Catalog4 from "../../images/catalog4.png"
 import { Pagination } from "../Pagination/Pagination"
 import { useEffect, useState } from "react"
 import { getTotalPages } from "../../utils/getTotalPages"
+import { RentApi } from "../../api/rent.api"
+import { Spinner } from "../Spinner/Spinner"
+import { Error } from "../Error/Error"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
+import { useDebounce } from "../../hooks/useDebounce"
+import { SearchBar } from "../SearchBar/SearchBar"
+import { useApi } from "../../hooks/useApi"
 
 const LIMIT = 10
 
@@ -24,14 +26,25 @@ export const Rent = () => {
 	const [isLoading, setIsLoading] = useState(true)
 	const [error, setError] = useState(null)
 
+	const [searchQuery, setSearchQuery] = useState("")
+	const debouncedQuery = useDebounce(searchQuery, 300)
+
+	const handleChange = e => {
+		setSearchQuery(e.target.value)
+	}
+
 	const totalPages = getTotalPages(response?.count, LIMIT)
 
 	useEffect(() => {
 		const fetchData = async () => {
 			setIsLoading(true)
 			try {
-				// const res = 1
-				// setResponse(res.data)
+				const res = await RentApi.getAllRents(
+					LIMIT,
+					(page - 1) * LIMIT,
+					encodeURI(debouncedQuery)
+				)
+				setResponse(res.data)
 				setError(null)
 			} catch (err) {
 				setError(err)
@@ -41,7 +54,11 @@ export const Rent = () => {
 		}
 
 		fetchData()
-	}, [page])
+	}, [page, debouncedQuery])
+
+	const { response: headerResponse, loading: headerLoading } = useApi(() =>
+		RentApi.getAllRents(1, 0, "")
+	)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -53,79 +70,50 @@ export const Rent = () => {
 							<Link to="/">Главная</Link>/<Link to="/rent">Аренда спецтехники</Link>
 						</div>
 					</div>
+					<>
+						<SectionHeading
+							className="rent-heading-section"
+							title="Аренда спецтехники"
+							description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
+							style={{ maxWidth: 1250 }}
+						/>
 
-					<SectionHeading
-						className="rent-heading-section"
-						title="Аренда спецтехники"
-						description="Техметсервис предоставляет услугу аренды спецтехники. Мы понимаем, что сроки реализации проектов могут быть непредсказуемыми. Поэтому мы предлагаем гибкие сроки аренды - от нескольких часов до нескольких недель или даже месяцев. Вы можете выбрать тот срок аренды, который наилучшим образом соответствует вашим потребностям, гарантируя, что вы будете платить за оборудование только тогда, когда оно вам необходимо. "
-						style={{ maxWidth: 1250 }}
-					/>
-
-					<div className="rent-catalog-container">
-						<ArrowHeading title="Каталог спецтехники" />
-						<div className="rent-catalog">
-							{catalog.map(item => (
-								<RentItem key={item.id} item={item} />
-							))}
+						<div className="rent-catalog-container">
+							<ArrowHeading
+								title="Каталог спецтехники"
+								description={
+									headerResponse?.count === 0
+										? "В настоящее время мы с сожалением вынуждены сообщить, что список спецтехники, предоставляемого в аренду, временно недоступен. Мы активно работаем над обновлением списка и предоставляем наилучшие варианты аренды. Благодарим вас за то, что вы обратились к нам за арендой."
+										: ""
+								}
+								style={{ maxWidth: 885 }}
+							/>
+							<SearchBar
+								value={searchQuery}
+								onChange={handleChange}
+								placeholder="Поиск по технике..."
+							/>
+							{isLoading ? (
+								<Spinner />
+							) : error ? (
+								<div className="rent-error-wrapper">
+									<Error />
+								</div>
+							) : (
+								<motion.div {...containerMotionProps} className="rent-catalog">
+									{response?.results?.map(item => (
+										<motion.div {...staggerChildrenMotionProps}>
+											<RentItem key={item.id} item={item} />
+										</motion.div>
+									))}
+								</motion.div>
+							)}
 						</div>
-					</div>
 
-					<Pagination pageCount={totalPages} />
+						<Pagination pageCount={totalPages} />
+					</>
 				</div>
 			</div>
 		</motion.main>
 	)
 }
-
-const catalog = [
-	{
-		id: 1,
-		name: "Экскаватор",
-		imageUrl: Catalog1,
-		price: "600 ₽",
-		settings: [
-			"Мощность: 200 кВт",
-			"Рабочий вес: 29,4 т",
-			"Глубина копания: 7, 30 м",
-			"Длина рукояти: 3,7 м",
-			"Объем ковша: 1,3 м³",
-		],
-	},
-	{
-		id: 2,
-		name: "Экскаватор-разрушитель",
-		imageUrl: Catalog2,
-		price: "1600 ₽",
-		settings: [
-			"Мощность: 296 кВт",
-			"Рабочий вес: 60 т",
-			"Длина стрелы: 10, 800 м",
-			"Рабочая высота: 21, 100 м",
-			"Сила разрезания: 1560 кг",
-		],
-	},
-	{
-		id: 3,
-		name: "Дробильная установка",
-		imageUrl: Catalog3,
-		price: "4000 ₽",
-		settings: [
-			"Производительность: до 390 т / ч",
-			"Загрузочное отверстие: 60 т",
-			"Загрузочный бункер: 7 м³",
-			"Ширина ленты: 1050 мм",
-		],
-	},
-	{
-		id: 4,
-		name: "Самосвал",
-		imageUrl: Catalog4,
-		price: "2600 ₽",
-		settings: [
-			"Грузоподъемность: 40 т",
-			"Полная масса: 500 т",
-			"Максимальная скорость: 70 км / ч",
-			"Мощность двигателя: 200 - 700 л.с",
-		],
-	},
-]

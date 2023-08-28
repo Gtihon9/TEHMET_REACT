@@ -2,38 +2,49 @@ import LeftArrowSVG from "../Icons/L_Arrow"
 import ProjectsList from "./ProjectsList"
 import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
-import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
-import { Link, useSearchParams } from "react-router-dom"
-import { directions } from "./Projects.constants"
+import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { motion } from "framer-motion"
-import Select from "react-select"
 import "./Projects.css"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { Card } from "../Card/Card"
 import { SwiperSlide } from "swiper/react"
-import { DropdownIndicator } from "../Icons/DropdownIndicator"
-import { useApi } from "../../hooks/useApi"
-import { Spinner } from "../Spinner/Spinner"
+import { ProjectsDirections } from "./ProjectsDirections"
+import { useEffect, useState } from "react"
 import { ProjectsApi } from "../../api/projects.api"
+import { Spinner } from "../Spinner/Spinner"
+import { Error } from "../Error/Error"
+
+const initialDirection = {
+	id: "all-projects",
+	label: "Все проекты",
+	value: null,
+}
 
 const Projects = () => {
-	const [searchParams, setSearchParams] = useSearchParams({
-		direction: "all-projects",
-	})
-	const initialDirection = searchParams.get("direction")
+	const [projects, setProjects] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
+	const [selectedDirection, setSelectedDirection] = useState(initialDirection)
 
-	const initialSelectOption = directions.find(direction => direction.value === initialDirection)
-
-	const onDirectionClick = value => {
-		setSearchParams({ direction: value })
+	const handleDirectionChange = direction => {
+		setSelectedDirection(direction)
 	}
 
-	const handleDirectionChange = selectedOption => {
-		setSearchParams({ direction: selectedOption.value })
-	}
+	useEffect(() => {
+		const getServiceProjects = async () => {
+			try {
+				setIsLoading(true)
+				const { data } = await ProjectsApi.getAllProjects(selectedDirection.value)
+				setProjects(data?.results)
+			} catch (error) {
+				console.log(error)
+			} finally {
+				setIsLoading(false)
+			}
+		}
 
-	const { response: projects, loading, error } = useApi(ProjectsApi.getAllProjects)
+		getServiceProjects()
+	}, [selectedDirection, setProjects])
 
 	return (
 		<motion.main
@@ -54,57 +65,33 @@ const Projects = () => {
 				<div className="projects">
 					<SectionHeading title="Проекты" description="Более 60 завершенных проектов" />
 
-					<div className="directions-container">
-						<ArrowHeading title="Направления" />
-
-						<div className="directions-links-block">
-							{directions.map(direction => (
-								<button
-									key={direction.id}
-									className={`link ${
-										initialDirection === direction.value ? "active" : ""
-									}`}
-									onClick={() => onDirectionClick(direction.value)}
-								>
-									<p>{direction.label}</p>
-								</button>
-							))}
-						</div>
-
-						<div className="directions-links-select-mobile">
-							<Select
-								value={initialSelectOption}
-								onChange={handleDirectionChange}
-								options={directions}
-								className="directions-select-container"
-								classNamePrefix="directions-select"
-								components={{
-									DropdownIndicator: DropdownIndicator,
-								}}
+					<ProjectsDirections
+						handleDirectionChange={handleDirectionChange}
+						selectedDirection={selectedDirection}
+					/>
+					{isLoading ? (
+						<Spinner minHeight="40vh" />
+					) : projects?.length === 0 ? (
+						<div className="projects-error-wrapper">
+							<Error
+								title="Исследование новых горизонтов ;)"
+								message="Проекты, которые скоро появятся в этой категории"
 							/>
 						</div>
-					</div>
-
-					{error && (
-						<div className="projects-error">
-							<h1>Что-то пошло не так</h1>
-						</div>
-					)}
-
-					{loading ? (
-						<Spinner />
 					) : (
 						<>
-							{projects?.results?.length !== 0 && (
-								<div className="projects-list-container">
-									<ProjectsList projects={projects} />
-									<Button className="project-list-button">Посмотреть ещё</Button>
-								</div>
-							)}
+							<div className="projects-list-container">
+								<ProjectsList projects={projects} />
+								<Button className="project-list-button">Посмотреть ещё</Button>
+							</div>
 
-							<div className="projects-list-container-mobile">
+							<motion.div
+								initial={{ opacity: 0, y: 50 }}
+								animate={{ opacity: 1, y: 0 }}
+								className="projects-list-container-mobile"
+							>
 								<MobileSwiper>
-									{projects?.results?.map(project => (
+									{projects?.map(project => (
 										<SwiperSlide key={project.id}>
 											<Card
 												item={{
@@ -116,7 +103,7 @@ const Projects = () => {
 										</SwiperSlide>
 									))}
 								</MobileSwiper>
-							</div>
+							</motion.div>
 						</>
 					)}
 				</div>

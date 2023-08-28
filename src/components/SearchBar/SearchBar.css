@@ -1,4 +1,4 @@
-.jobs-search-wrapper {
+.search-wrapper {
     display: flex;
     align-items: center;
     width: 100%;
@@ -9,7 +9,7 @@
     transition: border 0.2s ease;
 }
 
-.jobs-search-icon {
+.search-icon {
     position: absolute;
     left: 12px;
     width: 24px;
@@ -19,11 +19,11 @@
     transition: color 0.2s ease;
 }
 
-.jobs-search-input:focus + .jobs-search-icon {
+.search-input:focus + .search-icon {
     color: #000000;
 }
 
-.jobs-search-input {
+.search-input {
     outline: none;
     border: none;
     width: 100%;
@@ -34,6 +34,6 @@
     padding: 8px 12px 8px 48px;
 }
 
-.jobs-search-wrapper:focus-within {
+.search-wrapper:focus-within {
     border: 1px solid var(--primary-color);
 }

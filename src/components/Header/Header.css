@@ -152,7 +152,7 @@
 
 	.mobile-menu {
 		position: fixed;
-		top: 75px;
+		top: 79px;
 		left: 0;
 		right: 0;
 		z-index: 10;
@@ -165,6 +165,11 @@
 	.logo-container svg {
 		width: 132px;
 		height: 45px;
+	}
+
+	.logo-active {
+		bottom: 20px;
+		left: 20px;
 	}
 
 	.mobile-nav-links {

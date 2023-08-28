@@ -8,9 +8,11 @@ import bg_videoMP4 from "../../videos/tehmet-lending.mp4"
 import bg_videoWEBM from "../../videos/tehmet-lending.webm"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./Main.css"
-import { DirectionsSlider } from "../DirectionsSlider/DirectionsSlider"
 import { features } from "./Main.constants"
 import { motion } from "framer-motion"
+import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
+import { DirectionsSection } from "./DirectionsSection"
+import { LastProjectsSection } from "./LastProjectsSection"
 
 const Main = () => {
 	return (
@@ -48,10 +50,7 @@ const Main = () => {
 
 			<div className="container">
 				<div className="main-info-container">
-					<div className="section-container">
-						<ArrowHeading title="Направления" />
-						<DirectionsSlider />
-					</div>
+					<DirectionsSection />
 
 					<div className="section-container">
 						<ArrowHeading title="О компании" />
@@ -87,13 +86,11 @@ const Main = () => {
 						<ArrowHeading title="Техметсервис - это" />
 						<AboutCompanyAccordion />
 					</div>
-					<div className="section-container">
-						<ArrowHeading title="Наши последние проекты" />
-						<LastProjectsSwiper />
-					</div>
+					<LastProjectsSection />
 				</div>
 			</div>
 			<ContactUsForm />
+			<ScrollTopButton />
 		</motion.main>
 	)
 }

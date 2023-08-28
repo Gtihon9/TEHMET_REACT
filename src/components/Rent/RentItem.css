@@ -3,7 +3,7 @@
 	justify-content: space-between;
 	padding: 20px;
 	border-radius: var(--rounding);
-	border: 1px solid var(--text-secondary-color);
+	border: 1px solid rgba(217, 217, 217, 1);
 }
 
 .rent-item-content {
@@ -32,6 +32,7 @@
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 20px;
+
 }
 
 .rent-item-price {
@@ -43,8 +44,8 @@
 
 .rent-item-price p {
 	font-family: Roboto, sans-serif;
-	font-size: 30px;
-	font-weight: 600;
+	font-size: 25px;
+	font-weight: 500;
 	line-height: 30px;
 }
 

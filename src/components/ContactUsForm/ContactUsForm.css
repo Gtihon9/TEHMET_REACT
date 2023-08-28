@@ -22,7 +22,6 @@
 
 .form-wrapper {
 	display: flex;
-	justify-content: space-between;
 	width: 100%;
 	padding: 113px 0;
 }
@@ -30,7 +29,6 @@
 .form-content-container {
 	display: flex;
 	gap: 120px;
-	max-width: 720px;
 	width: 100%;
 }
 
@@ -115,15 +113,15 @@
 	line-height: 21px;
 }
 
-.scroll-button {
-	padding: 9px;
-	align-self: flex-end;
-}
+/*.scroll-button {*/
+/*	padding: 9px;*/
+/*	align-self: flex-end;*/
+/*}*/
 
 @media screen and (max-width: 900px) {
-	.scroll-button {
-		display: none;
-	}
+	/*.scroll-button {*/
+	/*	display: none;*/
+	/*}*/
 
 	.form-wrapper {
 		padding: 40px 0;

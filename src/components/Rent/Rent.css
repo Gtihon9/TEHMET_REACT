@@ -14,7 +14,7 @@
 .rent-catalog {
 	display: flex;
 	flex-direction: column;
-	gap: 70px;
+	gap: 45px;
 	width: 100%;
 }
 
@@ -23,7 +23,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 70px;
+	gap: 25px;
+}
+
+.rent-error-wrapper {
+	min-height: 70vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 @media screen and (max-width: 1216px) {
@@ -42,5 +49,11 @@
 
 	.rent-catalog-container {
 		gap: 28px;
+	}
+}
+
+@media screen and (max-width: 490px) {
+	.rent-error-wrapper {
+		min-height: auto;
 	}
 }

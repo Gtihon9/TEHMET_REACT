@@ -1,6 +1,6 @@
 .last-projects {
 	display: grid;
-	grid-template-columns: 3.25fr 1fr;
+	grid-template-columns: 3fr 1fr;
 	grid-template-rows: repeat(3, 1fr);
 	column-gap: 40px;
 	row-gap: 30px;
@@ -9,6 +9,14 @@
 
 .last-projects .swiper {
 	grid-row: span 3;
+}
+
+.last-projects .swiper:first-child {
+	aspect-ratio: 16 / 9;
+}
+
+.last-projects .swiper:nth-child(2) {
+	/*aspect-ratio: ;*/
 }
 
 .last-projects div:nth-child(2) {
@@ -20,8 +28,7 @@
 	max-width: none;
 }
 
-.last-projects .swiper .card-image,
-.last-projects .card-image {
+.last-projects .swiper .card-image {
 	max-height: none;
 }
 
@@ -42,10 +49,16 @@
 	border-radius: var(--rounding);
 	background-color: rgba(55, 57, 59, 1);
 	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.last-projects-button[data-length = "1"] {
+	grid-row: span 3;
 }
 
 .last-projects-button:hover {
-	background-color: rgb(102, 102, 103);
+	background-color: rgba(55, 57, 59, 0.9);
+
 }
 
 .last-projects-button svg {

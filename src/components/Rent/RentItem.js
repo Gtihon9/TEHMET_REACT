@@ -9,15 +9,15 @@ export const RentItem = ({ item }) => {
 		<>
 			<div className="rent-item">
 				<div className="rent-item-content">
-					<img className="rent-item-image" alt={item.name} src={item.imageUrl} />
+					<img className="rent-item-image" alt={item.name} src={item.logo} />
 					<div className="rent-item-heading">
 						<p>{item.name}</p>
 						<div className="rent-item-settings">
-							{item.settings.map(setting => {
-								const name = setting.split(":")[0]
-								const value = setting.split(":")[1]
+							{item?.characteristics?.map(setting => {
+								const name = setting.data.split(":")[0]
+								const value = setting.data.split(":")[1]
 								return (
-									<div key={setting + item.name} className="rent-item-settings-item">
+									<div key={setting.id} className="rent-item-settings-item">
 										<p>{name}:</p>
 										<span>{value}</span>
 									</div>
@@ -28,7 +28,7 @@ export const RentItem = ({ item }) => {
 
 					<div className="rent-item-footer">
 						<div className="rent-item-price">
-							<p>{item.price}</p>
+							<p>от {item.price} ₽</p>
 							<span> / смена</span>
 						</div>
 						<Button className="rent-item-button" onClick={onOpen}>

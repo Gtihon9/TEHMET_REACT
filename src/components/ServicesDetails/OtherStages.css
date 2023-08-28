@@ -31,6 +31,10 @@
 	fill: rgb(193, 193, 193);
 }
 
+.other-swiper .swiper-slide .card-image {
+	aspect-ratio: 16 / 9;
+}
+
 @media screen and (max-width: 1216px) {
 	.work-stages-other {
 		margin-top: 45px;

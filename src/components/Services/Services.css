@@ -21,6 +21,12 @@
 	margin-top: 90px;
 }
 
+.services-error-wrapper {
+	min-height: 70vh;
+	display: flex;
+	align-items: center;
+}
+
 @media screen and (max-width: 1216px) {
 	.services-content {
 		gap: 60px;
@@ -33,10 +39,16 @@
 	}
 
 	.specialization-section {
-		margin-top: 0px;
+		margin-top: 0;
 	}
 
 	.catalog-section {
 		margin-top: -25px;
+	}
+}
+
+@media screen and (max-width: 490px) {
+	.services-error-wrapper {
+		min-height: auto;
 	}
 }

@@ -5,12 +5,12 @@ export const NewsCard = ({ item }) => {
 	return (
 		<div className="news-card">
 			<div className="news-card-image">
-				<img alt={item?.title} src={item?.image} />
+				<img alt={item?.title} src={item?.logo} />
 				<div className="backdrop" />
 			</div>
 			<div className="news-card-content">
 				<div className="news-card-info">
-					<Link to={`/news/${item?.id}`}>
+					<Link to={item?.link}>
 						<Button>Подробнее</Button>
 					</Link>
 					<div className="news-card-title">
@@ -18,7 +18,7 @@ export const NewsCard = ({ item }) => {
 						{item?.description && <p>{item?.description}</p>}
 					</div>
 				</div>
-				<span>{item?.date}</span>
+				<span>{item?.created_at}</span>
 			</div>
 		</div>
 	)

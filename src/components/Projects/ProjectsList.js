@@ -1,20 +1,23 @@
 import { Card } from "../Card/Card"
+import { motion } from "framer-motion"
 import "./ProjectsList.css"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 
 const ProjectsList = ({ projects }) => {
 	return (
-		<div className="project-list">
+		<motion.div {...containerMotionProps} className="project-list">
 			{projects?.map(project => (
-				<Card
-					key={project.title}
-					item={{
-						title: project.title,
-						description: project.subTitle,
-						image: project.logo,
-					}}
-				/>
+				<motion.div {...staggerChildrenMotionProps} key={project.title}>
+					<Card
+						item={{
+							title: project.name,
+							description: project.description,
+							image: project.logo,
+						}}
+					/>
+				</motion.div>
 			))}
-		</div>
+		</motion.div>
 	)
 }
 

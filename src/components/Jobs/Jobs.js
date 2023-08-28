@@ -5,23 +5,16 @@ import { Link, useSearchParams } from "react-router-dom"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { motion } from "framer-motion"
 import "./Jobs.css"
-import { SearchJobs } from "./SearchJobs"
 import { useEffect, useState } from "react"
 import { useDebounce } from "../../hooks/useDebounce"
 import { JobsApi } from "../../api/jobs.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Pagination } from "../Pagination/Pagination"
 import { getTotalPages } from "../../utils/getTotalPages"
-
-const filterJobs = (jobs, query) => {
-	if (!query) {
-		return jobs
-	}
-	return jobs.filter(job => {
-		const jobName = job.name.toLowerCase()
-		return jobName.includes(query.toLowerCase())
-	})
-}
+import { Error } from "../Error/Error"
+import { containerMotionProps } from "../../utils/animationProps"
+import { useApi } from "../../hooks/useApi"
+import { SearchBar } from "../SearchBar/SearchBar"
 
 const LIMIT = 10
 export const Jobs = () => {
@@ -34,7 +27,6 @@ export const Jobs = () => {
 
 	const [searchQuery, setSearchQuery] = useState("")
 	const debouncedQuery = useDebounce(searchQuery, 300)
-	const filteredJobs = filterJobs(response?.results, debouncedQuery)
 
 	const handleChange = e => {
 		setSearchQuery(e.target.value)
@@ -46,7 +38,11 @@ export const Jobs = () => {
 		const fetchData = async () => {
 			setIsLoading(true)
 			try {
-				const res = await JobsApi.getAllJobs(LIMIT, (page - 1) * LIMIT)
+				const res = await JobsApi.getAllJobs(
+					LIMIT,
+					(page - 1) * LIMIT,
+					encodeURI(debouncedQuery)
+				)
 				setResponse(res.data)
 				setError(null)
 			} catch (err) {
@@ -57,8 +53,11 @@ export const Jobs = () => {
 		}
 
 		fetchData()
-		setSearchQuery("")
-	}, [page])
+	}, [page, debouncedQuery])
+
+	const { response: headerResponse, loading: headerLoading } = useApi(() =>
+		JobsApi.getAllJobs(1, 0, "")
+	)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -70,52 +69,60 @@ export const Jobs = () => {
 							<Link to="/">Главная</Link>/<Link to="/jobs">Вакансии</Link>
 						</div>
 					</div>
-					<SectionHeading
-						title={"Вакансии в Техметсервис"}
-						description={
-							"Наша компания постоянно растет и мы заинтересованы в поиске хороших сотрудников в нашу команду"
-						}
-					/>
 
-					<div className="jobs">
-						<ArrowHeading title="Новые вакансии" />
+					{error ? (
+						<div className="jobs-error-wrapper">
+							<Error />
+						</div>
+					) : (
+						<>
+							<SectionHeading
+								title={"Вакансии в Техметсервис"}
+								description={
+									"Наша компания постоянно растет и мы заинтересованы в поиске хороших сотрудников в нашу команду"
+								}
+							/>
 
-						<SearchJobs value={searchQuery} onChange={handleChange} />
+							<div className="jobs">
+								{headerLoading ? (
+									<Spinner minHeight="10vh" />
+								) : (
+									<>
+										<ArrowHeading
+											title="Новые вакансии"
+											description={
+												headerResponse?.count === 0
+													? "На данный момент наша компания не ищет новых сотрудников, но вы можете отправить свое резюме, а также связаться с нами по телефону или электронной почте."
+													: ""
+											}
+											style={{ maxWidth: 780 }}
+										/>
+										{headerResponse?.count !== 0 && (
+											<SearchBar
+												value={searchQuery}
+												onChange={handleChange}
+												placeholder="Поиск по вакансиям..."
+											/>
+										)}
+									</>
+								)}
 
-						{isLoading ? (
-							<Spinner />
-						) : error ? (
-							<h1>Что-то пошло не так</h1>
-						) : (
-							<motion.div {...containerMotionProps} className="jobs-list">
-								{filteredJobs?.map(job => (
-									<JobsItem key={job.id} job={job} />
-								))}
-							</motion.div>
-						)}
-					</div>
+								{isLoading ? (
+									<Spinner />
+								) : (
+									<motion.div {...containerMotionProps} className="jobs-list">
+										{response?.results?.map(job => (
+											<JobsItem key={job.id} job={job} />
+										))}
+									</motion.div>
+								)}
+							</div>
 
-					<Pagination pageCount={totalPages} />
+							<Pagination pageCount={totalPages} />
+						</>
+					)}
 				</div>
 			</div>
 		</motion.main>
 	)
-}
-
-const containerMotionProps = {
-	variants: {
-		hidden: {
-			opacity: 0,
-		},
-		show: {
-			opacity: 1,
-			transition: {
-				duration: 0.6,
-				delayChildren: 0.3,
-				staggerChildren: 0.15,
-			},
-		},
-	},
-	initial: "hidden",
-	animate: "show",
 }
