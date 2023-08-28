@@ -1,4 +1,3 @@
-import "./DirectionsSection.css"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { DirectionsSlider } from "../DirectionsSlider/DirectionsSlider"
 import { useApi } from "../../hooks/useApi"
