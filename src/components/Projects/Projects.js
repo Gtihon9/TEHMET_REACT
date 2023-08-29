@@ -63,7 +63,7 @@ const Projects = () => {
 			</div>
 			<div className="container">
 				<div className="projects">
-					<SectionHeading title="Проекты" description="Более 60 завершенных проектов" />
+					<SectionHeading title="Проекты" />
 
 					<ProjectsDirections
 						handleDirectionChange={handleDirectionChange}
