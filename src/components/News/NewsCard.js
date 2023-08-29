@@ -5,7 +5,7 @@ export const NewsCard = ({ item }) => {
 	return (
 		<div className="news-card">
 			<div className="news-card-image">
-				<img alt={item?.title} src={item?.logo} />
+				<img loading="lazy" alt={item?.title} src={item?.logo} />
 				<div className="backdrop" />
 			</div>
 			<div className="news-card-content">

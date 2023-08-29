@@ -6,10 +6,8 @@ import { useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
 
 export const Pagination = ({ pageCount = 2 }) => {
-	const [searchParams, setSearchParams] = useSearchParams({
-		page: 1,
-	})
-	const page = parseInt(searchParams.get("page")) - 1 || 0
+	const [searchParams, setSearchParams] = useSearchParams()
+	const initialPage = parseInt(searchParams.get("page")) - 1 || 0
 
 	const onPageChange = e => {
 		const pageNumber = e.selected
@@ -32,7 +30,7 @@ export const Pagination = ({ pageCount = 2 }) => {
 			onPageChange={onPageChange}
 			pageRangeDisplayed={3}
 			pageCount={pageCount === 1 ? 0 : pageCount}
-			initialPage={page}
+			initialPage={initialPage}
 			disableInitialCallback
 			renderOnZeroPageCount={null}
 		/>

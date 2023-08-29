@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { useApi } from "../../hooks/useApi"
 import { NewsApi } from "../../api/news.api"
 import { Spinner } from "../Spinner/Spinner"
+import { formatDate } from "../../utils/formatDate"
 
 export const OtherNews = () => {
 	const { id } = useParams()
@@ -21,7 +22,15 @@ export const OtherNews = () => {
 			<ArrowHeading title="Другие новости" />
 			<div className="other-news-list">
 				{filteredNews?.map(item => (
-					<NewsCard key={item.id} item={item} />
+					<NewsCard
+						key={item.id}
+						item={{
+							title: item.title,
+							logo: item.logo,
+							created_at: formatDate(item?.created_at),
+							link: `/news/${item?.id}`,
+						}}
+					/>
 				))}
 			</div>
 		</div>
