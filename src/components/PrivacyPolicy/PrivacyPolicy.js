@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import "./PrivacyPolicy.css"
 
-export const PrivacyPolicy = () => {
+const PrivacyPolicy = () => {
 	return (
 		<motion.main
 			initial={{ opacity: 0 }}
@@ -421,3 +421,5 @@ export const PrivacyPolicy = () => {
 		</motion.main>
 	)
 }
+
+export default PrivacyPolicy

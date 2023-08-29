@@ -1,9 +1,11 @@
-import AboutCompany11 from "../../images/about-company-11.png"
+import AboutCompany1 from "../../images/about-company-1.png"
 import AboutCompany2 from "../../images/about-company-2.png"
 import AboutCompany3 from "../../images/about-company-3.png"
+import AboutCompanyTiny1 from "../../images/about-company-1-tiny.png"
+import AboutCompanyTiny2 from "../../images/about-company-2-tiny.png"
+import AboutCompanyTiny3 from "../../images/about-company-3-tiny.png"
 import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { AboutCompanyAccordion } from "../AboutCompanyAccordion/AboutCompanyAccordion"
-import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
 import bg_videoMP4 from "../../videos/tehmet-lending.mp4"
 import bg_videoWEBM from "../../videos/tehmet-lending.webm"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
@@ -13,6 +15,7 @@ import { motion } from "framer-motion"
 import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
 import { DirectionsSection } from "./DirectionsSection"
 import { LastProjectsSection } from "./LastProjectsSection"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 const Main = () => {
 	return (
@@ -24,8 +27,8 @@ const Main = () => {
 		>
 			<div className="background-container">
 				<video id="background-video" loop autoPlay muted playsInline>
-					<source src={bg_videoMP4} type="video/mp4"/>
-					<source src={bg_videoWEBM} type="video/webm"/>
+					<source src={bg_videoMP4} type="video/mp4" />
+					<source src={bg_videoWEBM} type="video/webm" />
 					Your browser does not support the video tag.
 				</video>
 				<div className="container">
@@ -56,9 +59,21 @@ const Main = () => {
 						<ArrowHeading title="О компании" />
 						<div className="main-about-company-content">
 							<div className="main-about-company-images">
-								<img src={AboutCompany11} alt="AboutCompany 1" />
-								<img src={AboutCompany2} alt="About Company 2" />
-								<img src={AboutCompany3} alt="About Company 3" />
+								<LazyImage
+									placeholderSrc={AboutCompanyTiny1}
+									src={AboutCompany1}
+									alt="AboutCompany-1"
+								/>
+								<LazyImage
+									placeholderSrc={AboutCompanyTiny2}
+									src={AboutCompany2}
+									alt="About Company-2"
+								/>
+								<LazyImage
+									placeholderSrc={AboutCompanyTiny3}
+									src={AboutCompany3}
+									alt="About Company-3"
+								/>
 							</div>
 							<div className="main-about-company-info">
 								<h2>Техметсервис</h2>
