@@ -3,12 +3,14 @@ import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { Link } from "react-router-dom"
 import CompanyInfo from "../../images/company-info.png"
+import CompanyInfoTiny from "../../images/company-info-tiny.png"
 import "./Company.css"
 import { motion } from "framer-motion"
 import { CompanyServices } from "./CompanyServices"
 import { CompanyRecycling } from "./CompanyRecycling"
 import { CompanyStats } from "./CompanyStats"
 import { CompanyRent } from "./CompanyRent"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 const Company = () => {
 	return (
@@ -54,7 +56,11 @@ const Company = () => {
 							</p>
 						</div>
 						<div className="company-info-image">
-							<img alt="company-info" src={CompanyInfo} />
+							<LazyImage
+								placeholderSrc={CompanyInfoTiny}
+								src={CompanyInfo}
+								alt="company-info"
+							/>
 						</div>
 					</div>
 

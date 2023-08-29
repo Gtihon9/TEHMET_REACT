@@ -38,7 +38,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 				</div>
 			</div>
 			<div className="direction-slide-image">
-				<img alt={service.name} src={service.logo} />
+				<img loading="lazy" alt={service.name} src={service.logo} />
 			</div>
 		</div>
 	)
