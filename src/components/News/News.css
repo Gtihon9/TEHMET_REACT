@@ -23,8 +23,8 @@
 	grid-row: span 2;
 }
 
-.news-big-container div:first-child .news-card-image {
-	aspect-ratio: 16/9;
+.news-big-container .news-card-image {
+	aspect-ratio: 16 / 9;
 }
 
 .news-big-container[data-amount="1"] div:first-child {
