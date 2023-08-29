@@ -1,6 +1,7 @@
-import moment from "moment"
-import "moment/locale/ru"
-
-export const formatDate = date => {
-	return moment(date).format("LL")
+export function formatDate(dateTimeString) {
+	return new Date(dateTimeString).toLocaleString("ru-RU", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	})
 }
