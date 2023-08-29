@@ -3,7 +3,9 @@ import AboutCompany2 from "../../images/about-company-2.png"
 import AboutCompany3 from "../../images/about-company-3.png"
 import ContactUsForm from "../ContactUsForm/ContactUsForm"
 import { AboutCompanyAccordion } from "../AboutCompanyAccordion/AboutCompanyAccordion"
-import bg_video from "../../videos/tehmet-lending.mov"
+import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
+import bg_videoMP4 from "../../videos/tehmet-lending.mp4"
+import bg_videoWEBM from "../../videos/tehmet-lending.webm"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./Main.css"
 import { features } from "./Main.constants"
@@ -21,8 +23,9 @@ const Main = () => {
 			exit={{ opacity: 0 }}
 		>
 			<div className="background-container">
-				<video id="background-video" loop autoPlay muted>
-					<source src={bg_video} type="video/mp4" />
+				<video id="background-video" loop autoPlay muted playsInline>
+					<source src={bg_videoMP4} type="video/mp4"/>
+					<source src={bg_videoWEBM} type="video/webm"/>
 					Your browser does not support the video tag.
 				</video>
 				<div className="container">
