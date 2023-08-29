@@ -16,8 +16,12 @@ import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
 import { DirectionsSection } from "./DirectionsSection"
 import { LastProjectsSection } from "./LastProjectsSection"
 import { LazyImage } from "../LazyImage/LazyImage"
+import { ServicesApi } from "../../api/services.api"
+import { useApi } from "../../hooks/useApi"
 
 const Main = () => {
+	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+
 	return (
 		<motion.main
 			className="main-content"
@@ -40,12 +44,12 @@ const Main = () => {
 							</p>
 						</div>
 						<div className="hero-features">
-							{features.map(feature => (
-								<div key={feature} className="feature-item">
+							{services?.results.map(service => (
+								<div key={service.name} className="feature-item">
 									<div className="feature-item-circle" />
-									<span className="feature-item-text">{feature}</span>
+									<span className="feature-item-text">{service.name}</span>
 								</div>
-							))}
+								))}
 						</div>
 					</div>
 				</div>
