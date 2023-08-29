@@ -13,6 +13,7 @@
 
 .main-swiper .swiper-slide {
 	aspect-ratio: 16 / 7;
+	cursor: pointer;
 }
 
 .main-swiper .swiper-slide img {
@@ -21,11 +22,6 @@
 	height: 100%;
 	object-fit: cover;
 }
-
-/*.main-swiper .swiper-pagination {*/
-/*	position: static;*/
-/*	margin: 10px 0;*/
-/*}*/
 
 .main-swiper .swiper-pagination-bullet {
 	transition: background-color 0.2s ease;
