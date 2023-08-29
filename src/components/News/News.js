@@ -14,7 +14,7 @@ import { formatDate } from "../../utils/formatDate"
 export const News = () => {
 	const { response: news, loading, error } = useApi(NewsApi.getAllNews)
 
-	const newsList = news?.results
+	const newsList = Array.from({ length: 1 }, () => Object.assign({}, news?.results[0]))
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -59,18 +59,24 @@ export const News = () => {
 												title: item.title,
 												logo: item.logo,
 												created_at: formatDate(item?.created_at),
-												link: `/news/${newsList?.[0].id}`,
+												link: `/news/${item?.id}`,
 											}}
 										/>
 									))}
 							</div>
 
 							<div className="news-list">
-								{/*{Array.from({ length: 10 }, () => Object.assign({}, news[1])).map(*/}
-								{/*	(item, index) => (*/}
-								{/*		<NewsCard key={item.id + item.title + index} item={item} />*/}
-								{/*	)*/}
-								{/*)}*/}
+								{newsList?.slice(3, newsList?.length).map(item => (
+									<NewsCard
+										key={item.id}
+										item={{
+											title: item.title,
+											logo: item.logo,
+											created_at: formatDate(item?.created_at),
+											link: `/news/${item?.id}`,
+										}}
+									/>
+								))}
 							</div>
 
 							<Pagination pageCount={1} />

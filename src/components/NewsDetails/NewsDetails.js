@@ -14,9 +14,10 @@ import { NewsApi } from "../../api/news.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { formatDate } from "../../utils/formatDate"
+import useDisclosure from "../../hooks/useDisclosure"
 
 export const NewsDetails = () => {
-	const [isGalleryVisible, setIsGalleryVisible] = useState(false)
+	const { isOpen, onClose, onOpen } = useDisclosure()
 	const [index, setIndex] = useState(0)
 
 	const { id } = useParams()
@@ -28,6 +29,11 @@ export const NewsDetails = () => {
 	const { response: details, loading, error } = useApi(() => NewsApi.getNewsById(id))
 
 	const galleryImages = details?.images ?? []
+
+	const handleOpenGallery = imgIndex => {
+		setIndex(imgIndex)
+		onOpen()
+	}
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -55,10 +61,10 @@ export const NewsDetails = () => {
 
 							<div className="news-details-swiper-wrapper-mobile">
 								<MobileSwiper>
-									{details?.images?.map(image => (
+									{details?.images?.map((image, index) => (
 										<SwiperSlide
 											key={image.created_at}
-											onClick={() => setIsGalleryVisible(true)}
+											onClick={() => handleOpenGallery(index)}
 										>
 											<img src={image.image} />
 										</SwiperSlide>
@@ -71,8 +77,8 @@ export const NewsDetails = () => {
 									src: item.imageUrl,
 									key: item.id,
 								}))}
-								visible={isGalleryVisible}
-								onClose={() => setIsGalleryVisible(false)}
+								visible={isOpen}
+								onClose={onClose}
 								index={index}
 								onIndexChange={setIndex}
 							/>

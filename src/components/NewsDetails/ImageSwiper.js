@@ -7,13 +7,19 @@ import "swiper/css/pagination"
 import "./ImageSwiper.css"
 import { PhotoSlider } from "react-photo-view"
 import { useMediaQuery } from "react-responsive"
+import useDisclosure from "../../hooks/useDisclosure"
 
 export const ImageSwiper = ({ images, galleryImages }) => {
-	const [isGalleryVisible, setIsGalleryVisible] = useState(false)
+	const { isOpen, onClose, onOpen } = useDisclosure()
 	const [index, setIndex] = useState(0)
 
 	const [thumbsSwiper, setThumbsSwiper] = useState(null)
 	const isDesktop = useMediaQuery({ query: `(min-width: 690px)` })
+
+	const handleOpenGallery = imgIndex => {
+		setIndex(imgIndex)
+		onOpen()
+	}
 
 	return (
 		<div className="news-details-images">
@@ -33,8 +39,8 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 				onSlideChange={swiper => setIndex(swiper.activeIndex)}
 				className="main-swiper"
 			>
-				{images?.map(item => (
-					<SwiperSlide onClick={() => setIsGalleryVisible(true)}>
+				{images?.map((item, index) => (
+					<SwiperSlide onClick={() => handleOpenGallery(index)}>
 						<img key={`main-${item.created_at}`} alt={item.created_at} src={item.image} />
 					</SwiperSlide>
 				))}
@@ -69,8 +75,8 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 
 			<PhotoSlider
 				images={galleryImages?.map(item => ({ src: item.image, key: item.created_at }))}
-				visible={isGalleryVisible}
-				onClose={() => setIsGalleryVisible(false)}
+				visible={isOpen}
+				onClose={onClose}
 				index={index}
 				onIndexChange={setIndex}
 			/>
