@@ -14,6 +14,7 @@ import NewsPage from "../../pages/News"
 import NewsDetailsPage from "../../pages/NewsDetails"
 import JobsPage from "../../pages/Jobs"
 import JobDetailsPage from "../../pages/JobDetails"
+import { Spinner } from "../Spinner/Spinner"
 
 const PrivacyPolicy = lazy(() => import("../../components/PrivacyPolicy/PrivacyPolicy"))
 const Certificates = lazy(() => import("../../components/Certificates/Certificates"))
@@ -24,7 +25,7 @@ export const AnimatedRoutes = () => {
 	return (
 		<>
 			<Header />
-			<Suspense fallback={<h1>Loading</h1>}>
+			<Suspense fallback={<Spinner minHeight={"80vh"} />}>
 				<AnimatePresence mode="wait">
 					<Routes location={location} key={location.pathname}>
 						<Route path="/" element={<HomePage />} />
