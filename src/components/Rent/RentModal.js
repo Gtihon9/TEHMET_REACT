@@ -4,19 +4,36 @@ import { Button } from "../Button/Button"
 import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { Input } from "../Input/Input"
+import { ContactFormApi } from "../../api/contact-form.api"
+
+const initialFormData = {
+	name: "",
+	email: "",
+	phone_number: "",
+	rentPeriod: "",
+}
 
 export const RentModal = ({ isOpen, onClose }) => {
 	const [errors, setErrors] = useState({})
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		phone_number: "",
-		rentPeriod: "",
-	})
+	const [formData, setFormData] = useState(initialFormData)
 
-	const handleSubmit = e => {
+	const handleSubmit = async e => {
 		e.preventDefault()
-		console.log(formData)
+		const submitData = new FormData()
+		submitData.append("name", formData.name)
+		submitData.append("email", formData.email)
+		submitData.append("phone_number", formData.phone_number)
+		submitData.append("rental_period", formData.rentPeriod)
+
+		try {
+			const response = await ContactFormApi.feedbackRent(submitData)
+			if (response) {
+				setFormData(initialFormData)
+				onClose()
+			}
+		} catch (error) {
+			setErrors(error.response.data)
+		}
 	}
 
 	const handleChange = e => {
