@@ -79,20 +79,28 @@ export const Rent = () => {
 						/>
 
 						<div className="rent-catalog-container">
-							<ArrowHeading
-								title="Каталог спецтехники"
-								description={
-									headerResponse?.count === 0
-										? "В настоящее время мы с сожалением вынуждены сообщить, что список спецтехники, предоставляемого в аренду, временно недоступен. Мы активно работаем над обновлением списка и предоставляем наилучшие варианты аренды. Благодарим вас за то, что вы обратились к нам за арендой."
-										: ""
-								}
-								style={{ maxWidth: 885 }}
-							/>
-							<SearchBar
-								value={searchQuery}
-								onChange={handleChange}
-								placeholder="Поиск по технике..."
-							/>
+							{headerLoading ? (
+								<Spinner minHeight="15vh" />
+							) : (
+								<>
+									<ArrowHeading
+										title="Каталог спецтехники"
+										description={
+											headerResponse?.count === 0
+												? "В настоящее время мы с сожалением вынуждены сообщить, что список спецтехники, предоставляемого в аренду, временно недоступен. Мы активно работаем над обновлением списка и предоставляем наилучшие варианты аренды. Благодарим вас за то, что вы обратились к нам за арендой."
+												: ""
+										}
+										style={{ maxWidth: 885 }}
+									/>
+									{headerResponse?.count > 0 && !error && (
+										<SearchBar
+											value={searchQuery}
+											onChange={handleChange}
+											placeholder="Поиск по технике..."
+										/>
+									)}
+								</>
+							)}
 							{isLoading ? (
 								<Spinner />
 							) : error ? (
