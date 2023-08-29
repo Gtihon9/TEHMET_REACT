@@ -6,7 +6,7 @@
 	justify-content: center;
 	flex-direction: column;
 	gap: 70px;
-	color: rgba(38, 40, 41, 1);
+	color: var(--text-color);
 }
 
 .services-list {

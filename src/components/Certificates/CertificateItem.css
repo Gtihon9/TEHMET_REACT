@@ -1,0 +1,29 @@
+.certificate-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.certificate-item-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--rounding);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.certificate-item-button:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.certificate-item-title {
+    font-family: Roboto, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+}

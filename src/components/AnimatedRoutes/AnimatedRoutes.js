@@ -16,6 +16,7 @@ import JobsPage from "../../pages/Jobs"
 import JobDetailsPage from "../../pages/JobDetails"
 
 const PrivacyPolicy = lazy(() => import("../../components/PrivacyPolicy/PrivacyPolicy"))
+const Certificates = lazy(() => import("../../components/Certificates/Certificates"))
 
 export const AnimatedRoutes = () => {
 	const location = useLocation()
@@ -37,6 +38,7 @@ export const AnimatedRoutes = () => {
 						<Route path="/services/:id" element={<ServicesDetailsPage />} />
 						<Route path="/rent" element={<RentPage />} />
 						<Route path="/conf" element={<PrivacyPolicy />} />
+						<Route path="/certificates" element={<Certificates />} />
 
 						{/*Navigated to Home page if route is not defined*/}
 						<Route path="*" element={<Navigate to="/" />} />

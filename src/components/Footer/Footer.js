@@ -64,7 +64,7 @@ const Footer = () => {
 								<Link to="/jobs">Вакансии</Link>
 							</li>
 							<li>
-								<Link to="/jobs">Сертификаты и лицензии</Link>
+								<Link to="/certificates">Сертификаты и лицензии</Link>
 							</li>
 						</ul>
 					</div>
