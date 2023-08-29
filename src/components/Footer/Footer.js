@@ -4,6 +4,7 @@ import "./Footer.css"
 import { useApi } from "../../hooks/useApi"
 import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
+import RegistrationLicense from "../../assets/RegistrationLicense.pdf"
 
 const Footer = () => {
 	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
@@ -62,6 +63,9 @@ const Footer = () => {
 							<li>
 								<Link to="/jobs">Вакансии</Link>
 							</li>
+							<li>
+								<Link to="/jobs">Сертификаты и лицензии</Link>
+							</li>
 						</ul>
 					</div>
 					<div className="footer-column">
@@ -74,7 +78,7 @@ const Footer = () => {
 							<p>ОГРН 1035009566822</p>
 							<p>ИНН 5047048624</p>
 							<Link to="/conf">Политика конфиденциальности</Link>
-							<Link to="/conf">Лицензия регистрации</Link>
+							<a href={RegistrationLicense} rel="noreferrer" target="_blank">Лицензия регистрации</a>
 						</div>
 					</div>
 				</div>
