@@ -14,6 +14,7 @@ import NewsPage from "../../pages/News"
 import NewsDetailsPage from "../../pages/NewsDetails"
 import JobsPage from "../../pages/Jobs"
 import JobDetailsPage from "../../pages/JobDetails"
+import ProjectsDetailsPage from "../../pages/ProjectsDetails"
 import { Spinner } from "../Spinner/Spinner"
 
 const PrivacyPolicy = lazy(() => import("../../components/PrivacyPolicy/PrivacyPolicy"))
@@ -35,6 +36,7 @@ export const AnimatedRoutes = () => {
 						<Route path="/news" element={<NewsPage />} />
 						<Route path="/news/:id" element={<NewsDetailsPage />} />
 						<Route path="/projects" element={<ProjectsPage />} />
+						<Route path="/projects/:id" element={<ProjectsDetailsPage />} />
 						<Route path="/services" element={<ServicesPage />} />
 						<Route path="/services/:id" element={<ServicesDetailsPage />} />
 						<Route path="/rent" element={<RentPage />} />

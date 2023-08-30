@@ -7,4 +7,5 @@ export const ProjectsApi = {
 				service,
 			},
 		}),
+	getProjectById: id => $instance.get(`/projects/${id}/`),
 }
