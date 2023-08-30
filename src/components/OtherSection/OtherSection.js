@@ -63,6 +63,7 @@ export const OtherSection = ({ title, link, items }) => {
 								item={{
 									title: item.name,
 									image: item.logo,
+									compressedImage: item.compressed_logo,
 									link: `/${link}/${item.id}`,
 								}}
 							/>

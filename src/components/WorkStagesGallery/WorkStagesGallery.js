@@ -7,6 +7,7 @@ import useDisclosure from "../../hooks/useDisclosure"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const WorkStagesGallery = ({ images }) => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
@@ -26,13 +27,15 @@ export const WorkStagesGallery = ({ images }) => {
 			<ArrowHeading title="Галерея" />
 			<motion.div {...containerMotionProps} className="work-stages-gallery">
 				{images?.map((item, index) => (
-					<motion.img
-						{...staggerChildrenMotionProps}
-						key={`work-stage-${item.created_at}`}
-						alt={`work-stage-${item.created_at}`}
-						src={item.image}
-						onClick={() => handleOpenGallery(index)}
-					/>
+					<motion.div {...staggerChildrenMotionProps}>
+						<LazyImage
+							key={`work-stage-${item.created_at}`}
+							alt={`work-stage-${item.created_at}`}
+							placeholderSrc={item.compressed_image}
+							src={item.image}
+							onClick={() => handleOpenGallery(index)}
+						/>
+					</motion.div>
 				))}
 			</motion.div>
 
@@ -43,7 +46,11 @@ export const WorkStagesGallery = ({ images }) => {
 							key={`work-stage-mobile-${item.created_at}`}
 							onClick={() => handleOpenGallery(index)}
 						>
-							<img alt={`work-stage-mobile-${item.created_at}`} src={item.image} />
+							<LazyImage
+								alt={`work-stage-mobile-${item.created_at}`}
+								src={item.image}
+								placeholderSrc={item.compressed_image}
+							/>
 						</SwiperSlide>
 					))}
 				</MobileSwiper>
