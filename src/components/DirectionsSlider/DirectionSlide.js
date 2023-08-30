@@ -17,7 +17,9 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 					<div className="direction-slide-nav">
 						<div className="direction-slide-counter">
 							<p>
-								<span>{slideNumber + 1}/{swiper?.slides.length}</span>
+								<span>
+									{slideNumber + 1}/{swiper?.slides.length}
+								</span>
 							</p>
 						</div>
 						<div className="direction-slide-nav-buttons">
@@ -38,7 +40,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 				</div>
 			</div>
 			<div className="direction-slide-image">
-				<img loading="lazy" alt={service.name} src={service.logo} />
+				<img alt={service.name} src={service.logo} />
 			</div>
 		</div>
 	)
