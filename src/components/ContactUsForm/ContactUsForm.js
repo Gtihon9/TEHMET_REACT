@@ -7,14 +7,16 @@ import { Textarea } from "../Input/Textarea"
 import { ContactFormApi } from "../../api/contact-form.api"
 import ReCAPTCHA from "react-google-recaptcha"
 
+const initialFormData = {
+	name: "",
+	phone_number: "",
+	message: "",
+}
+
 const ContactUsForm = () => {
 	const captchaRef = useRef(null)
-	const [formData, setFormData] = useState({
-		name: "",
-		phone_number: "",
-		message: "",
-	})
 	const [errors, setErrors] = useState({})
+	const [formData, setFormData] = useState(initialFormData)
 
 	const handleFieldChange = e => {
 		const { name, value } = e.target
@@ -46,11 +48,7 @@ const ContactUsForm = () => {
 				return
 			}
 			if (response) {
-				setFormData({
-					name: "",
-					phone_number: "",
-					message: "",
-				})
+				setFormData(initialFormData)
 				captchaRef.current.reset()
 			}
 		} catch (error) {

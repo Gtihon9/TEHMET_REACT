@@ -30,21 +30,34 @@ const ExtendedContactForm = () => {
 		}))
 		setErrors(prev => ({
 			...prev,
-			[name]: undefined,
+			[name]: null,
+			captcha: null,
 		}))
 	}
 
 	const handleSubmit = async e => {
 		e.preventDefault()
+		const captchaValue = captchaRef.current.getValue()
 		try {
 			const response = await ContactFormApi.feedbackProject(formData)
+			if (!captchaValue) {
+				setErrors(prev => ({ ...prev, captcha: "error" }))
+				return
+			}
 			if (response) {
 				setFormData(initialFormData)
+				captchaRef.current.reset()
 			}
 		} catch (error) {
 			setErrors(error.response.data)
-			console.log(errors)
 		}
+	}
+
+	const handleCaptchaChange = () => {
+		setErrors(prev => ({
+			...prev,
+			captcha: null,
+		}))
 	}
 
 	return (
@@ -138,7 +151,16 @@ const ExtendedContactForm = () => {
 									error={errors["work_deadlines"]}
 								/>
 								<div className="submit-container">
-									<ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY} ref={captchaRef} />
+									<ReCAPTCHA
+										sitekey={process.env.REACT_APP_SITE_KEY}
+										ref={captchaRef}
+										onChange={handleCaptchaChange}
+									/>
+									{errors["captcha"] && (
+										<span className="captcha-error">
+											Вы ввели неправильный ответ на контрольный вопрос
+										</span>
+									)}
 									<Button type="submit">Отправить</Button>
 									<p>
 										Нажимая на кнопку "Отправить", я подтверждаю, что <br />

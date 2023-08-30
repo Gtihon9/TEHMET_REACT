@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import "./RentModal.css"
 import { Button } from "../Button/Button"
 import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { Input } from "../Input/Input"
 import { ContactFormApi } from "../../api/contact-form.api"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const initialFormData = {
 	name: "",
@@ -14,6 +15,7 @@ const initialFormData = {
 }
 
 export const RentModal = ({ isOpen, onClose }) => {
+	const captchaRef = useRef(null)
 	const [errors, setErrors] = useState({})
 	const [formData, setFormData] = useState(initialFormData)
 
@@ -22,16 +24,29 @@ export const RentModal = ({ isOpen, onClose }) => {
 		setFormData(prev => ({ ...prev, [name]: value }))
 		setErrors(prev => ({
 			...prev,
-			[name]: undefined,
+			[name]: null,
+			captcha: null,
 		}))
 	}
 
+	const handleCaptchaChange = () => {
+		setErrors(prev => ({
+			...prev,
+			captcha: null,
+		}))
+	}
 	const handleSubmit = async e => {
 		e.preventDefault()
+		const captchaValue = captchaRef.current.getValue()
 		try {
 			const response = await ContactFormApi.feedbackRent(formData)
+			if (!captchaValue) {
+				setErrors(prev => ({ ...prev, captcha: "error" }))
+				return
+			}
 			if (response) {
 				setFormData(initialFormData)
+				captchaRef.current.reset()
 				onClose()
 			}
 		} catch (error) {
@@ -81,6 +96,16 @@ export const RentModal = ({ isOpen, onClose }) => {
 							onChange={handleChange}
 							error={errors["rental_period"]}
 						/>
+						<ReCAPTCHA
+							sitekey={process.env.REACT_APP_SITE_KEY}
+							ref={captchaRef}
+							onChange={handleCaptchaChange}
+						/>
+						{errors["captcha"] && (
+							<span className="captcha-error">
+								Вы ввели неправильный ответ на контрольный вопрос
+							</span>
+						)}
 						<div className="rent-modal-footer">
 							<Button type="submit">Отправить</Button>
 							<ConfInfo />

@@ -7,6 +7,7 @@ import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
 import { ContactFormApi } from "../../api/contact-form.api"
 import { useParams } from "react-router-dom"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const initialFormData = {
 	name: "",
@@ -19,6 +20,7 @@ const initialFormData = {
 export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 	const { id } = useParams()
 
+	const captchaRef = useRef(null)
 	const [errors, setErrors] = useState({})
 	const [formData, setFormData] = useState(initialFormData)
 
@@ -37,11 +39,23 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 	const handleChange = e => {
 		const { name, value } = e.target
 		setFormData(prevData => ({ ...prevData, [name]: value }))
-		setErrors(prev => ({ ...prev, [name]: null }))
+		setErrors(prev => ({
+			...prev,
+			[name]: null,
+			captcha: null,
+		}))
+	}
+
+	const handleCaptchaChange = () => {
+		setErrors(prev => ({
+			...prev,
+			captcha: null,
+		}))
 	}
 
 	const onSubmit = async e => {
 		e.preventDefault()
+		const captchaValue = captchaRef.current.getValue()
 		const submitData = new FormData()
 		submitData.append("name", formData.name)
 		submitData.append("email", formData.email)
@@ -52,8 +66,13 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 
 		try {
 			const response = await ContactFormApi.feedbackVacancy(submitData)
+			if (!captchaValue) {
+				setErrors(prev => ({ ...prev, captcha: "error" }))
+				return
+			}
 			if (response) {
 				setFormData(initialFormData)
+				captchaRef.current.reset()
 				onClose()
 			}
 		} catch (error) {
@@ -125,6 +144,16 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 							/>
 						</div>
 					</div>
+					<ReCAPTCHA
+						sitekey={process.env.REACT_APP_SITE_KEY}
+						ref={captchaRef}
+						onChange={handleCaptchaChange}
+					/>
+					{errors["captcha"] && (
+						<span className="captcha-error">
+							Вы ввели неправильный ответ на контрольный вопрос
+						</span>
+					)}
 					<div className="response-vacancy-footer">
 						<Button type="submit">Отправить</Button>
 						<ConfInfo />
