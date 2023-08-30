@@ -16,6 +16,7 @@ import { Error } from "../Error/Error"
 import { formatDate } from "../../utils/formatDate"
 import useDisclosure from "../../hooks/useDisclosure"
 import { CheckIcon } from "../Icons/CheckIcon"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const NewsDetails = () => {
 	const [isCopySuccess, setIsCopySuccess] = useState(false)
@@ -30,8 +31,8 @@ export const NewsDetails = () => {
 	}
 
 	useEffect(() => {
-		const id = setInterval(() => setIsCopySuccess(false), 5000)
-		return () => clearInterval(id)
+		const id = setTimeout(() => setIsCopySuccess(false), 5000)
+		return () => clearTimeout(id)
 	}, [copy])
 
 	const { response: details, loading, error } = useApi(() => NewsApi.getNewsById(id))
@@ -74,7 +75,10 @@ export const NewsDetails = () => {
 											key={image.created_at}
 											onClick={() => handleOpenGallery(index)}
 										>
-											<img src={image.image} />
+											<LazyImage
+												src={image.image}
+												placeholderSrc={image.compressed_image}
+											/>
 										</SwiperSlide>
 									))}
 								</MobileSwiper>

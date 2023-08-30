@@ -4,6 +4,7 @@ import LeftArrowSVG from "../Icons/L_Arrow"
 import RightArrowSVG from "../Icons/R_Arrow"
 import { ShareIcon } from "../Icons/ShareIcon"
 import "./DirectionSlide.css"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 	return (
@@ -40,7 +41,11 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 				</div>
 			</div>
 			<div className="direction-slide-image">
-				<img alt={service.name} src={service.logo} />
+				<LazyImage
+					alt={service.name}
+					src={service.logo}
+					placeholderSrc={service.compressed_logo}
+				/>
 			</div>
 		</div>
 	)

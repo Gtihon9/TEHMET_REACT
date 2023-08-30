@@ -8,6 +8,7 @@ import { Card } from "../Card/Card"
 import { useApi } from "../../hooks/useApi"
 import { ServicesApi } from "../../api/services.api"
 import "./CompanyServices.css"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const CompanyServices = () => {
 	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
@@ -30,7 +31,11 @@ export const CompanyServices = () => {
 					{services?.results?.map(service => (
 						<Link key={service.id} to={`/services/${service.id}`} className="company-card">
 							<div className="company-card-backdrop" />
-							<img alt={service.name} src={service.logo} />
+							<LazyImage
+								alt={service.name}
+								placeholderSrc={service.compressed_logo}
+								src={service.logo}
+							/>
 							<div className="company-card-content">
 								<p>{service.name}</p>
 							</div>
@@ -45,6 +50,7 @@ export const CompanyServices = () => {
 									item={{
 										title: service.name,
 										image: service.logo,
+										compressedImage: service.compressed_logo,
 										link: `/services/${service.id}`,
 									}}
 								/>

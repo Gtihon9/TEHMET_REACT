@@ -4,6 +4,7 @@ import { Button } from "../Button/Button"
 import { ShareIcon } from "../Icons/ShareIcon"
 import "./ServicesItem.css"
 import { PhotoProvider, PhotoView } from "react-photo-view"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const ServicesItem = ({ service }) => {
 	return (
@@ -20,7 +21,11 @@ export const ServicesItem = ({ service }) => {
 			<PhotoProvider>
 				<div className="services-item-image">
 					<PhotoView src={service.logo}>
-						<img alt={service.title} src={service.logo} />
+						<LazyImage
+							alt={service.title}
+							src={service.logo}
+							placeholderSrc={service.compressed_logo}
+						/>
 					</PhotoView>
 				</div>
 			</PhotoProvider>

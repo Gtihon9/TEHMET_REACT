@@ -2,6 +2,7 @@ import { Button } from "../Button/Button"
 import { RentModal } from "./RentModal"
 import { useDisclosure } from "../../hooks/useDisclosure"
 import "./RentItem.css"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const RentItem = ({ item }) => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
@@ -9,7 +10,12 @@ export const RentItem = ({ item }) => {
 		<>
 			<div className="rent-item">
 				<div className="rent-item-content">
-					<img className="rent-item-image" alt={item.name} src={item.logo} />
+					<LazyImage
+						className="rent-item-image"
+						alt={item.name}
+						placeholderSrc={item.compressed_logo}
+						src={item.logo}
+					/>
 					<div className="rent-item-heading">
 						<p>{item.name}</p>
 						<div className="rent-item-settings">

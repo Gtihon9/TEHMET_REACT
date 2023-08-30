@@ -8,6 +8,7 @@ import "./ImageSwiper.css"
 import { PhotoSlider } from "react-photo-view"
 import { useMediaQuery } from "react-responsive"
 import useDisclosure from "../../hooks/useDisclosure"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const ImageSwiper = ({ images, galleryImages }) => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
@@ -41,7 +42,12 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 			>
 				{images?.map((item, index) => (
 					<SwiperSlide onClick={() => handleOpenGallery(index)}>
-						<img key={`main-${item.created_at}`} alt={item.created_at} src={item.image} />
+						<LazyImage
+							key={`main-${item.created_at}`}
+							alt={item.created_at}
+							src={item.image}
+							placeholderSrc={item.compressed_image}
+						/>
 					</SwiperSlide>
 				))}
 			</Swiper>
@@ -67,7 +73,12 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 				>
 					{images?.map(item => (
 						<SwiperSlide>
-							<img key={`thumb-${item.created_at}`} alt={item.created_at} src={item.image} />
+							<LazyImage
+								key={`thumb-${item.created_at}`}
+								alt={item.created_at}
+								src={item.image}
+								placeholderSrc={item.compressed_image}
+							/>
 						</SwiperSlide>
 					))}
 				</Swiper>

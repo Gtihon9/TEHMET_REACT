@@ -75,6 +75,7 @@ export const News = () => {
 									item={{
 										title: newsList?.[0]?.title,
 										logo: newsList?.[0]?.logo,
+										compressed_logo: newsList?.[0]?.compressed_logo,
 										created_at: formatDate(newsList?.[0]?.created_at),
 										link: `/news/${newsList?.[0]?.id}`,
 									}}
@@ -87,6 +88,7 @@ export const News = () => {
 											item={{
 												title: item?.title,
 												logo: item?.logo,
+												compressed_logo: item?.compressed_logo,
 												created_at: formatDate(item?.created_at),
 												link: `/news/${item?.id}`,
 											}}
@@ -102,6 +104,7 @@ export const News = () => {
 											item={{
 												title: item.title,
 												logo: item.logo,
+												compressed_logo: item?.compressed_logo,
 												created_at: formatDate(item?.created_at),
 												link: `/news/${item?.id}`,
 											}}

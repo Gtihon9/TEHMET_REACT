@@ -57,6 +57,14 @@ body {
 	text-decoration: none;
 }
 
+.breadcrumbs-text a:last-child {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
 .PhotoView-Slider__Counter {
 	font-family: Roboto, sans-serif;
 	user-select: none;

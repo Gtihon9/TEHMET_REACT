@@ -88,9 +88,7 @@
 
 .company-card-content {
 	position: absolute;
-	top: 0;
 	bottom: 0;
-	right: 0;
 	left: 0;
 	padding: 15px 20px;
 	display: flex;
@@ -115,6 +113,8 @@
 	line-height: 35px;
 	text-align: left;
 	color: #ffffff;
+	position: relative;
+	z-index: 2;
 }
 
 .company-card:hover .company-card-backdrop {
@@ -129,6 +129,7 @@
 	left: 0;
 	background-color: rgba(0, 0, 0, 0.3);
 	transition: background-color 0.2s ease-in-out;
+	z-index: 1;
 }
 
 .company-card-last {

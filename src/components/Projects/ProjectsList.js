@@ -14,6 +14,7 @@ const ProjectsList = ({ projects }) => {
 							title: project.name,
 							description: project.description,
 							image: project.logo,
+							compressedImage: project.compressed_logo,
 							link: `/projects/${project.id}`,
 						}}
 					/>

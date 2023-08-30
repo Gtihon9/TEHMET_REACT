@@ -2,12 +2,13 @@ import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import { ShareIcon } from "../Icons/ShareIcon"
 import "./Card.css"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const Card = ({ item }) => {
 	return (
 		<div className="card">
 			<div className="card-image">
-				<img alt={item.title} src={item.image} />
+				<LazyImage alt={item.title} placeholderSrc={item.compressedImage} src={item.image} />
 			</div>
 			<div className="card-content">
 				<div className="card-header">

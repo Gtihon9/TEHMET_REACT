@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import { Button } from "../Button/Button"
 import "./NewsCard.css"
+import { LazyImage } from "../LazyImage/LazyImage"
 export const NewsCard = ({ item }) => {
 	return (
 		<div className="news-card">
 			<div className="news-card-image">
-				<img loading="lazy" alt={item?.title} src={item?.logo} />
+				<LazyImage alt={item?.title} src={item?.logo} placeholderSrc={item?.compressed_logo} />
 				<div className="backdrop" />
 			</div>
 			<div className="news-card-content">

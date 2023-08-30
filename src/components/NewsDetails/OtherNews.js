@@ -27,6 +27,7 @@ export const OtherNews = () => {
 						item={{
 							title: item.title,
 							logo: item.logo,
+							compressed_logo: item.compressed_logo,
 							created_at: formatDate(item?.created_at),
 							link: `/news/${item?.id}`,
 						}}
