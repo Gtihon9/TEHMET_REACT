@@ -10,7 +10,6 @@ import bg_videoMP4 from "../../videos/tehmet-lending.mp4"
 import bg_videoWEBM from "../../videos/tehmet-lending.webm"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import "./Main.css"
-import { features } from "./Main.constants"
 import { motion } from "framer-motion"
 import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
 import { DirectionsSection } from "./DirectionsSection"
@@ -20,7 +19,7 @@ import { ServicesApi } from "../../api/services.api"
 import { useApi } from "../../hooks/useApi"
 
 const Main = () => {
-	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+	const { response: services, loading } = useApi(ServicesApi.getAllServices)
 
 	return (
 		<motion.main
@@ -46,10 +45,16 @@ const Main = () => {
 						<div className="hero-features">
 							{services?.results.map(service => (
 								<div key={service.name} className="feature-item">
-									<div className="feature-item-circle" />
-									<span className="feature-item-text">{service.name}</span>
+									{loading ? (
+										<div />
+									) : (
+										<>
+											<div className="feature-item-circle" />
+											<span className="feature-item-text">{service.name}</span>
+										</>
+									)}
 								</div>
-								))}
+							))}
 						</div>
 					</div>
 				</div>
