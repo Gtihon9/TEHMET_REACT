@@ -35,7 +35,7 @@
     background: var(--primary-color);
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .work-stages-other {
         margin-top: 45px;
         gap: 35px;

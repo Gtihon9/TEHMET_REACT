@@ -6,7 +6,7 @@
 	width: 100%;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.project-list {
 		display: flex;
 		flex-direction: column;
@@ -19,5 +19,9 @@
 
 	.project-list .card-image {
 		max-height: none;
+	}
+
+	.project-list .card-image img {
+		max-height: 600px;
 	}
 }

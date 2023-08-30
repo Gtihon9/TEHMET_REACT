@@ -154,7 +154,7 @@
 	display: none;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.job-details-content {
 		padding-bottom: 38px;
 		gap: 40px;

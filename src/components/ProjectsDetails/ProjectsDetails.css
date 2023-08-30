@@ -58,7 +58,7 @@
     min-height: 70vh;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .services-details {
         padding-bottom: 38px;
     }

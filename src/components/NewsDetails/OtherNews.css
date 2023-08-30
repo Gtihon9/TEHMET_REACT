@@ -18,7 +18,7 @@
 	aspect-ratio: 16 / 9;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.other-news-list {
 		grid-template-columns: 1fr;
 		row-gap: 40px;

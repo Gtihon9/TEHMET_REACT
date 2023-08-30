@@ -109,7 +109,7 @@
 	}
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.card-image:before {
 		height: 99%;
 	}

@@ -161,7 +161,7 @@
 	text-align: left;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.main-content {
 		padding-bottom: 38px;
 	}

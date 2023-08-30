@@ -36,7 +36,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .recycling-info {
         grid-template-columns: repeat(2, 1fr);
     }

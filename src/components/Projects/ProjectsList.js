@@ -2,6 +2,7 @@ import { Card } from "../Card/Card"
 import { motion } from "framer-motion"
 import "./ProjectsList.css"
 import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
+import { ProgressProject } from "../ProgressProject/ProgressProject"
 
 const ProjectsList = ({ projects }) => {
 	return (
@@ -18,6 +19,11 @@ const ProjectsList = ({ projects }) => {
 					/>
 				</motion.div>
 			))}
+			{projects?.length === 1 && (
+				<motion.div {...staggerChildrenMotionProps}>
+					<ProgressProject />
+				</motion.div>
+			)}
 		</motion.div>
 	)
 }

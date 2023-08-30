@@ -18,7 +18,7 @@ const Header = () => {
 
 	document.body.style.overflow = showMobileMenu ? "hidden" : "auto"
 
-	const isMedium = useMediaQuery({ query: `(max-width: 1216px)` })
+	const isMedium = useMediaQuery({ query: `(max-width: 1240px)` })
 
 	return (
 		<header className="header">

@@ -56,7 +56,7 @@
     fill: var(--text-secondary-color);
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .react-pagination-prev-button {
         margin-right: 15px;
     }

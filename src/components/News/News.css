@@ -45,7 +45,7 @@
 	row-gap: 20px;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.news-content {
 		gap: 60px;
 		padding-bottom: 40px;

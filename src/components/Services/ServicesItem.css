@@ -52,7 +52,7 @@
 	stroke: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.services-item,
 	.services-item:nth-child(even) {
 		flex-direction: column-reverse;

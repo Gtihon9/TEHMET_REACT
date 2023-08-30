@@ -56,7 +56,7 @@
 	min-height: 50vh;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.jobs-content {
 		gap: 40px;
 		padding-bottom: 38px;

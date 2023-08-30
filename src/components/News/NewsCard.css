@@ -84,7 +84,7 @@
 	flex-direction: column;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.news-card-content {
 		color: #000000;
 		position: static;
@@ -102,7 +102,7 @@
 	}
 
 	.news-card-title h1 {
-		font-family: Roboto;
+		font-family: Roboto, sans-serif;
 		font-size: 18px;
 		font-weight: 600;
 		line-height: 29px;

@@ -50,7 +50,7 @@
     stroke: rgb(255, 255, 255)
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .rent-container {
         gap: 25px;
         margin-top: 0;

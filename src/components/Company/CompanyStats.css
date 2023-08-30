@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .stats-container {
         gap: 25px;
         margin-top: 0;

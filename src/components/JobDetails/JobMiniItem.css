@@ -49,7 +49,7 @@
 	line-height: 16px;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
 	.job-mini-item {
 		padding: 15px;
 	}

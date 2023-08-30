@@ -3,7 +3,6 @@ import ProjectsList from "./ProjectsList"
 import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { Link } from "react-router-dom"
-import { Button } from "../Button/Button"
 import { motion } from "framer-motion"
 import "./Projects.css"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
@@ -14,6 +13,7 @@ import { useEffect, useState } from "react"
 import { ProjectsApi } from "../../api/projects.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
+import { ProgressProject } from "../ProgressProject/ProgressProject"
 
 const initialDirection = {
 	id: "all-projects",
@@ -70,7 +70,7 @@ const Projects = () => {
 						selectedDirection={selectedDirection}
 					/>
 					{isLoading ? (
-						<Spinner minHeight="40vh" />
+						<Spinner minHeight="35vh" />
 					) : projects?.length === 0 ? (
 						<div className="projects-error-wrapper">
 							<Error
@@ -82,7 +82,6 @@ const Projects = () => {
 						<>
 							<div className="projects-list-container">
 								<ProjectsList projects={projects} />
-								<Button className="project-list-button">Посмотреть ещё</Button>
 							</div>
 
 							<motion.div
@@ -103,6 +102,11 @@ const Projects = () => {
 											/>
 										</SwiperSlide>
 									))}
+									{projects?.length === 1 && (
+										<SwiperSlide>
+											<ProgressProject />
+										</SwiperSlide>
+									)}
 								</MobileSwiper>
 							</motion.div>
 						</>

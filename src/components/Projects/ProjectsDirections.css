@@ -99,7 +99,7 @@
     background-color: var(--primary-color) !important;
 }
 
-@media screen and (max-width: 1216px) {
+@media screen and (max-width: 1240px) {
     .directions-links-block {
         display: none;
     }
