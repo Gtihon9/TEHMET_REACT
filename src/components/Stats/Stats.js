@@ -1,13 +1,17 @@
 import { StatsItem } from "./StatsItem"
 import { stats } from "./Stats.constants"
+import { motion } from "framer-motion"
 import "./Stats.css"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 
 export const Stats = () => {
-   return (
-      <div className="stats">
-         {stats.map((stat) => (
-            <StatsItem key={stat.title} stat={stat} />
-         ))}
-      </div>
-   )
+	return (
+		<motion.div {...containerMotionProps} className="stats">
+			{stats.map(stat => (
+				<motion.div key={stat.title} {...staggerChildrenMotionProps}>
+					<StatsItem stat={stat} />
+				</motion.div>
+			))}
+		</motion.div>
+	)
 }

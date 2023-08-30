@@ -2,16 +2,20 @@ import "./WorkStages.css"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { stages } from "./WorkStages.constants"
 import { WorkStagesItem } from "./WorkStagesItem"
+import { motion } from "framer-motion"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 
 export const WorkStages = () => {
 	return (
 		<div className="work-stages">
 			<ArrowHeading title="Этапы работы" style={{ maxWidth: 720 }} />
-			<div className="work-stages-items">
+			<motion.div {...containerMotionProps} className="work-stages-items">
 				{stages.map(stage => (
-					<WorkStagesItem key={`stage-${stage.id}`} stage={stage} />
+					<motion.div key={`stage-${stage.id}`} {...staggerChildrenMotionProps}>
+						<WorkStagesItem stage={stage} />
+					</motion.div>
 				))}
-			</div>
+			</motion.div>
 		</div>
 	)
 }
