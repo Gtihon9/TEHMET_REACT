@@ -78,7 +78,9 @@ const Footer = () => {
 							<p>ОГРН 1035009566822</p>
 							<p>ИНН 5047048624</p>
 							<Link to="/conf">Политика конфиденциальности</Link>
-							<a href={RegistrationLicense} rel="noreferrer" target="_blank">Лицензия регистрации</a>
+							<a href={RegistrationLicense} rel="noreferrer" target="_blank">
+								Лицензия регистрации
+							</a>
 						</div>
 					</div>
 				</div>
