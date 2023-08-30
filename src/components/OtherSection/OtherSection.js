@@ -1,13 +1,13 @@
 import "./OtherSection.css"
 import { useState } from "react"
-import { useLocation, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import LeftArrowSVG from "../Icons/L_Arrow"
 import RightArrowSVG from "../Icons/R_Arrow"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Card } from "../Card/Card"
 
-export const OtherSection = ({ title, items }) => {
+export const OtherSection = ({ title, link, items }) => {
 	const [swiperState, setSwiperState] = useState({
 		isBeginning: true,
 		isEnd: false,
@@ -15,10 +15,7 @@ export const OtherSection = ({ title, items }) => {
 	const [swiper, setSwiper] = useState(null)
 
 	const { id } = useParams()
-	const location = useLocation()
 	const filteredItems = items?.filter(item => item.id !== id)
-
-	console.log(location)
 
 	return (
 		<>
@@ -66,7 +63,7 @@ export const OtherSection = ({ title, items }) => {
 								item={{
 									title: item.name,
 									image: item.logo,
-									link: `/services/${item.id}`,
+									link: `/${link}/${item.id}`,
 								}}
 							/>
 						</SwiperSlide>
