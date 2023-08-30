@@ -31,6 +31,7 @@ const Projects = () => {
 
 	const [response, setResponse] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
+	const [error, setError] = useState(null)
 	const [selectedDirection, setSelectedDirection] = useState(initialDirection)
 
 	const handleDirectionChange = direction => {
@@ -50,8 +51,8 @@ const Projects = () => {
 					(page - 1) * LIMIT
 				)
 				setResponse(data)
-			} catch (error) {
-				console.log(error)
+			} catch (err) {
+				setError(err)
 			} finally {
 				setIsLoading(false)
 			}
@@ -85,7 +86,7 @@ const Projects = () => {
 					/>
 					{isLoading ? (
 						<Spinner minHeight={"35vh"} />
-					) : response?.results?.length === 0 ? (
+					) : error || response?.results?.length === 0 ? (
 						<div className="projects-error-wrapper">
 							<Error
 								title="Исследование новых горизонтов ;)"
