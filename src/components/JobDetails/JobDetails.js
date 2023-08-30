@@ -23,9 +23,10 @@ export const JobDetails = () => {
 		response: allJobs,
 		loading: allJobsLoading,
 		error: allError,
-	} = useApi(() => JobsApi.getAllJobs(4, 0))
+	} = useApi(() => JobsApi.getAllJobs(4, 0, ""))
 
 	const filteredAllJobs = allJobs?.results?.filter(job => job.id !== id).slice(0, 3)
+	console.log(allJobs)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
