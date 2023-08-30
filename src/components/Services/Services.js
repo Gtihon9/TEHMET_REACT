@@ -63,7 +63,7 @@ const Services = () => {
 
 							<div className="services-list">
 								{services?.results.map(service => (
-									<ServicesItem key={service.title} service={service} />
+									<ServicesItem key={service.id} service={service} />
 								))}
 							</div>
 						</>
