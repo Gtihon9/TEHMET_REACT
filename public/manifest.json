@@ -1,21 +1,11 @@
 {
-	"short_name": "React App",
-	"name": "Create React App Sample",
+	"short_name": "Tehmet",
+	"name": "Tehmetservice",
 	"icons": [
 		{
 			"src": "favicon.ico",
-			"sizes": "64x64 32x32 24x24 16x16",
+			"sizes": "310x310 192x192 180x180 152x152 150x150 144x144 120x120 114x114 96x96 76x76 72x72 70x70 60x60 57x57 32x32 16x16",
 			"type": "image/x-icon"
-		},
-		{
-			"src": "logo192.png",
-			"type": "image/png",
-			"sizes": "192x192"
-		},
-		{
-			"src": "logo512.png",
-			"type": "image/png",
-			"sizes": "512x512"
 		}
 	],
 	"start_url": ".",

@@ -1,12 +1,14 @@
 import { Button } from "../Button/Button"
 import "./ContactUsForm.css"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
 import { ContactFormApi } from "../../api/contact-form.api"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const ContactUsForm = () => {
+	const captchaRef = useRef(null)
 	const [formData, setFormData] = useState({
 		name: "",
 		phone_number: "",
@@ -22,19 +24,34 @@ const ContactUsForm = () => {
 		}))
 		setErrors(prev => ({
 			...prev,
-			[name]: undefined,
+			[name]: null,
+			captcha: null,
 		}))
 	}
+
+	const handleCaptchaChange = () => {
+		setErrors(prev => ({
+			...prev,
+			captcha: null,
+		}))
+	}
+
 	const handleSubmit = async e => {
 		e.preventDefault()
+		const captchaValue = captchaRef.current.getValue()
 		try {
 			const response = await ContactFormApi.feedbackLanding(formData)
+			if (!captchaValue) {
+				setErrors(prev => ({ ...prev, captcha: "error" }))
+				return
+			}
 			if (response) {
 				setFormData({
 					name: "",
 					phone_number: "",
 					message: "",
 				})
+				captchaRef.current.reset()
 			}
 		} catch (error) {
 			setErrors(error.response.data)
@@ -72,6 +89,16 @@ const ContactUsForm = () => {
 									value={formData.message}
 									error={errors["message"]}
 								/>
+								<ReCAPTCHA
+									sitekey={process.env.REACT_APP_SITE_KEY}
+									ref={captchaRef}
+									onChange={handleCaptchaChange}
+								/>
+								{errors["captcha"] && (
+									<span className="captcha-error">
+										Вы ввели неправильный ответ на контрольный вопрос
+									</span>
+								)}
 								<div className="contact-us-submit-container">
 									<Button type="submit">Отправить</Button>
 									<ConfInfo />

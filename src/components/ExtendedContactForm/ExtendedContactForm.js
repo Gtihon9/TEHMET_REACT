@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { Button } from "../Button/Button"
 import "./ExtendedContactForm.css"
 import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
 import { ContactFormApi } from "../../api/contact-form.api"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const initialFormData = {
 	name: "",
@@ -17,6 +18,7 @@ const initialFormData = {
 }
 
 const ExtendedContactForm = () => {
+	const captchaRef = useRef(null)
 	const [errors, setErrors] = useState({})
 	const [formData, setFormData] = useState(initialFormData)
 
@@ -39,7 +41,6 @@ const ExtendedContactForm = () => {
 			if (response) {
 				setFormData(initialFormData)
 			}
-			// await axios.post("https://api.tehmetservice.ru/api/v1/feedback/project/", formData)
 		} catch (error) {
 			setErrors(error.response.data)
 			console.log(errors)
@@ -137,6 +138,7 @@ const ExtendedContactForm = () => {
 									error={errors["work_deadlines"]}
 								/>
 								<div className="submit-container">
+									<ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY} ref={captchaRef} />
 									<Button type="submit">Отправить</Button>
 									<p>
 										Нажимая на кнопку "Отправить", я подтверждаю, что <br />

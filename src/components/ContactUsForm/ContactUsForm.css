@@ -51,6 +51,7 @@
 .contact-us-form {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 35px;
 	width: 100%;
 }
@@ -59,7 +60,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
-	margin-top: 20px;
 	width: 100%;
 	max-width: 360px;
 }
@@ -113,16 +113,16 @@
 	line-height: 21px;
 }
 
-/*.scroll-button {*/
-/*	padding: 9px;*/
-/*	align-self: flex-end;*/
-/*}*/
+.captcha-error {
+	font-size: 12px;
+	font-family: Roboto, sans-serif;
+	font-weight: 400;
+	color: var(--error-color);
+	align-self: flex-start;
+	margin-top: -10px;
+}
 
 @media screen and (max-width: 900px) {
-	/*.scroll-button {*/
-	/*	display: none;*/
-	/*}*/
-
 	.form-wrapper {
 		padding: 40px 0;
 	}
@@ -139,5 +139,9 @@
 
 	.form-content {
 		padding: 16px 17px;
+	}
+
+	.contact-us-form {
+		align-items: flex-start;
 	}
 }
