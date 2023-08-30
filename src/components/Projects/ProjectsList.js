@@ -13,6 +13,7 @@ const ProjectsList = ({ projects }) => {
 							title: project.name,
 							description: project.description,
 							image: project.logo,
+							link: `/projects/${project.id}`,
 						}}
 					/>
 				</motion.div>

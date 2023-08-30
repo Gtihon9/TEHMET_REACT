@@ -98,6 +98,7 @@ const Projects = () => {
 													title: project.title,
 													description: project.description,
 													image: project.logo,
+													link: `/projects/${project.id}`,
 												}}
 											/>
 										</SwiperSlide>
