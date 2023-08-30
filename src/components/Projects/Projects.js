@@ -23,7 +23,7 @@ const initialDirection = {
 	value: null,
 }
 
-const LIMIT = 1
+const LIMIT = 10
 
 const Projects = () => {
 	const [searchParams, setSearchParams] = useSearchParams()
