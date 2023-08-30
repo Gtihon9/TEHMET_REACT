@@ -32,7 +32,6 @@
 
 .main-swiper .swiper-pagination-bullet-active {
 	background-color: var(--primary-color);
-	box-shadow: 0 0 4px 10px rgba(5, 145, 217, 0.05);
 }
 
 .thumbs-swiper {
