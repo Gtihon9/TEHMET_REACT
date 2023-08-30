@@ -82,6 +82,16 @@
 	border-bottom: 1px solid var(--text-color);
 }
 
+.news-details-footer .share-button svg {
+	height: 24px;
+	width: 24px;
+}
+
+.news-details-footer .share-button.copied {
+	color: #388e3c;
+	border-bottom-color: #388e3c;
+}
+
 .news-details-footer .share-button:hover {
 	background-color: transparent;
 }

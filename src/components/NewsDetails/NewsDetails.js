@@ -7,7 +7,7 @@ import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { PhotoSlider } from "react-photo-view"
 import { useApi } from "../../hooks/useApi"
 import { NewsApi } from "../../api/news.api"
@@ -15,8 +15,10 @@ import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { formatDate } from "../../utils/formatDate"
 import useDisclosure from "../../hooks/useDisclosure"
+import { CheckIcon } from "../Icons/CheckIcon"
 
 export const NewsDetails = () => {
+	const [isCopySuccess, setIsCopySuccess] = useState(false)
 	const { isOpen, onClose, onOpen } = useDisclosure()
 	const [index, setIndex] = useState(0)
 
@@ -24,7 +26,13 @@ export const NewsDetails = () => {
 
 	const copy = async text => {
 		await navigator.clipboard.writeText(text)
+		setIsCopySuccess(true)
 	}
+
+	useEffect(() => {
+		const id = setInterval(() => setIsCopySuccess(false), 5000)
+		return () => clearInterval(id)
+	}, [copy])
 
 	const { response: details, loading, error } = useApi(() => NewsApi.getNewsById(id))
 
@@ -95,9 +103,12 @@ export const NewsDetails = () => {
 								<p>
 									Дата публикации: <span>{formatDate(details?.created_at)}</span>
 								</p>
-								<button className="share-button" onClick={() => copy(window.location.href)}>
-									Поделиться
-									<ShareIcon />
+								<button
+									className={`share-button ${isCopySuccess ? "copied" : ""}`}
+									onClick={() => copy(window.location.href)}
+								>
+									{isCopySuccess ? "Ссылка скопирована" : "Поделиться"}
+									{isCopySuccess ? <CheckIcon /> : <ShareIcon />}
 								</button>
 							</div>
 						</div>
