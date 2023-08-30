@@ -17,6 +17,8 @@ import { LastProjectsSection } from "./LastProjectsSection"
 import { LazyImage } from "../LazyImage/LazyImage"
 import { ServicesApi } from "../../api/services.api"
 import { useApi } from "../../hooks/useApi"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
+import { Spinner } from "../Spinner/Spinner"
 
 const Main = () => {
 	const { response: services, loading } = useApi(ServicesApi.getAllServices)
@@ -42,20 +44,22 @@ const Main = () => {
 								Строительство более экологичного завтра: Работа, за которую беремся мы
 							</p>
 						</div>
-						<div className="hero-features">
-							{services?.results.map(service => (
-								<div key={service.name} className="feature-item">
-									{loading ? (
-										<div />
-									) : (
-										<>
-											<div className="feature-item-circle" />
-											<span className="feature-item-text">{service.name}</span>
-										</>
-									)}
-								</div>
-							))}
-						</div>
+						{loading ? (
+							<Spinner minHeight="12.5vh" />
+						) : (
+							<motion.div {...containerMotionProps} className="hero-features">
+								{services?.results.map(service => (
+									<motion.div
+										{...staggerChildrenMotionProps}
+										key={service.name}
+										className="feature-item"
+									>
+										<div className="feature-item-circle" />
+										<span className="feature-item-text">{service.name}</span>
+									</motion.div>
+								))}
+							</motion.div>
+						)}
 					</div>
 				</div>
 			</div>
