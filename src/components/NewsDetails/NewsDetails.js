@@ -7,7 +7,7 @@ import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { PhotoSlider } from "react-photo-view"
 import { useApi } from "../../hooks/useApi"
 import { NewsApi } from "../../api/news.api"
@@ -25,10 +25,10 @@ export const NewsDetails = () => {
 
 	const { id } = useParams()
 
-	const copy = async text => {
+	const copy = useCallback(async text => {
 		await navigator.clipboard.writeText(text)
 		setIsCopySuccess(true)
-	}
+	}, [])
 
 	useEffect(() => {
 		const id = setTimeout(() => setIsCopySuccess(false), 5000)
