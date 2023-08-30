@@ -92,7 +92,7 @@ export const JobDetails = () => {
 										<div className="job-details-actions">
 											<Button onClick={onOpen}>Откликнуться</Button>
 											<div className="job-details-actions-date">
-												<span>{jobDetails?.updated_at}</span>
+												<span>Вакансия опубликована: {jobDetails?.updated_at}</span>
 											</div>
 										</div>
 									</div>
