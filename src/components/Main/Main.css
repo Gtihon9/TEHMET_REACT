@@ -32,12 +32,12 @@
 }
 
 .hero {
-	min-height: 1080px;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	gap: 340px;
+	gap: 160px;
 	position: relative;
 	z-index: 1;
 	color: #000;
@@ -172,7 +172,7 @@
 	}
 
 	.hero {
-		min-height: 850px;
+		min-height: 80vh;
 	}
 
 	.section-container {
@@ -191,10 +191,16 @@
 	}
 }
 
+@media screen and (min-width: 1400px) {
+	.hero {
+		gap: 300px
+	}
+}
+
 @media screen and (max-width: 1030px) {
 	.hero {
 		gap: 144px;
-		min-height: 777px;
+		min-height: 70vh;
 	}
 
 	.hero-features {
