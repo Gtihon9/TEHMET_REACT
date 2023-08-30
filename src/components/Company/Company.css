@@ -148,6 +148,7 @@
 	font-weight: 400;
 	line-height: 32px;
 	background-color: rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
 
 .company-card img {

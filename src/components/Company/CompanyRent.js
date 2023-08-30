@@ -8,9 +8,10 @@ import { SwiperSlide } from "swiper/react"
 import { useApi } from "../../hooks/useApi"
 import { RentApi } from "../../api/rent.api"
 import "./CompanyRent.css"
+import { LazyImage } from "../LazyImage/LazyImage"
 
 export const CompanyRent = () => {
-	const { response: equipments, loading, error } = useApi(() => RentApi.getAllRents(8, 0))
+	const { response: equipments, loading, error } = useApi(() => RentApi.getAllRents(8, 0, ""))
 
 	if (loading) return <Spinner />
 
@@ -31,7 +32,11 @@ export const CompanyRent = () => {
 					{equipments?.results?.slice(0, equipments?.results.length - 1).map(item => (
 						<div key={item.id} className="company-card">
 							<div className="company-card-backdrop" />
-							<img alt={item.name} src={item.logo} />
+							<LazyImage
+								alt={item.name}
+								src={item.logo}
+								placeholderSrc={item.compressed_logo}
+							/>
 							<div className="company-card-content">
 								<p>{item.name}</p>
 							</div>
@@ -43,9 +48,12 @@ export const CompanyRent = () => {
 						className="company-card"
 					>
 						<div className="company-card-backdrop" />
-						<img
+						<LazyImage
 							alt={equipments?.results[equipments?.results.length - 1].name}
 							src={equipments?.results[equipments?.results.length - 1].logo}
+							placeholderSrc={
+								equipments?.results[equipments?.results.length - 1].compressed_logo
+							}
 						/>
 						<div className="company-card-last">
 							Посмотреть все
@@ -59,7 +67,11 @@ export const CompanyRent = () => {
 							<SwiperSlide key={item.id}>
 								<div className="company-card">
 									<div className="company-card-backdrop" />
-									<img alt={item.name} src={item.logo} />
+									<LazyImage
+										alt={item.name}
+										src={item.logo}
+										placeholderSrc={item.compressed_logo}
+									/>
 									<div className="company-card-content">
 										<p>{item.name}</p>
 										<Link to={`/rent`}>Смотреть полностью</Link>
