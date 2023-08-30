@@ -17,7 +17,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 					<div className="direction-slide-nav">
 						<div className="direction-slide-counter">
 							<p>
-								{slideNumber + 1}/<span>{swiper?.slides.length}</span>
+								<span>{slideNumber + 1}/{swiper?.slides.length}</span>
 							</p>
 						</div>
 						<div className="direction-slide-nav-buttons">
