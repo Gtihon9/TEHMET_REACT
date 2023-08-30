@@ -55,7 +55,11 @@ export const ProjectsDetails = () => {
 
 							<WorkStagesGallery images={projectDetails?.images} />
 
-							<OtherSection title="Другие проекты" items={allProjects?.results} />
+							<OtherSection
+								title="Другие проекты"
+								link="projects"
+								items={allProjects?.results}
+							/>
 						</>
 					)}
 				</div>
