@@ -35,19 +35,23 @@
 	left: 0;
 	padding: 24px;
 	display: flex;
-	justify-content: space-between;
 	gap: 10px;
 	color: #ffffff;
 	width: 100%;
 }
 
-.news-card-content span {
+.news-card-date {
 	font-family: Roboto, sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 20px;
 	align-self: flex-end;
 	white-space: nowrap;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: #ffffff;
+	padding: 0 12px 12px 0;
 }
 
 .news-card-title {
@@ -87,9 +91,14 @@
 @media screen and (max-width: 1240px) {
 	.news-card-content {
 		color: #000000;
-		position: static;
+		position: relative;
 		padding: 0;
 		margin-top: 5px;
+	}
+
+	.news-card-date {
+		color: #000000;
+		padding: 0 12px 0 0;
 	}
 
 	.news-card-image {

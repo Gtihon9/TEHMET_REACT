@@ -18,8 +18,8 @@ export const NewsCard = ({ item }) => {
 						{item?.description && <p>{item?.description}</p>}
 					</div>
 				</div>
-				<span>{item?.created_at}</span>
 			</div>
+			<span className="news-card-date">{item?.created_at}</span>
 		</div>
 	)
 }
