@@ -36,7 +36,7 @@ const LastProjectsSwiper = ({ projects }) => {
 						<SwiperSlide key={project.id}>
 							<Card
 								item={{
-									title: project.name,
+									name: project.name,
 									image: project.logo,
 									compressedImage: project.compressed_logo,
 									link: "/projects",
@@ -57,7 +57,7 @@ const LastProjectsSwiper = ({ projects }) => {
 							<SwiperSlide key={project.id}>
 								<Card
 									item={{
-										title: project.name,
+										name: project.name,
 										image: project.logo,
 										compressedImage: project.compressed_logo,
 										link: "/projects",

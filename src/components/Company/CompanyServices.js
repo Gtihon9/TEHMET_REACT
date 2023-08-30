@@ -48,7 +48,7 @@ export const CompanyServices = () => {
 							<SwiperSlide key={service.id}>
 								<Card
 									item={{
-										title: service.name,
+										name: service.name,
 										image: service.logo,
 										compressedImage: service.compressed_logo,
 										link: `/services/${service.id}`,

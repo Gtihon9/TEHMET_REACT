@@ -61,7 +61,7 @@ export const OtherSection = ({ title, link, items }) => {
 						<SwiperSlide key={item.id}>
 							<Card
 								item={{
-									title: item.name,
+									name: item.name,
 									image: item.logo,
 									compressedImage: item.compressed_logo,
 									link: `/${link}/${item.id}`,

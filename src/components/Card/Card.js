@@ -8,12 +8,12 @@ export const Card = ({ item }) => {
 	return (
 		<div className="card">
 			<div className="card-image">
-				<LazyImage alt={item.title} placeholderSrc={item.compressedImage} src={item.image} />
+				<LazyImage alt={item.name} placeholderSrc={item.compressedImage} src={item.image} />
 			</div>
 			<div className="card-content">
 				<div className="card-header">
-					<h1>{item.title}</h1>
-					{item.description && <p>{item.description}</p>}
+					<h1>{item.name}</h1>
+					{item.title && <p>{item.title}</p>}
 				</div>
 				<Link to={item.link} className="card-button">
 					<Button>

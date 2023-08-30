@@ -11,8 +11,8 @@ const ProjectsList = ({ projects }) => {
 				<motion.div {...staggerChildrenMotionProps} key={project.title}>
 					<Card
 						item={{
-							title: project.name,
-							description: project.description,
+							name: project.name,
+							title: project.title,
 							image: project.logo,
 							compressedImage: project.compressed_logo,
 							link: `/projects/${project.id}`,

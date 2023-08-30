@@ -86,7 +86,7 @@ export const NewsDetails = () => {
 
 							<PhotoSlider
 								images={galleryImages?.map(item => ({
-									src: item.imageUrl,
+									src: item.image,
 									key: item.id,
 								}))}
 								visible={isOpen}

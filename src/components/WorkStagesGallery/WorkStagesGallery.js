@@ -27,13 +27,15 @@ export const WorkStagesGallery = ({ images }) => {
 			<ArrowHeading title="Галерея" />
 			<motion.div {...containerMotionProps} className="work-stages-gallery">
 				{images?.map((item, index) => (
-					<motion.div {...staggerChildrenMotionProps}>
+					<motion.div
+						onClick={() => handleOpenGallery(index)}
+						key={`work-stage-${item.created_at}`}
+						{...staggerChildrenMotionProps}
+					>
 						<LazyImage
-							key={`work-stage-${item.created_at}`}
 							alt={`work-stage-${item.created_at}`}
 							placeholderSrc={item.compressed_image}
 							src={item.image}
-							onClick={() => handleOpenGallery(index)}
 						/>
 					</motion.div>
 				))}
