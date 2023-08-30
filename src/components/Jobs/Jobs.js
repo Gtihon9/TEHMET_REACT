@@ -108,7 +108,7 @@ export const Jobs = () => {
 								)}
 
 								{isLoading ? (
-									<Spinner />
+									<Spinner minHeight="60vh" />
 								) : (
 									<motion.div {...containerMotionProps} className="jobs-list">
 										{response?.results?.map(job => (

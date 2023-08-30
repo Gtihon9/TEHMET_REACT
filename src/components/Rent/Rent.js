@@ -102,7 +102,7 @@ export const Rent = () => {
 								</>
 							)}
 							{isLoading ? (
-								<Spinner />
+								<Spinner minHeight="50vh" />
 							) : error ? (
 								<div className="rent-error-wrapper">
 									<Error />
