@@ -14,6 +14,7 @@ import { Spinner } from "../Spinner/Spinner"
 import { getEmploymentType } from "../../utils/getEmploymentType"
 import { getPaymentType } from "../../utils/getPaymentType"
 import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
+import { Error } from "../Error/Error"
 
 export const JobDetails = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
@@ -45,7 +46,9 @@ export const JobDetails = () => {
 						</div>
 
 						{error || allError ? (
-							<h1>Что-то пошло не так</h1>
+							<div className="job-details-error-wrapper">
+								<Error />
+							</div>
 						) : (
 							<>
 								<div className="job-details-heading">

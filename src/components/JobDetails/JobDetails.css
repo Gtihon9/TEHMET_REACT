@@ -154,6 +154,12 @@
 	display: none;
 }
 
+.job-details-error-wrapper {
+	min-height: 80vh;
+	display: flex;
+	align-items: center;
+}
+
 @media screen and (max-width: 1240px) {
 	.job-details-content {
 		padding-bottom: 38px;
@@ -177,5 +183,11 @@
 
 	.job-details-more-list {
 		display: none;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.job-details-error-wrapper {
+		min-height: auto;
 	}
 }
