@@ -5,6 +5,8 @@ import { SwiperSlide } from "swiper/react"
 import { PhotoSlider } from "react-photo-view"
 import useDisclosure from "../../hooks/useDisclosure"
 import { useState } from "react"
+import { motion } from "framer-motion"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 
 export const WorkStagesGallery = ({ images }) => {
 	const { isOpen, onClose, onOpen } = useDisclosure()
@@ -22,16 +24,17 @@ export const WorkStagesGallery = ({ images }) => {
 	return (
 		<>
 			<ArrowHeading title="Галерея" />
-			<div className="work-stages-gallery">
+			<motion.div {...containerMotionProps} className="work-stages-gallery">
 				{images?.map((item, index) => (
-					<img
+					<motion.img
+						{...staggerChildrenMotionProps}
 						key={`work-stage-${item.created_at}`}
 						alt={`work-stage-${item.created_at}`}
 						src={item.image}
 						onClick={() => handleOpenGallery(index)}
 					/>
 				))}
-			</div>
+			</motion.div>
 
 			<div className="works-stages-gallery-mobile">
 				<MobileSwiper>
