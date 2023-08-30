@@ -13,6 +13,7 @@ import { JobsApi } from "../../api/jobs.api"
 import { Spinner } from "../Spinner/Spinner"
 import { getEmploymentType } from "../../utils/getEmploymentType"
 import { getPaymentType } from "../../utils/getPaymentType"
+import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 
 export const JobDetails = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
@@ -96,11 +97,16 @@ export const JobDetails = () => {
 									{filteredAllJobs?.length > 0 && (
 										<div className="job-details-more">
 											<h3>Еще вакансии</h3>
-											<div className="job-details-more-list">
+											<motion.div
+												{...containerMotionProps}
+												className="job-details-more-list"
+											>
 												{filteredAllJobs?.map(job => (
-													<JobMiniItem key={job.id} job={job} />
+													<motion.div key={job.id} {...staggerChildrenMotionProps}>
+														<JobMiniItem job={job} />
+													</motion.div>
 												))}
-											</div>
+											</motion.div>
 											<div className="job-details-more-list-mobile">
 												<MobileSwiper>
 													{filteredAllJobs?.map(job => (
