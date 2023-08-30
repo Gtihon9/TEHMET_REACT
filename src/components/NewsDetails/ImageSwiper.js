@@ -54,10 +54,10 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 					modules={[Navigation, Thumbs]}
 					className="thumbs-swiper"
 					breakpoints={{
-						320: {
+						600: {
 							slidesPerView: 2,
 						},
-						640: {
+						790: {
 							slidesPerView: 3,
 						},
 						1280: {
