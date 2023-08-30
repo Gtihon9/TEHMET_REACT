@@ -2,7 +2,7 @@ import LeftArrowSVG from "../Icons/L_Arrow"
 import ProjectsList from "./ProjectsList"
 import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { motion } from "framer-motion"
 import "./Projects.css"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
@@ -14,6 +14,8 @@ import { ProjectsApi } from "../../api/projects.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { ProgressProject } from "../ProgressProject/ProgressProject"
+import { Pagination } from "../Pagination/Pagination"
+import { getTotalPages } from "../../utils/getTotalPages"
 
 const initialDirection = {
 	id: "all-projects",
@@ -21,21 +23,33 @@ const initialDirection = {
 	value: null,
 }
 
+const LIMIT = 1
+
 const Projects = () => {
-	const [projects, setProjects] = useState([])
+	const [searchParams, setSearchParams] = useSearchParams()
+	const page = parseInt(searchParams.get("page")) || 1
+
+	const [response, setResponse] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [selectedDirection, setSelectedDirection] = useState(initialDirection)
 
 	const handleDirectionChange = direction => {
 		setSelectedDirection(direction)
+		setSearchParams({ page: 1 })
 	}
+
+	const totalPages = getTotalPages(response?.count, LIMIT)
 
 	useEffect(() => {
 		const getServiceProjects = async () => {
 			try {
 				setIsLoading(true)
-				const { data } = await ProjectsApi.getAllProjects(selectedDirection.value)
-				setProjects(data?.results)
+				const { data } = await ProjectsApi.getAllProjects(
+					selectedDirection.value,
+					LIMIT,
+					(page - 1) * LIMIT
+				)
+				setResponse(data)
 			} catch (error) {
 				console.log(error)
 			} finally {
@@ -44,7 +58,7 @@ const Projects = () => {
 		}
 
 		getServiceProjects()
-	}, [selectedDirection, setProjects])
+	}, [page, selectedDirection, setResponse])
 
 	return (
 		<motion.main
@@ -71,7 +85,7 @@ const Projects = () => {
 					/>
 					{isLoading ? (
 						<Spinner minHeight="35vh" />
-					) : projects?.length === 0 ? (
+					) : response?.results?.length === 0 ? (
 						<div className="projects-error-wrapper">
 							<Error
 								title="Исследование новых горизонтов ;)"
@@ -81,7 +95,7 @@ const Projects = () => {
 					) : (
 						<>
 							<div className="projects-list-container">
-								<ProjectsList projects={projects} />
+								<ProjectsList projects={response?.results} />
 							</div>
 
 							<motion.div
@@ -90,7 +104,7 @@ const Projects = () => {
 								className="projects-list-container-mobile"
 							>
 								<MobileSwiper>
-									{projects?.map(project => (
+									{response?.results?.map(project => (
 										<SwiperSlide key={project.id}>
 											<Card
 												item={{
@@ -102,7 +116,7 @@ const Projects = () => {
 											/>
 										</SwiperSlide>
 									))}
-									{projects?.length === 1 && (
+									{response?.results?.length === 1 && (
 										<SwiperSlide>
 											<ProgressProject />
 										</SwiperSlide>
@@ -111,6 +125,8 @@ const Projects = () => {
 							</motion.div>
 						</>
 					)}
+
+					<Pagination pageCount={totalPages} />
 				</div>
 			</div>
 			<ExtendedContactForm />
