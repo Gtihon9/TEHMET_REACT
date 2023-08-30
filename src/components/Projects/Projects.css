@@ -103,6 +103,10 @@ p {
 }
 
 @media screen and (max-width: 690px) {
+	.projects {
+		min-height: 40vh;
+	}
+
 	.projects-list-container {
 		display: none;
 	}

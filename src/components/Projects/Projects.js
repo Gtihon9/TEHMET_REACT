@@ -84,7 +84,7 @@ const Projects = () => {
 						selectedDirection={selectedDirection}
 					/>
 					{isLoading ? (
-						<Spinner minHeight="35vh" />
+						<Spinner minHeight={"35vh"} />
 					) : response?.results?.length === 0 ? (
 						<div className="projects-error-wrapper">
 							<Error

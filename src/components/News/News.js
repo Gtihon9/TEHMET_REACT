@@ -55,9 +55,12 @@ export const News = () => {
 
 					{isLoading ? (
 						<Spinner />
-					) : error ? (
-						<div>
-							<Error />
+					) : error || newsList?.length <= 0 ? (
+						<div className="news-error-wrapper">
+							<Error
+								title="Лента новостей недоступна :("
+								message="Загляните в ближайшее время, чтобы узнать новости нашей компании"
+							/>
 						</div>
 					) : (
 						<>
@@ -70,20 +73,20 @@ export const News = () => {
 							<div className="news-big-container" data-amount={newsList?.length}>
 								<NewsCard
 									item={{
-										title: newsList?.[0].title,
-										logo: newsList?.[0].logo,
-										created_at: formatDate(newsList?.[0].created_at),
-										link: `/news/${newsList?.[0].id}`,
+										title: newsList?.[0]?.title,
+										logo: newsList?.[0]?.logo,
+										created_at: formatDate(newsList?.[0]?.created_at),
+										link: `/news/${newsList?.[0]?.id}`,
 									}}
 								/>
 								{newsList
 									?.slice(1, newsList?.length >= 3 ? 3 : newsList?.length)
 									.map(item => (
 										<NewsCard
-											key={item.id}
+											key={item?.id}
 											item={{
-												title: item.title,
-												logo: item.logo,
+												title: item?.title,
+												logo: item?.logo,
 												created_at: formatDate(item?.created_at),
 												link: `/news/${item?.id}`,
 											}}

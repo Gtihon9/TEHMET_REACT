@@ -3,7 +3,6 @@
 	align-items: flex-start;
 	padding-top: 25px;
 	padding-bottom: 75px;
-	justify-content: center;
 	flex-direction: column;
 	gap: 70px;
 	color: rgba(38, 40, 41, 1);
@@ -45,6 +44,13 @@
 	row-gap: 20px;
 }
 
+.news-error-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80vh;
+}
+
 @media screen and (max-width: 1240px) {
 	.news-content {
 		gap: 60px;
@@ -65,5 +71,11 @@
 		display: none;
 		margin-top: -20px;
 		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 690px) {
+	.news-error-wrapper {
+		min-height: auto;
 	}
 }

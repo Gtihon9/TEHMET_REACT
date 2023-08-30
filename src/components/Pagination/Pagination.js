@@ -12,6 +12,7 @@ export const Pagination = ({ pageCount = 2 }) => {
 	const onPageChange = e => {
 		const pageNumber = e.selected
 		setSearchParams({ page: pageNumber + 1 }, { replace: true })
+		window.scrollTo(0, 0)
 	}
 
 	useEffect(() => {
