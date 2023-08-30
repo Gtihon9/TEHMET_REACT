@@ -110,8 +110,8 @@ export const Rent = () => {
 							) : (
 								<motion.div {...containerMotionProps} className="rent-catalog">
 									{response?.results?.map(item => (
-										<motion.div {...staggerChildrenMotionProps}>
-											<RentItem key={item.id} item={item} />
+										<motion.div key={item.id} {...staggerChildrenMotionProps}>
+											<RentItem item={item} />
 										</motion.div>
 									))}
 								</motion.div>

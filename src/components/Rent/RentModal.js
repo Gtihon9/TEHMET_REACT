@@ -4,20 +4,18 @@ import { Button } from "../Button/Button"
 import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { Input } from "../Input/Input"
+import { ContactFormApi } from "../../api/contact-form.api"
+
+const initialFormData = {
+	name: "",
+	email: "",
+	phone_number: "",
+	rental_period: "",
+}
 
 export const RentModal = ({ isOpen, onClose }) => {
 	const [errors, setErrors] = useState({})
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		phone_number: "",
-		rentPeriod: "",
-	})
-
-	const handleSubmit = e => {
-		e.preventDefault()
-		console.log(formData)
-	}
+	const [formData, setFormData] = useState(initialFormData)
 
 	const handleChange = e => {
 		const { name, value } = e.target
@@ -26,6 +24,19 @@ export const RentModal = ({ isOpen, onClose }) => {
 			...prev,
 			[name]: undefined,
 		}))
+	}
+
+	const handleSubmit = async e => {
+		e.preventDefault()
+		try {
+			const response = await ContactFormApi.feedbackRent(formData)
+			if (response) {
+				setFormData(initialFormData)
+				onClose()
+			}
+		} catch (error) {
+			setErrors(error.response.data)
+		}
 	}
 
 	return (
@@ -62,13 +73,13 @@ export const RentModal = ({ isOpen, onClose }) => {
 							error={errors["phone_number"]}
 						/>
 						<Input
-							name="rentPeriod"
+							name="rental_period"
 							placeholder="Срок аренды..."
 							type="text"
 							required
-							value={formData.rentPeriod}
+							value={formData.rental_period}
 							onChange={handleChange}
-							error={errors["rentPeriod"]}
+							error={errors["rental_period"]}
 						/>
 						<div className="rent-modal-footer">
 							<Button type="submit">Отправить</Button>
