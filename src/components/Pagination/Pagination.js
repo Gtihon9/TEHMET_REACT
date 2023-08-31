@@ -3,9 +3,8 @@ import RightArrowSvg from "../Icons/R_Arrow"
 import LeftArrowSVG from "../Icons/L_Arrow"
 import ReactPaginate from "react-paginate"
 import { useSearchParams } from "react-router-dom"
-import { useEffect } from "react"
 
-export const Pagination = ({ pageCount = 2 }) => {
+export const Pagination = ({ pageCount = 0 }) => {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const initialPage = parseInt(searchParams.get("page")) - 1 || 0
 
@@ -14,10 +13,6 @@ export const Pagination = ({ pageCount = 2 }) => {
 		setSearchParams({ page: pageNumber + 1 }, { replace: true })
 		window.scrollTo(0, 0)
 	}
-
-	useEffect(() => {
-		setSearchParams({ page: 1 })
-	}, [])
 
 	return (
 		<ReactPaginate
