@@ -37,7 +37,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	gap: 160px;
+	gap: 100px;
 	position: relative;
 	z-index: 1;
 	color: #000;
@@ -193,7 +193,7 @@
 
 @media screen and (min-width: 1400px) {
 	.hero {
-		gap: 300px
+		gap: 140px
 	}
 }
 
