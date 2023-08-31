@@ -1,11 +1,19 @@
 import { useRef, useState } from "react"
 import "./RentModal.css"
 import { Button } from "../Button/Button"
-import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { Input } from "../Input/Input"
 import { ContactFormApi } from "../../api/contact-form.api"
 import ReCAPTCHA from "react-google-recaptcha"
+import {
+	Modal,
+	ModalBody,
+	ModalCloseButton,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	ModalOverlay,
+} from "@chakra-ui/modal"
 
 const initialFormData = {
 	name: "",
@@ -55,11 +63,15 @@ export const RentModal = ({ isOpen, onClose }) => {
 	}
 
 	return (
-		<Modal isOpen={isOpen} onClose={onClose} maxWidth={780}>
-			<div className="rent-modal-content">
-				<div className="rent-modal-content-left">
-					<h3>Свяжитесь с нами</h3>
-					<form method="POST" onSubmit={handleSubmit} className="rent-modal-form">
+		<Modal isOpen={isOpen} onClose={onClose} className="rent-modal">
+			<ModalOverlay className="rent-modal-overlay" />
+			<ModalContent className="rent-modal-content">
+				<ModalCloseButton className="rent-modal-close-btn" />
+				<ModalBody className="rent-modal-body">
+					<form onSubmit={handleSubmit} className="rent-modal-form">
+						<ModalHeader className="rent-modal-header">
+							<h1>Свяжитесь с нами</h1>
+						</ModalHeader>
 						<Input
 							name="name"
 							placeholder="Укажите имя..."
@@ -106,26 +118,27 @@ export const RentModal = ({ isOpen, onClose }) => {
 								Вы ввели неправильный ответ на контрольный вопрос
 							</span>
 						)}
-						<div className="rent-modal-footer">
+
+						<ModalFooter className="rent-modal-footer">
 							<Button type="submit">Отправить</Button>
 							<ConfInfo />
-						</div>
+						</ModalFooter>
 					</form>
-				</div>
-				<div className="rent-modal-content-right">
-					<h3>Контакты</h3>
-					<div className="rent-modal-content-contacts">
-						<div className="rent-contact">
-							<span>Телефон</span>
-							<p>+7-916-900-42-55</p>
-						</div>
-						<div className="rent-contact">
-							<span>Email</span>
-							<p>d.fomenko@tehmetservice.ru</p>
+					<div className="rent-modal-contacts-wrapper">
+						<h3>Контакты</h3>
+						<div className="rent-modal-contacts">
+							<div className="rent-modal-contact">
+								<span>Телефон</span>
+								<p>+7-916-900-42-55</p>
+							</div>
+							<div className="rent-modal-contact">
+								<span>Email</span>
+								<p>d.fomenko@tehmetservice.ru</p>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</ModalBody>
+			</ModalContent>
 		</Modal>
 	)
 }

@@ -1,132 +1,159 @@
+:root {
+	--chakra-vh: 100dvh;
+}
+
+.rent-modal {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.rent-modal-overlay {
+	background: rgba(0, 0, 0, 0.48);
+}
+
+.chakra-modal__content-container {
+	display: flex;
+	width: 100vw;
+	height: var(--chakra-vh);
+	position: fixed;
+	left: 0;
+	top: 0;
+	-webkit-box-pack: center;
+	justify-content: center;
+	align-items: flex-start;
+	overflow: auto;
+	overscroll-behavior-y: none;
+}
+
 .rent-modal-content {
-	display: grid;
-	grid-template-columns: auto 160px;
-	column-gap: 80px;
-	width: 100%;
-	padding: 49px 114px 28px 31px;
-}
-
-.rent-modal-content-left {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	width: 100%;
-}
-
-.rent-modal-content-left h3,
-.rent-modal-content-right h3 {
+	max-width: 774px;
+	margin-top: 36px;
+	margin-bottom: 36px;
+	background-color: #ffffff;
 	font-family: Roboto, sans-serif;
-	font-size: 26px;
-	font-weight: 500;
-	line-height: 42px;
-	margin: 0;
+	overflow: auto;
+	padding: 65px 130px 44px 47px;
 }
 
-.rent-modal-content-right {
+.rent-modal-form {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	gap: 40px;
+	gap: 25px;
 }
 
-.rent-modal-content-contacts {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 20px;
-}
-
-.rent-modal-content-contacts .rent-contact {
+.rent-modal-header {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 5px;
 }
 
-.rent-modal-content-contacts .rent-contact span {
-	font-family: Roboto, sans-serif;
+.rent-modal-header h1 {
+	font-size: 26px;
+	font-weight: 500;
+	line-height: 42px;
+}
+
+.rent-modal-body {
+	display: grid;
+	grid-template-columns: auto 160px;
+	column-gap: 80px;
+}
+
+.rent-modal-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start !important;
+	gap: 10px;
+	max-width: 360px;
+	margin-top: 40px;
+}
+
+.rent-modal-close-btn {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.75rem;
+	width: 2rem;
+	height: 2rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	border-radius: var(--rounding);
+}
+
+.rent-modal-close-btn:hover {
+	background-color: rgba(0, 0, 0, 0.06);
+}
+
+.add-resume-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 20px;
+	gap: 10px;
+}
+
+.rent-modal-content-wrapper {
+	display: grid;
+	grid-template-columns: auto 160px;
+	column-gap: 80px;
+}
+
+.rent-modal-contacts-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+.rent-modal-contacts-wrapper h3 {
+	font-size: 26px;
+	font-weight: 500;
+	line-height: 42px;
+}
+
+.rent-modal-contacts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.rent-modal-contact {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 5px;
+}
+
+.rent-modal-contact span {
 	font-size: 16px;
 	font-weight: 400;
 	line-height: 26px;
 	color: var(--text-secondary-color);
 }
 
-.rent-modal-content-contacts .rent-contact p {
-	font-family: Roboto, sans-serif;
+.rent-modal-contact p {
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 21px;
-	color: var(--text-color);
 }
 
-.rent-modal-footer {
-	margin-top: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 10px;
-	max-width: 360px;
-}
-
-.rent-modal-footer p {
-	color: var(--text-color);
-	font-family: Roboto, sans-serif;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 300;
-	line-height: 130%; /* 15.6px */
-}
-
-.rent-modal-footer p a {
-	color: var(--text-color);
-	font-family: Roboto, sans-serif;
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 300;
-	line-height: 130%;
-	text-decoration-line: underline;
-}
-
-.rent-modal-close {
-	position: absolute;
-	top: 13px;
-	right: 47px;
-	cursor: pointer;
-	font-size: 30px;
-}
-
-.rent-modal-form {
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-	margin-top: 35px;
-	width: 100%;
-}
-
-.rent-modal-form input {
-	font-family: Roboto, sans-serif;
-	padding: 19px;
-	width: 100%;
-	border-radius: 2px;
-	border: 1px solid var(--text-color);
-}
-
-.rent-modal-title {
-	margin: 0;
-}
 
 @media screen and (max-width: 800px) {
-	.rent-modal-content {
-		display: flex;
-		gap: 0;
-		padding: 0 0 19px;
+	.rent-modal-body {
+		display: grid;
+		grid-template-columns: 1fr;
 	}
 
-	.rent-modal-content-right {
+	.rent-modal-content {
+		padding: 38px 17px 35px;
+	}
+
+	.rent-modal-contacts-wrapper {
 		display: none;
 	}
 
 	.rent-modal-footer {
-		margin-top: 8px;
+		margin-top: 20px;
 	}
 }

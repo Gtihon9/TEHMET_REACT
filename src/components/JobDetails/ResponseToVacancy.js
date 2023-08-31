@@ -1,12 +1,20 @@
-import { useRef, useState } from "react"
 import "./ResponseToVacancy.css"
+import {
+	Modal,
+	ModalBody,
+	ModalCloseButton,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	ModalOverlay,
+} from "@chakra-ui/modal"
 import { Button } from "../Button/Button"
-import { Modal } from "../Modal/Modal"
 import { ConfInfo } from "../ConfInfo/ConfInfo"
 import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
-import { ContactFormApi } from "../../api/contact-form.api"
 import { useParams } from "react-router-dom"
+import { useRef, useState } from "react"
+import { ContactFormApi } from "../../api/contact-form.api"
 import ReCAPTCHA from "react-google-recaptcha"
 
 const initialFormData = {
@@ -53,7 +61,7 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 		}))
 	}
 
-	const onSubmit = async e => {
+	const handleSubmit = async e => {
 		e.preventDefault()
 		const captchaValue = captchaRef.current.getValue()
 		const submitData = new FormData()
@@ -81,14 +89,16 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 	}
 
 	return (
-		<Modal isOpen={isOpen} onClose={onClose} maxWidth={774}>
-			<div className="response-vacancy-container">
-				<div className="response-vacancy-header">
+		<Modal isOpen={isOpen} onClose={onClose} className="jobs-modal">
+			<ModalOverlay className="jobs-modal-overlay" />
+			<ModalContent className="jobs-modal-content">
+				<ModalHeader className="jobs-modal-header">
 					<h1>Отклик на вакансию:</h1>
 					<p>{jobName}</p>
-				</div>
-				<form method="POST" onSubmit={onSubmit}>
-					<div className="response-vacancy-form">
+				</ModalHeader>
+				<ModalCloseButton className="jobs-modal-close-btn" />
+				<form onSubmit={handleSubmit}>
+					<ModalBody className="jobs-modal-body">
 						<Input
 							name="name"
 							placeholder="Укажите имя..."
@@ -143,23 +153,24 @@ export const ResponseToVacancy = ({ isOpen, onClose, jobName }) => {
 								onChange={handleFileChange}
 							/>
 						</div>
-					</div>
-					<ReCAPTCHA
-						sitekey={process.env.REACT_APP_SITE_KEY}
-						ref={captchaRef}
-						onChange={handleCaptchaChange}
-					/>
-					{errors["captcha"] && (
-						<span className="captcha-error">
-							Вы ввели неправильный ответ на контрольный вопрос
-						</span>
-					)}
-					<div className="response-vacancy-footer">
+						<ReCAPTCHA
+							sitekey={process.env.REACT_APP_SITE_KEY}
+							ref={captchaRef}
+							onChange={handleCaptchaChange}
+						/>
+						{errors["captcha"] && (
+							<span className="captcha-error">
+								Вы ввели неправильный ответ на контрольный вопрос
+							</span>
+						)}
+					</ModalBody>
+
+					<ModalFooter className="jobs-modal-footer">
 						<Button type="submit">Отправить</Button>
 						<ConfInfo />
-					</div>
+					</ModalFooter>
 				</form>
-			</div>
+			</ModalContent>
 		</Modal>
 	)
 }
