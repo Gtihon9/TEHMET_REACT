@@ -83,6 +83,7 @@ const LastProjectsSwiper = ({ projects }) => {
 									title: project.name,
 									image: project.logo,
 									compressedImage: project.compressed_logo,
+									link: "/projects",
 								}}
 							/>
 						</SwiperSlide>

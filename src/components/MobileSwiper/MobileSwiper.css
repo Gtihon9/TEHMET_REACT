@@ -1,3 +1,7 @@
+.mobile-swiper {
+	z-index: 0;
+}
+
 .mobile-swiper .swiper-pagination {
 	position: static;
 	margin-top: 10px;
