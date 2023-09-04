@@ -49,7 +49,9 @@ const Certificates = () => {
 								<h2 className="certificates-list-title">{getDocumentType(1)}</h2>
 								<ul className="certificates-list">
 									{certificates?.map(item => (
-										<CertificateItem file={item?.document}>{item?.name}</CertificateItem>
+										<CertificateItem key={item?.id} file={item?.document}>
+											{item?.name}
+										</CertificateItem>
 									))}
 								</ul>
 							</div>
@@ -59,7 +61,9 @@ const Certificates = () => {
 								<h2 className="certificates-list-title">{getDocumentType(2)}</h2>
 								<ul className="certificates-list">
 									{licences?.map(item => (
-										<CertificateItem file={item?.document}>{item?.name}</CertificateItem>
+										<CertificateItem key={item?.id} file={item?.document}>
+											{item?.name}
+										</CertificateItem>
 									))}
 								</ul>
 							</div>
@@ -69,7 +73,9 @@ const Certificates = () => {
 								<h2 className="certificates-list-title">{getDocumentType(3)}</h2>
 								<ul className="certificates-list">
 									{contracts?.map(item => (
-										<CertificateItem file={item?.document}>{item?.name}</CertificateItem>
+										<CertificateItem key={item?.id} file={item?.document}>
+											{item?.name}
+										</CertificateItem>
 									))}
 								</ul>
 							</div>
