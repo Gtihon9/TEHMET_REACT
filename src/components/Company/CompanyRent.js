@@ -15,11 +15,11 @@ export const CompanyRent = () => {
 	const offset = 0
 	const fetchUrl = `/equipments/?limit=${limit}&offset=${offset}`
 
-	const { response: equipments, loading, error } = useSWR(fetchUrl, fetcher)
+	const { data: equipments, isLoading, error } = useSWR(fetchUrl, fetcher)
 
-	if (loading) return <Spinner />
+	if (isLoading) return <Spinner />
 
-	if (!loading && error) return null
+	if (!isLoading && error) return null
 
 	if (equipments?.results?.length <= 0) return null
 
