@@ -24,7 +24,7 @@ export const ServicesItem = ({ service }) => {
 						<LazyImage
 							alt={service.title}
 							src={service.logo}
-							placeholderSrc={service.compressed_logo}
+							placeholder={service.compressed_logo}
 						/>
 					</PhotoView>
 				</div>

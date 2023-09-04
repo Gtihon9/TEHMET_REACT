@@ -33,7 +33,7 @@ export const CompanyServices = () => {
 							<div className="company-card-backdrop" />
 							<LazyImage
 								alt={service.name}
-								placeholderSrc={service.compressed_logo}
+								placeholder={service.compressed_logo}
 								src={service.logo}
 							/>
 							<div className="company-card-content">

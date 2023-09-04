@@ -44,7 +44,7 @@ export const DirectionSlide = ({ service, swiper, slideNumber }) => {
 				<LazyImage
 					alt={service.name}
 					src={service.logo}
-					placeholderSrc={service.compressed_logo}
+					placeholder={service.compressed_logo}
 				/>
 			</div>
 		</div>

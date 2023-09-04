@@ -34,7 +34,7 @@ export const WorkStagesGallery = ({ images }) => {
 					>
 						<LazyImage
 							alt={`work-stage-${item.created_at}`}
-							placeholderSrc={item.compressed_image}
+							placeholder={item.compressed_image}
 							src={item.image}
 						/>
 					</motion.div>
@@ -51,7 +51,7 @@ export const WorkStagesGallery = ({ images }) => {
 							<LazyImage
 								alt={`work-stage-mobile-${item.created_at}`}
 								src={item.image}
-								placeholderSrc={item.compressed_image}
+								placeholder={item.compressed_image}
 							/>
 						</SwiperSlide>
 					))}

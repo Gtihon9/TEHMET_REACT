@@ -46,7 +46,7 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 							key={`main-${item.created_at}`}
 							alt={item.created_at}
 							src={item.image}
-							placeholderSrc={item.compressed_image}
+							placeholder={item.compressed_image}
 						/>
 					</SwiperSlide>
 				))}
@@ -77,7 +77,7 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 								key={`thumb-${item.created_at}`}
 								alt={item.created_at}
 								src={item.image}
-								placeholderSrc={item.compressed_image}
+								placeholder={item.compressed_image}
 							/>
 						</SwiperSlide>
 					))}

@@ -6,7 +6,7 @@ export const NewsCard = ({ item }) => {
 	return (
 		<div className="news-card">
 			<div className="news-card-image">
-				<LazyImage alt={item?.title} src={item?.logo} placeholderSrc={item?.compressed_logo} />
+				<LazyImage alt={item?.title} src={item?.logo} placeholder={item?.compressed_logo} />
 				<div className="backdrop" />
 			</div>
 			<div className="news-card-content">

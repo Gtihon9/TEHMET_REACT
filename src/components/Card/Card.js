@@ -8,7 +8,7 @@ export const Card = ({ item }) => {
 	return (
 		<div className="card">
 			<div className="card-image">
-				<LazyImage alt={item.name} placeholderSrc={item.compressedImage} src={item.image} />
+				<LazyImage alt={item.name} placeholder={item.compressedImage} src={item.image} />
 			</div>
 			<div className="card-content">
 				<div className="card-header">

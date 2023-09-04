@@ -57,7 +57,7 @@ const Company = () => {
 						</div>
 						<div className="company-info-image">
 							<LazyImage
-								placeholderSrc={CompanyInfoTiny}
+								placeholder={CompanyInfoTiny}
 								src={CompanyInfo}
 								alt="company-info"
 							/>

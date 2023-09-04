@@ -35,7 +35,7 @@ export const CompanyRent = () => {
 							<LazyImage
 								alt={item.name}
 								src={item.logo}
-								placeholderSrc={item.compressed_logo}
+								placeholder={item.compressed_logo}
 							/>
 							<div className="company-card-content">
 								<p>{item.name}</p>
@@ -51,7 +51,7 @@ export const CompanyRent = () => {
 						<LazyImage
 							alt={equipments?.results[equipments?.results.length - 1].name}
 							src={equipments?.results[equipments?.results.length - 1].logo}
-							placeholderSrc={
+							placeholder={
 								equipments?.results[equipments?.results.length - 1].compressed_logo
 							}
 						/>
@@ -70,7 +70,7 @@ export const CompanyRent = () => {
 									<LazyImage
 										alt={item.name}
 										src={item.logo}
-										placeholderSrc={item.compressed_logo}
+										placeholder={item.compressed_logo}
 									/>
 									<div className="company-card-content">
 										<p>{item.name}</p>

@@ -77,7 +77,7 @@ export const NewsDetails = () => {
 										>
 											<LazyImage
 												src={image.image}
-												placeholderSrc={image.compressed_image}
+												placeholder={image.compressed_image}
 											/>
 										</SwiperSlide>
 									))}

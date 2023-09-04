@@ -73,17 +73,17 @@ const Main = () => {
 						<div className="main-about-company-content">
 							<div className="main-about-company-images">
 								<LazyImage
-									placeholderSrc={AboutCompanyTiny1}
+									placeholder={AboutCompanyTiny1}
 									src={AboutCompany1}
 									alt="AboutCompany-1"
 								/>
 								<LazyImage
-									placeholderSrc={AboutCompanyTiny2}
+									placeholder={AboutCompanyTiny2}
 									src={AboutCompany2}
 									alt="About Company-2"
 								/>
 								<LazyImage
-									placeholderSrc={AboutCompanyTiny3}
+									placeholder={AboutCompanyTiny3}
 									src={AboutCompany3}
 									alt="About Company-3"
 								/>
