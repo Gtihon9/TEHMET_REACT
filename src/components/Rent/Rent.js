@@ -14,8 +14,8 @@ import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/an
 import { useDebounce } from "../../hooks/useDebounce"
 import { SearchBar } from "../SearchBar/SearchBar"
 import useSWR from "swr"
-import { RentApi } from "../../api/rent.api"
 import { EmptyState } from "../EmptyState/EmptyState"
+import { fetcher } from "../../api"
 
 export const Rent = () => {
 	const [searchQuery, setSearchQuery] = useState("")
@@ -36,7 +36,7 @@ export const Rent = () => {
 			? `/equipments/?limit=${limit}&offset=${offset}`
 			: `/equipments/?limit=${limit}&offset=${offset}&name=${equipmentName}`
 
-	const { data: equipments, isLoading, error } = useSWR(fetchUrl, url => RentApi.getAllRents(url))
+	const { data: equipments, isLoading, error } = useSWR(fetchUrl, fetcher)
 
 	const totalPages = getTotalPages(equipments?.count, limit)
 
