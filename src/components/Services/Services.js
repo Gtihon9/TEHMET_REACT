@@ -6,13 +6,14 @@ import { Stats } from "../Stats/Stats"
 import { ServicesItem } from "./ServicesItem"
 import { motion } from "framer-motion"
 import "./Services.css"
-import { useApi } from "../../hooks/useApi"
-import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 const Services = () => {
-	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+	const fetchUrl = "/services/"
+	const { data: services, isLoading, error } = useSWR(fetchUrl, fetcher)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -25,7 +26,7 @@ const Services = () => {
 						</div>
 					</div>
 
-					{loading ? (
+					{isLoading ? (
 						<Spinner />
 					) : error || services?.count === 0 ? (
 						<div className="services-error-wrapper">
