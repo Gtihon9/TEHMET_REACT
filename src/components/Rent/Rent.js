@@ -6,59 +6,39 @@ import { motion } from "framer-motion"
 import "./Rent.css"
 import LeftArrowSVG from "../Icons/L_Arrow"
 import { Pagination } from "../Pagination/Pagination"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { getTotalPages } from "../../utils/getTotalPages"
-import { RentApi } from "../../api/rent.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 import { useDebounce } from "../../hooks/useDebounce"
 import { SearchBar } from "../SearchBar/SearchBar"
-import { useApi } from "../../hooks/useApi"
-
-const LIMIT = 10
+import useSWR from "swr"
+import { RentApi } from "../../api/rent.api"
+import { EmptyState } from "../EmptyState/EmptyState"
 
 export const Rent = () => {
-	const [searchParams, _] = useSearchParams()
-	const page = parseInt(searchParams.get("page")) || 1
-
-	const [response, setResponse] = useState()
-	const [isLoading, setIsLoading] = useState(true)
-	const [error, setError] = useState(null)
-
 	const [searchQuery, setSearchQuery] = useState("")
-	const debouncedQuery = useDebounce(searchQuery, 300)
+	const debouncedQuery = useDebounce(searchQuery, 450)
 
 	const handleChange = e => {
 		setSearchQuery(e.target.value)
 	}
 
-	const totalPages = getTotalPages(response?.count, LIMIT)
+	const [searchParams] = useSearchParams()
+	const page = parseInt(searchParams.get("page")) || 1
 
-	useEffect(() => {
-		const fetchData = async () => {
-			setIsLoading(true)
-			try {
-				const res = await RentApi.getAllRents(
-					LIMIT,
-					(page - 1) * LIMIT,
-					encodeURI(debouncedQuery)
-				)
-				setResponse(res.data)
-				setError(null)
-			} catch (err) {
-				setError(err)
-			} finally {
-				setIsLoading(false)
-			}
-		}
+	const limit = 10
+	const offset = (page - 1) * limit
+	const equipmentName = encodeURI(debouncedQuery)
+	const fetchUrl =
+		debouncedQuery.trim() === ""
+			? `/equipments/?limit=${limit}&offset=${offset}`
+			: `/equipments/?limit=${limit}&offset=${offset}&name=${equipmentName}`
 
-		fetchData()
-	}, [page, debouncedQuery])
+	const { data: equipments, isLoading, error } = useSWR(fetchUrl, url => RentApi.getAllRents(url))
 
-	const { response: headerResponse, loading: headerLoading } = useApi(() =>
-		RentApi.getAllRents(1, 0, "")
-	)
+	const totalPages = getTotalPages(equipments?.count, limit)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -79,43 +59,38 @@ export const Rent = () => {
 						/>
 
 						<div className="rent-catalog-container">
-							{headerLoading ? (
-								<Spinner minHeight="15vh" />
-							) : (
-								<>
-									<ArrowHeading
-										title="Каталог спецтехники"
-										description={
-											headerResponse?.count === 0
-												? "В настоящее время мы с сожалением вынуждены сообщить, что список спецтехники, предоставляемого в аренду, временно недоступен. Мы активно работаем над обновлением списка и предоставляем наилучшие варианты аренды. Благодарим вас за то, что вы обратились к нам за арендой."
-												: ""
-										}
-										style={{ maxWidth: 885 }}
-									/>
-									{headerResponse?.count > 0 && !error && (
-										<SearchBar
-											value={searchQuery}
-											onChange={handleChange}
-											placeholder="Поиск по технике..."
-										/>
-									)}
-								</>
-							)}
-							{isLoading ? (
-								<Spinner minHeight="50vh" />
-							) : error ? (
+							<ArrowHeading
+								title="Каталог спецтехники"
+								description={
+									equipments?.count === 0 && !isLoading && debouncedQuery.length === 0
+										? "В настоящее время мы с сожалением вынуждены сообщить, что список спецтехники, предоставляемого в аренду, временно недоступен. Мы активно работаем над обновлением списка и предоставляем наилучшие варианты аренды. Благодарим вас за то, что вы обратились к нам за арендой."
+										: ""
+								}
+								style={{ maxWidth: 884 }}
+							/>
+							<SearchBar
+								value={searchQuery}
+								onChange={handleChange}
+								placeholder="Поиск по технике..."
+							/>
+							{isLoading && <Spinner minHeight="50vh" />}
+							{error && (
 								<div className="rent-error-wrapper">
 									<Error />
 								</div>
-							) : (
-								<motion.div {...containerMotionProps} className="rent-catalog">
-									{response?.results?.map(item => (
-										<motion.div key={item.id} {...staggerChildrenMotionProps}>
-											<RentItem item={item} />
-										</motion.div>
-									))}
-								</motion.div>
 							)}
+							{equipments?.count === 0 && debouncedQuery.length > 0 && !error && (
+								<div className="rent-empty-wrapper">
+									<EmptyState />
+								</div>
+							)}
+							<motion.div {...containerMotionProps} className="rent-catalog">
+								{equipments?.results?.map(item => (
+									<motion.div key={item.id} {...staggerChildrenMotionProps}>
+										<RentItem item={item} />
+									</motion.div>
+								))}
+							</motion.div>
 						</div>
 
 						<Pagination pageCount={totalPages} />

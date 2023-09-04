@@ -26,7 +26,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	gap: 53px;
+	gap: 30px;
 }
 
 .rent-item-heading p {

@@ -13,7 +13,7 @@ export const RentItem = ({ item }) => {
 					<LazyImage
 						className="rent-item-image"
 						alt={item.name}
-						placeholderSrc={item.compressed_logo}
+						placeholder={item.compressed_logo}
 						src={item.logo}
 					/>
 					<div className="rent-item-heading">
