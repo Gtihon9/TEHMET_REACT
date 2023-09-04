@@ -40,6 +40,10 @@ export const Jobs = () => {
 
 	const totalPages = getTotalPages(vacancies?.count, limit)
 
+	const { data: check } = useSWR("/vacancies/?limit=10&offset=0", fetcher, {
+		revalidateOnFocus: false,
+	})
+
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -73,11 +77,13 @@ export const Jobs = () => {
 								}
 								style={{ maxWidth: 780 }}
 							/>
-							<SearchBar
-								value={searchQuery}
-								onChange={handleChange}
-								placeholder="Поиск по вакансиям..."
-							/>
+							{check?.count !== 0 && (
+								<SearchBar
+									value={searchQuery}
+									onChange={handleChange}
+									placeholder="Поиск по вакансиям..."
+								/>
+							)}
 							{isLoading && <Spinner minHeight="60vh" />}
 							{vacancies?.count === 0 && debouncedQuery.length > 0 && !error && (
 								<div className="jobs-empty-wrapper">

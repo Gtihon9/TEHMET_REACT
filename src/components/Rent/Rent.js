@@ -40,6 +40,10 @@ export const Rent = () => {
 
 	const totalPages = getTotalPages(equipments?.count, limit)
 
+	const { data: check } = useSWR("/equipments/?limit=10&offset=0", fetcher, {
+		revalidateOnFocus: false,
+	})
+
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
@@ -68,11 +72,13 @@ export const Rent = () => {
 								}
 								style={{ maxWidth: 884 }}
 							/>
-							<SearchBar
-								value={searchQuery}
-								onChange={handleChange}
-								placeholder="Поиск по технике..."
-							/>
+							{check?.count !== 0 && (
+								<SearchBar
+									value={searchQuery}
+									onChange={handleChange}
+									placeholder="Поиск по технике..."
+								/>
+							)}
 							{isLoading && <Spinner minHeight="50vh" />}
 							{error && (
 								<div className="rent-error-wrapper">
