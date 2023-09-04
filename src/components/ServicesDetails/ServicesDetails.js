@@ -6,21 +6,25 @@ import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { WorkStages } from "../WorkStages/WorkStages"
 import ExtendedContactForm from "../ExtendedContactForm/ExtendedContactForm"
 import { motion } from "framer-motion"
-import { useApi } from "../../hooks/useApi"
-import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { WorkStagesGallery } from "../WorkStagesGallery/WorkStagesGallery"
 import { OtherSection } from "../OtherSection/OtherSection"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const ServicesDetails = () => {
 	const { id } = useParams()
-	const { response: serviceDetails, loading, error } = useApi(() => ServicesApi.getServiceById(id))
+
+	const fetchByIdUrl = `/services/${id}/`
+	const fetchAllUrl = "/services/"
+
+	const { data: serviceDetails, isLoading, error } = useSWR(fetchByIdUrl, fetcher)
 	const {
-		response: allServices,
-		loading: allLoading,
+		data: allServices,
+		isLoading: allIsLoading,
 		error: allError,
-	} = useApi(ServicesApi.getAllServices)
+	} = useSWR(fetchAllUrl, fetcher)
 
 	return (
 		<motion.main
@@ -39,7 +43,7 @@ export const ServicesDetails = () => {
 						</div>
 					</div>
 
-					{loading || allLoading ? (
+					{isLoading || allIsLoading ? (
 						<Spinner />
 					) : error || allError ? (
 						<div className="services-details-error-wrapper">
