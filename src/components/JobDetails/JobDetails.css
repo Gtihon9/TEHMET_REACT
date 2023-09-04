@@ -172,7 +172,7 @@
 		flex-direction: column;
 	}
 
-	.job-detals-actions {
+	.job-details-actions {
 		align-items: flex-start;
 	}
 
@@ -183,6 +183,12 @@
 
 	.job-details-more-list {
 		display: none;
+	}
+
+	.job-details-heading h1 {
+		font-size: 42px;
+		line-height: 55px;
+		letter-spacing: 0.01em;
 	}
 }
 
