@@ -41,9 +41,11 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 				className="main-swiper"
 			>
 				{images?.map((item, index) => (
-					<SwiperSlide onClick={() => handleOpenGallery(index)}>
+					<SwiperSlide
+						key={`main-${item.created_at}`}
+						onClick={() => handleOpenGallery(index)}
+					>
 						<LazyImage
-							key={`main-${item.created_at}`}
 							alt={item.created_at}
 							src={item.image}
 							placeholder={item.compressed_image}
@@ -72,9 +74,8 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 					}}
 				>
 					{images?.map(item => (
-						<SwiperSlide>
+						<SwiperSlide key={`thumb-${item.created_at}`}>
 							<LazyImage
-								key={`thumb-${item.created_at}`}
 								alt={item.created_at}
 								src={item.image}
 								placeholder={item.compressed_image}
@@ -85,7 +86,10 @@ export const ImageSwiper = ({ images, galleryImages }) => {
 			)}
 
 			<PhotoSlider
-				images={galleryImages?.map(item => ({ src: item.image, key: item.created_at }))}
+				images={galleryImages?.map(item => ({
+					src: item.image,
+					key: `gallery-${item.created_at}`,
+				}))}
 				visible={isOpen}
 				onClose={onClose}
 				index={index}

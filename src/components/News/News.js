@@ -5,42 +5,26 @@ import LeftArrowSVG from "../Icons/L_Arrow"
 import { motion } from "framer-motion"
 import "./News.css"
 import { Pagination } from "../Pagination/Pagination"
-import { NewsApi } from "../../api/news.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { formatDate } from "../../utils/formatDate"
-import { useEffect, useState } from "react"
 import { getTotalPages } from "../../utils/getTotalPages"
-
-const LIMIT = 11
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const News = () => {
-	const [searchParams, _] = useSearchParams()
+	const [searchParams] = useSearchParams()
 	const page = parseInt(searchParams.get("page")) || 1
 
-	const [response, setResponse] = useState()
-	const [isLoading, setIsLoading] = useState(true)
-	const [error, setError] = useState(null)
+	const limit = 11
+	const offset = (page - 1) * limit
+	const fetchUrl = `/news/?limit=${limit}&offset=${offset}`
 
-	const totalPages = getTotalPages(response?.count, LIMIT)
-	const newsList = response?.results
+	const { data: news, isLoading, error } = useSWR(fetchUrl, fetcher)
 
-	useEffect(() => {
-		const fetchData = async () => {
-			setIsLoading(true)
-			try {
-				const res = await NewsApi.getAllNews(LIMIT, (page - 1) * LIMIT)
-				setResponse(res.data)
-				setError(null)
-			} catch (err) {
-				setError(err)
-			} finally {
-				setIsLoading(false)
-			}
-		}
+	const totalPages = getTotalPages(news?.count, limit)
 
-		fetchData()
-	}, [page])
+	const newsList = news?.results
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

@@ -7,16 +7,16 @@ import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import { PhotoSlider } from "react-photo-view"
-import { useApi } from "../../hooks/useApi"
-import { NewsApi } from "../../api/news.api"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { formatDate } from "../../utils/formatDate"
 import useDisclosure from "../../hooks/useDisclosure"
 import { CheckIcon } from "../Icons/CheckIcon"
 import { LazyImage } from "../LazyImage/LazyImage"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const NewsDetails = () => {
 	const [isCopySuccess, setIsCopySuccess] = useState(false)
@@ -30,12 +30,13 @@ export const NewsDetails = () => {
 		setIsCopySuccess(true)
 	}, [])
 
-	useEffect(() => {
-		const id = setTimeout(() => setIsCopySuccess(false), 5000)
-		return () => clearTimeout(id)
-	}, [copy])
+	// useEffect(() => {
+	// 	const id = setTimeout(() => setIsCopySuccess(false), 500)
+	// 	return () => clearTimeout(id)
+	// }, [copy])
 
-	const { response: details, loading, error } = useApi(() => NewsApi.getNewsById(id))
+	const fetchUrl = `/news/${id}/`
+	const { data: details, isLoading, error } = useSWR(fetchUrl, fetcher)
 
 	const galleryImages = details?.images ?? []
 
@@ -47,13 +48,13 @@ export const NewsDetails = () => {
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
-				{loading ? (
-					<Spinner />
-				) : error ? (
+				{isLoading && <Spinner />}
+				{error && (
 					<div>
 						<Error />
 					</div>
-				) : (
+				)}
+				{details && (
 					<div className="news-details-content">
 						<div className="breadcrumbs">
 							<LeftArrowSVG />

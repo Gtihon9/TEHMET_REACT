@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom"
 import { Logo } from "../Logo/Logo"
 import "./Footer.css"
-import { useApi } from "../../hooks/useApi"
-import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
 import RegistrationLicense from "../../assets/RegistrationLicense.pdf"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 const Footer = () => {
-	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+	const fetchUrl = "/services/"
+	const { data: services, isLoading, error } = useSWR(fetchUrl, fetcher)
 
 	let listContent = <></>
 
-	if (loading) {
+	if (isLoading) {
 		listContent = <Spinner minHeight="10vh" />
 	}
 

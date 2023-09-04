@@ -1,13 +1,14 @@
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import LastProjectsSwiper from "../LastProjectsSwiper/LastProjectsSwiper"
-import { useApi } from "../../hooks/useApi"
-import { ProjectsApi } from "../../api/projects.api"
 import { Spinner } from "../Spinner/Spinner"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const LastProjectsSection = () => {
-	const { response: projects, loading, error } = useApi(ProjectsApi.getAllProjects)
+	const fetchUrl = "/projects/"
+	const { data: projects, isLoading, error } = useSWR(fetchUrl, fetcher)
 
-	if (loading) return <Spinner minHeight="15vh" />
+	if (isLoading) return <Spinner minHeight="15vh" />
 
 	if (error || projects?.results?.length === 0) return null
 

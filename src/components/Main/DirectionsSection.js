@@ -1,13 +1,14 @@
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import { DirectionsSlider } from "../DirectionsSlider/DirectionsSlider"
-import { useApi } from "../../hooks/useApi"
-import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const DirectionsSection = () => {
-	const { response: services, error, loading } = useApi(ServicesApi.getAllServices)
+	const fetchUrl = "/services/"
+	const { data: services, isLoading, error } = useSWR(fetchUrl, fetcher)
 
-	if (loading) return <Spinner minHeight={"15vh"} />
+	if (isLoading) return <Spinner minHeight={"15vh"} />
 
 	if (error || services?.results?.length <= 0) return null
 

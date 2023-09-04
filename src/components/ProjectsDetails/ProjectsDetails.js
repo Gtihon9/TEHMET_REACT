@@ -2,23 +2,27 @@ import { motion } from "framer-motion"
 import "./ProjectsDetails.css"
 import LeftArrowSVG from "../Icons/L_Arrow"
 import { Link, useParams } from "react-router-dom"
-import { useApi } from "../../hooks/useApi"
-import { ProjectsApi } from "../../api/projects.api"
 import { SectionHeading } from "../SectionHeading/SectionHeading"
 import { WorkStages } from "../WorkStages/WorkStages"
 import { WorkStagesGallery } from "../WorkStagesGallery/WorkStagesGallery"
 import { OtherSection } from "../OtherSection/OtherSection"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const ProjectsDetails = () => {
 	const { id } = useParams()
-	const { response: projectDetails, loading, error } = useApi(() => ProjectsApi.getProjectById(id))
+
+	const fetchByIdUrl = `/projects/${id}/`
+	const fetchAllUrl = `/projects/`
+
+	const { data: projectDetails, isLoading, error } = useSWR(fetchByIdUrl, fetcher)
 	const {
-		response: allProjects,
-		loading: allLoading,
+		data: allProjects,
+		isLoading: allIsLoading,
 		error: allError,
-	} = useApi(ProjectsApi.getAllProjects)
+	} = useSWR(fetchAllUrl, fetcher)
 
 	return (
 		<motion.main
@@ -37,7 +41,7 @@ export const ProjectsDetails = () => {
 						</div>
 					</div>
 
-					{loading || allLoading ? (
+					{isLoading || allIsLoading ? (
 						<Spinner />
 					) : error || allError ? (
 						<div className="projects-details-error-wrapper">

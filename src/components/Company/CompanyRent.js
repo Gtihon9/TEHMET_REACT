@@ -5,13 +5,17 @@ import { Link } from "react-router-dom"
 import { ShareIcon } from "../Icons/ShareIcon"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
-import { useApi } from "../../hooks/useApi"
-import { RentApi } from "../../api/rent.api"
 import "./CompanyRent.css"
 import { LazyImage } from "../LazyImage/LazyImage"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const CompanyRent = () => {
-	const { response: equipments, loading, error } = useApi(() => RentApi.getAllRents(8, 0, ""))
+	const limit = 8
+	const offset = 0
+	const fetchUrl = `/equipments/?limit=${limit}&offset=${offset}`
+
+	const { response: equipments, loading, error } = useSWR(fetchUrl, fetcher)
 
 	if (loading) return <Spinner />
 

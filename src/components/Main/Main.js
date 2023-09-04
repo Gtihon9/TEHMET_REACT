@@ -15,13 +15,14 @@ import { ScrollTopButton } from "../ScrollTopButton/ScrollTopButton"
 import { DirectionsSection } from "./DirectionsSection"
 import { LastProjectsSection } from "./LastProjectsSection"
 import { LazyImage } from "../LazyImage/LazyImage"
-import { ServicesApi } from "../../api/services.api"
-import { useApi } from "../../hooks/useApi"
 import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 import { Spinner } from "../Spinner/Spinner"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 const Main = () => {
-	const { response: services, loading } = useApi(ServicesApi.getAllServices)
+	const fetchUrl = "/services/"
+	const { data: services, isLoading } = useSWR(fetchUrl, fetcher)
 
 	return (
 		<motion.main
@@ -44,7 +45,7 @@ const Main = () => {
 								Строительство более экологичного завтра: Работа, за которую беремся мы
 							</p>
 						</div>
-						{loading ? (
+						{isLoading ? (
 							<Spinner minHeight="12.5vh" />
 						) : (
 							<motion.div {...containerMotionProps} className="hero-features">

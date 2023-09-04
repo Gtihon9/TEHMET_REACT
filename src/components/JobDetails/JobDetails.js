@@ -8,31 +8,34 @@ import "./JobDetails.css"
 import { motion } from "framer-motion"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
-import { useApi } from "../../hooks/useApi"
-import { JobsApi } from "../../api/jobs.api"
 import { Spinner } from "../Spinner/Spinner"
 import { getEmploymentType } from "../../utils/getEmploymentType"
 import { getPaymentType } from "../../utils/getPaymentType"
 import { containerMotionProps, staggerChildrenMotionProps } from "../../utils/animationProps"
 import { Error } from "../Error/Error"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const JobDetails = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 	const { id } = useParams()
 
-	const { response: jobDetails, loading, error } = useApi(() => JobsApi.getOneJob(id))
+	const fetchByIdUrl = `/vacancies/${id}/`
+	const fetchAllUrl = `/vacancies/`
+
+	const { data: jobDetails, isLoading, error } = useSWR(fetchByIdUrl, fetcher)
 	const {
-		response: allJobs,
-		loading: allJobsLoading,
+		data: allJobs,
+		isLoading: allJobsLoading,
 		error: allError,
-	} = useApi(() => JobsApi.getAllJobs(4, 0, ""))
+	} = useSWR(fetchAllUrl, fetcher)
 
 	const filteredAllJobs = allJobs?.results?.filter(job => job.id !== id).slice(0, 3)
 
 	return (
 		<motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			<div className="container">
-				{loading || allJobsLoading ? (
+				{isLoading || allJobsLoading ? (
 					<Spinner />
 				) : (
 					<div className="job-details-content">

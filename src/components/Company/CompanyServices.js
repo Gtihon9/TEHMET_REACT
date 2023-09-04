@@ -5,17 +5,18 @@ import { Link } from "react-router-dom"
 import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { Card } from "../Card/Card"
-import { useApi } from "../../hooks/useApi"
-import { ServicesApi } from "../../api/services.api"
 import "./CompanyServices.css"
 import { LazyImage } from "../LazyImage/LazyImage"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 export const CompanyServices = () => {
-	const { response: services, loading, error } = useApi(ServicesApi.getAllServices)
+	const fetchUrl = "/services/"
+	const { data: services, isLoading, error } = useSWR(fetchUrl, fetcher)
 
-	if (loading) return <Spinner />
+	if (isLoading) return <Spinner />
 
-	if (!loading && error) return null
+	if (!isLoading && error) return null
 
 	if (services?.results?.length <= 0) return null
 

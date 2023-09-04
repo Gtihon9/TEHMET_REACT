@@ -9,13 +9,14 @@ import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { Card } from "../Card/Card"
 import { SwiperSlide } from "swiper/react"
 import { ProjectsDirections } from "./ProjectsDirections"
-import { useEffect, useState } from "react"
-import { ProjectsApi } from "../../api/projects.api"
+import { useState } from "react"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
 import { ProgressProject } from "../ProgressProject/ProgressProject"
 import { Pagination } from "../Pagination/Pagination"
 import { getTotalPages } from "../../utils/getTotalPages"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 const initialDirection = {
 	id: "all-projects",
@@ -29,9 +30,6 @@ const Projects = () => {
 	const [searchParams, setSearchParams] = useSearchParams()
 	const page = parseInt(searchParams.get("page")) || 1
 
-	const [response, setResponse] = useState([])
-	const [isLoading, setIsLoading] = useState(true)
-	const [error, setError] = useState(null)
 	const [selectedDirection, setSelectedDirection] = useState(initialDirection)
 
 	const handleDirectionChange = direction => {
@@ -39,27 +37,15 @@ const Projects = () => {
 		setSearchParams({ page: 1 })
 	}
 
-	const totalPages = getTotalPages(response?.count, LIMIT)
+	const limit = 10
+	const offset = (page - 1) * limit
+	const fetchUrl = selectedDirection.value
+		? `/projects/?service=${selectedDirection.value}&limit=${limit}&offset=${offset}`
+		: `/projects/?limit=${limit}&offset=${offset}`
 
-	useEffect(() => {
-		const getServiceProjects = async () => {
-			try {
-				setIsLoading(true)
-				const { data } = await ProjectsApi.getAllProjects(
-					selectedDirection.value,
-					LIMIT,
-					(page - 1) * LIMIT
-				)
-				setResponse(data)
-			} catch (err) {
-				setError(err)
-			} finally {
-				setIsLoading(false)
-			}
-		}
+	const { data: projects, isLoading, error } = useSWR(fetchUrl, fetcher)
 
-		getServiceProjects()
-	}, [page, selectedDirection, setResponse])
+	const totalPages = getTotalPages(projects?.count, LIMIT)
 
 	return (
 		<motion.main
@@ -86,7 +72,7 @@ const Projects = () => {
 					/>
 					{isLoading ? (
 						<Spinner minHeight={"35vh"} />
-					) : error || response?.results?.length === 0 ? (
+					) : error || projects?.results?.length === 0 ? (
 						<div className="projects-error-wrapper">
 							<Error
 								title="Исследование новых горизонтов ;)"
@@ -96,7 +82,7 @@ const Projects = () => {
 					) : (
 						<>
 							<div className="projects-list-container">
-								<ProjectsList projects={response?.results} />
+								<ProjectsList projects={projects?.results} />
 							</div>
 
 							<motion.div
@@ -105,7 +91,7 @@ const Projects = () => {
 								className="projects-list-container-mobile"
 							>
 								<MobileSwiper>
-									{response?.results?.map(project => (
+									{projects?.results?.map(project => (
 										<SwiperSlide key={project.id}>
 											<Card
 												item={{
@@ -118,7 +104,7 @@ const Projects = () => {
 											/>
 										</SwiperSlide>
 									))}
-									{response?.results?.length === 1 && (
+									{projects?.results?.length === 1 && (
 										<SwiperSlide>
 											<ProgressProject />
 										</SwiperSlide>
