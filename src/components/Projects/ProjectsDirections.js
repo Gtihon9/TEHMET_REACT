@@ -1,10 +1,10 @@
 import { ArrowHeading } from "../ArrowHeading/ArrowHeading"
 import Select from "react-select"
 import "./ProjectsDirections.css"
-import { useApi } from "../../hooks/useApi"
-import { ServicesApi } from "../../api/services.api"
 import { Spinner } from "../Spinner/Spinner"
 import { DropdownIndicator } from "../Icons/DropdownIndicator"
+import useSWR from "swr"
+import { fetcher } from "../../api"
 
 const initialDirection = {
 	id: "all-projects",
@@ -13,7 +13,8 @@ const initialDirection = {
 }
 
 export const ProjectsDirections = ({ selectedDirection, handleDirectionChange }) => {
-	const { response: directions, loading, error } = useApi(ServicesApi.getAllServices)
+	const fetchUrl = "/services/"
+	const { data: directions, isLoading, error } = useSWR(fetchUrl, fetcher)
 
 	const allDirections = directions?.results?.map(dir => ({
 		id: dir.id,
@@ -22,7 +23,7 @@ export const ProjectsDirections = ({ selectedDirection, handleDirectionChange })
 	}))
 	allDirections?.unshift(initialDirection)
 
-	if (loading) return <Spinner minHeight={"15vh"} />
+	if (isLoading) return <Spinner minHeight={"15vh"} />
 
 	if (error) return null
 
