@@ -7,7 +7,7 @@ import { MobileSwiper } from "../MobileSwiper/MobileSwiper"
 import { SwiperSlide } from "swiper/react"
 import { motion } from "framer-motion"
 import "./NewsDetails.css"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { PhotoSlider } from "react-photo-view"
 import { Spinner } from "../Spinner/Spinner"
 import { Error } from "../Error/Error"
@@ -30,10 +30,10 @@ export const NewsDetails = () => {
 		setIsCopySuccess(true)
 	}, [])
 
-	// useEffect(() => {
-	// 	const id = setTimeout(() => setIsCopySuccess(false), 500)
-	// 	return () => clearTimeout(id)
-	// }, [copy])
+	useEffect(() => {
+		const id = setTimeout(() => setIsCopySuccess(false), 5000)
+		return () => clearTimeout(id)
+	}, [isCopySuccess])
 
 	const fetchUrl = `/news/${id}/`
 	const { data: details, isLoading, error } = useSWR(fetchUrl, fetcher)
