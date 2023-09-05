@@ -6,6 +6,7 @@ import { Input } from "../Input/Input"
 import { Textarea } from "../Input/Textarea"
 import { ContactFormApi } from "../../api/contact-form.api"
 import ReCAPTCHA from "react-google-recaptcha"
+import { ConfInfo } from "../ConfInfo/ConfInfo"
 
 const initialFormData = {
 	name: "",
@@ -155,6 +156,7 @@ const ExtendedContactForm = () => {
 										sitekey={process.env.REACT_APP_SITE_KEY}
 										ref={captchaRef}
 										onChange={handleCaptchaChange}
+										style={{ width: 200 }}
 									/>
 									{errors["captcha"] && (
 										<span className="captcha-error">
@@ -162,12 +164,7 @@ const ExtendedContactForm = () => {
 										</span>
 									)}
 									<Button type="submit">Отправить</Button>
-									<p>
-										Нажимая на кнопку "Отправить", я подтверждаю, что <br />
-										ознакомился с <a href="/conf">Политикой конфиденциальностии</a> даю
-										согласие <br />
-										на обработку всех моих персональных данных
-									</p>
+									<ConfInfo />
 								</div>
 							</form>
 						</div>
