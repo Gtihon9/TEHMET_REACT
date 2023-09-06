@@ -154,6 +154,12 @@
 	text-align: left;
 }
 
+.main-about-company-text {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
 .main-about-company-text p {
 	font-family: Roboto, sans-serif;
 	font-size: 17px;
